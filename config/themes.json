@@ -1,0 +1,99 @@
+{
+  "memory_storage": {
+    "description": "NAND, DRAM, HBM, HDD and storage capacity/price cycles",
+    "watch": [
+      "ASP",
+      "bit shipments",
+      "utilization",
+      "wafer allocation",
+      "inventory",
+      "long-term agreements"
+    ]
+  },
+  "cpu_compute": {
+    "description": "General-purpose CPUs and compute platforms",
+    "watch": [
+      "server units",
+      "market share",
+      "utilization",
+      "product mix",
+      "gross margin"
+    ]
+  },
+  "accelerators": {
+    "description": "AI accelerators and custom compute",
+    "watch": [
+      "orders",
+      "lead times",
+      "capacity",
+      "advanced packaging",
+      "HBM availability"
+    ]
+  },
+  "semicap": {
+    "description": "Semiconductor manufacturing equipment",
+    "watch": [
+      "WFE spending",
+      "bookings",
+      "backlog",
+      "utilization",
+      "fab construction"
+    ]
+  },
+  "servers": {
+    "description": "AI and enterprise server systems",
+    "watch": [
+      "backlog",
+      "shipments",
+      "GPU allocation",
+      "attach rates",
+      "gross margin"
+    ]
+  },
+  "networking": {
+    "description": "Data-center networking",
+    "watch": [
+      "800G/1.6T ramps",
+      "switch capacity",
+      "backlog",
+      "cloud capex"
+    ]
+  },
+  "optics": {
+    "description": "Optical components/transceivers",
+    "watch": [
+      "800G/1.6T demand",
+      "lead times",
+      "laser supply",
+      "yield",
+      "capacity"
+    ]
+  },
+  "cooling_power": {
+    "description": "Data-center thermal and electrical infrastructure",
+    "watch": [
+      "liquid cooling attach",
+      "backlog",
+      "lead times",
+      "capacity additions"
+    ]
+  },
+  "grid": {
+    "description": "Grid equipment and infrastructure",
+    "watch": [
+      "transformer lead times",
+      "interconnection queues",
+      "utility capex",
+      "backlog"
+    ]
+  },
+  "power_generation": {
+    "description": "Generation capacity exposed to rising load",
+    "watch": [
+      "power prices",
+      "capacity prices",
+      "load growth",
+      "PPA contracting"
+    ]
+  }
+}

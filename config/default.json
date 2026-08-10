@@ -1,0 +1,69 @@
+{
+  "benchmark": "SPY",
+  "price_period": "2y",
+  "request_pause_seconds": 0.08,
+  "weights": {
+    "fundamental": 18,
+    "revisions": 18,
+    "forward_growth": 16,
+    "valuation_upside": 16,
+    "operating_leverage": 10,
+    "expectation_gap": 12,
+    "early_discovery": 10
+  },
+  "extension_penalty_max": 22,
+  "minimum_actionable_quality": 60,
+  "score_thresholds": {
+    "watch": 55,
+    "deep_research": 63,
+    "candidate": 70
+  },
+  "report_top_n": 30,
+  "discovery": {
+    "universe_cache_hours": 24,
+    "market_refresh_hours": 14,
+    "initial_price_period": "2y",
+    "incremental_price_period": "10d",
+    "batch_size": 100,
+    "batch_pause_seconds": 0.3,
+    "min_price": 3.0,
+    "min_dollar_volume_20d": 5000000,
+    "min_history_days": 220,
+    "deep_candidates": 100,
+    "bucket_size": 45,
+    "max_late_fraction": 0.25
+  },
+  "cache_ttl_hours": {
+    "profile": 48,
+    "financials": 120,
+    "analyst": 16,
+    "news": 8,
+    "sec_submissions": 12
+  },
+  "research": {
+    "research_candidates": 20,
+    "filing_forms": [
+      "10-K",
+      "10-Q",
+      "8-K"
+    ],
+    "filing_documents_per_ticker": 5,
+    "news_items_per_ticker": 12,
+    "filing_text_max_chars": 300000,
+    "horizon_years": 3,
+    "decision_thresholds": {
+      "buy_min_expected_cagr": 0.18,
+      "buy_min_probability_profit": 0.65,
+      "buy_max_bear_downside": -0.4,
+      "small_buy_min_expected_cagr": 0.16,
+      "watch_min_expected_cagr": 0.08,
+      "too_late_maturity": 75
+    }
+  },
+  "llm": {
+    "enabled_if_key_present": true,
+    "model": "gpt-5-mini",
+    "max_filing_snippets": 18,
+    "max_news_items": 10
+  }
+}

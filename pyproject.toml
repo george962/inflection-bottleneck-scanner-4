@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inflection-bottleneck-scanner"
+version = "0.4.0"
+description = "Persistent broad-universe discovery, automated equity research, scenario valuation, and buy/watch/pass decision engine."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Project Owner"}]
+dependencies = [
+  "numpy>=1.26,<3",
+  "pandas>=2.2,<3",
+  "yfinance>=1.5.2,<2",
+  "requests>=2.32,<3",
+  "typer>=0.12,<1",
+  "rich>=13.7,<15",
+  "python-dotenv>=1.0,<2",
+  "beautifulsoup4>=4.12,<5",
+]
+
+[project.optional-dependencies]
+llm = [
+  "openai>=1.0,<3",
+]
+dashboard = [
+  "streamlit>=1.40,<2",
+]
+dev = [
+  "pytest>=8,<10",
+]
+
+[project.scripts]
+inflection-scanner = "inflection_scanner.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

@@ -1,0 +1,2 @@
+[console_scripts]
+inflection-scanner = inflection_scanner.cli:app

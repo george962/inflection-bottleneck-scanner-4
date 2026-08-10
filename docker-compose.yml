@@ -1,0 +1,29 @@
+services:
+  scanner:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./config:/app/config:ro
+    command: ["inflection-scanner", "scan", "--top", "20"]
+
+  dashboard:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./config:/app/config:ro
+    command:
+      [
+        "streamlit",
+        "run",
+        "dashboard/app.py",
+        "--server.address=0.0.0.0",
+        "--server.port=8501"
+      ]
