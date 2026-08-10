@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T23:21:32+00:00",
+  "generated_at": "2026-08-10T23:53:48+00:00",
   "version": "0.4.0",
   "reports": 20,
   "discovery_run": {
@@ -8,9 +8,9 @@
     "price_scan_count": 5593,
     "seed_count": 100,
     "market_stats": {
-      "new_symbols": 5808,
+      "new_symbols": 43,
       "updated_symbols": 0,
-      "downloaded_rows": 2654445,
+      "downloaded_rows": 0,
       "used_cached_market": false
     },
     "warehouse": {
@@ -19,8 +19,8 @@
       "price_rows": 2654945,
       "price_tickers": 5766,
       "filing_documents": 0,
-      "research_reports": 20,
-      "size_mb": 281.95
+      "research_reports": 40,
+      "size_mb": 282.18
     }
   },
   "note": "Small published payload is committed for Streamlit; large warehouse stays out of git and is restored via Actions cache."
