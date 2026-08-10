@@ -1,0 +1,3534 @@
+[
+  {
+    "asof": "2026-08-10T23:21:26+00:00",
+    "ticker": "BHC",
+    "company": "Bausch Health Companies Inc.",
+    "sector": "Healthcare",
+    "industry": "Drug Manufacturers - Specialty & Generic",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 61.99,
+      "discovery_bucket": "RECOVERY",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 6.349999904632568,
+      "return_1m": 0.3284518045841607,
+      "return_3m": 0.10434780950131617,
+      "return_6m": 0.07993193555172895,
+      "return_12m": 0.10243049519205782,
+      "revenue_yoy": 0.1272727272727272,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.031289047558332284,
+      "operating_margin_change_yoy": 0.0911067193675889,
+      "incremental_operating_margin_yoy": 0.9875776397515528,
+      "eps_revision_30d": -0.005816655600872708,
+      "eps_revision_90d": 0.032967384930743984,
+      "next_year_eps_estimate": 4.19267,
+      "next_year_eps_growth": -0.061100002,
+      "next_year_revenue_estimate": 10885360000.0,
+      "next_year_revenue_growth_estimate": 0.00030000000000000003,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": 2374840064,
+      "forward_pe": 1.5145481,
+      "price_to_sales": 0.21881877,
+      "enterprise_to_ebitda": 5.696,
+      "analyst_target_upside": 0.1811,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "PROFITABLE_GROWTH",
+      "model": "FORWARD_EPS_EXIT_MULTIPLE",
+      "reason": "Projects forward EPS under bear/base/bull growth and exit-multiple assumptions.",
+      "current_price": 6.35,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 29.31,
+          "assumptions": {
+            "eps_growth": -0.0652750005,
+            "exit_pe": 8
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 46.1,
+          "assumptions": {
+            "eps_growth": -0.0427700014,
+            "exit_pe": 12
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 69.79,
+          "assumptions": {
+            "eps_growth": 0.02,
+            "exit_pe": 16
+          }
+        }
+      ],
+      "expected_value": 47.83,
+      "expected_cagr": 0.9602,
+      "base_cagr": 0.9363,
+      "bear_downside": 3.6157,
+      "probability_profit": 1.0
+    },
+    "decision": {
+      "decision": "BUY",
+      "confidence": "HIGH",
+      "confidence_score": 0.965,
+      "adjusted_expected_cagr": 0.9302,
+      "reason": "Expected 3Y CAGR 96.0%, scenario profit probability 100%, bear-case downside 361.6%, price maturity 0/100."
+    },
+    "why_buy": [
+      "Scenario-weighted valuation implies about 96.0% annualized return over the model horizon.",
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "30-day EPS revisions are negative at -0.6%."
+    ],
+    "what_changes_decision": [
+      "30-day EPS revisions turn positive.",
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Why Bausch Health Companies Stock Skyrocketed by Almost 40% Last Month",
+        "publisher": "Motley Fool",
+        "published": "2026-08-10T20:26:19Z",
+        "url": "https://www.fool.com/investing/2026/08/10/why-bausch-health-companies-stock-skyrocketed-by-a/",
+        "summary": "Much of this was due to a very well-received quarterly earnings report."
+      },
+      {
+        "title": "Bausch Health (BHC) Rockets 28% as Q2 Turnaround Fuels Recovery Outlook",
+        "publisher": "Insider Monkey",
+        "published": "2026-07-31T04:03:32Z",
+        "url": "https://finance.yahoo.com/healthcare/articles/bausch-health-bhc-rockets-28-040332201.html",
+        "summary": "Bausch Health (NYSE:BHC) climbed by 28.85 percent on Thursday to end at $6.03 apiece, after announcing a strong second quarter of the year that set the ground for the company\u2019s profit recovery. In an updated report, the pharmaceutical giant said that it swung to a net income of $260 million during the period, marking a [\u2026]"
+      },
+      {
+        "title": "Sector Update: Healthcare Stocks Decline Late Afternoon",
+        "publisher": "MT Newswires",
+        "published": "2026-07-30T19:46:08Z",
+        "url": "https://finance.yahoo.com/healthcare/articles/sector-healthcare-stocks-decline-afternoon-194608510.html",
+        "summary": "Healthcare stocks declined late Thursday afternoon, with the NYSE Healthcare Index shedding 1.5% and"
+      },
+      {
+        "title": "BHC Q2 Earnings Beat Estimates on Salix and Solta Growth, '26 View Raised",
+        "publisher": "Zacks",
+        "published": "2026-07-30T16:33:00Z",
+        "url": "https://finance.yahoo.com/healthcare/articles/bhc-q2-earnings-beat-estimates-163300748.html",
+        "summary": "BHC beats Q2 estimates as Salix, Solta Medical and Bausch + Lomb fuel growth, lifting 2026 revenue and EBITDA guidance after strong earnings."
+      },
+      {
+        "title": "Bausch Health Companies Inc. Q2 2026 Earnings Call Summary",
+        "publisher": "Moby",
+        "published": "2026-07-30T12:30:00Z",
+        "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-bausch-health-companies-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss",
+        "summary": "Moby summary of Bausch Health Companies Inc.'s Q2 2026 earnings call"
+      },
+      {
+        "title": "Bausch Health Cos Q2 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-07-30T01:04:01Z",
+        "url": "https://www.marketbeat.com/instant-alerts/bausch-health-cos-q2-earnings-call-highlights-2026-07-29/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "Bausch Health Cos (NYSE:BHC) reported second-quarter results that management said extended its streak of revenue and adjusted EBITDA growth to 13 consecutive quarters, driven by performance in its Salix, international and Solta Medical businesses. For Bausch Health excluding Bausch + Lomb, second-q"
+      },
+      {
+        "title": "Bausch Health (BHC) Q2 Earnings and Revenues Beat Estimates",
+        "publisher": "Zacks",
+        "published": "2026-07-30T00:35:02Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/bausch-health-bhc-q2-earnings-003502785.html",
+        "summary": "Bausch (BHC) delivered earnings and revenue surprises of +31.25% and +7.62%, respectively, for the quarter ended June 2026. Do the numbers hold clues to what lies ahead for the stock?"
+      },
+      {
+        "title": "Bausch (BHC) Reports Q2 Earnings: What Key Metrics Have to Say",
+        "publisher": "Zacks",
+        "published": "2026-07-29T23:30:03Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/bausch-bhc-reports-q2-earnings-233003553.html",
+        "summary": "Although the revenue and EPS for Bausch (BHC) give a sense of how its business performed in the quarter ended June 2026, it might be worth considering how some key metrics compare with Wall Street estimates and the year-ago numbers."
+      },
+      {
+        "title": "Bausch Health\u2019s (BHC) Canadian Subsidiary Lists PrOKEDI Dosages in RAMQ Formulary",
+        "publisher": "Insider Monkey",
+        "published": "2026-07-12T17:21:32Z",
+        "url": "https://finance.yahoo.com/healthcare/articles/bausch-health-bhc-canadian-subsidiary-172132405.html",
+        "summary": "Bausch Health Companies Inc. (NYSE:BHC) is one of the 15 best NYSE penny stocks to buy according to hedge funds. On July 6, Bausch Health Companies Inc.\u2019s (NYSE:BHC) subsidiary, Bausch Health Canada, shared the listing of PrOKEDI\u2019s 75mg and 100mg dosages in the R\u00e9gie de l\u2019assurance maladie du Qu\u00e9bec (RAMQ) formulary. PrOKEDI is an injectable [\u2026]"
+      },
+      {
+        "title": "Health Care Roundup: Market Talk",
+        "publisher": "The Wall Street Journal",
+        "published": "2026-06-09T21:06:00Z",
+        "url": "https://www.wsj.com/health/pharma/health-care-roundup-market-talk-b264a231?siteid=yhoof2&yptr=yahoo",
+        "summary": "Find insight on Apotex Health, GSK\u2019s $10.6 billion acquisition of Nuvalent and more in the latest Market Talks covering Health Care."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:28+00:00",
+    "ticker": "RYZ",
+    "company": "Ryerson Holding Corporation",
+    "sector": "Industrials",
+    "industry": "Metal Fabrication",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 56.23,
+      "discovery_bucket": "QUIET_ACCUMULATION",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 28.0,
+      "return_1m": 0.06261858044186641,
+      "return_3m": 0.035591312301515465,
+      "return_6m": -0.05849050904207531,
+      "return_12m": 0.38553361971345246,
+      "revenue_yoy": 0.7157273582485248,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": -0.0020303602917162156,
+      "operating_margin_change_yoy": 0.010896457021887754,
+      "incremental_operating_margin_yoy": 0.032620384753256064,
+      "eps_revision_30d": 0.00852878464818764,
+      "eps_revision_90d": 0.05345211581291764,
+      "next_year_eps_estimate": 2.365,
+      "next_year_eps_growth": 0.7985,
+      "next_year_revenue_estimate": 7310450000.0,
+      "next_year_revenue_growth_estimate": 0.0021000000000000003,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": 1453162240,
+      "forward_pe": 11.839323,
+      "price_to_sales": 0.24887176,
+      "enterprise_to_ebitda": 22.578,
+      "analyst_target_upside": 0.0357,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "PROFITABLE_GROWTH",
+      "model": "FORWARD_EPS_EXIT_MULTIPLE",
+      "reason": "Projects forward EPS under bear/base/bull growth and exit-multiple assumptions.",
+      "current_price": 28.0,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 47.86,
+          "assumptions": {
+            "eps_growth": 0.12499999999999999,
+            "exit_pe": 15.990000000000002
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 106.03,
+          "assumptions": {
+            "eps_growth": 0.35,
+            "exit_pe": 24.6
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 163.63,
+          "assumptions": {
+            "eps_growth": 0.5,
+            "exit_pe": 30.75
+          }
+        }
+      ],
+      "expected_value": 105.89,
+      "expected_cagr": 0.558,
+      "base_cagr": 0.5587,
+      "bear_downside": 0.7093,
+      "probability_profit": 1.0
+    },
+    "decision": {
+      "decision": "BUY",
+      "confidence": "HIGH",
+      "confidence_score": 0.965,
+      "adjusted_expected_cagr": 0.528,
+      "reason": "Expected 3Y CAGR 55.8%, scenario profit probability 100%, bear-case downside 70.9%, price maturity 0/100."
+    },
+    "why_buy": [
+      "Consensus next-year EPS growth is 79.8%.",
+      "Scenario-weighted valuation implies about 55.8% annualized return over the model horizon.",
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "No generic red flag passed the configured threshold; company-specific risks still require filing review."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Constellium vs. Ryerson: Which Stock Has More Upside Potential Now?",
+        "publisher": "Zacks",
+        "published": "2026-07-31T17:17:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/constellium-vs-ryerson-stock-more-171700373.html",
+        "summary": "CSTM and RYZ both ride aluminum demand, but stronger estimate revisions, share gains and valuation make Constellium stand out."
+      },
+      {
+        "title": "Ryerson Holding Corp (RYZ) (Q2 2026) Earnings Call Highlights: Strong Revenue Growth and ...",
+        "publisher": "GuruFocus.com",
+        "published": "2026-07-30T23:03:40Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/ryerson-holding-corp-ryz-q2-230340224.html",
+        "summary": "Ryerson Holding Corp (RYZ) exceeded Q2 guidance with record transactional demand and merger synergies, but faces Q3 margin compression from pricing lags and seasonal volume declines."
+      },
+      {
+        "title": "CSTM Q2 Earnings on Deck: How to Approach the Stock Now?",
+        "publisher": "Zacks",
+        "published": "2026-07-27T14:48:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/cstm-q2-earnings-deck-approach-144800077.html",
+        "summary": "Constellium heads into Q2 results with revenue and earnings growth expected, but higher costs and currency headwinds could shape the quarter."
+      },
+      {
+        "title": "CSTM's Packaging & Automotive Strength Seems Firm: More Upside Ahead?",
+        "publisher": "Zacks",
+        "published": "2026-07-07T15:17:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/cstms-packaging-automotive-strength-seems-151700301.html",
+        "summary": "Constellium's Packaging & Automotive Rolled Products unit posts 24% higher Q1 2026 revenues as aluminum prices stayed strong despite weaker shipments."
+      },
+      {
+        "title": "Constellium Up 56.5% YTD & Counting: Buy Now or Wait for a Dip?",
+        "publisher": "Zacks",
+        "published": "2026-07-03T15:39:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/constellium-56-5-ytd-counting-153900845.html",
+        "summary": "CSTM's strong packaging, aerospace and automotive growth, plus a new $300M buyback, fuel a 56.5% YTD rally. What's next?"
+      },
+      {
+        "title": "Will Strength in A&T Segment Continue to Drive Constellium's Growth?",
+        "publisher": "Zacks",
+        "published": "2026-07-01T16:20:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/strength-t-segment-continue-drive-162000889.html",
+        "summary": "CSTM's A&T segment posts strong shipment and revenue growth as aerospace demand and firm aluminum prices support momentum into upcoming quarters."
+      },
+      {
+        "title": "Constellium's Expenses are on the Rise: Will It Affect Margins?",
+        "publisher": "Zacks",
+        "published": "2026-06-17T15:58:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/constelliums-expenses-rise-affect-margins-155800272.html",
+        "summary": "CSTM lifts gross and net margins in Q1 2026 despite higher costs, aided by revenue growth, favorable metal prices and strong end-market demand."
+      },
+      {
+        "title": "Ryerson Holding (RYZ) Valuation Check After Recent Double Digit Shareholder Returns",
+        "publisher": "Simply Wall St.",
+        "published": "2026-06-11T01:15:53Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/ryerson-holding-ryz-valuation-check-011553544.html",
+        "summary": "Ryerson Holding (RYZ) has recently drawn investor attention after its shares closed at $28.64, with the stock showing double digit total return over the past year and a mixed picture over longer periods. See our latest analysis for Ryerson Holding. Recent trading has been relatively strong, with a 30.42% 3 month share price return and a 39.62% 1 year total shareholder return. However, the 3 year total shareholder return shows a decline, suggesting that momentum has only recently improved. If..."
+      },
+      {
+        "title": "CSTM's Packaging & Automotive Strength Grows: What's the Road Ahead?",
+        "publisher": "Zacks",
+        "published": "2026-06-10T15:10:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/cstms-packaging-automotive-strength-grows-151000814.html",
+        "summary": "Constellium's Packaging & Automotive Rolled Products revenues jump 24% in Q1 2026 as higher aluminum prices and packaging demand boosted results."
+      },
+      {
+        "title": "Strong Performance Continues at CSTM's A&T Segment: What's Next?",
+        "publisher": "Zacks",
+        "published": "2026-06-03T17:08:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/strong-performance-continues-cstms-t-170800329.html",
+        "summary": "Constellium's A&T segment posts 18% shipment growth and 30% higher revenues in Q1 2026, aided by aerospace demand, defense strength and aluminum prices."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:23+00:00",
+    "ticker": "PCOR",
+    "company": "Procore Technologies, Inc.",
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 69.07,
+      "discovery_bucket": "RECOVERY",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 58.189998626708984,
+      "return_1m": 0.34294936920598307,
+      "return_3m": 0.09215465390213184,
+      "return_6m": 0.13452910095567505,
+      "return_12m": -0.09544540695756165,
+      "revenue_yoy": 0.1583358802663628,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.008116601881631436,
+      "operating_margin_change_yoy": 0.10793566745935186,
+      "incremental_operating_margin_yoy": 0.6971221338324755,
+      "eps_revision_30d": 0.12331210070243179,
+      "eps_revision_90d": 0.051687848027069536,
+      "next_year_eps_estimate": 2.36838,
+      "next_year_eps_growth": 0.39189997,
+      "next_year_revenue_estimate": 1713463140.0,
+      "next_year_revenue_growth_estimate": 0.13190000000000002,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": 8842280960,
+      "forward_pe": 24.569536,
+      "price_to_sales": 6.216242,
+      "enterprise_to_ebitda": 123.979,
+      "analyst_target_upside": 0.178,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "TURNAROUND",
+      "model": "FORWARD_EPS_EXIT_MULTIPLE",
+      "reason": "Projects forward EPS under bear/base/bull growth and exit-multiple assumptions.",
+      "current_price": 58.19,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 36.99,
+          "assumptions": {
+            "eps_growth": 0.047974992499999994,
+            "exit_pe": 14.219321508599998
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 84.14,
+          "assumptions": {
+            "eps_growth": 0.27432997899999995,
+            "exit_pe": 21.875879243999997
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 125.54,
+          "assumptions": {
+            "eps_growth": 0.3923049715,
+            "exit_pe": 27.344849054999997
+          }
+        }
+      ],
+      "expected_value": 82.7,
+      "expected_cagr": 0.1243,
+      "base_cagr": 0.1308,
+      "bear_downside": -0.3643,
+      "probability_profit": 0.75
+    },
+    "decision": {
+      "decision": "WATCH",
+      "confidence": "HIGH",
+      "confidence_score": 0.878,
+      "adjusted_expected_cagr": 0.1243,
+      "reason": "Expected 3Y CAGR 12.4%, scenario profit probability 75%, bear-case downside -36.4%, price maturity 0/100."
+    },
+    "why_buy": [
+      "EPS consensus rose 12.3% over 30 days.",
+      "Consensus next-year EPS growth is 39.2%.",
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "No generic red flag passed the configured threshold; company-specific risks still require filing review."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Procore Prices Upsized $825 Million Non-Interest Bearing Convertible Notes Offering",
+        "publisher": "MT Newswires",
+        "published": "2026-08-04T09:50:46Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/procore-prices-upsized-825-million-095046899.html",
+        "summary": "Procore Technologies (PCOR) priced an upsized private placement of $825 million of 0.00% convertible"
+      },
+      {
+        "title": "Procore Technologies Q2 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-07-31T23:03:54Z",
+        "url": "https://www.marketbeat.com/instant-alerts/procore-technologies-q2-earnings-call-highlights-2026-07-31/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "Procore Technologies (NYSE:PCOR) reported second-quarter results that exceeded its guidance, driven by broad-based demand, large contract wins and growth in international markets, while the construction software company also outlined an expanded artificial intelligence strategy centered on its plann"
+      },
+      {
+        "title": "Procore Technologies Inc (PCOR) (Q2 2026) Earnings Call Highlights: Record Profitability and ...",
+        "publisher": "GuruFocus.com",
+        "published": "2026-07-30T21:04:13Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/procore-technologies-inc-pcor-q2-210413494.html",
+        "summary": "Procore delivers a standout quarter with a 21.5% operating margin, its first GAAP profit, and a bold FY27 margin target of 25%."
+      },
+      {
+        "title": "Procore Technologies (PCOR) Tops Q2 Earnings and Revenue Estimates",
+        "publisher": "Zacks",
+        "published": "2026-07-29T22:25:13Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/procore-technologies-pcor-tops-q2-222513111.html",
+        "summary": "Procore Technologies (PCOR) delivered earnings and revenue surprises of +14.63% and +2.65%, respectively, for the quarter ended June 2026. Do the numbers hold clues to what lies ahead for the stock?"
+      },
+      {
+        "title": "Procore Technologies (NYSE:PCOR) Beats Q2 CY2026 Sales Expectations",
+        "publisher": "StockStory",
+        "published": "2026-07-29T20:57:48Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/procore-technologies-nyse-pcor-beats-205748848.html",
+        "summary": "Construction management software provider Procore Technologies (NYSE:PCOR) announced better-than-expected revenue in Q2 CY2026, with sales up 15.8% year on year to $375.2 million. The company expects next quarter\u2019s revenue to be around $383 million, close to analysts\u2019 estimates. Its non-GAAP profit of $0.47 per share was 15.1% above analysts\u2019 consensus estimates."
+      },
+      {
+        "title": "Procore (PCOR) Stock May Trade At A Discount Following New AI Packages",
+        "publisher": "Simply Wall St.",
+        "published": "2026-07-28T19:07:36Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/procore-pcor-stock-may-trade-190736484.html",
+        "summary": "Procore Technologies stock is coming off a multi year stretch of weak returns, yet the current valuation checks and a Discounted Cash Flow (DCF) based intrinsic value estimate both suggest the market price may still be below what the underlying cash flows imply. Over the past 5 years, Procore Technologies has delivered a total shareholder return that declined 56.0%, which sets a low bar for sentiment and raises the question of whether expectations have already reset. The recent launch of..."
+      },
+      {
+        "title": "How Investors Are Reacting To Procore Technologies (PCOR) Revenue Beat Amid Slowing Growth Expectations",
+        "publisher": "Simply Wall St.",
+        "published": "2026-07-28T18:08:57Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/investors-reacting-procore-technologies-pcor-180857579.html",
+        "summary": "Earlier this week, construction management software provider Procore Technologies reported Q1 revenue of US$359.3 million, up 15.7% year on year and ahead of analyst expectations, while investors now look toward its upcoming Q2 earnings, where consensus points to slower 12.9% revenue growth. Despite consistently topping revenue forecasts, Procore and much of the design software industry have seen cautious investor reactions, highlighting concern about how moderating growth rates could..."
+      },
+      {
+        "title": "What To Expect From Procore Technologies\u2019s (PCOR) Q2 Earnings",
+        "publisher": "StockStory",
+        "published": "2026-07-28T15:49:02Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/expect-procore-technologies-pcor-q2-154902117.html",
+        "summary": "Construction management software provider Procore Technologies (NYSE:PCOR) will be reporting earnings this Wednesday after market close. Here\u2019s what to expect."
+      },
+      {
+        "title": "A Look Back at Design Software Stocks\u2019 Q1 Earnings: Procore Technologies (NYSE:PCOR) Vs The Rest Of The Pack",
+        "publisher": "StockStory",
+        "published": "2026-07-27T16:53:02Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/look-back-design-software-stocks-165302262.html",
+        "summary": "As the Q1 earnings season comes to a close, it\u2019s time to take stock of this quarter\u2019s best and worst performers in the design software industry, including Procore Technologies (NYSE:PCOR) and its peers."
+      },
+      {
+        "title": "Procore Technologies (PCOR) Slid Amid AI Disruption Concerns",
+        "publisher": "Insider Monkey",
+        "published": "2026-07-27T14:15:17Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/procore-technologies-pcor-slid-amid-141517010.html",
+        "summary": "Wasatch Global Investors, an asset management company, released its \u201cSmall Cap Growth Strategy\u201d Q2 2026 investor letter. A copy of the letter can be downloaded here. Small-cap equities experienced strong gains in the second quarter, primarily driven by companies associated with artificial intelligence (AI). However, the leadership within this sector remains narrow. Unprofitable companies and those [\u2026]"
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:19+00:00",
+    "ticker": "WK",
+    "company": "Workiva Inc.",
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 78.41,
+      "discovery_bucket": "RECOVERY",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 67.31999969482422,
+      "return_1m": 0.29039681919899096,
+      "return_3m": 0.3125365274548866,
+      "return_6m": -0.036220455756118874,
+      "return_12m": -0.11351069883403087,
+      "revenue_yoy": 0.18636348850069928,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.034286522428572,
+      "operating_margin_change_yoy": 0.14862785779441612,
+      "incremental_operating_margin_yoy": 0.843228686133207,
+      "eps_revision_30d": 0.16099534614314848,
+      "eps_revision_90d": 0.15595049462549784,
+      "next_year_eps_estimate": 4.04889,
+      "next_year_eps_growth": 0.20549999,
+      "next_year_revenue_estimate": 1203191950.0,
+      "next_year_revenue_growth_estimate": 0.15460000000000002,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": 3663318016,
+      "forward_pe": 16.62678,
+      "price_to_sales": 3.7934444,
+      "enterprise_to_ebitda": 83.79,
+      "analyst_target_upside": 0.1468,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "TURNAROUND",
+      "model": "FORWARD_EPS_EXIT_MULTIPLE",
+      "reason": "Projects forward EPS under bear/base/bull growth and exit-multiple assumptions.",
+      "current_price": 67.32,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 45.33,
+          "assumptions": {
+            "eps_growth": 0.0013749974999999956,
+            "exit_pe": 11.166089836200001
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 91.0,
+          "assumptions": {
+            "eps_growth": 0.14384999299999998,
+            "exit_pe": 17.178599748
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 128.39,
+          "assumptions": {
+            "eps_growth": 0.21522499049999996,
+            "exit_pe": 21.473249685
+          }
+        }
+      ],
+      "expected_value": 88.93,
+      "expected_cagr": 0.0972,
+      "base_cagr": 0.1057,
+      "bear_downside": -0.3266,
+      "probability_profit": 0.75
+    },
+    "decision": {
+      "decision": "WATCH",
+      "confidence": "HIGH",
+      "confidence_score": 0.878,
+      "adjusted_expected_cagr": 0.0972,
+      "reason": "Expected 3Y CAGR 9.7%, scenario profit probability 75%, bear-case downside -32.7%, price maturity 0/100."
+    },
+    "why_buy": [
+      "EPS consensus rose 16.1% over 30 days.",
+      "Consensus next-year EPS growth is 20.5%.",
+      "Consensus next-year revenue growth is 15.5%.",
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "No generic red flag passed the configured threshold; company-specific risks still require filing review."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Workiva (WK) Is Up 6.4% After Swing to Profit and Launch of New AI Reporting Tools",
+        "publisher": "Simply Wall St.",
+        "published": "2026-08-10T19:16:10Z",
+        "url": "https://finance.yahoo.com/technology/ai/articles/workiva-wk-6-4-swing-191610007.html",
+        "summary": "In early August 2026, Workiva Inc. reported that second-quarter revenue rose to US$255.29 million from US$215.19 million a year earlier, with net income of US$13.44 million after a net loss of US$19.40 million, alongside confirming guidance that points to full-year revenue between US$1.04 billion and US$1.04 billion and positive operating margins. Workiva also launched new AI agents and its Workiva Knowledge intelligence layer to enhance reporting and compliance workflows, while filing a..."
+      },
+      {
+        "title": "Workiva (WK) Stock May Be Above Fair Value Despite New AI Agents",
+        "publisher": "Simply Wall St.",
+        "published": "2026-08-10T10:10:39Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/workiva-wk-stock-may-above-101039776.html",
+        "summary": "Workiva stock has rallied in the past month after a tough multi year stretch, yet its valuation checks still lean expensive, which raises questions about how much of the story is already in the price. Over the past 5 years, Workiva shareholders have seen the share price decline 51.6%, which frames the recent rebound against a longer history of weak returns. The recent launch of specialized AI agents and the Workiva Knowledge intelligence layer can support expectations for stronger long term..."
+      },
+      {
+        "title": "Workiva Q2 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-08-09T16:03:48Z",
+        "url": "https://www.marketbeat.com/instant-alerts/workiva-q2-earnings-call-highlights-2026-08-09/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "Workiva (NYSE:WK) reported second-quarter 2026 revenue of $255 million, up 19% from a year earlier and $3 million above the high end of its guidance range, as subscription growth and operational efficiency supported higher profitability. Subscription revenue rose 19% year over year to $236 million,"
+      },
+      {
+        "title": "Workiva Inc. Q2 2026 Earnings Call Summary",
+        "publisher": "Moby",
+        "published": "2026-08-05T12:30:00Z",
+        "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-workiva-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss",
+        "summary": "Moby summary of Workiva Inc.'s Q2 2026 earnings call"
+      },
+      {
+        "title": "Workiva Inc (WK) (Q2 2026) Earnings Call Highlights: Strong Revenue Growth and Margin Expansion",
+        "publisher": "GuruFocus.com",
+        "published": "2026-08-05T05:01:07Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/workiva-inc-wk-q2-2026-050107773.html",
+        "summary": "Workiva Inc (WK) delivers 19% revenue growth and raises full-year margin guidance, driven by broad-based demand and AI traction."
+      },
+      {
+        "title": "Workiva (WK) Reports Q2 Earnings: What Key Metrics Have to Say",
+        "publisher": "Zacks",
+        "published": "2026-08-05T00:00:03Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/workiva-wk-reports-q2-earnings-000003297.html",
+        "summary": "While the top- and bottom-line numbers for Workiva (WK) give a sense of how the business performed in the quarter ended June 2026, it could be worth looking at how some of its key metrics compare to Wall Street estimates and year-ago values."
+      },
+      {
+        "title": "Workiva (WK) Q2 Earnings and Revenues Beat Estimates",
+        "publisher": "Zacks",
+        "published": "2026-08-04T23:00:22Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/workiva-wk-q2-earnings-revenues-230022950.html",
+        "summary": "Workiva (WK) delivered earnings and revenue surprises of +20.31% and +1.74%, respectively, for the quarter ended June 2026. Do the numbers hold clues to what lies ahead for the stock?"
+      },
+      {
+        "title": "Workiva (NYSE:WK) Exceeds Q2 CY2026 Expectations But Stock Drops",
+        "publisher": "StockStory",
+        "published": "2026-08-04T21:16:48Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/workiva-nyse-wk-exceeds-q2-211648681.html",
+        "summary": "Cloud reporting platform Workiva (NYSE:WK) beat Wall Street\u2019s revenue expectations in Q2 CY2026, with sales up 18.6% year on year to $255.3 million. The company expects next quarter\u2019s revenue to be around $261 million, close to analysts\u2019 estimates. Its non-GAAP profit of $0.77 per share was 21.3% above analysts\u2019 consensus estimates."
+      },
+      {
+        "title": "Intuit, BILL, Workiva, Elastic, and Autodesk Stocks Trade Up, What You Need To Know",
+        "publisher": "StockStory",
+        "published": "2026-08-04T15:01:22Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/intuit-bill-workiva-elastic-autodesk-150122929.html",
+        "summary": "A number of stocks jumped in the afternoon session after the software sector caught a massive tailwind, fueled by easing geopolitical tensions and a fresh wave of AI-driven M&A."
+      },
+      {
+        "title": "SpaceX\u2019s First Earnings Offer a Chance to Reverse Stock\u2019s Plunge",
+        "publisher": "Bloomberg",
+        "published": "2026-08-04T08:26:19Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/spacex-first-earnings-offer-chance-082619954.html",
+        "summary": "(Bloomberg) -- SpaceX\u2019s first earnings report following its blockbuster initial public offering is one of the most anticipated events of the summer on Wall Street. Whether it\u2019ll give investors a reason to buy the sinking stock is another matter.Most Read from BloombergBeer Dynasty Families Sell \u20ac731 Million Stake in AB InBevApple\u2019s New CEO Taps Retired Hardware Executive for Management TeamTaco Bell Met With Michigan on Parasite Weeks Before RecallMamdani Dismisses Business Leaders Advising NYC\u2019"
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:25+00:00",
+    "ticker": "CNR",
+    "company": "Core Natural Resources, Inc.",
+    "sector": "Energy",
+    "industry": "Thermal Coal",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 62.83,
+      "discovery_bucket": "QUIET_ACCUMULATION",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 94.16000366210938,
+      "return_1m": 0.150116043767208,
+      "return_3m": 0.11012047876325903,
+      "return_6m": 0.023149599693197853,
+      "return_12m": 0.24622436651198765,
+      "revenue_yoy": 0.03506383117690115,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.05610741842687757,
+      "operating_margin_change_yoy": 0.15397364444401984,
+      "incremental_operating_margin_yoy": 4.527746876051018,
+      "eps_revision_30d": -0.04370515135674568,
+      "eps_revision_90d": null,
+      "next_year_eps_estimate": 6.43946,
+      "next_year_eps_growth": 2.7008,
+      "next_year_revenue_estimate": 4539616770.0,
+      "next_year_revenue_growth_estimate": 0.0089,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": 4673750016,
+      "forward_pe": 14.1700535,
+      "price_to_sales": 1.0944781,
+      "enterprise_to_ebitda": 8.019,
+      "analyst_target_upside": 0.1204,
+      "data_quality": 84.6
+    },
+    "valuation": {
+      "company_type": "CYCLICAL",
+      "model": "NORMALIZED_CYCLICAL_EARNINGS",
+      "reason": "Uses normalized positive annual EPS plus forward EPS instead of capitalizing peak-cycle earnings.",
+      "current_price": 94.16,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 50.72,
+          "assumptions": {
+            "normalized_eps_factor": 0.65,
+            "exit_pe": 8
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 117.06,
+          "assumptions": {
+            "normalized_eps_factor": 1.0,
+            "exit_pe": 12
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 210.7,
+          "assumptions": {
+            "normalized_eps_factor": 1.35,
+            "exit_pe": 16
+          }
+        }
+      ],
+      "expected_value": 123.88,
+      "expected_cagr": 0.0958,
+      "base_cagr": 0.0753,
+      "bear_downside": -0.4613,
+      "probability_profit": 0.75
+    },
+    "decision": {
+      "decision": "WATCH",
+      "confidence": "HIGH",
+      "confidence_score": 0.843,
+      "adjusted_expected_cagr": 0.0958,
+      "reason": "Expected 3Y CAGR 9.6%, scenario profit probability 75%, bear-case downside -46.1%, price maturity 0/100."
+    },
+    "why_buy": [
+      "Consensus next-year EPS growth is 270.1%.",
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "Bear scenario implies approximately -46.1% downside.",
+      "30-day EPS revisions are negative at -4.4%."
+    ],
+    "what_changes_decision": [
+      "30-day EPS revisions turn positive.",
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Core Natural Resources (CNR) Is Up 12.2% After Leer South Insurance Boost Drives Q2 Profitability - What's Changed",
+        "publisher": "Simply Wall St.",
+        "published": "2026-08-08T08:14:40Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/core-natural-resources-cnr-12-081440179.html",
+        "summary": "Core Natural Resources, Inc. has already reported its second-quarter 2026 results, with sales rising to US$1,141.01 million and net income improving to US$126.47 million, alongside a US$0.10 per share dividend declaration, updated full-year sales volume guidance, and completion of a share repurchase program totaling 4,273,024 shares. An important element of this results release was the full-limit Leer South insurance recovery of US$125.40 million, which, together with strong EBITDA margins..."
+      },
+      {
+        "title": "Core Natural Resources (CNR) Q2 Earnings and Revenues Beat Estimates",
+        "publisher": "Zacks",
+        "published": "2026-08-06T13:50:03Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/core-natural-resources-cnr-q2-135003729.html",
+        "summary": "Core Natural Resources (CNR) delivered earnings and revenue surprises of +48.65% and +4.77%, respectively, for the quarter ended June 2026. Do the numbers hold clues to what lies ahead for the stock?"
+      },
+      {
+        "title": "Core Natural Resources\u2019s (NYSE:CNR) Q2 CY2026 Sales Beat Estimates",
+        "publisher": "StockStory",
+        "published": "2026-08-06T12:30:59Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/core-natural-resources-nyse-cnr-123059264.html",
+        "summary": "Coal producer Core Natural Resources (NYSE:CNR) reported Q2 CY2026 results topping the market\u2019s revenue expectations, with sales up 3.5% year on year to $1.14 billion. Its GAAP profit of $2.51 per share was significantly above analysts\u2019 consensus estimates."
+      },
+      {
+        "title": "Warrior Met Coal (HCC) Surpasses Q2 Earnings and Revenue Estimates",
+        "publisher": "Zacks",
+        "published": "2026-08-06T00:35:07Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/warrior-met-coal-hcc-surpasses-003507807.html",
+        "summary": "Warrior Met Coal (HCC) delivered earnings and revenue surprises of +7.14% and +6.68%, respectively, for the quarter ended June 2026. Do the numbers hold clues to what lies ahead for the stock?"
+      },
+      {
+        "title": "Ramaco Resources (METC) Reports Q2 Loss, Tops Revenue Estimates",
+        "publisher": "Zacks",
+        "published": "2026-08-04T23:00:14Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/ramaco-resources-metc-reports-q2-230014086.html",
+        "summary": "Ramaco Resources (METC) delivered earnings and revenue surprises of -13.04% and +9.85%, respectively, for the quarter ended June 2026. Do the numbers hold clues to what lies ahead for the stock?"
+      },
+      {
+        "title": "SunCoke Energy (SXC) Tops Q2 Earnings and Revenue Estimates",
+        "publisher": "Zacks",
+        "published": "2026-07-30T12:35:09Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/suncoke-energy-sxc-tops-q2-123509884.html",
+        "summary": "SunCoke (SXC) delivered earnings and revenue surprises of +87.50% and +9.77%, respectively, for the quarter ended June 2026. Do the numbers hold clues to what lies ahead for the stock?"
+      },
+      {
+        "title": "3 Cash-Producing Stocks on Our Watchlist",
+        "publisher": "StockStory",
+        "published": "2026-07-27T19:17:02Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/3-cash-producing-stocks-watchlist-191702659.html",
+        "summary": "Businesses with strong free cash flow tend to be more adaptable and resilient. Some of these companies shine bright by using their cash wisely to strengthen their market positions."
+      },
+      {
+        "title": "Billionaire Investor David Einhorn\u2019s Top 5 Bets: Buy Alongside the Skeptic?",
+        "publisher": "24/7 Wall St.",
+        "published": "2026-07-22T15:36:34Z",
+        "url": "https://247wallst.com/investing/2026/07/22/billionaire-investor-david-einhorns-top-5-bets-buy-alongside-the-skeptic/",
+        "summary": "David Einhorn built his fortune betting against the crowd, and his latest 13F reveals five positions in corners of the market most investors refuse to touch. One signed acquisition is trading at a suspicious discount, and the rest carry catalysts Wall Street keeps ignoring."
+      },
+      {
+        "title": "1 Energy Stock with Exciting Potential and 2 Facing Challenges",
+        "publisher": "StockStory",
+        "published": "2026-07-13T17:42:39Z",
+        "url": "https://finance.yahoo.com/energy/articles/1-energy-stock-exciting-potential-174239679.html",
+        "summary": "Even if they go mostly unnoticed, energy businesses are the backbone of our country, providing the energy we need to power our lives and businesses.But their prominence also brings high exposure to the ups and downs of economic and energy cycles. Luckily, the tide is turning in their favor as the industry\u2019s 16.8% return over the past six months has topped the S&P 500 by 8.5 percentage points."
+      },
+      {
+        "title": "Winners And Losers Of Q1: Core Natural Resources (NYSE:CNR) Vs The Rest Of The Mixed or Offshore Upstream E&P Stocks",
+        "publisher": "StockStory",
+        "published": "2026-07-10T14:15:20Z",
+        "url": "https://finance.yahoo.com/markets/commodities/articles/winners-losers-q1-core-natural-141520190.html",
+        "summary": "Earnings results often indicate what direction a company will take in the months ahead. With Q1 behind us, let\u2019s have a look at Core Natural Resources (NYSE:CNR) and its peers."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:21+00:00",
+    "ticker": "OTF",
+    "company": "Blue Owl Technology Finance Cor",
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 73.57,
+      "discovery_bucket": "QUIET_ACCUMULATION",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 11.390000343322754,
+      "return_1m": 0.10261378774883934,
+      "return_3m": 0.08335957838592933,
+      "return_6m": -0.0009129849395965728,
+      "return_12m": -0.13018310150778556,
+      "revenue_yoy": 0.8622460763503184,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": null,
+      "operating_margin_change_yoy": null,
+      "incremental_operating_margin_yoy": null,
+      "eps_revision_30d": -0.0028024392431171496,
+      "eps_revision_90d": -0.03072631785395193,
+      "next_year_eps_estimate": 1.33437,
+      "next_year_eps_growth": 0.0761,
+      "next_year_revenue_estimate": 1547166750.0,
+      "next_year_revenue_growth_estimate": 0.108,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": 5218731520,
+      "forward_pe": 8.527875,
+      "price_to_sales": 3.99249,
+      "enterprise_to_ebitda": null,
+      "analyst_target_upside": 0.1999,
+      "data_quality": 69.2
+    },
+    "valuation": {
+      "company_type": "SPECIAL_CASE",
+      "model": "NEEDS_SPECIALIST_VALUATION",
+      "reason": "Generic earnings/revenue valuation is not reliable for this company.",
+      "scenarios": [],
+      "current_price": 11.390000343322754
+    },
+    "decision": {
+      "decision": "WATCH",
+      "confidence": "LOW",
+      "reason": "Generic valuation model is not reliable enough for an automated buy/pass call."
+    },
+    "why_buy": [
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "30-day EPS revisions are negative at -0.3%."
+    ],
+    "what_changes_decision": [
+      "30-day EPS revisions turn positive.",
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Blue Owl Technology Finance Q2 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-08-09T00:03:51Z",
+        "url": "https://www.marketbeat.com/instant-alerts/blue-owl-technology-finance-q2-earnings-call-highlights-2026-08-08/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "Blue Owl Technology Finance (NYSE:OTF) reported second-quarter adjusted net investment income of $0.30 per share and net asset value of $16.48 per share, as the business development company continued to expand its portfolio, increase leverage and repurchase shares. The company said portfolio credit"
+      },
+      {
+        "title": "Blue Owl Technology Finance Corp (OTF) (Q2 2026) Earnings Call Highlights: Strong Credit ...",
+        "publisher": "GuruFocus.com",
+        "published": "2026-08-06T23:20:40Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/blue-owl-technology-finance-corp-232040654.html",
+        "summary": "Blue Owl Technology Finance Corp (OTF) reports stable NAV and record low non-accruals while navigating a discounted valuation and positioning for dividend coverage by mid-2027."
+      },
+      {
+        "title": "Blue Owl Technology Finance (OTF) Misses Q2 Earnings and Revenue Estimates",
+        "publisher": "Zacks",
+        "published": "2026-08-06T00:35:15Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/blue-owl-technology-finance-otf-003515150.html",
+        "summary": "Blue Owl Tech (OTF) delivered earnings and revenue surprises of -3.23% and -2.17%, respectively, for the quarter ended June 2026. Do the numbers hold clues to what lies ahead for the stock?"
+      },
+      {
+        "title": "Here\u2019s What You Need to Know About \u200bBlue Owl Technology (OTF)",
+        "publisher": "Insider Monkey",
+        "published": "2026-07-13T09:58:38Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/know-blue-owl-technology-otf-095838852.html",
+        "summary": "\u200bBlue Owl Technology Finance Corp. (NYSE:OTF) is one of the Best All-Time Low Stocks to Buy Now. The stock has declined more than 7% over the past month, mainly due to negative momentum from missed Q1 2026 earnings, released in May. However, the Street expects 35% upside over the next 12-months from the current level, [\u2026]"
+      },
+      {
+        "title": "UBS Rebalancing Advice Triggers Withdrawals From Blue Owl Fund (OWL)",
+        "publisher": "InvestorsHub",
+        "published": "2026-07-10T10:21:48Z",
+        "url": "https://investorshub.advfn.com/market-news/article/31635/ubs-rebalancing-advice-triggers-withdrawals-from-blue-owl-fund-owl",
+        "summary": "UBS advised certain clients to trim oversized private credit positions, prompting investor withdrawals from Blue Owl Technology Income during the fourth quarter of 2025, according to a Financial Times report published on Friday. The publication, citing two people familiar with the matter, said that at least 60% of the fund\u2019s capital had been provided by UBS clients in Asia."
+      },
+      {
+        "title": "5 Income Stocks Yielding 10%+ with Dividends in Danger",
+        "publisher": "24/7 Wall St.",
+        "published": "2026-07-09T18:50:33Z",
+        "url": "https://247wallst.com/investing/2026/07/09/5-income-stocks-yielding-10-with-dividends-in-danger/",
+        "summary": "Massive dividend yields are a huge draw for investors \u2013 both because everyone likes income\u2026and because a company that can pay a dividend surely has the cash to pay out that dividend, right? Most of the time, that\u2019s true. But things can get rough when a company doesn\u2019t have the cash to continue funding the ... 5 Income Stocks Yielding 10%+ with Dividends in Danger"
+      },
+      {
+        "title": "Blue Owl Stock Rises as Exit Rush Eases",
+        "publisher": "Barrons.com",
+        "published": "2026-07-02T19:15:00Z",
+        "url": "https://www.barrons.com/articles/blue-owl-stock-private-credit-223da748?siteid=yhoof2&yptr=yahoo",
+        "summary": "Blue Owl Capital faced higher June-quarter redemption requests than peers, but there was some good news: Exit requests at Blue Owl declined from March quarter levels."
+      },
+      {
+        "title": "Private Credit Worries Are Back",
+        "publisher": "Barrons.com",
+        "published": "2026-07-02T14:33:37Z",
+        "url": "https://www.barrons.com/livecoverage/stock-market-news-today-070226/card/private-credit-worries-are-back-Y0AhutYFcFmd5kM2B4jt?siteid=yhoof2&yptr=yahoo",
+        "summary": "Private credit is back in focus on Wall Street.  Blue Owl stock is on the move, up 5.5%, after telling shareholders the firm will enforce a cap on some of its private credit funds after large withdrawal requests.  In the second quarter, the Blue Owl Credit Income Corp. fund saw $3.6 billion worth of withdrawal requests, an estimated 18.8% of outstanding shares, the shareholder letter read."
+      },
+      {
+        "title": "Blue Owl keeps 5% redemption caps as OCIC requests ease from prior quarter",
+        "publisher": "Investing.com",
+        "published": "2026-07-02T13:56:56Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/blue-owl-keeps-5-redemption-135656746.html",
+        "summary": "Investing.com -- Blue Owl Capital Inc (NYSE:OWL)) two non-traded private credit funds maintained the industry-standard 5% quarterly withdrawal limit even as redemption requests at both funds fell compared to the prior quarter, according to an investor letter published Thursday. Traders are rewarding the relative improvement, with OWL shares rising 4.4% in premarket trading ahead of the New York open."
+      },
+      {
+        "title": "Blue Owl Technology Finance (OTF) Stock Fair Value Falls After Analysts Trim Targets",
+        "publisher": "Simply Wall St.",
+        "published": "2026-06-27T06:06:07Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/blue-owl-technology-finance-otf-060607225.html",
+        "summary": "Blue Owl Technology Finance is under fresh scrutiny after the fair value estimate was reset from US$15.83 to US$13.56, signaling an updated view on where the stock may sit within its assessed range. Recent Street research echoes this cooler tone, with several firms trimming price targets into roughly the US$12 to US$15 band while still pointing to valuation and portfolio positioning as sources of support. As you read on, you will see how these shifting targets fit into the broader narrative..."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:22+00:00",
+    "ticker": "PLTR",
+    "company": "PLTR",
+    "sector": null,
+    "industry": null,
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 69.21,
+      "discovery_bucket": "RECOVERY",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 175.22999572753906,
+      "return_1m": 0.382049013819981,
+      "return_3m": 0.27162548510047935,
+      "return_6m": 0.2894039999811371,
+      "return_12m": -0.038254672543617585,
+      "revenue_yoy": 0.928334945705726,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.03883894219411399,
+      "operating_margin_change_yoy": 0.20288190192500144,
+      "incremental_operating_margin_yoy": 0.6897507638712254,
+      "eps_revision_30d": null,
+      "eps_revision_90d": null,
+      "next_year_eps_estimate": null,
+      "next_year_eps_growth": null,
+      "next_year_revenue_estimate": null,
+      "next_year_revenue_growth_estimate": null,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": null,
+      "forward_pe": null,
+      "price_to_sales": null,
+      "enterprise_to_ebitda": null,
+      "analyst_target_upside": null,
+      "data_quality": 61.5
+    },
+    "valuation": {
+      "company_type": "EARLY_STAGE_GROWTH",
+      "model": "NEEDS_SPECIALIST_VALUATION",
+      "reason": "Generic earnings/revenue valuation is not reliable for this company.",
+      "scenarios": [],
+      "current_price": 175.22999572753906
+    },
+    "decision": {
+      "decision": "WATCH",
+      "confidence": "LOW",
+      "reason": "Generic valuation model is not reliable enough for an automated buy/pass call."
+    },
+    "why_buy": [
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "No generic red flag passed the configured threshold; company-specific risks still require filing review."
+    ],
+    "what_changes_decision": [
+      "Obtain a reliable recent EPS-revision history.",
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Cathie Wood Invests $36.9 Million in Surging Stock",
+        "publisher": "GuruFocus.com",
+        "published": "2026-08-10T20:11:43Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/cathie-wood-invests-36-9-201143798.html",
+        "summary": "Fresh buying reveals where Wood sees better risk-reward"
+      },
+      {
+        "title": "Michael Burry Refreshes Bearish Palantir Trade Even As AI Rally Strains Short Bets",
+        "publisher": "Stocktwits",
+        "published": "2026-08-10T20:01:54Z",
+        "url": "https://stocktwits.com/news-articles/markets/equity/michael-burry-refreshes-bearish-palantir-trade/cZokb9jRJfQ",
+        "summary": "Famed \"Big Short\" investor Michael Burry buys new out-of-the-money puts on Palantir and adds to his Zoetis stake."
+      },
+      {
+        "title": "Palantir CEO Sends Stark Warning for Businesses Betting Big on AI",
+        "publisher": "GuruFocus.com",
+        "published": "2026-08-10T19:31:27Z",
+        "url": "https://finance.yahoo.com/technology/ai/articles/palantir-ceo-sends-stark-warning-193127572.html",
+        "summary": "Palantir CEO Sounds Alarm on AI Spending: Are Businesses Paying Too Much?"
+      },
+      {
+        "title": "Cathie Wood Puts $37 Million Into SpaceX",
+        "publisher": "GuruFocus.com",
+        "published": "2026-08-10T18:55:18Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/cathie-wood-puts-37-million-185518089.html",
+        "summary": "Wood added shares during both the 13.6% selloff and Friday's rebound."
+      },
+      {
+        "title": "Can Palantir Reach $207 per Share to Claim a New All-Time High Before 2026 Is Over?",
+        "publisher": "Motley Fool",
+        "published": "2026-08-10T18:50:00Z",
+        "url": "https://www.fool.com/investing/2026/08/10/can-palantir-reach-207-per-share-to-claim-a-new-al/",
+        "summary": "Palantir's fantastic quarter wasn't enough to set a new all-time high."
+      },
+      {
+        "title": "3 Reasons Why Growth Investors Shouldn't Overlook Palantir Technologies (PLTR)",
+        "publisher": "Zacks",
+        "published": "2026-08-10T16:45:02Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-why-growth-investors-164502970.html",
+        "summary": "Palantir Technologies (PLTR) is well positioned to outperform the market, as it exhibits above-average growth in financials."
+      },
+      {
+        "title": "Why Bulls Remain High on Palantir As It Passes $170",
+        "publisher": "24/7 Wall St.",
+        "published": "2026-08-10T16:37:40Z",
+        "url": "https://247wallst.com/investing/2026/08/10/why-bulls-remain-high-on-palantir-as-it-passes-170/",
+        "summary": "Palantir just posted numbers that forced analysts to rethink what kind of company they are actually valuing, but the metric that defines the bull case also sets the exact threshold where the entire thesis falls apart."
+      },
+      {
+        "title": "Hot-Flash Drug Trial Result Sends AbCellera Up as Much as 41%",
+        "publisher": "Bloomberg",
+        "published": "2026-08-10T16:15:37Z",
+        "url": "https://finance.yahoo.com/healthcare/articles/hot-flash-drug-trial-result-161537791.html",
+        "summary": "(Bloomberg) -- Biotech company AbCellera Biologics Inc. jumped as much as 41%, giving it a market value of almost $3 billion, after it said a potential remedy for hot flashes was effective in a mid-stage trial.Most Read from BloombergChina Unleashes $28 Trillion Capital Markets to Challenge US in AIIran Shakes Up Security Team After Saying Oman Deal \u2018Very Close\u2019Stocks Churn as Oil Advance Boosts Treasury Yields: Markets WrapTrump Amps Up Pressure on Billionaire Sargeant to Exit VenezuelaBehind B"
+      },
+      {
+        "title": "Zacks Investment Ideas feature highlights: Palantir, SpaceX, Cerebras and NVIDIA",
+        "publisher": "Zacks",
+        "published": "2026-08-10T15:14:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/zacks-investment-ideas-feature-highlights-151400333.html",
+        "summary": "A sharp July jobs miss could ease rate-hike fears, while Palantir, SpaceX, Cerebras and NVIDIA show signs of AI stock stabilization."
+      },
+      {
+        "title": "Semis Surge, Michael Burry\u2019s Shorts Feel the Pressure \u2014 But Don\u2019t Expect Him to Run for Cover After His Latest \u201c1987-Style\u201d Crash Warning",
+        "publisher": "24/7 Wall St.",
+        "published": "2026-08-10T14:38:18Z",
+        "url": "https://247wallst.com/investing/2026/08/10/semis-surge-michael-burrys-shorts-feel-the-pressure-but-dont-expect-him-to-run-for-cover-after-his-latest-1987-style-crash-warning/",
+        "summary": "Michael Burry just doubled down on his bearish AI bets even as semiconductors roar back, but one short in his portfolio stands out as a head-scratcher that may reveal a flaw in his entire thesis."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:23+00:00",
+    "ticker": "BX",
+    "company": "Blackstone Inc.",
+    "sector": "Financial Services",
+    "industry": "Asset Management",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 67.17,
+      "discovery_bucket": "RECOVERY",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 141.66000366210938,
+      "return_1m": 0.16260508203221935,
+      "return_3m": 0.15621765436205548,
+      "return_6m": 0.12660723312319888,
+      "return_12m": -0.12069646964154657,
+      "revenue_yoy": 0.3247767645313415,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": null,
+      "operating_margin_change_yoy": null,
+      "incremental_operating_margin_yoy": null,
+      "eps_revision_30d": -0.008500800425834435,
+      "eps_revision_90d": -0.008517867262683452,
+      "next_year_eps_estimate": 7.48803,
+      "next_year_eps_growth": 0.2432,
+      "next_year_revenue_estimate": 18622128970.0,
+      "next_year_revenue_growth_estimate": 0.23900000000000002,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": 176311091200,
+      "forward_pe": 18.918194,
+      "price_to_sales": 11.387173,
+      "enterprise_to_ebitda": null,
+      "analyst_target_upside": 0.0051,
+      "data_quality": 69.2
+    },
+    "valuation": {
+      "company_type": "SPECIAL_CASE",
+      "model": "NEEDS_SPECIALIST_VALUATION",
+      "reason": "Generic earnings/revenue valuation is not reliable for this company.",
+      "scenarios": [],
+      "current_price": 141.66000366210938
+    },
+    "decision": {
+      "decision": "WATCH",
+      "confidence": "LOW",
+      "reason": "Generic valuation model is not reliable enough for an automated buy/pass call."
+    },
+    "why_buy": [
+      "Consensus next-year EPS growth is 24.3%.",
+      "Consensus next-year revenue growth is 23.9%.",
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "30-day EPS revisions are negative at -0.9%."
+    ],
+    "what_changes_decision": [
+      "30-day EPS revisions turn positive.",
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Nvidia, Wall Street Firms Strike AI Financing Deal Targeting $500 Billion",
+        "publisher": "The Wall Street Journal",
+        "published": "2026-08-10T21:47:00Z",
+        "url": "https://www.wsj.com/business/deals/nvidia-wall-street-firms-strike-ai-financing-deal-targeting-500-billion-c50377db?siteid=yhoof2&yptr=yahoo",
+        "summary": "Nvidia  reached deals with some of Wall Street\u2019s largest firms aimed at raising massive amounts of capital to help the chipmaker\u2019s customers finance the cost of computing power.  The chip-maker has signed agreements to partner with  Apollo Global Management Blackstone BlackRock Brookfield Asset Management Goldman Sachs  and  KKR  to establish  \u201ccompute financing platforms,\u201d the companies announced Monday.  The firms said the platforms will create pools of capital at \u201cattractive rates\u201d for Nvidia customers."
+      },
+      {
+        "title": "Nvidia Makes Massive Move to Fund AI Buildout",
+        "publisher": "GuruFocus.com",
+        "published": "2026-08-10T21:27:35Z",
+        "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-makes-massive-move-fund-212735051.html",
+        "summary": "Funding could accelerate growth while adding new financial risks"
+      },
+      {
+        "title": "Nvidia Strikes Deals With Wall Street Firms to Fund Its Own Customers",
+        "publisher": "Barrons.com",
+        "published": "2026-08-10T21:19:00Z",
+        "url": "https://www.barrons.com/articles/nvidia-wall-street-500-billion-fund-ai-data-center-9c8ad31e?siteid=yhoof2&yptr=yahoo",
+        "summary": "The chip maker announces partnerships with Goldman Sachs, BlackRock, Blackstone, Apollo, Brookfield, and KKR to finance data centers."
+      },
+      {
+        "title": "Nvidia Confirms Huge AI Funding Deal. These Financial Stocks Jump.",
+        "publisher": "Investor's Business Daily",
+        "published": "2026-08-10T21:11:12Z",
+        "url": "https://www.investors.com/news/financial-stocks-jump-nvidia-ai-funding-deal/?src=A00220&yptr=yahoo",
+        "summary": "Nvidia confirmed on Monday that it will partner with some of the world's largest financial companies on a $500 billion financing effort to build out artificial intelligence infrastructure.  Nvidia will work with Apollo Global Management, Blackstone and Goldman Sachs \"to mobilize over $500 billion of third-party capital for the buildout of AI infrastructure over time,\" a news release said."
+      },
+      {
+        "title": "Update: US Equity Markets End Lower After Crude Oil Prices Rise Following US-Iran Disagreements",
+        "publisher": "MT Newswires",
+        "published": "2026-08-10T20:22:15Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-markets-end-lower-202215593.html",
+        "summary": "US equity indexes ended lower Monday after crude oil prices rose following President Donald Trump's"
+      },
+      {
+        "title": "US Equity Markets End Lower After Crude Oil Prices Rise Following US-Iran Disagreements",
+        "publisher": "MT Newswires",
+        "published": "2026-08-10T20:20:21Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-markets-end-lower-202021991.html",
+        "summary": "US equity indexes ended lower Monday after crude oil prices rose following President Donald Trump's"
+      },
+      {
+        "title": "Sector Update: Financial Stocks Mixed Late Afternoon",
+        "publisher": "MT Newswires",
+        "published": "2026-08-10T20:02:06Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/sector-financial-stocks-mixed-afternoon-200206688.html",
+        "summary": "Financial stocks were mixed in late Monday afternoon trading, with the NYSE Financial Index decreasi"
+      },
+      {
+        "title": "Sector Update: Consumer Stocks Lower in Late Afternoon Trading",
+        "publisher": "MT Newswires",
+        "published": "2026-08-10T19:55:37Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/sector-consumer-stocks-lower-afternoon-195537186.html",
+        "summary": "Consumer stocks declined late Monday afternoon, with the State Street Consumer Staples Select Sector"
+      },
+      {
+        "title": "1 Profitable Stock for Long-Term Investors and 2 Facing Challenges",
+        "publisher": "StockStory",
+        "published": "2026-08-10T17:09:22Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/1-profitable-stock-long-term-170922812.html",
+        "summary": "While profitability is essential, it doesn\u2019t guarantee long-term success. Some companies that rest on their margins will lose ground as competition intensifies \u2014 as Jeff Bezos said, \u201cYour margin is my opportunity\u201d."
+      },
+      {
+        "title": "Nvidia Stock Slips as Its AI Investments Draw Fresh Scrutiny",
+        "publisher": "Barrons.com",
+        "published": "2026-08-10T16:29:00Z",
+        "url": "https://www.barrons.com/articles/nvidia-stock-lancium-investment-buybacks-42d7d975?siteid=yhoof2&yptr=yahoo",
+        "summary": "Nvidia reportedly agreed to invest up to $3 billion in Lancium, adding to a growing list of investments as some analysts argue the chip maker should spend more on buybacks."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:30+00:00",
+    "ticker": "PUBM",
+    "company": "PubMatic, Inc.",
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 45.97,
+      "discovery_bucket": "MATURE_CHALLENGER",
+      "price_stage": "LATE",
+      "price_maturity": 80.0
+    },
+    "metrics": {
+      "price": 17.760000228881836,
+      "return_1m": 0.31070110545279994,
+      "return_3m": 0.6536313414681576,
+      "return_6m": 1.7365178513437698,
+      "return_12m": 0.5885509610102464,
+      "revenue_yoy": 0.1054645193051551,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.045062814598612944,
+      "operating_margin_change_yoy": 0.08417978369480045,
+      "incremental_operating_margin_yoy": 0.8055481461723126,
+      "eps_revision_30d": 0.4662216124342144,
+      "eps_revision_90d": 0.48138952682432273,
+      "next_year_eps_estimate": 0.716,
+      "next_year_eps_growth": 0.41779998,
+      "next_year_revenue_estimate": 331688580.0,
+      "next_year_revenue_growth_estimate": 0.0833,
+      "price_stage": "LATE",
+      "price_maturity": 80.0,
+      "market_cap": 808969088,
+      "forward_pe": 24.804468,
+      "price_to_sales": 2.7975938,
+      "enterprise_to_ebitda": 292.42,
+      "analyst_target_upside": 0.0642,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "TURNAROUND",
+      "model": "FORWARD_EPS_EXIT_MULTIPLE",
+      "reason": "Projects forward EPS under bear/base/bull growth and exit-multiple assumptions.",
+      "current_price": 17.76,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 11.66,
+          "assumptions": {
+            "eps_growth": 0.054449995,
+            "exit_pe": 14.643563672400001
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 26.95,
+          "assumptions": {
+            "eps_growth": 0.292459986,
+            "exit_pe": 22.528559496
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 40.48,
+          "assumptions": {
+            "eps_growth": 0.41690998100000004,
+            "exit_pe": 28.16069937
+          }
+        }
+      ],
+      "expected_value": 26.51,
+      "expected_cagr": 0.1428,
+      "base_cagr": 0.1491,
+      "bear_downside": -0.3435,
+      "probability_profit": 0.75
+    },
+    "decision": {
+      "decision": "TOO LATE",
+      "confidence": "HIGH",
+      "confidence_score": 0.878,
+      "adjusted_expected_cagr": 0.1428,
+      "reason": "Expected 3Y CAGR 14.3%, scenario profit probability 75%, bear-case downside -34.4%, price maturity 80/100."
+    },
+    "why_buy": [
+      "EPS consensus rose 46.6% over 30 days.",
+      "Consensus next-year EPS growth is 41.8%."
+    ],
+    "why_not": [
+      "The stock has already rerated materially; future earnings must keep outrunning expectations."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "PubMatic (PUBM) Stock Sees Fair Value Lift After Strong Q2 And Earlier Growth Return",
+        "publisher": "Simply Wall St.",
+        "published": "2026-08-09T00:21:26Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/pubmatic-pubm-stock-sees-fair-002126150.html",
+        "summary": "PubMatic\u2019s fair value estimate has been reset from US$12.89 to US$17.20, which represents a sizeable change in the implied upside that analysts are modelling for the stock. This shift sits alongside commentary that points to a Q2 report described as strong, an earlier return to growth, and a revenue mix now leaning more toward mobile app and emerging formats. Read on to see what is driving this change in view and how you can keep track of the evolving PubMatic narrative. Stay updated as the..."
+      },
+      {
+        "title": "PubMatic, Inc. Q2 2026 Earnings Call Summary",
+        "publisher": "Moby",
+        "published": "2026-08-07T12:30:00Z",
+        "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-pubmatic-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss",
+        "summary": "Moby summary of PubMatic, Inc.'s Q2 2026 earnings call"
+      },
+      {
+        "title": "DoubleVerify's Fingerprints Are All Over This Takeover Profile",
+        "publisher": "Trefis",
+        "published": "2026-08-07T12:19:46Z",
+        "url": "https://www.trefis.com/articles/610564/doubleverifys-fingerprints-are-all-over-this-takeover-profile/2026-08-07",
+        "summary": "The ad-tech firm is a financially clean and strategically vital asset, but its ownership structure presents the real question for any potential suitor."
+      },
+      {
+        "title": "PubMatic Q2 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-08-07T09:04:02Z",
+        "url": "https://www.marketbeat.com/instant-alerts/pubmatic-q2-earnings-call-highlights-2026-08-07/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "PubMatic (NASDAQ:PUBM) reported second-quarter revenue growth of 11% year over year, returning to double-digit growth ahead of its prior expectations, as the company cited momentum in connected TV, mobile applications and AI-powered products. Adjusted EBITDA rose 38% from a year earlier to $19.6 mi"
+      },
+      {
+        "title": "PubMatic Inc (PUBM) (Q2 2026) Earnings Call Highlights: Agentic OS Drives Double-Digit Growth ...",
+        "publisher": "GuruFocus.com",
+        "published": "2026-08-07T05:09:15Z",
+        "url": "https://finance.yahoo.com/media-advertising/articles/pubmatic-inc-pubm-q2-2026-050915721.html",
+        "summary": "PubMatic returns to double-digit revenue growth ahead of schedule, fueled by rapid Agentic OS adoption and strong performance in high-value formats like CTV and mobile app."
+      },
+      {
+        "title": "PubMatic, Inc. (PUBM) Q2 Earnings and Revenues Top Estimates",
+        "publisher": "Zacks",
+        "published": "2026-08-06T23:10:09Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/pubmatic-inc-pubm-q2-earnings-231009282.html",
+        "summary": "PubMatic (PUBM) delivered earnings and revenue surprises of +300.00% and +13.74%, respectively, for the quarter ended June 2026. Do the numbers hold clues to what lies ahead for the stock?"
+      },
+      {
+        "title": "PubMatic\u2019s (NASDAQ:PUBM) Q2 CY2026: Strong Sales, Stock Jumps 20.8%",
+        "publisher": "StockStory",
+        "published": "2026-08-06T21:26:36Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/pubmatic-nasdaq-pubm-q2-cy2026-212636863.html",
+        "summary": "Digital advertising technology company PubMatic (NASDAQ:PUBM) announced better-than-expected revenue in Q2 CY2026, with sales up 10.5% year on year to $78.59 million. On top of that, next quarter\u2019s revenue guidance ($76 million at the midpoint) was surprisingly good and 7.3% above what analysts were expecting. Its non-GAAP profit of $0.12 per share was significantly above analysts\u2019 consensus estimates."
+      },
+      {
+        "title": "Stock Market Today, Aug. 6: Trade Desk Plummets After Hours on Weak Q2 Results",
+        "publisher": "Motley Fool",
+        "published": "2026-08-06T21:23:39Z",
+        "url": "https://www.fool.com/coverage/stock-market-today/2026/08/06/stock-market-today-aug-6-trade-desk-plummets-after-hours-on-weak-q2-results/",
+        "summary": "Shares tumbled following the programmatic ad platform's earnings report, with revenue, earnings, and guidance falling well short of Wall Street's hopes, today, Aug. 6, 2026."
+      },
+      {
+        "title": "3 Stocks Under $50 We Approach with Caution",
+        "publisher": "StockStory",
+        "published": "2026-08-04T09:17:22Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/3-stocks-under-50-approach-091722656.html",
+        "summary": "Stocks in the $10-50 range offer a sweet spot between affordability and stability as they\u2019re typically more established than penny stocks. But their headline prices don\u2019t guarantee quality, and investors should exercise caution as some have shaky business models."
+      },
+      {
+        "title": "3 Unpopular Stocks We Steer Clear Of",
+        "publisher": "StockStory",
+        "published": "2026-07-22T11:50:27Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/3-unpopular-stocks-steer-clear-115027737.html",
+        "summary": "When Wall Street turns bearish on a stock, it\u2019s worth paying attention. These calls stand out because analysts rarely issue grim ratings on companies for fear their firms will lose out in other business lines such as M&A advisory."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:29+00:00",
+    "ticker": "PAYS",
+    "company": "Paysign, Inc.",
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 46.8,
+      "discovery_bucket": "MATURE_CHALLENGER",
+      "price_stage": "LATE",
+      "price_maturity": 80.0
+    },
+    "metrics": {
+      "price": 12.529999732971191,
+      "return_1m": 0.38300211397797,
+      "return_3m": 1.0144694783960944,
+      "return_6m": 2.368279472205361,
+      "return_12m": 1.1237287339723112,
+      "revenue_yoy": 0.4808443370347535,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.017324516805895862,
+      "operating_margin_change_yoy": 0.17280304212630923,
+      "incremental_operating_margin_yoy": 0.6075300112778701,
+      "eps_revision_30d": 0.38548560698009915,
+      "eps_revision_90d": 0.561290322580645,
+      "next_year_eps_estimate": 0.605,
+      "next_year_eps_growth": 0.23470000000000002,
+      "next_year_revenue_estimate": 132558000.0,
+      "next_year_revenue_growth_estimate": 0.16820000000000002,
+      "price_stage": "LATE",
+      "price_maturity": 80.0,
+      "market_cap": 707470784,
+      "forward_pe": 20.710743,
+      "price_to_sales": 7.0295663,
+      "enterprise_to_ebitda": 25.299,
+      "analyst_target_upside": -0.0184,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "PROFITABLE_GROWTH",
+      "model": "FORWARD_EPS_EXIT_MULTIPLE",
+      "reason": "Projects forward EPS under bear/base/bull growth and exit-multiple assumptions.",
+      "current_price": 12.53,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 7.17,
+          "assumptions": {
+            "eps_growth": 0.008675000000000002,
+            "exit_pe": 11.644385999999999
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 14.69,
+          "assumptions": {
+            "eps_growth": 0.16429,
+            "exit_pe": 17.91444
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 20.93,
+          "assumptions": {
+            "eps_growth": 0.242965,
+            "exit_pe": 22.39305
+          }
+        }
+      ],
+      "expected_value": 14.37,
+      "expected_cagr": 0.0467,
+      "base_cagr": 0.0544,
+      "bear_downside": -0.4278,
+      "probability_profit": 0.75
+    },
+    "decision": {
+      "decision": "TOO LATE",
+      "confidence": "HIGH",
+      "confidence_score": 0.878,
+      "adjusted_expected_cagr": 0.0467,
+      "reason": "Expected 3Y CAGR 4.7%, scenario profit probability 75%, bear-case downside -42.8%, price maturity 80/100."
+    },
+    "why_buy": [
+      "EPS consensus rose 38.5% over 30 days.",
+      "Consensus next-year EPS growth is 23.5%.",
+      "Consensus next-year revenue growth is 16.8%."
+    ],
+    "why_not": [
+      "The stock has already rerated materially; future earnings must keep outrunning expectations.",
+      "Bear scenario implies approximately -42.8% downside."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "3 Reasons Growth Investors Will Love Paysign (PAYS)",
+        "publisher": "Zacks",
+        "published": "2026-08-10T16:45:03Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-growth-investors-love-164503657.html",
+        "summary": "Paysign (PAYS) is well positioned to outperform the market, as it exhibits above-average growth in financials."
+      },
+      {
+        "title": "PaySign Inc (PAYS) (Q2 2026) Earnings Call Highlights: Record Revenue Surges 48% as Patient ...",
+        "publisher": "GuruFocus.com",
+        "published": "2026-08-06T05:03:39Z",
+        "url": "https://finance.yahoo.com/healthcare/articles/paysign-inc-pays-q2-2026-050339053.html",
+        "summary": "PaySign Inc (PAYS) raises full-year guidance amid robust demand, with adjusted EBITDA up 113% and a strong pipeline of new program launches."
+      },
+      {
+        "title": "Paysign Q2 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-08-06T04:03:53Z",
+        "url": "https://www.marketbeat.com/instant-alerts/paysign-q2-earnings-call-highlights-2026-08-05/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "Paysign (NASDAQ:PAYS) reported record second-quarter revenue, net income and adjusted EBITDA for 2026, driven primarily by continued expansion in its Patient Affordability business and improving utilization in its plasma donor compensation operations. Revenue rose 48.1% from a year earlier to $28.3"
+      },
+      {
+        "title": "Paysign\u2019s (PAYS) Quarterly Results Defy Disruption Fears",
+        "publisher": "Insider Monkey",
+        "published": "2026-06-22T14:39:16Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/paysign-pays-quarterly-results-defy-143916552.html",
+        "summary": "Grow Funds, an investment Advisor, released its Q1 2026 investor letter for \u201cGROW Small Cap Equity Long/Short Fund\u201d. A copy of the letter can be downloaded here. In Q1 2026, GROW Small Cap Equity Long/Short L.P (Fund) returned 4.18%, outperforming the Russell 2000 Growth Index\u2019s \u20132.80%, HFRI Equity Hedge Index\u2019s -0.24%, and the HFRI Fundamental [\u2026]"
+      },
+      {
+        "title": "3 Growth Companies With Insider Ownership As High As 38%",
+        "publisher": "Simply Wall St.",
+        "published": "2026-05-28T11:35:48Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/3-growth-companies-insider-ownership-113548840.html",
+        "summary": "The United States market has experienced a positive trend, with a 1.3% increase over the last week and a substantial 28% rise over the past year, while earnings are projected to grow by 17% annually. In this environment, growth companies with significant insider ownership can be appealing as they often indicate strong confidence in the company's potential and alignment of interests between insiders and shareholders."
+      },
+      {
+        "title": "Why Paysign (PAYS) Is Down 13.7% After Patient Affordability Revenue Surpasses Plasma Business \u2013 And What's Next",
+        "publisher": "Simply Wall St.",
+        "published": "2026-05-15T15:17:40Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/why-paysign-pays-down-13-151740578.html",
+        "summary": "Paysign, Inc. reported its first-quarter 2026 results on May 12, with revenue rising to US$28.04 million and net income reaching US$5.44 million, alongside diluted EPS of US$0.09 from continuing operations. The quarter marked a turning point as the pharma-focused patient affordability business, now with 135 active programs, became Paysign's largest revenue contributor, surpassing its legacy plasma segment and highlighting a meaningful shift in its business mix. We\u2019ll now examine how this..."
+      },
+      {
+        "title": "Is FirstCash  (FCFS) Stock Outpacing Its Business Services Peers This Year?",
+        "publisher": "Zacks",
+        "published": "2026-05-14T13:40:05Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/firstcash-fcfs-stock-outpacing-business-134005245.html",
+        "summary": "Here is how FirstCash Holdings (FCFS) and Paysign, Inc. (PAYS) have performed compared to their sector so far this year."
+      },
+      {
+        "title": "Why Paysign Plunged Today",
+        "publisher": "Motley Fool",
+        "published": "2026-05-13T20:30:55Z",
+        "url": "https://www.fool.com/investing/2026/05/13/why-paysign-plunged-today/",
+        "summary": "Paysign handily beat Wall Street analysts in the first quarter but didn't raise guidance. The stock looks cheap."
+      },
+      {
+        "title": "PaySign, Inc. Q1 2026 Earnings Call Summary",
+        "publisher": "Moby",
+        "published": "2026-05-13T12:30:00Z",
+        "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-paysign-inc-q1-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss",
+        "summary": "Moby summary of PaySign, Inc.'s Q1 2026 earnings call"
+      },
+      {
+        "title": "PaySign Inc (PAYS) Q1 2026 Earnings Call Highlights: Surging Revenue and Strategic Growth ...",
+        "publisher": "GuruFocus.com",
+        "published": "2026-05-13T05:00:58Z",
+        "url": "https://finance.yahoo.com/news/paysign-inc-pays-q1-2026-050058894.html",
+        "summary": "PaySign Inc (PAYS) reports impressive revenue growth and profitability, while navigating operational hurdles and expanding its program pipeline."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:28+00:00",
+    "ticker": "IOVA",
+    "company": "Iovance Biotherapeutics, Inc.",
+    "sector": "Healthcare",
+    "industry": "Biotechnology",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 53.57,
+      "discovery_bucket": "MATURE_CHALLENGER",
+      "price_stage": "LATE",
+      "price_maturity": 88.47
+    },
+    "metrics": {
+      "price": 6.400000095367432,
+      "return_1m": 0.5130023797894092,
+      "return_3m": 0.7679558833408635,
+      "return_6m": 1.529644335075548,
+      "return_12m": 1.424242364035715,
+      "revenue_yoy": 0.656541900186816,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.3763699074948069,
+      "operating_margin_change_yoy": 1.3751109940476556,
+      "incremental_operating_margin_yoy": 1.5718350651660273,
+      "eps_revision_30d": 0.11324183743811495,
+      "eps_revision_90d": 0.11324183743811495,
+      "next_year_eps_estimate": -0.28300000000000003,
+      "next_year_eps_growth": 0.42410000000000003,
+      "next_year_revenue_estimate": 536111610.0,
+      "next_year_revenue_growth_estimate": 0.35580003,
+      "price_stage": "LATE",
+      "price_maturity": 88.47,
+      "market_cap": 2899017216,
+      "forward_pe": null,
+      "price_to_sales": 8.920904,
+      "enterprise_to_ebitda": -10.198,
+      "analyst_target_upside": 0.441,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "EARLY_STAGE_GROWTH",
+      "model": "FORWARD_REVENUE_MULTIPLE",
+      "reason": "Earnings are not useful, so forward revenue is valued with restrained scenario multiples.",
+      "current_price": 6.4,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 2.52,
+          "assumptions": {
+            "revenue_growth": 0.076740009,
+            "exit_price_sales": 1.8341400990000003
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 6.33,
+          "assumptions": {
+            "revenue_growth": 0.2668500225,
+            "exit_price_sales": 3.3348001800000002
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 10.09,
+          "assumptions": {
+            "revenue_growth": 0.37580003,
+            "exit_price_sales": 4.501980243
+          }
+        }
+      ],
+      "expected_value": 6.32,
+      "expected_cagr": -0.0043,
+      "base_cagr": -0.0037,
+      "bear_downside": -0.6063,
+      "probability_profit": 0.25
+    },
+    "decision": {
+      "decision": "TOO LATE",
+      "confidence": "MEDIUM",
+      "confidence_score": 0.703,
+      "adjusted_expected_cagr": -0.0043,
+      "reason": "Expected 3Y CAGR -0.4%, scenario profit probability 25%, bear-case downside -60.6%, price maturity 88/100."
+    },
+    "why_buy": [
+      "EPS consensus rose 11.3% over 30 days.",
+      "Consensus next-year EPS growth is 42.4%.",
+      "Consensus next-year revenue growth is 35.6%."
+    ],
+    "why_not": [
+      "The stock has already rerated materially; future earnings must keep outrunning expectations.",
+      "Bear scenario implies approximately -60.6% downside."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Iovance Biotherapeutics Stock Soars After the Company Posts Strong Q2 Earnings. Is It Heading Even Higher?",
+        "publisher": "Motley Fool",
+        "published": "2026-08-10T19:49:09Z",
+        "url": "https://www.fool.com/investing/2026/08/10/iovance-biotherapeutics-stock-soars-after-the-comp/",
+        "summary": "The healthcare stock is now up more than 130% this year."
+      },
+      {
+        "title": "Replimune Wins FDA Skin Cancer Drug Approval on Third Try. Why the Stock Is Tumbling.",
+        "publisher": "Barrons.com",
+        "published": "2026-08-07T19:33:00Z",
+        "url": "https://www.barrons.com/articles/replimune-stock-fda-skin-cancer-drug-1b2251e4?siteid=yhoof2&yptr=yahoo",
+        "summary": "Replimune secures FDA approval for Tudriqev on its third attempt, making it the company\u2019s first product on the market."
+      },
+      {
+        "title": "Does Iovance Biotherapeutics (IOVA) Have the Potential to Rally 28.02% as Wall Street Analysts Expect?",
+        "publisher": "Zacks",
+        "published": "2026-08-07T13:55:02Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/does-iovance-biotherapeutics-iova-potential-135502239.html",
+        "summary": "The mean of analysts' price targets for Iovance Biotherapeutics (IOVA) points to a 28% upside in the stock. While this highly sought-after metric has not proven reasonably effective, strong agreement among analysts in raising earnings estimates does indicate an upside in the stock."
+      },
+      {
+        "title": "IOVA Q2 Earnings Beat, Stock Jumps 43% on Strong Amtagvi Uptake",
+        "publisher": "Zacks",
+        "published": "2026-08-07T13:52:00Z",
+        "url": "https://finance.yahoo.com/healthcare/articles/iova-q2-earnings-beat-stock-135200704.html",
+        "summary": "Iovance rises 43% after Q2 results top estimates as Amtagvi sales beat forecasts, boosting revenues and prompting a review of full-year guidance."
+      },
+      {
+        "title": "Iovance Biotherapeutics, Inc. Q2 2026 Earnings Call Summary",
+        "publisher": "Moby",
+        "published": "2026-08-07T12:30:00Z",
+        "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-iovance-biotherapeutics-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss",
+        "summary": "Moby summary of Iovance Biotherapeutics, Inc.'s Q2 2026 earnings call"
+      },
+      {
+        "title": "Why Did IOVA, REPL, ROKU Stocks Surge To 52-Week Highs Today?",
+        "publisher": "Stocktwits",
+        "published": "2026-08-07T02:40:43Z",
+        "url": "https://stocktwits.com/news-articles/markets/equity/why-did-iova-repl-roku-stocks-surge-to-52-week-highs-today/cZoOYbURJJx",
+        "summary": "The rally showed that investors are paying more attention to fast-growing healthcare and digital media companies."
+      },
+      {
+        "title": "Iovance Biotherapeutics Inc (IOVA) (Q2 2026) Earnings Call Highlights: Record Revenue and ...",
+        "publisher": "GuruFocus.com",
+        "published": "2026-08-06T23:15:15Z",
+        "url": "https://finance.yahoo.com/healthcare/articles/iovance-biotherapeutics-inc-iova-q2-231515435.html",
+        "summary": "Iovance Biotherapeutics Inc (IOVA) reports record Q2 2026 revenue of $99.3 million, driven by strong Amtagvi demand and all-time high gross margins of 56%."
+      },
+      {
+        "title": "Iovance Biotherapeutics (IOVA) Pops 43% on Stellar Q2. Here\u2019s What Comes Next",
+        "publisher": "Insider Monkey",
+        "published": "2026-08-06T20:20:47Z",
+        "url": "https://finance.yahoo.com/healthcare/articles/iovance-biotherapeutics-iova-pops-43-202047364.html",
+        "summary": "Iovance Biotherapeutics Inc. (NASDAQ:IOVA) rocketed to a fresh 52-week high on Thursday, clocking as much as 47 percent gains, after management reported a 66 percent jump in revenues that signaled the strengthening demand for its treatment for advanced melanoma. In intra-day trading, the stock surged to its highest price of $6.39 before trimming gains to [\u2026]"
+      },
+      {
+        "title": "Iovance Biotherapeutics Q2 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-08-06T20:04:15Z",
+        "url": "https://www.marketbeat.com/instant-alerts/iovance-biotherapeutics-q2-earnings-call-highlights-2026-08-06/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "Iovance Biotherapeutics (NASDAQ:IOVA) reported record second-quarter revenue and gross margin, driven by demand for its Amtagvi tumor-infiltrating lymphocyte, or TIL, therapy, as the company expanded its treatment-center network and advanced clinical programs in lung cancer, sarcoma and gynecologic"
+      },
+      {
+        "title": "IOVA Stock Heads For Best Day In Over 6 Years \u2013 Buyout Buzz Builds After Blowout Q2",
+        "publisher": "Stocktwits",
+        "published": "2026-08-06T16:12:21Z",
+        "url": "https://stocktwits.com/news-articles/markets/equity/iova-stock-heads-for-best-day-in-over-6-years-buyout-buzz-builds-after-blowout-q2/cZoBcmiRJJ4",
+        "summary": "The biotech company reported record second-quarter revenue fueled by strong sales of its cancer therapy Amtagvi."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:30+00:00",
+    "ticker": "SLN",
+    "company": "Silence Therapeutics Plc - Amer",
+    "sector": "Healthcare",
+    "industry": "Biotechnology",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 43.57,
+      "discovery_bucket": "MATURE_CHALLENGER",
+      "price_stage": "LATE",
+      "price_maturity": 96.0
+    },
+    "metrics": {
+      "price": 15.430000305175781,
+      "return_1m": 0.697469752053075,
+      "return_3m": 1.213773424626102,
+      "return_6m": 2.2484211168791117,
+      "return_12m": 1.8680297354936477,
+      "revenue_yoy": 1.971830985915493,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.35421533942994465,
+      "operating_margin_change_yoy": 162.77191108737736,
+      "incremental_operating_margin_yoy": 45.25714285714286,
+      "eps_revision_30d": 0.0,
+      "eps_revision_90d": 0.6060606060606061,
+      "next_year_eps_estimate": -0.39,
+      "next_year_eps_growth": 0.025,
+      "next_year_revenue_estimate": 3468580.0,
+      "next_year_revenue_growth_estimate": 0.38,
+      "price_stage": "LATE",
+      "price_maturity": 96.0,
+      "market_cap": 728830080,
+      "forward_pe": null,
+      "price_to_sales": 868.689,
+      "enterprise_to_ebitda": -6.957,
+      "analyst_target_upside": 0.8903,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "EARLY_STAGE_GROWTH",
+      "model": "FORWARD_REVENUE_MULTIPLE",
+      "reason": "Earnings are not useful, so forward revenue is valued with restrained scenario multiples.",
+      "current_price": 15.43,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 0.17,
+          "assumptions": {
+            "revenue_growth": 0.08399999999999999,
+            "exit_price_sales": 1.9140000000000004
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 0.42,
+          "assumptions": {
+            "revenue_growth": 0.28500000000000003,
+            "exit_price_sales": 3.4800000000000004
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 0.68,
+          "assumptions": {
+            "revenue_growth": 0.4,
+            "exit_price_sales": 4.698000000000001
+          }
+        }
+      ],
+      "expected_value": 0.42,
+      "expected_cagr": -0.6986,
+      "base_cagr": -0.6992,
+      "bear_downside": -0.989,
+      "probability_profit": 0
+    },
+    "decision": {
+      "decision": "TOO LATE",
+      "confidence": "MEDIUM",
+      "confidence_score": 0.615,
+      "adjusted_expected_cagr": -0.6986,
+      "reason": "Expected 3Y CAGR -69.9%, scenario profit probability 0%, bear-case downside -98.9%, price maturity 96/100."
+    },
+    "why_buy": [
+      "Consensus next-year revenue growth is 38.0%."
+    ],
+    "why_not": [
+      "The stock has already rerated materially; future earnings must keep outrunning expectations.",
+      "Bear scenario implies approximately -98.9% downside."
+    ],
+    "what_changes_decision": [
+      "30-day EPS revisions turn positive.",
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Sector Update: Healthcare Stocks Gain Late Afternoon",
+        "publisher": "MT Newswires",
+        "published": "2026-08-10T19:58:04Z",
+        "url": "https://finance.yahoo.com/healthcare/articles/sector-healthcare-stocks-gain-afternoon-195804577.html",
+        "summary": "Healthcare stocks were higher late Monday afternoon, with the NYSE Healthcare Index rising 1% and th"
+      },
+      {
+        "title": "European Equities Traded in the US as American Depositary Receipts Edge Higher in Monday Trading",
+        "publisher": "MT Newswires",
+        "published": "2026-08-10T15:16:07Z",
+        "url": "https://finance.yahoo.com/markets/world-indices/articles/european-equities-traded-us-american-151607348.html",
+        "summary": "European equities traded in the US as American depositary receipts started the week modestly higher"
+      },
+      {
+        "title": "European Equities Traded in US as ADRs Advance in Tuesday Trading",
+        "publisher": "MT Newswires",
+        "published": "2026-08-04T15:06:15Z",
+        "url": "https://finance.yahoo.com/markets/world-indices/articles/european-equities-traded-us-adrs-150615834.html",
+        "summary": "European equities traded in the US as American depositary receipts rose late Tuesday morning with th"
+      },
+      {
+        "title": "European Equities Traded in the US as American Depositary Receipts Decline in Monday Trading",
+        "publisher": "MT Newswires",
+        "published": "2026-08-03T15:05:39Z",
+        "url": "https://finance.yahoo.com/markets/world-indices/articles/european-equities-traded-us-american-150539652.html",
+        "summary": "European equities traded in the US as American depositary receipts started the week off lower late M"
+      },
+      {
+        "title": "European Equities Traded in US as ADRs Ease in Wednesday Trading",
+        "publisher": "MT Newswires",
+        "published": "2026-07-29T15:05:07Z",
+        "url": "https://finance.yahoo.com/markets/world-indices/articles/european-equities-traded-us-adrs-150507593.html",
+        "summary": "European equities traded in the US as American depositary receipts eased late Wednesday morning with"
+      },
+      {
+        "title": "European Equities Traded in US as ADRs Ease in Tuesday Trading",
+        "publisher": "MT Newswires",
+        "published": "2026-07-28T15:04:38Z",
+        "url": "https://finance.yahoo.com/markets/world-indices/articles/european-equities-traded-us-adrs-150438673.html",
+        "summary": "European equities traded in the US as American depositary receipts eased late Tuesday morning with t"
+      },
+      {
+        "title": "European Equities Traded in the US as American Depositary Receipts Start Week Marginally Higher in Monday Trading",
+        "publisher": "MT Newswires",
+        "published": "2026-07-27T15:13:08Z",
+        "url": "https://finance.yahoo.com/markets/world-indices/articles/european-equities-traded-us-american-151308528.html",
+        "summary": "European equities traded in the US as American depositary receipts started the week slightly higher"
+      },
+      {
+        "title": "European Equities Traded in the US as American Depositary Receipts Rise in Friday Trading",
+        "publisher": "MT Newswires",
+        "published": "2026-07-24T15:06:34Z",
+        "url": "https://finance.yahoo.com/markets/world-indices/articles/european-equities-traded-us-american-150634041.html",
+        "summary": "European equities traded in the US as American depositary receipts were tracking higher late Friday"
+      },
+      {
+        "title": "European Equities Traded in the US as American Depositary Receipts Rise in Wednesday Trading",
+        "publisher": "MT Newswires",
+        "published": "2026-07-22T15:10:24Z",
+        "url": "https://finance.yahoo.com/markets/world-indices/articles/european-equities-traded-us-american-151024042.html",
+        "summary": "European equities traded in the US as American depositary receipts were tracking higher late Wednesd"
+      },
+      {
+        "title": "European Equities Traded in the US as American Depositary Receipts Decline Sharply in Wednesday Trading",
+        "publisher": "MT Newswires",
+        "published": "2026-07-08T15:09:58Z",
+        "url": "https://finance.yahoo.com/markets/world-indices/articles/european-equities-traded-us-american-150958687.html",
+        "summary": "European equities traded in the US as American depositary receipts were tracking lower late Wednesda"
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:31+00:00",
+    "ticker": "AYA",
+    "company": "Aya Gold & Silver Inc.",
+    "sector": "Basic Materials",
+    "industry": "Silver",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 42.84,
+      "discovery_bucket": "MATURE_CHALLENGER",
+      "price_stage": "LATE",
+      "price_maturity": 80.0
+    },
+    "metrics": {
+      "price": 27.920000076293945,
+      "return_1m": 0.37469230972224743,
+      "return_3m": 0.44438697291732665,
+      "return_6m": 0.6839565865361663,
+      "return_12m": 1.9989257591723542,
+      "revenue_yoy": 2.466465667582986,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.4113283959298492,
+      "operating_margin_change_yoy": 0.5631990232982914,
+      "incremental_operating_margin_yoy": 0.8899128746569515,
+      "eps_revision_30d": null,
+      "eps_revision_90d": null,
+      "next_year_eps_estimate": null,
+      "next_year_eps_growth": null,
+      "next_year_revenue_estimate": 455333330.0,
+      "next_year_revenue_growth_estimate": -0.0155,
+      "price_stage": "LATE",
+      "price_maturity": 80.0,
+      "market_cap": 4002324736,
+      "forward_pe": 12.139131,
+      "price_to_sales": 14.016441,
+      "enterprise_to_ebitda": 24.848,
+      "analyst_target_upside": null,
+      "data_quality": 69.2
+    },
+    "valuation": {
+      "company_type": "CYCLICAL",
+      "model": "NORMALIZED_CYCLICAL_EARNINGS",
+      "reason": "Uses normalized positive annual EPS plus forward EPS instead of capitalizing peak-cycle earnings.",
+      "current_price": 27.92,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 0.21,
+          "assumptions": {
+            "normalized_eps_factor": 0.65,
+            "exit_pe": 8
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 0.48,
+          "assumptions": {
+            "normalized_eps_factor": 1.0,
+            "exit_pe": 12
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 0.86,
+          "assumptions": {
+            "normalized_eps_factor": 1.35,
+            "exit_pe": 16
+          }
+        }
+      ],
+      "expected_value": 0.51,
+      "expected_cagr": -0.7371,
+      "base_cagr": -0.7419,
+      "bear_downside": -0.9925,
+      "probability_profit": 0
+    },
+    "decision": {
+      "decision": "TOO LATE",
+      "confidence": "LOW",
+      "confidence_score": 0.475,
+      "adjusted_expected_cagr": -0.7371,
+      "reason": "Expected 3Y CAGR -73.7%, scenario profit probability 0%, bear-case downside -99.2%, price maturity 80/100."
+    },
+    "why_buy": [
+      "No single strong generic buy factor passed the configured threshold."
+    ],
+    "why_not": [
+      "The stock has already rerated materially; future earnings must keep outrunning expectations.",
+      "Bear scenario implies approximately -99.2% downside."
+    ],
+    "what_changes_decision": [
+      "Obtain a reliable recent EPS-revision history.",
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Aya Gold & Silver expands exploration in Morocco",
+        "publisher": "Mining Technology",
+        "published": "2026-08-06T14:46:38Z",
+        "url": "https://www.mining-technology.com/news/aya-gold-silver-exploration-morocco/",
+        "summary": "The newly acquired portfolio covers the Zagora, Agadir-Melloul and Goulmim projects."
+      },
+      {
+        "title": "Aya Gold & Silver (TSX:AYA) Valuation Check As High Grade Zgounder Drill Results Draw Investor Focus",
+        "publisher": "Simply Wall St.",
+        "published": "2026-06-05T14:16:48Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/aya-gold-silver-tsx-aya-141648524.html",
+        "summary": "High grade drill results put Zgounder in focus Aya Gold & Silver (TSX:AYA) has drawn fresh attention after reporting high grade silver intercepts from its at depth exploration program at the Zgounder Silver Mine in Morocco. For investors, the update offers new data points on the quality and extent of mineralization in key parts of the project, including open pit areas, the Western Fault contact, and the Central Zone. See our latest analysis for Aya Gold & Silver. The high grade drill results..."
+      },
+      {
+        "title": "Aya Gold & Silver Up 1.7% In US Premarket As Reports High-Grade Exploration Drill Results Near Pit Depth at Zgounder",
+        "publisher": "MT Newswires",
+        "published": "2026-06-02T12:10:06Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/aya-gold-silver-1-7-121006952.html",
+        "summary": "Aya Gold & Silver (AYA.TO; NASDAQ: AYA) was at last look up 1.7% in US premarket trade after announc"
+      },
+      {
+        "title": "Aya Gold & Silver Maintained at Buy at Stifel Canada After Boumadine Drill Results; Price Target Kept at C$39.00",
+        "publisher": "MT Newswires",
+        "published": "2026-05-21T15:41:27Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/aya-gold-silver-maintained-buy-154127959.html",
+        "summary": "Stifel Canada on Thursday maintained its buy rating on the shares of Aya Gold & Silver (AYA.TO) and"
+      },
+      {
+        "title": "Aya Gold & Silver (TSX:AYA) Is Down 20.3% After Record Boumadine Drills and $500M Morocco Plan - Has The Bull Case Changed?",
+        "publisher": "Simply Wall St.",
+        "published": "2026-05-21T05:13:03Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/aya-gold-silver-tsx-aya-051303819.html",
+        "summary": "Aya Gold & Silver recently reported past first-quarter 2026 results with sales of US$117.27 million and net income of US$48.33 million, while also highlighting record drill intercepts at its Boumadine project in Morocco. The company\u2019s plan to invest US$500 million in Morocco through 2030, aiming to expand silver production and initiate gold output, underscores how central Boumadine has become to its long-term growth ambitions. We\u2019ll now examine how Boumadine\u2019s exceptional high-grade drill..."
+      },
+      {
+        "title": "Aya Gold & Silver Posts High-Grade Drill Results from Boumadine Project",
+        "publisher": "MT Newswires",
+        "published": "2026-05-20T12:21:40Z",
+        "url": "https://finance.yahoo.com/markets/commodities/articles/aya-gold-silver-posts-high-122140354.html",
+        "summary": "Aya Gold & Silver (AYA.TO) reported new drill results from the Boumadine project in Morocco that con"
+      },
+      {
+        "title": "Aya Gold & Silver Q1 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-05-16T06:05:38Z",
+        "url": "https://www.marketbeat.com/instant-alerts/aya-gold-silver-q1-earnings-call-highlights-2026-05-16/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "Aya Gold & Silver (TSE:AYA) reported what management described as a record first quarter of 2026, with higher revenue, cash flow and earnings despite weather-related disruptions at its Moroccan operations. President and CEO Benoit La Salle said the quarter was \u201cexceptional\u201d for the company, not"
+      },
+      {
+        "title": "Aya Gold & Silver Inc (AYA) Q1 2026 Earnings Call Highlights: Record Revenue and Strategic ...",
+        "publisher": "GuruFocus.com",
+        "published": "2026-05-14T23:06:32Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/aya-gold-silver-inc-aya-230632178.html",
+        "summary": "Aya Gold & Silver Inc (AYA) reports a remarkable revenue surge and robust exploration plans, while addressing weather-related disruptions and logistical hurdles."
+      },
+      {
+        "title": "Aya Gold & Silver Shares Rise After Record Revenue Beats Expectations",
+        "publisher": "InvestorsHub",
+        "published": "2026-05-14T14:02:37Z",
+        "url": "https://investorshub.advfn.com/market-news/article/28428/aya-gold-silver-shares-rise-after-record-revenue-beats-expectations",
+        "summary": "Aya Gold & Silver (NASDAQ:AYA) shares advanced more than 2% in premarket trading Thursday after the company reported first-quarter results highlighted by record revenue and sharply higher profitability. The mining company posted revenue of $117."
+      },
+      {
+        "title": "Aya Gold & Silver\u2019s Valuation After New Nasdaq Listing And NASDAQ Composite Inclusion",
+        "publisher": "Simply Wall St.",
+        "published": "2026-05-09T05:20:41Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/aya-gold-silver-valuation-nasdaq-052041210.html",
+        "summary": "Aya Gold & Silver (TSX:AYA) has just begun trading on the Nasdaq Stock Market under the ticker AYA and joined the NASDAQ Composite Index. This change can reshape how global investors access the stock. See our latest analysis for Aya Gold & Silver. The Nasdaq listing and addition to the NASDAQ Composite come on the back of strong momentum, with a 1-year total shareholder return of 154.9% and a year-to-date share price return of 31.19%. This indicates that recent interest has built on already..."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:24+00:00",
+    "ticker": "YPF",
+    "company": "YPF Sociedad Anonima",
+    "sector": "Energy",
+    "industry": "Oil & Gas Integrated",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 65.49,
+      "discovery_bucket": "EARLY_BREAKOUT",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 50.939998626708984,
+      "return_1m": 0.07061783661936061,
+      "return_3m": 0.2022657519676032,
+      "return_6m": 0.3356056487125847,
+      "return_12m": 0.42409834986884243,
+      "revenue_yoy": 0.07456521739130428,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.07417797676116422,
+      "operating_margin_change_yoy": 0.08704817528520789,
+      "incremental_operating_margin_yoy": 1.3440233236151604,
+      "eps_revision_30d": 0.030138829100301478,
+      "eps_revision_90d": 0.06549478683536797,
+      "next_year_eps_estimate": 5.7432300000000005,
+      "next_year_eps_growth": -0.069699995,
+      "next_year_revenue_estimate": 29938818891500.0,
+      "next_year_revenue_growth_estimate": -0.0509,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": 19974942720,
+      "forward_pe": 8.869574,
+      "price_to_sales": 0.00078871986,
+      "enterprise_to_ebitda": 1.843,
+      "analyst_target_upside": 0.1489,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "CYCLICAL",
+      "model": "NORMALIZED_CYCLICAL_EARNINGS",
+      "reason": "Uses normalized positive annual EPS plus forward EPS instead of capitalizing peak-cycle earnings.",
+      "current_price": 50.94,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 28.14,
+          "assumptions": {
+            "normalized_eps_factor": 0.65,
+            "exit_pe": 8
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 64.95,
+          "assumptions": {
+            "normalized_eps_factor": 1.0,
+            "exit_pe": 12
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 116.91,
+          "assumptions": {
+            "normalized_eps_factor": 1.35,
+            "exit_pe": 16
+          }
+        }
+      ],
+      "expected_value": 68.74,
+      "expected_cagr": 0.105,
+      "base_cagr": 0.0844,
+      "bear_downside": -0.4476,
+      "probability_profit": 0.75
+    },
+    "decision": {
+      "decision": "PASS",
+      "confidence": "HIGH",
+      "confidence_score": 0.878,
+      "adjusted_expected_cagr": 0.075,
+      "reason": "Expected 3Y CAGR 10.5%, scenario profit probability 75%, bear-case downside -44.8%, price maturity 0/100."
+    },
+    "why_buy": [
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "Bear scenario implies approximately -44.8% downside."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Is Vista Energy Stock Still Attractive After Its Latest Earnings Miss?",
+        "publisher": "Zacks",
+        "published": "2026-07-31T18:50:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/vista-energy-stock-still-attractive-185000998.html",
+        "summary": "VIST pairs 32% production growth and low earnings multiples with a Q2 earnings miss, estimate cuts and limited price-target upside."
+      },
+      {
+        "title": "Billionaire Investor Stanley Druckenmiller\u2019s Top 5 Picks: Worth Buying Today?",
+        "publisher": "24/7 Wall St.",
+        "published": "2026-07-20T15:36:41Z",
+        "url": "https://247wallst.com/investing/2026/07/20/billionaire-investor-stanley-druckenmillers-top-5-picks-worth-buying-today/",
+        "summary": "Stanley Druckenmiller is skipping the mega-cap tech herd and loading up on a Mexican discount grocer, an Argentine shale producer, and a biotech that Wall Street just handed a 38% discount despite accelerating fundamentals. Here is what his latest 13F reveals about where serious money is actually moving."
+      },
+      {
+        "title": "YPF Sociedad An\u00f3nima (YPF) to Collaborate With Tesla on Energy Storage Infrastructure and Fast-Charging Networks",
+        "publisher": "Insider Monkey",
+        "published": "2026-07-01T16:26:59Z",
+        "url": "https://finance.yahoo.com/energy/articles/ypf-sociedad-nima-ypf-collaborate-162659682.html",
+        "summary": "YPF Sociedad An\u00f3nima (NYSE:YPF) is one of the 10 integrated oil and gas companies to invest in according to hedge funds. On June 16, the Argentine national energy provider, YPF Sociedad An\u00f3nima (NYSE:YPF), announced that it signed an LOI with Tesla Inc. (NASDAQ:TSLA) to collaborate on energy storage infrastructure and fast-charging networks. According to a [\u2026]"
+      },
+      {
+        "title": "Here's How BP Enhances Financial Strength With Deleveraging Efforts",
+        "publisher": "Zacks",
+        "published": "2026-06-30T14:19:00Z",
+        "url": "https://finance.yahoo.com/energy/articles/heres-bp-enhances-financial-strength-141900636.html",
+        "summary": "BP accelerates debt reduction through asset sales, cost savings and capital discipline to strengthen its balance sheet by 2027."
+      },
+      {
+        "title": "Eni Expands Upstream Gas Portfolio With Argentina's Vaca Muerta Stake",
+        "publisher": "Zacks",
+        "published": "2026-06-30T12:25:00Z",
+        "url": "https://finance.yahoo.com/energy/articles/eni-expands-upstream-gas-portfolio-122500694.html",
+        "summary": "E strengthens its Vaca Muerta presence through a 32% stake in three gas blocks, supporting its upstream and LNG growth strategy."
+      },
+      {
+        "title": "BKR Wins Angola Contract for Azule Energy's Greater PAJ Development",
+        "publisher": "Zacks",
+        "published": "2026-06-29T13:36:00Z",
+        "url": "https://finance.yahoo.com/energy/articles/bkr-wins-angola-contract-azule-133600557.html",
+        "summary": "Baker Hughes strengthens its offshore portfolio with a major Angola subsea contract, reinforcing its deepwater technology leadership and future revenue visibility."
+      },
+      {
+        "title": "YPF Sociedad An\u00f3nima (BASE:YPFD) Stock Gets Fair Value Boost After Analyst Target Increases",
+        "publisher": "Simply Wall St.",
+        "published": "2026-06-29T12:07:09Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/ypf-sociedad-nima-ypfd-stock-120709549.html",
+        "summary": "Price target revisions for YPF Sociedad An\u00f3nima are back in focus, with recent updates highlighting levels such as US$48 and an US$8 uplift from a prior target that frame where analysts currently see value. These clustered moves provide a clearer view of how the Street is aligning its perspectives on YPF Sociedad An\u00f3nima, its execution, and the balance of upside versus caution. Read on to see how to track these shifts and what to watch as the analyst narrative continues to evolve. Stay..."
+      },
+      {
+        "title": "EQNR Exits Japan Offshore Wind Business, Prioritizes Integrated Power",
+        "publisher": "Zacks",
+        "published": "2026-06-26T14:28:00Z",
+        "url": "https://finance.yahoo.com/energy/articles/eqnr-exits-japan-offshore-wind-142800928.html",
+        "summary": "Equinor exits Japan's offshore wind market, closing its Tokyo office as it refocuses on integrated power and oil and gas production."
+      },
+      {
+        "title": "BP Inks New Deal With ADNOC to Develop UAE's Bab Gas Cap Project",
+        "publisher": "Zacks",
+        "published": "2026-06-25T16:03:00Z",
+        "url": "https://finance.yahoo.com/energy/articles/bp-inks-deal-adnoc-develop-160300581.html",
+        "summary": "BP's 10% stake in ADNOC's Bab Gas Cap project offers the first direct access to Abu Dhabi's upstream gas resources and supports the UAE's LNG business."
+      },
+      {
+        "title": "Should Value Investors Buy YPF Sociedad Anonima (YPF) Stock?",
+        "publisher": "Zacks",
+        "published": "2026-06-25T13:40:03Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/value-investors-buy-ypf-sociedad-134003167.html",
+        "summary": "Here at Zacks, our focus is on the proven Zacks Rank system, which emphasizes earnings estimates and estimate revisions to find great stocks. Nevertheless, we are always paying attention to the latest value, growth, and momentum trends to underscore strong picks."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:20+00:00",
+    "ticker": "LPG",
+    "company": "Dorian LPG Ltd.",
+    "sector": "Energy",
+    "industry": "Oil & Gas Midstream",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 77.66,
+      "discovery_bucket": "EARLY_BREAKOUT",
+      "price_stage": "EARLY",
+      "price_maturity": 12.33
+    },
+    "metrics": {
+      "price": 44.459999084472656,
+      "return_1m": 0.13516004256659508,
+      "return_3m": 0.15670000757244118,
+      "return_6m": 0.47246277205763687,
+      "return_12m": 0.6399453685585543,
+      "revenue_yoy": 1.2310944266519082,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.29795366344293955,
+      "operating_margin_change_yoy": 0.42280244886314056,
+      "incremental_operating_margin_yoy": 0.9513882617828643,
+      "eps_revision_30d": 0.2445573294629898,
+      "eps_revision_90d": 1.1190314975807207,
+      "next_year_eps_estimate": 4.2875,
+      "next_year_eps_growth": -0.43460000000000004,
+      "next_year_revenue_estimate": 408207580.0,
+      "next_year_revenue_growth_estimate": -0.29910000000000003,
+      "price_stage": "EARLY",
+      "price_maturity": 12.33,
+      "market_cap": 1902117888,
+      "forward_pe": 10.369679,
+      "price_to_sales": 3.286028,
+      "enterprise_to_ebitda": 5.972,
+      "analyst_target_upside": 0.1651,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "CYCLICAL",
+      "model": "NORMALIZED_CYCLICAL_EARNINGS",
+      "reason": "Uses normalized positive annual EPS plus forward EPS instead of capitalizing peak-cycle earnings.",
+      "current_price": 44.46,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 22.63,
+          "assumptions": {
+            "normalized_eps_factor": 0.65,
+            "exit_pe": 8
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 52.22,
+          "assumptions": {
+            "normalized_eps_factor": 1.0,
+            "exit_pe": 12
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 93.99,
+          "assumptions": {
+            "normalized_eps_factor": 1.35,
+            "exit_pe": 16
+          }
+        }
+      ],
+      "expected_value": 55.27,
+      "expected_cagr": 0.0752,
+      "base_cagr": 0.0551,
+      "bear_downside": -0.491,
+      "probability_profit": 0.75
+    },
+    "decision": {
+      "decision": "PASS",
+      "confidence": "HIGH",
+      "confidence_score": 0.878,
+      "adjusted_expected_cagr": 0.0752,
+      "reason": "Expected 3Y CAGR 7.5%, scenario profit probability 75%, bear-case downside -49.1%, price maturity 12/100."
+    },
+    "why_buy": [
+      "EPS consensus rose 24.5% over 30 days.",
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "Bear scenario implies approximately -49.1% downside."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "DorianG (LPG) Stock Still Looks Expensive Even After A 7x Return",
+        "publisher": "Simply Wall St.",
+        "published": "2026-08-10T01:13:20Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/doriang-lpg-stock-still-looks-011320209.html",
+        "summary": "DorianG stock has delivered a very large 5-year return, yet current checks suggest the shares trade at a premium to what the underlying cash flows may justify. The Discounted Cash Flow (DCF) intrinsic value estimate and the market-based valuation multiples both indicate an overvalued picture despite the strong track record. Over the last 5 years, DorianG has returned roughly 7x, which sets a high bar for any further gains to be supported by fundamentals. Recent strong trading conditions in..."
+      },
+      {
+        "title": "DorianG (LPG) Posted Record Quarterly Earnings, Is The Stock Still Below Fair Value?",
+        "publisher": "Simply Wall St.",
+        "published": "2026-08-09T14:10:47Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/doriang-lpg-posted-record-quarterly-141047197.html",
+        "summary": "DorianG (LPG) stock is in focus after the company reported record quarterly earnings, with revenue of US$187.88 million and net income of US$138.29 million for the quarter ended June 30, 2026. See our latest analysis for DorianG. Against this backdrop of record results, DorianG\u2019s short term share price return of 14.26% over the past month and year to date share price return of 84.89% point to strong momentum, while the very large 5 year total shareholder return of 7x shows how long term..."
+      },
+      {
+        "title": "Does DorianG's Record Q1 Earnings and Cash Build Reshape the Bull Case for LPG?",
+        "publisher": "Simply Wall St.",
+        "published": "2026-08-09T13:09:59Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/does-doriangs-record-q1-earnings-130959091.html",
+        "summary": "Dorian LPG Ltd. reported past first-quarter 2027 results to June 30, 2026, with revenue of US$187.88 million and net income of US$138.29 million, driving basic earnings per share of US$3.25 from continuing operations. The company paired this record chartering performance with US$1.00 per-share dividends and fleet sale proceeds that lifted cash balances to nearly US$600 million, reinforcing its capacity to renew and reposition its VLGC fleet. We\u2019ll now examine how this record quarter and..."
+      },
+      {
+        "title": "Dorian LPG Q1 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-08-08T17:03:55Z",
+        "url": "https://www.marketbeat.com/instant-alerts/dorian-lpg-q1-earnings-call-highlights-2026-08-08/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "Dorian LPG (NYSE:LPG) reported record quarterly chartering performance for its fiscal first quarter of 2027, as disruptions to Middle East LPG supply and congestion at the Panama Canal supported elevated freight rates and longer shipping routes. Chief Executive Officer John Hadjipateras said the co"
+      },
+      {
+        "title": "Dorian LPG (LPG) Q1 2027 Earnings Call Transcript",
+        "publisher": "Motley Fool",
+        "published": "2026-08-06T04:28:20Z",
+        "url": "https://www.fool.com/earnings/call-transcripts/2026/08/06/dorian-lpg-lpg-q1-2027-earnings-call-transcript/",
+        "summary": "Record freight rates drive record TCE revenue and $1 billion shareholder returns."
+      },
+      {
+        "title": "Dorian LPG Ltd. Q1 2027 Earnings Call Summary",
+        "publisher": "Moby",
+        "published": "2026-08-06T02:17:04Z",
+        "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-dorian-lpg-ltd-q1-2027-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss",
+        "summary": "Moby summary of Dorian LPG Ltd.'s Q1 2027 earnings call"
+      },
+      {
+        "title": "Dorian LPG Ltd (LPG) (Q1 2027) Earnings Call Highlights: Record TCE Rates and Strategic Fleet ...",
+        "publisher": "GuruFocus.com",
+        "published": "2026-08-05T21:06:43Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/dorian-lpg-ltd-lpg-q1-210643240.html",
+        "summary": "Dorian LPG Ltd (LPG) posts highest-ever TCE revenue per available day of $75,926, bolstered by robust VLGC market conditions and strategic vessel sales."
+      },
+      {
+        "title": "This Niche Energy Stock Breaks Out Before Earnings",
+        "publisher": "Investor's Business Daily",
+        "published": "2026-08-03T17:13:24Z",
+        "url": "https://www.investors.com/news/energy-stock-lpg-breaking-out-before-q1-27-earnings/?src=A00220&yptr=yahoo",
+        "summary": "Energy stock Dorian LPG is flashing bullish signals Monday even as yet another de-escalation narrative sweeps through markets."
+      },
+      {
+        "title": "LPG Shipper Nears Buy Point As Iran Conflict Sends Rates Soaring",
+        "publisher": "Investor's Business Daily",
+        "published": "2026-07-23T12:00:39Z",
+        "url": "https://www.investors.com/stock-lists/stock-spotlight/dorian-lpg-stock-strait-of-hormuz/?src=A00220&yptr=yahoo",
+        "summary": "In the January-March quarter, when the Iran conflict was at its peak, time charter equivalent rates for its fleet soared 80% to $63,615 from the year-ago period."
+      },
+      {
+        "title": "Oil Tanker Stocks Set Up Amid Trump's Flip-Flop On Hormuz Toll",
+        "publisher": "Investor's Business Daily",
+        "published": "2026-07-14T21:21:33Z",
+        "url": "https://www.investors.com/news/oil-tanker-stocks-buy-points-trump-hormuz-toll-roils-industry/?src=A00220&yptr=yahoo",
+        "summary": "Oil tanker stocks were setting up Tuesday as President Donald Trump abandoned his edict, that the U.S. would charge a fee to protect ships passing through the Strait of Hormuz.  Okeanis Eco Tankers, International Seaways and Nordic American Tankers all traded near buy points.  Trump withdrew the 20% Strait of Hormuz toll he had announced in a social media post on Monday, claiming nations in the Middle East will make trade and investment deals with the United States instead."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:25+00:00",
+    "ticker": "GSM",
+    "company": "Ferroglobe PLC",
+    "sector": "Basic Materials",
+    "industry": "Other Industrial Metals & Mining",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 64.68,
+      "discovery_bucket": "RECOVERY",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 4.630000114440918,
+      "return_1m": 0.41590218392877953,
+      "return_3m": 0.13917420606777342,
+      "return_6m": -0.09563039541081841,
+      "return_12m": 0.12082803882964388,
+      "revenue_yoy": -0.02130475466703885,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.14558523624237563,
+      "operating_margin_change_yoy": 0.12784100403116735,
+      "incremental_operating_margin_yoy": -5.850157728706624,
+      "eps_revision_30d": 0.012195121951219521,
+      "eps_revision_90d": -0.16999999999999993,
+      "next_year_eps_estimate": 0.41500000000000004,
+      "next_year_eps_growth": 2.7726998,
+      "next_year_revenue_estimate": 1818950000.0,
+      "next_year_revenue_growth_estimate": 0.20750000000000002,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": null,
+      "forward_pe": 11.156627,
+      "price_to_sales": null,
+      "enterprise_to_ebitda": 18.69,
+      "analyst_target_upside": 0.2959,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "CYCLICAL",
+      "model": "NORMALIZED_CYCLICAL_EARNINGS",
+      "reason": "Uses normalized positive annual EPS plus forward EPS instead of capitalizing peak-cycle earnings.",
+      "current_price": 4.63,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 2.27,
+          "assumptions": {
+            "normalized_eps_factor": 0.65,
+            "exit_pe": 8
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 5.25,
+          "assumptions": {
+            "normalized_eps_factor": 1.0,
+            "exit_pe": 12
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 9.45,
+          "assumptions": {
+            "normalized_eps_factor": 1.35,
+            "exit_pe": 16
+          }
+        }
+      ],
+      "expected_value": 5.55,
+      "expected_cagr": 0.0626,
+      "base_cagr": 0.0428,
+      "bear_downside": -0.5097,
+      "probability_profit": 0.75
+    },
+    "decision": {
+      "decision": "PASS",
+      "confidence": "HIGH",
+      "confidence_score": 0.878,
+      "adjusted_expected_cagr": 0.0626,
+      "reason": "Expected 3Y CAGR 6.3%, scenario profit probability 75%, bear-case downside -51.0%, price maturity 0/100."
+    },
+    "why_buy": [
+      "Consensus next-year EPS growth is 277.3%.",
+      "Consensus next-year revenue growth is 20.8%.",
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "Bear scenario implies approximately -51.0% downside."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Ferroglobe Q2 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-08-05T16:04:13Z",
+        "url": "https://www.marketbeat.com/instant-alerts/ferroglobe-q2-earnings-call-highlights-2026-08-05/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "Ferroglobe (NASDAQ:GSM) reported higher shipments, revenue, adjusted EBITDA and free cash flow in the second quarter of 2026, as increased silicon metal volumes and stronger fixed-cost absorption helped offset continued pricing pressure from imports. Total shipments rose 7% sequentially to 188,000"
+      },
+      {
+        "title": "Ferroglobe PLC Q2 2026 Earnings Call Summary",
+        "publisher": "Moby",
+        "published": "2026-08-05T12:30:00Z",
+        "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-ferroglobe-plc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss",
+        "summary": "Moby summary of Ferroglobe PLC's Q2 2026 earnings call"
+      },
+      {
+        "title": "Exploring Undervalued Small Caps With Insider Action In May 2026",
+        "publisher": "Simply Wall St.",
+        "published": "2026-05-29T11:39:48Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/exploring-undervalued-small-caps-insider-113948835.html",
+        "summary": "The United States market has shown robust performance recently, climbing 1.8% in the last seven days and rising 28% over the past year, with earnings forecasted to grow by 17% annually. In this thriving environment, identifying small-cap stocks that are potentially undervalued and experiencing insider action can present unique opportunities for investors seeking to capitalize on growth prospects within emerging companies."
+      },
+      {
+        "title": "Ferroglobe (GSM) Q1 2026 Earnings Transcript",
+        "publisher": "Motley Fool",
+        "published": "2026-05-07T15:14:33Z",
+        "url": "https://www.fool.com/earnings/call-transcripts/2026/05/07/ferroglobe-gsm-q1-2026-earnings-transcript/",
+        "summary": "Marco Levi: Thank you, Alex, and thank you all for joining us today.  This segment was driven by growth in ferrosilicon in both Europe and North America.  The improvement in Europe was helped by recently implemented safeguards."
+      },
+      {
+        "title": "Ferroglobe Q1 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-05-06T16:41:29Z",
+        "url": "https://www.marketbeat.com/instant-alerts/ferroglobe-q1-earnings-call-highlights-2026-05-06/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "Ferroglobe (NASDAQ:GSM) reported higher shipment volumes in its fiscal first quarter of 2026 as trade actions and safeguards supported demand for its alloy products, even as pricing and cost pressures weighed on profitability. Management also discussed efforts to broaden the company\u2019s addressable ma"
+      },
+      {
+        "title": "Ferroglobe PLC Q1 2026 Earnings Call Summary",
+        "publisher": "Moby",
+        "published": "2026-05-06T12:30:00Z",
+        "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-ferroglobe-plc-q1-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss",
+        "summary": "Moby summary of Ferroglobe PLC's Q1 2026 earnings call"
+      },
+      {
+        "title": "Undervalued Small Caps With Insider Action In April 2026",
+        "publisher": "Simply Wall St.",
+        "published": "2026-04-30T11:39:41Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/undervalued-small-caps-insider-action-113941341.html",
+        "summary": "In the last week, the United States market has stayed flat, but over the past 12 months, it has risen by an impressive 28%, with earnings forecasted to grow by 16% annually. In this dynamic environment, identifying small-cap stocks that are perceived as undervalued and exhibit insider activity can provide intriguing opportunities for investors seeking to capitalize on potential growth."
+      },
+      {
+        "title": "3 Stocks That Might Be Undervalued By Up To 48.3% Offering A Possible Discount",
+        "publisher": "Simply Wall St.",
+        "published": "2026-04-24T17:38:09Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/3-stocks-might-undervalued-48-173809484.html",
+        "summary": "The United States market has remained flat over the past week, yet it has experienced a notable 30% rise over the last year, with earnings projected to grow by 16% annually in the coming years. In this context, identifying stocks that are potentially undervalued can offer investors opportunities to acquire shares at a discount relative to their intrinsic value."
+      },
+      {
+        "title": "LSI Industries And 2 Other Stocks That May Be Priced Below Estimated Value",
+        "publisher": "Simply Wall St.",
+        "published": "2026-04-24T11:38:40Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/lsi-industries-2-other-stocks-113840528.html",
+        "summary": "The United States market has remained flat over the past week but has seen a significant increase of 30% over the past year, with earnings projected to grow by 16% annually in the coming years. In this context, identifying stocks that may be undervalued can provide opportunities for investors seeking to capitalize on potential growth at a reasonable price."
+      },
+      {
+        "title": "April 2026's Stocks Estimated To Be Below Fair Value",
+        "publisher": "Simply Wall St.",
+        "published": "2026-04-15T17:38:18Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/april-2026s-stocks-estimated-below-173818114.html",
+        "summary": "The United States market has recently experienced a robust climb, with a 4.4% increase in the last week and an impressive 32% rise over the past year, while earnings are projected to grow by 16% annually. In this context of strong market performance, identifying stocks that are estimated to be below their fair value can present opportunities for investors seeking potential growth at reasonable prices."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:27+00:00",
+    "ticker": "CDRE",
+    "company": "Cadre Holdings, Inc.",
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 57.1,
+      "discovery_bucket": "RECOVERY",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 32.7599983215332,
+      "return_1m": 0.13531633199669812,
+      "return_3m": 0.10108570162177943,
+      "return_6m": -0.2078156356067249,
+      "return_12m": 0.06611232242788234,
+      "revenue_yoy": 0.31835859180568904,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.011740577402529262,
+      "operating_margin_change_yoy": 0.0008209659964839577,
+      "incremental_operating_margin_yoy": 0.11803986644540856,
+      "eps_revision_30d": 0.20225373134328342,
+      "eps_revision_90d": null,
+      "next_year_eps_estimate": 1.61102,
+      "next_year_eps_growth": 0.0366,
+      "next_year_revenue_estimate": 796280670.0,
+      "next_year_revenue_growth_estimate": 0.0579,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": 1402807296,
+      "forward_pe": 19.546305,
+      "price_to_sales": 2.0459585,
+      "enterprise_to_ebitda": 16.508,
+      "analyst_target_upside": 0.4194,
+      "data_quality": 84.6
+    },
+    "valuation": {
+      "company_type": "PROFITABLE_GROWTH",
+      "model": "FORWARD_EPS_EXIT_MULTIPLE",
+      "reason": "Projects forward EPS under bear/base/bull growth and exit-multiple assumptions.",
+      "current_price": 32.76,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 12.45,
+          "assumptions": {
+            "eps_growth": -0.040850000000000004,
+            "exit_pe": 8.399507999999999
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 21.9,
+          "assumptions": {
+            "eps_growth": 0.02562,
+            "exit_pe": 12.92232
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 28.95,
+          "assumptions": {
+            "eps_growth": 0.05477,
+            "exit_pe": 16.1529
+          }
+        }
+      ],
+      "expected_value": 21.3,
+      "expected_cagr": -0.1337,
+      "base_cagr": -0.1256,
+      "bear_downside": -0.62,
+      "probability_profit": 0
+    },
+    "decision": {
+      "decision": "PASS",
+      "confidence": "LOW",
+      "confidence_score": 0.581,
+      "adjusted_expected_cagr": -0.1337,
+      "reason": "Expected 3Y CAGR -13.4%, scenario profit probability 0%, bear-case downside -62.0%, price maturity 0/100."
+    },
+    "why_buy": [
+      "EPS consensus rose 20.2% over 30 days.",
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "Bear scenario implies approximately -62.0% downside."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "1 Stock Under $50 for Long-Term Investors and 2 Facing Headwinds",
+        "publisher": "StockStory",
+        "published": "2026-08-10T19:25:22Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/1-stock-under-50-long-192522892.html",
+        "summary": "Stocks trading between $10 and $50 can be particularly interesting as they frequently represent businesses that have survived their early challenges. However, investors should remain vigilant as some may still have unproven business models, leaving them vulnerable to the ebbs and flows of the broader market."
+      },
+      {
+        "title": "Axon Stock Rebounds As Its Margin Squeeze Looks Like The Price Of Growth",
+        "publisher": "Trefis",
+        "published": "2026-08-10T18:58:15Z",
+        "url": "https://www.trefis.com/articles/610754/axon-stock-rebounds-as-its-margin-squeeze-looks-like-the-price-of-growth/2026-08-10",
+        "summary": "The market sold a raised outlook, then bought part of it back a session later, and the disagreement is about memory prices and counter-drone hardware."
+      },
+      {
+        "title": "Cadre Q2 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-08-08T01:03:48Z",
+        "url": "https://www.marketbeat.com/instant-alerts/cadre-q2-earnings-call-highlights-2026-08-07/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "Cadre (NYSE:CDRE) reported second-quarter results marked by higher sales, profitability and backlog, citing demand across public safety and nuclear safety markets and contributions from recent acquisitions. Chairman and CEO Warren Kanders said net sales increased 32% year over year in the second qu"
+      },
+      {
+        "title": "Cadre Holdings, Inc. (CDRE) Lags Q2 Earnings Estimates",
+        "publisher": "Zacks",
+        "published": "2026-08-06T00:35:21Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/cadre-holdings-inc-cdre-lags-003521686.html",
+        "summary": "Cadre Holdings, Inc. (CDRE) delivered earnings and revenue surprises of -10.35% and +16.11%, respectively, for the quarter ended June 2026. Do the numbers hold clues to what lies ahead for the stock?"
+      },
+      {
+        "title": "Here's What Key Metrics Tell Us About Cadre Holdings, Inc. (CDRE) Q2 Earnings",
+        "publisher": "Zacks",
+        "published": "2026-08-06T00:30:04Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/heres-key-metrics-tell-us-003004725.html",
+        "summary": "While the top- and bottom-line numbers for Cadre Holdings, Inc. (CDRE) give a sense of how the business performed in the quarter ended June 2026, it could be worth looking at how some of its key metrics compare to Wall Street estimates and year-ago values."
+      },
+      {
+        "title": "Cadre (NYSE:CDRE) Delivers Strong Q2 CY2026 Numbers, Guides for Strong Full-Year Sales",
+        "publisher": "StockStory",
+        "published": "2026-08-05T22:55:29Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/cadre-nyse-cdre-delivers-strong-225529942.html",
+        "summary": "Aerospace and defense company Cadre (NYSE:CDRE) reported Q2 CY2026 results exceeding the market\u2019s revenue expectations, with sales up 31.8% year on year to $207.1 million. The company\u2019s full-year revenue guidance of $759 million at the midpoint came in 2.9% above analysts\u2019 estimates. Its GAAP profit of $0.26 per share was 18% above analysts\u2019 consensus estimates."
+      },
+      {
+        "title": "Axon Stock Diversifies Your Portfolio Less Than Its Business Does",
+        "publisher": "Trefis",
+        "published": "2026-08-04T16:36:26Z",
+        "url": "https://www.trefis.com/articles/610045/axon-stock-diversifies-your-portfolio-less-than-its-business-does/2026-08-04",
+        "summary": "Its orders come from police budgets and counter-drone contracts rather than the economic cycle, yet the stock still falls harder than the market on down days."
+      },
+      {
+        "title": "2 Surging  Stocks Worth Investigating and 1 Facing Headwinds",
+        "publisher": "StockStory",
+        "published": "2026-08-04T12:21:22Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/2-surging-stocks-worth-investigating-122122436.html",
+        "summary": "Exciting developments are taking place for the stocks in this article. They\u2019ve all surged ahead of the broader market over the last month as catalysts such as new products and positive media coverage have propelled their returns."
+      },
+      {
+        "title": "ADT (ADT) Tops Q2 Earnings and Revenue Estimates",
+        "publisher": "Zacks",
+        "published": "2026-07-30T12:35:02Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/adt-adt-tops-q2-earnings-123502890.html",
+        "summary": "ADT (ADT) delivered earnings and revenue surprises of +4.55% and +1.56%, respectively, for the quarter ended June 2026. Do the numbers hold clues to what lies ahead for the stock?"
+      },
+      {
+        "title": "1 Cash-Producing Stock to Consider Right Now and 2 We Brush Off",
+        "publisher": "StockStory",
+        "published": "2026-07-27T13:01:02Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/1-cash-producing-stock-consider-130102994.html",
+        "summary": "A company that generates cash isn\u2019t automatically a winner. Some businesses stockpile cash but fail to reinvest wisely, limiting their ability to expand."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:27+00:00",
+    "ticker": "KTOS",
+    "company": "Kratos Defense & Security Solut",
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 58.95,
+      "discovery_bucket": "RECOVERY",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 62.41999816894531,
+      "return_1m": 0.2952894780608988,
+      "return_3m": 0.07825183670855074,
+      "return_6m": -0.33884126948723936,
+      "return_12m": 0.05653345014175337,
+      "revenue_yoy": 0.3052631578947369,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.008220529527830034,
+      "operating_margin_change_yoy": -0.012269994952507687,
+      "incremental_operating_margin_yoy": -0.04193849021435228,
+      "eps_revision_30d": 0.0252130909891644,
+      "eps_revision_90d": 0.040797697445020965,
+      "next_year_eps_estimate": 1.11739,
+      "next_year_eps_growth": 0.36200002000000003,
+      "next_year_revenue_estimate": 2217410970.0,
+      "next_year_revenue_growth_estimate": 0.2349,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": 11717565440,
+      "forward_pe": 55.97403,
+      "price_to_sales": 7.6962667,
+      "enterprise_to_ebitda": 116.826,
+      "analyst_target_upside": 0.7165,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "PROFITABLE_GROWTH",
+      "model": "FORWARD_EPS_EXIT_MULTIPLE",
+      "reason": "Projects forward EPS under bear/base/bull growth and exit-multiple assumptions.",
+      "current_price": 62.42,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 16.61,
+          "assumptions": {
+            "eps_growth": 0.040500005000000006,
+            "exit_pe": 13.7295603276
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 37.08,
+          "assumptions": {
+            "eps_growth": 0.253400014,
+            "exit_pe": 21.122400503999998
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 54.88,
+          "assumptions": {
+            "eps_growth": 0.363900019,
+            "exit_pe": 26.403000629999998
+          }
+        }
+      ],
+      "expected_value": 36.41,
+      "expected_cagr": -0.1644,
+      "base_cagr": -0.1594,
+      "bear_downside": -0.7339,
+      "probability_profit": 0
+    },
+    "decision": {
+      "decision": "PASS",
+      "confidence": "MEDIUM",
+      "confidence_score": 0.615,
+      "adjusted_expected_cagr": -0.1644,
+      "reason": "Expected 3Y CAGR -16.4%, scenario profit probability 0%, bear-case downside -73.4%, price maturity 0/100."
+    },
+    "why_buy": [
+      "Consensus next-year EPS growth is 36.2%.",
+      "Consensus next-year revenue growth is 23.5%.",
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "Bear scenario implies approximately -73.4% downside.",
+      "Forward P/E is approximately 56.0x."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Unusual Machines (UMAC) Stock Is Climbing Today: Is the Whole Drone Group Moving?",
+        "publisher": "24/7 Wall St.",
+        "published": "2026-08-10T18:20:34Z",
+        "url": "https://247wallst.com/investing/2026/08/10/unusual-machines-umac-stock-is-climbing-today-is-the-whole-drone-group-moving/",
+        "summary": "Unusual Machines just posted revenue that obliterated Wall Street estimates, yet the EPS miss and a massive stock compensation charge tell a messier story beneath the headline. With the entire drone sector surging in lockstep, figuring out whether UMAC deserves its momentum or is simply riding a policy wave matters now."
+      },
+      {
+        "title": "Red Cat Holdings (RCAT) Stock Is Jumping Today: What\u2019s Moving Drone Stocks?",
+        "publisher": "24/7 Wall St.",
+        "published": "2026-08-10T18:05:33Z",
+        "url": "https://247wallst.com/investing/2026/08/10/red-cat-holdings-rcat-stock-is-jumping-today-whats-moving-drone-stocks/",
+        "summary": "Red Cat Holdings just erased its post-earnings selloff in a matter of days despite missing on both revenue and profit, and the reason behind that reversal reaches far beyond one company's quarterly numbers."
+      },
+      {
+        "title": "Ondas Bags Over $50M U.S. Army Order, Expands Defense Footprint",
+        "publisher": "Zacks",
+        "published": "2026-08-07T16:01:00Z",
+        "url": "https://finance.yahoo.com/technology/articles/ondas-bags-over-50m-u-160100644.html",
+        "summary": "ONDS has secured a more than $50 million U.S. Army LUS order under Mistral's $982 million IDIQ contract, extending production visibility and its defense footprint."
+      },
+      {
+        "title": "KTOS Q2 Earnings Call Highlights Hypersonics and Engine Ramp-Up",
+        "publisher": "Zacks",
+        "published": "2026-08-07T14:00:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/ktos-q2-earnings-call-highlights-140000310.html",
+        "summary": "Kratos ramps up hypersonics, jet engines and unmanned systems as new capacity, program funding and bookings support stronger second-half growth."
+      },
+      {
+        "title": "Ondas Stock Gains 21% in a Month: Is There More Upside Ahead?",
+        "publisher": "Zacks",
+        "published": "2026-08-06T15:08:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/ondas-stock-gains-21-month-150800590.html",
+        "summary": "ONDS stock surges 20.6% in a month as acquisitions and rising orders lift its outlook, but profitability issues and execution risks temper the upside case."
+      },
+      {
+        "title": "Fortinet  and Ecopetrol  have been highlighted as Zacks Bull and Bear of the Day",
+        "publisher": "Zacks",
+        "published": "2026-08-06T12:58:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/fortinet-ecopetrol-highlighted-zacks-bull-125800620.html",
+        "summary": "Fortinet and Ecopetrol have been highlighted as Zacks Bull and Bear of the Day"
+      },
+      {
+        "title": "This Drone Maker Stock Is Bouncing Back After Earnings",
+        "publisher": "Barrons.com",
+        "published": "2026-08-05T20:27:00Z",
+        "url": "https://www.barrons.com/articles/kratos-earnings-stock-price-fbf5d874?siteid=yhoof2&yptr=yahoo",
+        "summary": "Kratos reported second-quarter earnings per share of 21 cents, up from 11 cents a year ago. Wall Street was looking for 14 cents."
+      },
+      {
+        "title": "Kratos Defense Rallies Above Key Level On Upgrade, Q2 Beat, Outlook 'Comfort' Analyst",
+        "publisher": "Investor's Business Daily",
+        "published": "2026-08-05T20:19:23Z",
+        "url": "https://www.investors.com/news/kratos-defense-ktos-stock-upgrade-earnings-q2-2026-cathie-wood-ark-invest/?src=A00220&yptr=yahoo",
+        "summary": "Kratos Defense cleared Q2 estimates, lifted its guidance. KTOS stock jumps on upgrade as outlook offers \"comfort\" to analyst."
+      },
+      {
+        "title": "KTOS Stock Hits Two-Month High As Clear Growth Prospects Spur Piper Sandler Ratings Upgrade",
+        "publisher": "Stocktwits",
+        "published": "2026-08-05T19:51:31Z",
+        "url": "https://stocktwits.com/news-articles/markets/equity/ktos-stock-hits-two-month-high-as-clear-growth-prospects-spur-piper-sandler-ratings-upgrade/cZoIbJQRJeK",
+        "summary": "Investment firm Piper Sandler upgraded Kratos Defense & Security Solutions to Overweight with a $75 price target."
+      },
+      {
+        "title": "Why Kratos Stock Popped After Earnings",
+        "publisher": "Motley Fool",
+        "published": "2026-08-05T17:02:30Z",
+        "url": "https://www.fool.com/investing/2026/08/05/why-kratos-stock-popped-after-earnings/",
+        "summary": "Kratos's earnings last night weren't quite as good as they first appeared."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:21+00:00",
+    "ticker": "SRTA",
+    "company": "Strata Critical Medical, Inc.",
+    "sector": "Healthcare",
+    "industry": "Medical Care Facilities",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 72.65,
+      "discovery_bucket": "QUIET_ACCUMULATION",
+      "price_stage": "EARLY",
+      "price_maturity": 1.1
+    },
+    "metrics": {
+      "price": 5.940000057220459,
+      "return_1m": 0.1624265953071946,
+      "return_3m": 0.0664272664553116,
+      "return_6m": 0.25316462954579744,
+      "return_12m": 0.5755968401253537,
+      "revenue_yoy": 0.6073867163252638,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.010168370149482076,
+      "operating_margin_change_yoy": 0.028299475222265044,
+      "incremental_operating_margin_yoy": -0.027994744141908168,
+      "eps_revision_30d": 8.499999999999998,
+      "eps_revision_90d": 6.6264066016504115,
+      "next_year_eps_estimate": 0.075,
+      "next_year_eps_growth": 2.3636,
+      "next_year_revenue_estimate": 326100000.0,
+      "next_year_revenue_growth_estimate": 0.1376,
+      "price_stage": "EARLY",
+      "price_maturity": 1.1,
+      "market_cap": 525492832,
+      "forward_pe": null,
+      "price_to_sales": 2.0529068,
+      "enterprise_to_ebitda": 68.364,
+      "analyst_target_upside": 0.6098,
+      "data_quality": 92.3
+    },
+    "valuation": {
+      "company_type": "TURNAROUND",
+      "model": "FORWARD_EPS_EXIT_MULTIPLE",
+      "reason": "Projects forward EPS under bear/base/bull growth and exit-multiple assumptions.",
+      "current_price": 5.94,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 1.52,
+          "assumptions": {
+            "eps_growth": 0.12499999999999999,
+            "exit_pe": 15.990000000000002
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 3.36,
+          "assumptions": {
+            "eps_growth": 0.35,
+            "exit_pe": 24.6
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 5.19,
+          "assumptions": {
+            "eps_growth": 0.5,
+            "exit_pe": 30.75
+          }
+        }
+      ],
+      "expected_value": 3.36,
+      "expected_cagr": -0.1732,
+      "base_cagr": -0.173,
+      "bear_downside": -0.7441,
+      "probability_profit": 0
+    },
+    "decision": {
+      "decision": "PASS",
+      "confidence": "MEDIUM",
+      "confidence_score": 0.615,
+      "adjusted_expected_cagr": -0.1732,
+      "reason": "Expected 3Y CAGR -17.3%, scenario profit probability 0%, bear-case downside -74.4%, price maturity 1/100."
+    },
+    "why_buy": [
+      "EPS consensus rose 850.0% over 30 days.",
+      "Consensus next-year EPS growth is 236.4%.",
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "Bear scenario implies approximately -74.4% downside."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Can Strata Critical Medical, Inc. (SRTA) Run Higher on Rising Earnings Estimates?",
+        "publisher": "Zacks",
+        "published": "2026-08-06T16:20:02Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/strata-critical-medical-inc-srta-162002971.html",
+        "summary": "Strata Critical Medical, Inc. (SRTA) shares have started gaining and might continue moving higher in the near term, as indicated by solid earnings estimate revisions."
+      },
+      {
+        "title": "Strata Critical Medical, Inc. Q2 2026 Earnings Call Summary",
+        "publisher": "Moby",
+        "published": "2026-08-04T22:29:00Z",
+        "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-strata-critical-medical-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss",
+        "summary": "Moby summary of Strata Critical Medical, Inc.'s Q2 2026 earnings call"
+      },
+      {
+        "title": "Strata Critical Medical Inc (SRTA) (Q2 2026) Earnings Call Highlights: Revenue Surges 60. ...",
+        "publisher": "GuruFocus.com",
+        "published": "2026-08-04T19:01:15Z",
+        "url": "https://finance.yahoo.com/healthcare/articles/strata-critical-medical-inc-srta-190115051.html",
+        "summary": "Strata Critical Medical Inc (SRTA) boosts 2026 outlook after record Q2 performance driven by transplant services and strategic acquisitions."
+      },
+      {
+        "title": "Wall Street Analysts Predict a 60% Upside in Strata Critical Medical, Inc. (SRTA): Here's  What You Should Know",
+        "publisher": "Zacks",
+        "published": "2026-08-04T13:55:01Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-analysts-predict-60-135501893.html",
+        "summary": "The consensus price target hints at a 60% upside potential for Strata Critical Medical, Inc. (SRTA). While empirical research shows that this sought-after metric is hardly effective, an upward trend in earnings estimate revisions could mean that the stock will witness an upside in the near term."
+      },
+      {
+        "title": "Strata Critical Medical, Inc. (SRTA) Surges 8.5%: Is This an Indication of Further Gains?",
+        "publisher": "Zacks",
+        "published": "2026-06-16T12:14:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/strata-critical-medical-inc-srta-121400440.html",
+        "summary": "Strata Critical Medical, Inc. (SRTA) was a big mover last session on higher-than-average trading volume. The latest trend in earnings estimate revisions might not help the stock continue moving higher in the near term."
+      },
+      {
+        "title": "How The Story Is Shifting For Strata Critical Medical (SRTA) After New Analyst Assumptions",
+        "publisher": "Simply Wall St.",
+        "published": "2026-05-25T00:16:02Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/story-shifting-strata-critical-medical-001602911.html",
+        "summary": "Strata Critical Medical is back in focus after an updated fair value estimate of $9.13, up from $8.81, reset expectations around what the stock might be worth on a modeled basis. That change comes alongside fresh Street commentary, where several firms have launched bullish coverage and one has lifted its price target by $0.25, tying their views to revised growth and profitability assumptions. As you read on, you will see how these shifting targets and narratives could shape how you follow..."
+      },
+      {
+        "title": "Strata Critical Medical, Inc. Beat Analyst Profit Forecasts, And Analysts Have New Estimates",
+        "publisher": "Simply Wall St.",
+        "published": "2026-05-08T14:07:46Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/strata-critical-medical-inc-beat-140746186.html",
+        "summary": "Investors in Strata Critical Medical, Inc. ( NASDAQ:SRTA ) had a good week, as its shares rose 6.4% to close at US$5.34..."
+      },
+      {
+        "title": "Strata Critical Medical, Inc. Q1 2026 Earnings Call Summary",
+        "publisher": "Moby",
+        "published": "2026-05-06T17:06:57Z",
+        "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-strata-critical-medical-inc-q1-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss",
+        "summary": "Moby summary of Strata Critical Medical, Inc.'s Q1 2026 earnings call"
+      },
+      {
+        "title": "Strata (SRTA) Q1 2026 Earnings Call Transcript",
+        "publisher": "Motley Fool",
+        "published": "2026-05-06T16:22:08Z",
+        "url": "https://www.fool.com/earnings/call-transcripts/2026/05/06/strata-srta-q1-2026-earnings-call-transcript/",
+        "summary": "Mathew Schneider: Thank you for standing by, and welcome to Strata's conference call and webcast for the quarter ended March 31, 2026.  Before we get started, I would like to remind you of the company's forward-looking statement and safe harbor language.  Statements made in this conference call that are not historical facts, including statements about future time periods, may be deemed to constitute forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995."
+      },
+      {
+        "title": "How The Story Is Shifting For Strata Critical Medical (SRTA) After The Lower Fair Value Target",
+        "publisher": "Simply Wall St.",
+        "published": "2026-04-21T20:03:50Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/story-shifting-strata-critical-medical-200350686.html",
+        "summary": "The analyst fair value target for Strata Critical Medical has shifted from US$9.63 to US$8.81, pointing to a more measured view of where the shares might reasonably trade. This revision sits alongside largely constructive research coverage, with firms updating their models while still focusing on how well management delivers against its current plan. As you read on, you will see how this evolving price target fits into the broader story and what to watch as the narrative develops. Analyst..."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  },
+  {
+    "asof": "2026-08-10T23:21:20+00:00",
+    "ticker": "RDW",
+    "company": "Redwire Corporation",
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 76.39,
+      "discovery_bucket": "EARLY_BREAKOUT",
+      "price_stage": "EARLY",
+      "price_maturity": 0.0
+    },
+    "metrics": {
+      "price": 13.119999885559082,
+      "return_1m": 0.28880152183183405,
+      "return_3m": 0.18518520752022627,
+      "return_6m": 0.3067729019331187,
+      "return_12m": 0.38542761516473045,
+      "revenue_yoy": 0.8956282383419689,
+      "revenue_acceleration": null,
+      "gross_margin_change_yoy": 0.5866567874656311,
+      "operating_margin_change_yoy": 1.0298036598967872,
+      "incremental_operating_margin_yoy": 0.9612213906063565,
+      "eps_revision_30d": 0.16502901190123245,
+      "eps_revision_90d": null,
+      "next_year_eps_estimate": -0.39429000000000003,
+      "next_year_eps_growth": 0.2561,
+      "next_year_revenue_estimate": 559832850.0,
+      "next_year_revenue_growth_estimate": 0.18430000000000002,
+      "price_stage": "EARLY",
+      "price_maturity": 0.0,
+      "market_cap": 3133388544,
+      "forward_pe": null,
+      "price_to_sales": 7.350679,
+      "enterprise_to_ebitda": -23.088,
+      "analyst_target_upside": 0.2032,
+      "data_quality": 84.6
+    },
+    "valuation": {
+      "company_type": "EARLY_STAGE_GROWTH",
+      "model": "FORWARD_REVENUE_MULTIPLE",
+      "reason": "Earnings are not useful, so forward revenue is valued with restrained scenario multiples.",
+      "current_price": 13.12,
+      "horizon_years": 3,
+      "scenarios": [
+        {
+          "name": "Bear",
+          "probability": 0.25,
+          "fair_value": 3.13,
+          "assumptions": {
+            "revenue_growth": 0.025290000000000007,
+            "exit_price_sales": 1.2681900000000002
+          }
+        },
+        {
+          "name": "Base",
+          "probability": 0.5,
+          "fair_value": 7.0,
+          "assumptions": {
+            "revenue_growth": 0.13822500000000001,
+            "exit_price_sales": 2.3058
+          }
+        },
+        {
+          "name": "Bull",
+          "probability": 0.25,
+          "fair_value": 10.58,
+          "assumptions": {
+            "revenue_growth": 0.2043,
+            "exit_price_sales": 3.11283
+          }
+        }
+      ],
+      "expected_value": 6.93,
+      "expected_cagr": -0.1917,
+      "base_cagr": -0.1889,
+      "bear_downside": -0.7614,
+      "probability_profit": 0
+    },
+    "decision": {
+      "decision": "PASS",
+      "confidence": "LOW",
+      "confidence_score": 0.581,
+      "adjusted_expected_cagr": -0.1917,
+      "reason": "Expected 3Y CAGR -19.2%, scenario profit probability 0%, bear-case downside -76.1%, price maturity 0/100."
+    },
+    "why_buy": [
+      "EPS consensus rose 16.5% over 30 days.",
+      "Consensus next-year EPS growth is 25.6%.",
+      "Consensus next-year revenue growth is 18.4%.",
+      "The stock has not yet reached the model's late-stage price-maturity threshold."
+    ],
+    "why_not": [
+      "Bear scenario implies approximately -76.1% downside."
+    ],
+    "what_changes_decision": [
+      "A future quarter confirms positive revenue-growth acceleration.",
+      "Re-run after the next earnings report; cached financials refresh automatically after their TTL."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [
+      {
+        "title": "Rocket Lab Stock's Surge Was Booked Before It Was Priced",
+        "publisher": "Trefis",
+        "published": "2026-08-10T17:59:51Z",
+        "url": "https://www.trefis.com/articles/610762/rocket-lab-stocks-surge-was-booked-before-it-was-priced/2026-08-10",
+        "summary": "The defense launch demand behind Rocket Lab stock's run was visible in the company's own contract announcements months before the market paid for it."
+      },
+      {
+        "title": "Redwire Takes Off on Solid Q2 Results. How to Play RDW Stock Here.",
+        "publisher": "Barchart",
+        "published": "2026-08-10T14:57:59Z",
+        "url": "https://www.barchart.com/story/news/3757695/redwire-takes-off-on-solid-q2-results-how-to-play-rdw-stock-here",
+        "summary": "The space company reported record revenues and a double beat, and its potential looks astronomical."
+      },
+      {
+        "title": "RDW Q2 Earnings Call Centers on Backlog and Margin Discipline",
+        "publisher": "Zacks",
+        "published": "2026-08-10T14:00:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/rdw-q2-earnings-call-centers-140000897.html",
+        "summary": "Redwire's Q2 call highlighted a $542.1M backlog, stronger guidance visibility and disciplined margin expectations as it scales defense and space."
+      },
+      {
+        "title": "Best-Performing Leveraged Single-Stock ETFs of Last Week",
+        "publisher": "Zacks",
+        "published": "2026-08-10T12:00:00Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/best-performing-leveraged-single-stock-120000585.html",
+        "summary": "Some single-stock ETFs soared last week as strong earnings, a rebound in tech and easing rate-hike fears fueled outsized gains."
+      },
+      {
+        "title": "Redwire Q2 Earnings Call Highlights",
+        "publisher": "MarketBeat",
+        "published": "2026-08-09T03:03:50Z",
+        "url": "https://www.marketbeat.com/instant-alerts/redwire-q2-earnings-call-highlights-2026-08-08/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "summary": "Redwire (NYSE:RDW) reported record second-quarter revenue, gross margin and contracted backlog for 2026, as growth in its defense technology business and continued demand for space systems supported results. The company reaffirmed its full-year revenue outlook and said it expects revenue to build du"
+      },
+      {
+        "title": "Why Redwire Stock Keeps Gaining",
+        "publisher": "Motley Fool",
+        "published": "2026-08-07T21:36:21Z",
+        "url": "https://www.fool.com/investing/2026/08/07/why-redwire-stock-keeps-gaining/",
+        "summary": "Redwire stock extended its post-earnings rally Friday after blowout Q2 results and a SpaceX spacecraft charter deal."
+      },
+      {
+        "title": "RDW Stock Gains More Than 55% In Record-Breaking Week \u2013 Here\u2019s Everything That Drove The Super Run",
+        "publisher": "Stocktwits",
+        "published": "2026-08-07T17:46:39Z",
+        "url": "https://stocktwits.com/news-articles/markets/equity/rdw-stock-gains-more-than-55-in-record-breaking-week-here-s-everything-that-drove-the-super-run/cZoffIDRJ9Z",
+        "summary": "State Street disclosed a passive stake of 7.3% in Redwire, according to a 13G filing on Friday."
+      },
+      {
+        "title": "Why Redwire Stock Soared After Earnings",
+        "publisher": "Motley Fool",
+        "published": "2026-08-06T21:12:26Z",
+        "url": "https://www.fool.com/investing/2026/08/06/why-redwire-stock-soared-after-earnings/",
+        "summary": "Redwire is making progress, but remains a speculative investment."
+      },
+      {
+        "title": "Three Defense Plays Spike On Earnings, One Breaks Out. Howmet Tops Views.",
+        "publisher": "Investor's Business Daily",
+        "published": "2026-08-06T20:27:31Z",
+        "url": "https://www.investors.com/news/howmet-aerospace-hwm-stock-breakout-ati-stock-redwire-rdw-caci-international-earnings-rally-defense-stocks/?src=A00220&yptr=yahoo",
+        "summary": "Aerospace, defense plays rally on earnings wave. Howmet, ATI score breakouts. Redwire, CACI International make bullish moves."
+      },
+      {
+        "title": "Is Redwire (RDW) Undervalued As Strong Q2 Results And Backlog Reignite Interest?",
+        "publisher": "Simply Wall St.",
+        "published": "2026-08-06T20:11:57Z",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/redwire-rdw-undervalued-strong-q2-201157470.html",
+        "summary": "Why Redwire stock is back in focus Redwire (RDW) has drawn fresh attention after Q2 results showed revenue growth of almost 90%, a record gross margin, a smaller adjusted loss, and reaffirmed full year revenue guidance supported by a record backlog. See our latest analysis for Redwire. The Q2 update and reaffirmed revenue guidance have pulled Redwire back into the spotlight, with the stock\u2019s 7 day share price return of 37.79% pointing to building momentum after a year to date share price..."
+      }
+    ],
+    "cache_note": "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents are not downloaded again once stored.",
+    "llm_research_note": null
+  }
+]
