@@ -7,13 +7,12 @@ WORKDIR /app
 
 COPY pyproject.toml README.md ./
 COPY src ./src
-
-RUN python -m pip install --upgrade pip && \
-    pip install ".[dashboard]"
+RUN python -m pip install --upgrade pip && pip install ".[dashboard,llm]"
 
 COPY config ./config
 COPY dashboard ./dashboard
 COPY scripts ./scripts
-RUN mkdir -p /app/data /app/outputs
+COPY published ./published
+RUN mkdir -p /app/data /app/outputs /app/published
 
-CMD ["inflection-scanner", "scan", "--top", "20"]
+CMD ["inflection-scanner", "research", "--deep", "180", "--research-count", "20", "--top", "30"]

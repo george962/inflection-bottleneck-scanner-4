@@ -278,6 +278,36 @@ class ResearchWarehouse:
         ).fetchone()
         return load(row["payload_zlib"]) if row else None
 
+    def list_research_reports(self, model_version=None):
+        rows = self.conn.execute(
+            "SELECT payload_zlib FROM research_reports ORDER BY asof ASC"
+        ).fetchall()
+        reports = [load(row["payload_zlib"]) for row in rows]
+        if model_version is not None:
+            reports = [r for r in reports if str(r.get("model_version")) == str(model_version)]
+        return reports
+
+    def price_near_date(self, ticker, target_date, max_days=10):
+        row = self.conn.execute(
+            """
+            SELECT close FROM price_daily
+            WHERE ticker=? AND date>=? AND date<=date(?, '+' || ? || ' day')
+            ORDER BY date ASC LIMIT 1
+            """,
+            (ticker.upper(), target_date, target_date, int(max_days)),
+        ).fetchone()
+        if row and row["close"] is not None:
+            return float(row["close"])
+        row = self.conn.execute(
+            """
+            SELECT close FROM price_daily
+            WHERE ticker=? AND date<=? AND date>=date(?, '-' || ? || ' day')
+            ORDER BY date DESC LIMIT 1
+            """,
+            (ticker.upper(), target_date, target_date, int(max_days)),
+        ).fetchone()
+        return float(row["close"]) if row and row["close"] is not None else None
+
     def cache_info(self):
         q = lambda sql: int(self.conn.execute(sql).fetchone()[0])
         return {

@@ -8,8 +8,10 @@ import streamlit as st
 
 
 ROOT = Path(__file__).resolve().parents[1]
-LATEST = ROOT / "published/latest_research.json"
-META = ROOT / "published/metadata.json"
+PUBLISHED = ROOT / "published"
+LATEST = PUBLISHED / "latest_research.json"
+META = PUBLISHED / "metadata.json"
+TRACK = PUBLISHED / "track_record.json"
 
 
 def pct(value):
@@ -33,261 +35,274 @@ def market_cap_b(value):
         return None
 
 
-st.set_page_config(page_title="Automated Equity Research", layout="wide")
-st.title("Automated Equity Research")
+def status_icon(value):
+    return "✅" if value else "❌"
+
+
+st.set_page_config(page_title="Large-Cap Inflection Research v5", layout="wide")
+st.title("Large-Cap Inflection Research v5")
 st.caption(
-    "Established-company discovery → data trust checks → multi-model scenario valuation → conservative BUY / WATCH / PASS."
+    "Find established companies with improving fundamentals, then ask a harder question: "
+    "is today's price actually inside a return-required buy zone?"
 )
 
 if not LATEST.exists():
-    st.info("No published research yet. Run `inflection-scanner research` or the GitHub Actions workflow.")
+    st.info(
+        "No v5 research has been published yet. Run the GitHub Actions workflow "
+        "`Equity Research Engine`, then refresh this page."
+    )
     st.stop()
 
 reports = json.loads(LATEST.read_text(encoding="utf-8"))
 meta = json.loads(META.read_text(encoding="utf-8")) if META.exists() else {}
+track = json.loads(TRACK.read_text(encoding="utf-8")) if TRACK.exists() else {"summaries": [], "observations": []}
 
 rows = []
-for report in reports:
-    valuation = report.get("valuation", {})
-    decision = report.get("decision", {})
-    metrics = report.get("metrics", {})
-    discovery = report.get("discovery", {})
-    trust = report.get("trust", {})
-    scenarios = {x.get("name"): x for x in valuation.get("scenarios", [])}
+for r in reports:
+    c = r.get("conviction", {})
+    v = r.get("valuation", {})
+    t = r.get("trust", {})
+    m = r.get("metrics", {})
+    d = r.get("discovery", {})
     rows.append(
         {
-            "ticker": report.get("ticker"),
-            "company": report.get("company"),
-            "decision": decision.get("decision"),
-            "confidence": decision.get("evidence_confidence") or decision.get("confidence"),
-            "trust_grade": trust.get("trust_grade"),
-            "trust_score": trust.get("trust_score"),
-            "risk_tier": trust.get("risk_tier"),
-            "market_cap_b": market_cap_b(trust.get("market_cap")),
-            "years_public": trust.get("years_public"),
-            "analysts": trust.get("analyst_count"),
-            "current_price": metrics.get("price"),
-            "bear_fair": scenarios.get("Bear", {}).get("fair_value"),
-            "base_fair": scenarios.get("Base", {}).get("fair_value"),
-            "bull_fair": scenarios.get("Bull", {}).get("fair_value"),
-            "expected_cagr": valuation.get("expected_cagr"),
-            "base_cagr": valuation.get("base_cagr"),
-            "bear_return": valuation.get("bear_return"),
-            "scenario_support": valuation.get("scenario_support_weight"),
-            "models": valuation.get("model_count"),
-            "model_agreement": valuation.get("model_agreement"),
-            "critical_flags": len(trust.get("critical_flags", [])),
-            "price_stage": discovery.get("price_stage"),
-            "return_12m": metrics.get("return_12m"),
+            "ticker": r.get("ticker"),
+            "company": r.get("company"),
+            "action": c.get("action"),
+            "conviction": c.get("conviction_score"),
+            "risk_tier": t.get("risk_tier"),
+            "size_class": t.get("size_class"),
+            "market_cap_b": market_cap_b(t.get("market_cap")),
+            "years_public": t.get("years_public"),
+            "analysts": t.get("analyst_count"),
+            "trust": t.get("trust_score"),
+            "current": m.get("price"),
+            "buy_below": c.get("buy_below_price"),
+            "gap_to_buy_zone": c.get("gap_to_buy_zone"),
+            "base_fair": c.get("base_fair_value"),
+            "base_cagr": v.get("base_cagr"),
+            "expected_cagr": v.get("expected_cagr"),
+            "bear_return": v.get("bear_return"),
+            "models": v.get("model_count"),
+            "agreement": v.get("model_agreement"),
+            "price_stage": d.get("price_stage"),
+            "return_12m": m.get("return_12m"),
+            "eps_revision_30d": m.get("eps_revision_30d"),
+            "next_year_eps_growth": m.get("next_year_eps_growth"),
         }
     )
 
 df = pd.DataFrame(rows)
 
-decision_options = [
-    "BUY",
-    "SMALL BUY / SPECULATIVE",
-    "WATCH",
-    "TOO LATE",
-    "REVIEW DATA",
-    "SPECULATIVE WATCH",
-    "PASS",
-]
-selected_decisions = st.sidebar.multiselect(
-    "Decision",
-    decision_options,
-    default=["BUY", "WATCH", "TOO LATE", "REVIEW DATA"],
+st.sidebar.header("Default risk filter")
+actions = st.sidebar.multiselect(
+    "Action",
+    ["BUY NOW", "BUY ON PULLBACK", "WATCH", "TOO LATE", "REVIEW DATA", "SPECULATIVE WATCH", "PASS"],
+    default=["BUY NOW", "BUY ON PULLBACK", "WATCH", "TOO LATE"],
 )
-risk_tiers = st.sidebar.multiselect(
-    "Company risk tier",
-    ["CORE", "MIDCAP", "SPECULATIVE"],
-    default=["CORE"],
-)
-trust_grades = st.sidebar.multiselect(
-    "Trust grade",
-    ["A", "B", "C", "D"],
-    default=["A", "B"],
-)
-min_market_cap = st.sidebar.slider("Minimum market cap ($B)", 0, 100, 10)
-min_expected_cagr = st.sidebar.slider("Minimum scenario-weighted 3Y CAGR", -20, 50, 8) / 100.0
+tiers = st.sidebar.multiselect("Company tier", ["CORE", "MIDCAP", "SPECULATIVE"], default=["CORE"])
+min_market_cap = st.sidebar.slider("Minimum market cap ($B)", 0, 200, 25)
+min_conviction = st.sidebar.slider("Minimum conviction", 0, 100, 55)
 
 filtered = df.copy()
-if selected_decisions:
-    filtered = filtered[filtered.decision.isin(selected_decisions)]
-if risk_tiers:
-    filtered = filtered[filtered.risk_tier.isin(risk_tiers)]
-if trust_grades:
-    filtered = filtered[filtered.trust_grade.isin(trust_grades)]
-filtered = filtered[filtered.market_cap_b.fillna(0) >= min_market_cap]
-filtered = filtered[filtered.expected_cagr.fillna(-999) >= min_expected_cagr]
+if actions:
+    filtered = filtered[filtered["action"].isin(actions)]
+if tiers:
+    filtered = filtered[filtered["risk_tier"].isin(tiers)]
+filtered = filtered[filtered["market_cap_b"].fillna(0) >= min_market_cap]
+filtered = filtered[filtered["conviction"].fillna(0) >= min_conviction]
 
-st.subheader("Decision table")
+st.subheader("What deserves attention now?")
 st.write(
-    "**Default view is intentionally conservative:** CORE companies only, $10B+ market cap, long public history, meaningful analyst coverage, and trust grades A/B. "
-    "A stock is not excluded merely because it already rose; late-stage names can still qualify if future value remains compelling."
-)
-st.info(
-    "The upside numbers are **scenario valuation estimates, not predictions with known probabilities**. Bear/base/bull weights are fixed modeling weights. "
-    "BUY is suppressed when the data or valuation fails sanity checks."
+    "The default view intentionally avoids tiny/new companies. CORE requires approximately **$15B+ market cap, "
+    "7+ years public, 10+ analysts, and $50M+ average daily dollar volume**. "
+    "Actionable **BUY NOW / BUY ON PULLBACK** recommendations additionally require the preferred **$25B+** large-cap tier. A stock can already have rallied and still appear, but it only earns **BUY NOW** if today's price meets the configured return hurdle."
 )
 
-display_cols = [
+show_cols = [
     "ticker",
     "company",
-    "decision",
-    "confidence",
-    "trust_grade",
-    "trust_score",
-    "risk_tier",
+    "action",
+    "conviction",
     "market_cap_b",
     "years_public",
     "analysts",
-    "current_price",
+    "trust",
+    "current",
+    "buy_below",
+    "gap_to_buy_zone",
     "base_fair",
-    "expected_cagr",
     "base_cagr",
+    "expected_cagr",
     "bear_return",
     "models",
-    "model_agreement",
+    "agreement",
     "price_stage",
     "return_12m",
 ]
-st.dataframe(filtered[display_cols], use_container_width=True, hide_index=True)
+st.dataframe(filtered[show_cols], use_container_width=True, hide_index=True)
 
-choices = filtered.ticker.tolist() or df.ticker.tolist()
+choices = filtered["ticker"].tolist() or df["ticker"].tolist()
+if not choices:
+    st.warning("No companies match the current filters.")
+    st.stop()
+
 ticker = st.selectbox("Research report", choices)
-report = next(x for x in reports if x["ticker"] == ticker)
+report = next(r for r in reports if r.get("ticker") == ticker)
+conviction = report.get("conviction", {})
 valuation = report.get("valuation", {})
-decision = report.get("decision", {})
+trust = report.get("trust", {})
 metrics = report.get("metrics", {})
 discovery = report.get("discovery", {})
-trust = report.get("trust", {})
-scenarios = {x.get("name"): x for x in valuation.get("scenarios", [])}
 
-if trust.get("critical_flags"):
-    st.error("This company has critical data/valuation sanity flags. Do not rely on the modeled upside until they are resolved.")
+st.divider()
+st.subheader(f"{ticker} — {report.get('company')}")
 
-top = st.columns(8)
-top[0].metric("Decision", decision.get("decision"))
-top[1].metric("Trust", f"{trust.get('trust_grade')} ({trust.get('trust_score')})")
-mc = market_cap_b(trust.get("market_cap"))
-top[2].metric("Market cap", f"${mc:,.1f}B" if mc is not None else "n/a")
-top[3].metric("Years public", f"{trust.get('years_public'):.1f}" if trust.get("years_public") is not None else "n/a")
-top[4].metric("Analysts", trust.get("analyst_count") if trust.get("analyst_count") is not None else "n/a")
-top[5].metric("Current", money(metrics.get("price")))
-top[6].metric("Base fair", money(scenarios.get("Base", {}).get("fair_value")))
-top[7].metric("Expected CAGR", pct(valuation.get("expected_cagr")))
+if conviction.get("action") == "BUY NOW":
+    st.success(
+        f"BUY NOW: current price {money(metrics.get('price'))} is inside the required-return buy zone "
+        f"of {money(conviction.get('buy_below_price'))} or lower."
+    )
+elif conviction.get("action") == "BUY ON PULLBACK":
+    st.warning(
+        f"BUY ON PULLBACK: the research case may be strong, but today’s price does not meet the "
+        f"{pct(conviction.get('required_base_cagr'))} base-case CAGR hurdle. Buy-zone price: "
+        f"{money(conviction.get('buy_below_price'))} or lower."
+    )
+elif conviction.get("action") == "REVIEW DATA":
+    st.error("REVIEW DATA: at least one data or valuation sanity check failed. Do not trust the upside estimate yet.")
+else:
+    st.info(f"{conviction.get('action')}: {conviction.get('rationale')}")
 
-st.markdown(
-    f"**Risk tier:** `{trust.get('risk_tier')}` &nbsp;&nbsp; "
-    f"**Price stage:** `{discovery.get('price_stage')}` &nbsp;&nbsp; "
-    f"**Maturity:** `{discovery.get('price_maturity')}` &nbsp;&nbsp; "
-    f"**Type:** `{valuation.get('company_type')}` &nbsp;&nbsp; "
-    f"**Valuation methods:** `{valuation.get('model_count')}` &nbsp;&nbsp; "
-    f"**Model agreement:** `{valuation.get('model_agreement')}`"
+hero = st.columns(8)
+hero[0].metric("Action", conviction.get("action"))
+hero[1].metric("Conviction", conviction.get("conviction_score"))
+hero[2].metric("Market cap", f"${market_cap_b(trust.get('market_cap')):,.1f}B" if market_cap_b(trust.get("market_cap")) is not None else "n/a")
+hero[3].metric("Years public", f"{trust.get('years_public'):.1f}" if trust.get("years_public") is not None else "n/a")
+hero[4].metric("Analysts", trust.get("analyst_count") if trust.get("analyst_count") is not None else "n/a")
+hero[5].metric("Current", money(metrics.get("price")))
+hero[6].metric("Buy below", money(conviction.get("buy_below_price")))
+hero[7].metric("Base fair", money(conviction.get("base_fair_value")))
+
+st.caption(
+    f"Tier: {trust.get('risk_tier')} / {trust.get('size_class')} | Trust: {trust.get('trust_grade')} ({trust.get('trust_score')}) | "
+    f"Price stage: {discovery.get('price_stage')} | Valuation methods: {valuation.get('model_count')} | "
+    f"Model agreement: {valuation.get('model_agreement')}"
 )
 
-st.subheader("How much upside is the model actually assuming?")
-scenario_rows = []
-for x in valuation.get("scenarios", []):
-    current = metrics.get("price")
-    scenario_rows.append(
+st.subheader("Why should I believe this one more than a random screener result?")
+pillars = conviction.get("pillars", {})
+pillar_cols = st.columns(6)
+labels = [
+    ("Fundamentals", "fundamental_inflection"),
+    ("Revisions", "estimate_revision"),
+    ("Valuation", "valuation"),
+    ("Timing", "price_timing"),
+    ("Company quality", "company_quality"),
+    ("Evidence", "evidence"),
+]
+for col, (label, key) in zip(pillar_cols, labels):
+    col.metric(label, pillars.get(key))
+
+check_rows = [
+    {"condition": name.replace("_", " ").title(), "pass": status_icon(passed)}
+    for name, passed in conviction.get("checks", {}).items()
+]
+if check_rows:
+    st.dataframe(pd.DataFrame(check_rows), use_container_width=True, hide_index=True)
+
+st.subheader("Valuation: buy zone, not just an upside target")
+st.write(
+    f"Base fair value is **{money(conviction.get('base_fair_value'))}**. "
+    f"To demand at least **{pct(conviction.get('required_base_cagr'))} annualized** in the base case over "
+    f"{valuation.get('horizon_years', 3)} years, v5 calculates a maximum buy-zone price of "
+    f"**{money(conviction.get('buy_below_price'))}**."
+)
+
+scenarios = []
+current = metrics.get("price")
+for s in valuation.get("scenarios", []):
+    fv = s.get("fair_value")
+    scenarios.append(
         {
-            "scenario": x.get("name"),
-            "weight_not_probability": x.get("weight"),
-            "fair_value": x.get("fair_value"),
-            "return_from_today": x.get("fair_value") / current - 1 if x.get("fair_value") is not None and current else None,
-            "model_values": x.get("model_values"),
+            "scenario": s.get("name"),
+            "model_weight_not_probability": s.get("weight"),
+            "fair_value": fv,
+            "return_from_today": fv / current - 1 if fv is not None and current else None,
+            "model_values": s.get("model_values"),
         }
     )
-if scenario_rows:
-    st.dataframe(pd.DataFrame(scenario_rows), use_container_width=True, hide_index=True)
-st.caption(valuation.get("reason", "Scenario valuation."))
+if scenarios:
+    st.dataframe(pd.DataFrame(scenarios), use_container_width=True, hide_index=True)
+st.caption(
+    "Bear/base/bull weights are modeling weights, not measured probabilities. The fair values are triangulated from available valuation methods."
+)
 
 if valuation.get("models"):
-    with st.expander("See each independent valuation method"):
-        for model in valuation["models"]:
+    with st.expander("See the independent valuation methods and assumptions"):
+        for model in valuation.get("models", []):
             st.markdown(f"**{model.get('name')}**")
-            model_rows = [
+            rows = [
                 {
-                    "scenario": s.get("name"),
-                    "fair_value": s.get("fair_value"),
-                    "assumptions": json.dumps(s.get("assumptions", {})),
+                    "scenario": x.get("name"),
+                    "fair_value": x.get("fair_value"),
+                    "assumptions": json.dumps(x.get("assumptions", {})),
                 }
-                for s in model.get("scenarios", [])
+                for x in model.get("scenarios", [])
             ]
-            st.dataframe(pd.DataFrame(model_rows), use_container_width=True, hide_index=True)
+            st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
 left, right = st.columns(2)
 with left:
-    st.subheader("Why it may be worth buying")
+    st.subheader("Evidence supporting the case")
     for item in report.get("why_buy", []):
         st.write("•", item)
-    st.subheader("What would improve conviction")
-    for item in report.get("what_changes_decision", []):
+    st.subheader("What must be true")
+    for item in report.get("what_must_be_true", []):
         st.write("•", item)
 with right:
-    st.subheader("Why NOT to buy / what can be wrong")
+    st.subheader("Reasons not to buy")
     for item in report.get("why_not", []):
+        st.write("•", item)
+    st.subheader("Thesis invalidation")
+    for item in report.get("invalidation", []):
         st.write("•", item)
 
 st.subheader("Data trust")
-trust_table = pd.DataFrame(trust.get("checks", []))
-if not trust_table.empty:
-    st.dataframe(trust_table, use_container_width=True, hide_index=True)
-
-if trust.get("critical_flags"):
-    st.markdown("**Critical flags**")
-    for item in trust.get("critical_flags", []):
-        st.error(item)
-if trust.get("warnings"):
-    st.markdown("**Warnings**")
-    for item in trust.get("warnings", []):
-        st.warning(item)
-
-st.subheader("Source freshness")
-freshness_rows = []
-for source, info in report.get("source_freshness", {}).items():
-    freshness_rows.append(
-        {
-            "source": source,
-            "present": info.get("present"),
-            "fetched_at": info.get("fetched_at"),
-            "age_hours": info.get("age_hours"),
-            "stale": info.get("stale"),
-        }
-    )
-if freshness_rows:
-    st.dataframe(pd.DataFrame(freshness_rows), use_container_width=True, hide_index=True)
+trust_rows = pd.DataFrame(trust.get("checks", []))
+if not trust_rows.empty:
+    st.dataframe(trust_rows, use_container_width=True, hide_index=True)
+for flag in trust.get("critical_flags", []):
+    st.error(flag)
+for warning in trust.get("warnings", [])[:8]:
+    st.warning(warning)
 
 st.subheader("SEC filing evidence")
 if report.get("filing_evidence"):
-    for i, evidence in enumerate(report["filing_evidence"][:16], 1):
-        with st.expander(
-            f"{i}. {evidence.get('form')} {evidence.get('filing_date')} — {evidence.get('topic')} / {evidence.get('tone')}"
-        ):
-            st.write(evidence.get("text"))
-            if evidence.get("source_url"):
-                st.markdown(f"[Open SEC filing]({evidence['source_url']})")
+    for i, e in enumerate(report.get("filing_evidence", [])[:18], 1):
+        with st.expander(f"{i}. {e.get('form')} {e.get('filing_date')} — {e.get('topic')} / {e.get('tone')}"):
+            st.write(e.get("text"))
+            if e.get("source_url"):
+                st.markdown(f"[Open SEC filing]({e['source_url']})")
 else:
-    st.info("No cached SEC evidence. Set SEC_USER_AGENT in GitHub Actions secrets and run again.")
-
-st.subheader("Recent cached news")
-for news in report.get("news", [])[:10]:
-    title = news.get("title") or "(untitled)"
-    url = news.get("url")
-    publisher = news.get("publisher")
-    if url:
-        st.markdown(f"- [{title}]({url}) — {publisher}")
-    else:
-        st.write(f"• {title} — {publisher}")
+    st.info("No cached SEC evidence for this ticker.")
 
 if report.get("llm_research_note"):
     st.subheader("Optional AI evidence synthesis")
-    st.write(report["llm_research_note"])
+    st.write(report.get("llm_research_note"))
 
 st.divider()
+st.subheader("V5 track record")
+st.write(
+    "This section is deliberately separate from the scenario model. As v5 runs over time, it records what actually happened after each prior "
+    "BUY NOW / BUY ON PULLBACK / WATCH decision. Until enough observations accumulate, it explicitly says the history is insufficient."
+)
+summary_rows = track.get("summaries", [])
+if summary_rows:
+    st.dataframe(pd.DataFrame(summary_rows), use_container_width=True, hide_index=True)
+else:
+    st.info("No mature v5 forward-return observations yet. The first 90-day outcomes will appear after enough time has passed.")
+
 st.caption(
-    f"Published data generated: {meta.get('generated_at', 'unknown')}. The dashboard reads committed files only. "
-    "The valuation is a research model—not a guaranteed forecast."
+    f"Generated {meta.get('generated_at', 'unknown')}. Dashboard data is published by GitHub Actions; opening Streamlit does not rerun market-data downloads."
 )

@@ -26,12 +26,13 @@
     "incremental_price_period": "10d",
     "batch_size": 100,
     "batch_pause_seconds": 0.3,
-    "min_price": 3.0,
-    "min_dollar_volume_20d": 10000000,
+    "min_price": 5.0,
+    "min_dollar_volume_20d": 20000000,
     "min_history_days": 220,
-    "deep_candidates": 160,
-    "bucket_size": 60,
-    "max_late_fraction": 0.25
+    "deep_candidates": 180,
+    "bucket_size": 100,
+    "max_late_fraction": 0.4,
+    "liquid_challenger_fraction": 0.55
   },
   "cache_ttl_hours": {
     "profile": 48,
@@ -42,27 +43,34 @@
   },
   "research": {
     "research_candidates": 20,
-    "filing_forms": ["10-K", "10-Q", "8-K"],
-    "filing_documents_per_ticker": 5,
+    "filing_forms": [
+      "10-K",
+      "10-Q",
+      "8-K"
+    ],
+    "filing_documents_per_ticker": 6,
     "news_items_per_ticker": 12,
-    "filing_text_max_chars": 300000,
+    "filing_text_max_chars": 350000,
     "horizon_years": 3,
     "universe_policy": {
-      "core_min_market_cap": 10000000000,
-      "core_min_years_public": 5,
-      "core_min_analysts": 8,
-      "midcap_min_market_cap": 5000000000,
-      "midcap_min_years_public": 3,
-      "midcap_min_analysts": 5,
+      "core_min_market_cap": 15000000000,
+      "core_min_years_public": 7,
+      "core_min_analysts": 10,
+      "core_min_dollar_volume_20d": 50000000,
+      "preferred_min_market_cap": 25000000000,
+      "midcap_min_market_cap": 7500000000,
+      "midcap_min_years_public": 5,
+      "midcap_min_analysts": 7,
+      "midcap_min_dollar_volume_20d": 25000000,
       "include_midcap_if_core_short": true,
-      "max_midcap_fraction": 0.25,
+      "max_midcap_fraction": 0.2,
       "include_speculative": false
     },
     "trust_thresholds": {
-      "buy_min_trust_score": 80,
+      "buy_min_trust_score": 85,
       "min_sec_filings_for_buy": 2,
       "min_valuation_models_for_buy": 2,
-      "min_model_agreement_for_buy": 0.55,
+      "min_model_agreement_for_buy": 0.6,
       "max_price_source_mismatch": 0.12,
       "max_market_cap_price_mismatch": 0.25,
       "max_extreme_expected_cagr": 0.5,
@@ -71,15 +79,30 @@
       "min_implied_forward_pe": 3.0,
       "max_implied_forward_pe": 80.0
     },
-    "decision_thresholds": {
-      "buy_min_expected_cagr": 0.18,
-      "buy_min_base_cagr": 0.12,
-      "buy_min_scenario_support": 0.75,
-      "buy_min_bear_return": -0.35,
-      "small_buy_min_expected_cagr": 0.16,
-      "watch_min_expected_cagr": 0.08,
-      "too_late_maturity": 75
-    }
+    "conviction": {
+      "buy_now_min_score": 80,
+      "buy_on_pullback_min_score": 74,
+      "watch_min_score": 58,
+      "required_base_cagr": 0.15,
+      "required_expected_cagr": 0.18,
+      "min_bear_return": -0.3,
+      "max_buy_zone_premium": 0.03,
+      "late_too_expensive_gap": 0.15,
+      "pillar_minimum_for_buy": 55,
+      "weights": {
+        "fundamental_inflection": 22,
+        "estimate_revision": 18,
+        "valuation": 22,
+        "price_timing": 10,
+        "company_quality": 18,
+        "evidence": 10
+      }
+    },
+    "performance_horizons_days": [
+      90,
+      180,
+      365
+    ]
   },
   "llm": {
     "enabled_if_key_present": true,

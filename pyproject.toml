@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "inflection-bottleneck-scanner"
-version = "0.4.0"
-description = "Persistent broad-universe discovery, automated equity research, scenario valuation, and buy/watch/pass decision engine."
+version = "0.5.0"
+description = "Large-cap inflection discovery with persistent data, trust checks, valuation triangulation, buy zones, and realized-outcome tracking."
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}

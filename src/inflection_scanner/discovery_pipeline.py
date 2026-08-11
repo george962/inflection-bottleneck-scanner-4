@@ -31,8 +31,16 @@ def run_discovery(settings:Settings,deep_candidates=None,top_n=None,refresh_univ
         wh.close();raise RuntimeError("No usable cached/updated price history. Run online once before --offline.")
     scan.merge(universe[["yahoo_symbol","symbol","name","exchange"]],left_on="ticker",right_on="yahoo_symbol",how="left").to_csv(settings.output_dir/"universe_price_scan.csv",index=False)
     deep_n=int(deep_candidates or cfg.get("deep_candidates",100))
-    seeds=select_deep_candidates(scan,float(cfg.get("min_price",3)),float(cfg.get("min_dollar_volume_20d",5_000_000)),
-        int(cfg.get("min_history_days",220)),deep_n,int(cfg.get("bucket_size",45)),float(cfg.get("max_late_fraction",.25)))
+    seeds=select_deep_candidates(
+        scan,
+        float(cfg.get("min_price", 5)),
+        float(cfg.get("min_dollar_volume_20d", 20_000_000)),
+        int(cfg.get("min_history_days", 220)),
+        deep_n,
+        int(cfg.get("bucket_size", 100)),
+        float(cfg.get("max_late_fraction", 0.40)),
+        float(cfg.get("liquid_challenger_fraction", 0.55)),
+    )
     seeds.merge(universe[["yahoo_symbol","symbol","name","exchange"]],left_on="ticker",right_on="yahoo_symbol",how="left").to_csv(settings.output_dir/"discovery_seed_candidates.csv",index=False)
     yahoo=CachedYahooProvider(wh,settings.cache_ttl_hours,settings.request_pause_seconds,offline)
     bench=wh.load_prices(settings.benchmark,600)

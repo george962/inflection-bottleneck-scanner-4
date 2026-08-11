@@ -1,58 +1,52 @@
-# v0.3 Architecture
+# V5 Architecture
 
-## Why v0.2 was still wrong
+```text
+U.S.-listed equities
+       ↓
+batched price/liquidity scan
+       ↓
+inflection sleeve + high-liquidity challenger sleeve
+       ↓
+deep Yahoo profile / quarterly fundamentals / analyst revisions
+       ↓
+large-established company gate
+       ↓
+SEC filings + cached news
+       ↓
+data-trust checks
+       ↓
+valuation triangulation
+       ↓
+six conviction pillars
+       ↓
+required-return buy-zone calculation
+       ↓
+BUY NOW / BUY ON PULLBACK / WATCH / TOO LATE / REVIEW DATA / PASS
+       ↓
+published dashboard + historical realized-outcome tracking
+```
 
-Even after separating strength from opportunity, the system began with a
-manually selected watchlist. A watchlist containing MU, AMD, SNDK, INTC, DELL,
-STX, etc. makes rediscovering recent winners almost inevitable.
+## Why high-liquidity challengers exist
 
-That is selection bias.
+A discovery system based only on the strongest short-term inflection score tends to surface smaller volatile companies. V5 reserves more than half of deep-analysis slots for high-dollar-volume candidates. This gives established companies a direct route to deep research without manually seeding specific tickers.
 
-## v0.3 principle
+## Why the company gate is after deep discovery
 
-Discovery and evaluation are separate stages.
+Market cap, analyst coverage, and first-trade history come from the deep profile stage. Price/liquidity data is cheap to scan broadly; deep company metadata is more expensive. The pipeline therefore scans broadly, deep-loads a bounded candidate pool, and then applies the large-established gate.
 
-### Stage A — broad discovery
+## Why BUY NOW is rare
 
-Start with current U.S.-listed equities from exchange symbol directories.
+A candidate must pass:
 
-Use only cheap, scalable market data to find:
-- early breakouts
-- recoveries
-- quiet accumulation
+- institutional-scale company gate
+- data consistency checks
+- SEC evidence requirement
+- two or more valuation methods
+- valuation-method agreement
+- conviction pillar floor
+- expected-return hurdle
+- base-case return hurdle
+- acceptable bear case
+- current price inside the buy zone
 
-Do not require a giant past return.
-
-### Stage B — deep evaluation
-
-Only a small candidate set receives expensive calls for:
-- quarterly financial statements
-- analyst estimates
-- estimate revisions
-- analyst targets
-- valuation
-
-### Stage C — forward-potential ranking
-
-Rank:
-- earnings/revenue acceleration
-- revisions
-- forward growth
-- valuation
-- operating leverage
-- expectation gap
-- early discovery
-
-Then subtract explicit price maturity.
-
-## Why not deep-scan 5,000 Yahoo tickers?
-
-It is slow, fragile, and unnecessarily rate-limit-sensitive.
-
-A staged architecture makes it possible to use broad coverage without making
-dozens of expensive endpoints calls for every listed security.
-
-## What would make this institution-grade
-
-Replace the current free-data deep stage with point-in-time bulk datasets and
-industry evidence. Then use the same two-stage discovery/evaluation design.
+This intentionally favors false negatives over confident false positives.

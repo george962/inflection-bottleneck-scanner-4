@@ -1,97 +1,51 @@
-# Backtesting Rules
+# Validation and Track Record
 
-The easiest way to fool yourself with this project is accidental look-ahead bias.
+V5 separates two things that should not be confused:
 
-## Never do this
+1. **Scenario valuation** — a forward-looking research model.
+2. **Realized track record** — what actually happened after prior v5 decisions.
 
-Do not take today's:
-- quarterly financial statement history
-- current analyst consensus
-- current "historical" estimate table
-- current constituent universe
+## Realized v5 outcomes
 
-and pretend those values were available on a past date.
+Every v5 report is stored in `research_reports` with:
 
-## V1 baseline
+- timestamp
+- ticker
+- original action
+- original price
+- original conviction
 
-`inflection-scanner backtest` uses only adjusted historical prices.
+Once enough time passes, `performance.py` measures realized 90/180/365-day returns from the persistent price warehouse.
 
-At each month-end:
-1. Calculate trailing 3-month and 6-month momentum.
-2. Rank the configured universe.
-3. Hold the top K names for the next month.
-4. Compare with SPY.
+The published dashboard reports:
 
-This is not the final strategy. It is a plumbing check for:
-- walk-forward timing
-- ranking
-- portfolio formation
-- output metrics
+- observation count
+- hit rate
+- average realized return
+- median realized return
 
-## Required data for the real model
+A group is not marked as having enough history until it has at least 10 matured observations.
 
-For a valid historical inflection model, acquire point-in-time:
+## Why this is not a historical backtest yet
 
-- SEC filing acceptance timestamps
-- as-reported quarterly fundamentals
-- analyst consensus snapshots by date
-- historical estimate revisions
-- historical industry price/capacity data
-- delisting/corporate-action history
-- a survivorship-bias-safe universe
+Today's Yahoo analyst estimates cannot be retroactively treated as point-in-time historical estimates. Doing so would create look-ahead bias.
 
-## Validation scheme
+A proper historical model needs point-in-time datasets for:
 
-Use chronological walk-forward folds.
+- estimate consensus and revisions
+- filing availability timestamps
+- as-reported fundamentals
+- survivorship-safe universe membership
+- corporate actions / delistings
 
-Example:
+Until those are available, v5's honest validation path is to accumulate decisions prospectively and measure them later.
 
-```text
-Train: 2013-2018
-Validate: 2019
-Test: 2020
+## Future calibration
 
-Train: 2013-2019
-Validate: 2020
-Test: 2021
+When enough v5 observations accumulate, use chronological cohorts to answer:
 
-...
-```
-
-No random train/test splits.
-
-## Primary prediction targets
-
-Do not use only "did stock double?"
-
-Prefer:
-- forward 3M sector-relative return
-- forward 6M sector-relative return
-- forward 12M sector-relative return
-- top-decile outcome
-- >20% sector outperformance
-- >50% absolute return
-- maximum forward drawdown
-
-## Evaluation
-
-Report:
-- rank IC
-- top-decile return
-- top-decile hit rate
-- sector-neutral return
-- max drawdown
-- turnover
-- calibration
-- precision at K
-- results by sector and market regime
-
-## Multiple testing
-
-Every new feature family should have:
-- a hypothesis before test
-- an ablation
-- out-of-sample evaluation
-- a recorded experiment ID
-
-Do not keep adding variants until one backtest looks good.
+- Does `BUY NOW` outperform `WATCH`?
+- Does a higher conviction score correspond to higher realized return?
+- Does the buy-zone rule reduce drawdown versus buying immediately?
+- Which pillars have the most predictive value?
+- Are late-stage names being rejected too aggressively or not aggressively enough?

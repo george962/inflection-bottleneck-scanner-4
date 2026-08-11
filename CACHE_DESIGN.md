@@ -1,26 +1,48 @@
-# Cache Design
+# V5 Persistence Design
 
-## Stored once / incrementally
+## GitHub Actions cache
 
-- historical daily price bars: upsert by `(ticker,date)`
-- SEC filing documents: keyed by `(ticker, accession)` and never redownloaded
-  once present
+Stored outside Git history:
 
-## TTL cache
+```text
+data/warehouse.db
+data/cache/
+```
 
-- profiles: 48h
-- annual/quarterly statements: 120h
-- analyst tables: 16h
-- news: 8h
-- SEC submissions metadata: 12h
+Actions cache key prefix:
 
-If a live request fails but stale cached data exists, the provider uses stale
-data rather than throwing away the entire research run.
+```text
+equity-data-v5-
+```
 
-## GitHub
+## SQLite warehouse
 
-`data/warehouse.db` is restored/saved through GitHub Actions cache. It is also
-included in each workflow artifact as a recoverable backup.
+`data/warehouse.db` stores:
 
-Only small `published/` files are committed, preventing binary SQLite history
-from bloating the Git repository.
+- `price_daily`: deduplicated daily market history
+- `json_cache`: TTL-based Yahoo data
+- `filing_documents`: compressed SEC filing text keyed by accession
+- `research_reports`: historical v5 reports used for realized-outcome tracking
+
+## Cache schema version
+
+Yahoo deep-data keys use:
+
+```text
+yahoo:v5:...
+```
+
+This intentionally separates v5 data from incompatible earlier cached objects.
+
+## Published data
+
+Small read-only Streamlit payloads are committed:
+
+```text
+published/latest_research.json
+published/latest_research.csv
+published/track_record.json
+published/metadata.json
+```
+
+The large SQLite warehouse is never committed to normal Git history.
