@@ -34,7 +34,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
 
-    # Make the SEC identity available to BOTH Doctor and research.
+    # V5.3: SEC enrichment is optional. If SEC_USER_AGENT exists, the
+    # engine may use it; if it is absent or SEC is unavailable, core
+    # research and publishing continue normally.
     env:
       SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -56,8 +58,9 @@ jobs:
           path: |
             data/warehouse.db
             data/cache
-          key: equity-data-v5-2-${{ github.run_id }}
+          key: equity-data-v5-3-${{ github.run_id }}
           restore-keys: |
+            equity-data-v5-3-
             equity-data-v5-2-
             equity-data-v5-1-
             equity-data-v5-
@@ -67,17 +70,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -e ".[dashboard,llm]"
-
-      - name: Verify SEC secret is configured
-        shell: bash
-        run: |
-          if [ -z "${SEC_USER_AGENT:-}" ]; then
-            echo "::error::SEC_USER_AGENT repository secret is missing."
-            echo "Add it under Settings -> Secrets and variables -> Actions."
-            exit 1
-          fi
-
-          echo "SEC_USER_AGENT is configured."
 
       - name: Doctor
         run: |
@@ -102,12 +94,11 @@ jobs:
             --top 30 \
             $EXTRA
 
-      - name: Validate research and SEC evidence
+      - name: Validate research output
         run: |
           python scripts/validate_publish.py \
             --published published \
-            --min-reports 5 \
-            --min-sec-ready-fraction 0.60
+            --min-reports 5
 
       - name: Cache status
         run: |
@@ -120,13 +111,13 @@ jobs:
           path: |
             data/warehouse.db
             data/cache
-          key: equity-data-v5-2-${{ github.run_id }}
+          key: equity-data-v5-3-${{ github.run_id }}
 
       - name: Upload full run
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: equity-research-v5-2-${{ github.run_id }}
+          name: equity-research-v5-3-${{ github.run_id }}
           retention-days: 30
           path: |
             outputs/
@@ -147,7 +138,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore: publish V5.2 equity research [skip ci]"
+          git commit -m "chore: publish V5.3 equity research [skip ci]"
 
           # The remote can move because previous Actions runs also commit
           # published data. Rebase before pushing.
