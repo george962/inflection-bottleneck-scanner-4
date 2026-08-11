@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T23:53:48+00:00",
+  "generated_at": "2026-08-11T00:01:55+00:00",
   "version": "0.4.0",
   "reports": 20,
   "discovery_run": {
@@ -19,8 +19,8 @@
       "price_rows": 2654945,
       "price_tickers": 5766,
       "filing_documents": 0,
-      "research_reports": 40,
-      "size_mb": 282.18
+      "research_reports": 60,
+      "size_mb": 282.26
     }
   },
   "note": "Small published payload is committed for Streamlit; large warehouse stays out of git and is restored via Actions cache."
