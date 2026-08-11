@@ -7,4 +7,4 @@ if [[ -f ".venv/bin/activate" ]]; then
   source .venv/bin/activate
 fi
 
-inflection-scanner research --deep 180 --research-count 20 --top 30
+inflection-scanner research --deep 180 --research-count 24 --top 30

@@ -26,6 +26,11 @@ def _metrics(snapshot):
         "return_3m",
         "return_6m",
         "return_12m",
+        "distance_from_52w_high",
+        "max_drawdown_1y",
+        "relative_return_3m",
+        "relative_return_6m",
+        "relative_return_12m",
         "revenue_yoy",
         "revenue_acceleration",
         "gross_margin",
@@ -74,18 +79,17 @@ def _metrics(snapshot):
 def _freshness(warehouse, ticker):
     ticker = ticker.upper()
     return {
-        "profile": warehouse.cache_metadata(f"yahoo:v5_1:profile:{ticker}"),
-        "quarterly_financials": warehouse.cache_metadata(f"yahoo:v5_1:qfin:{ticker}"),
-        "annual_financials": warehouse.cache_metadata(f"yahoo:v5_1:afin:{ticker}"),
-        "analyst_estimates": warehouse.cache_metadata(f"yahoo:v5_1:analyst:{ticker}"),
-        "news": warehouse.cache_metadata(f"yahoo:v5_1:news:{ticker}"),
-        "sec_submissions": warehouse.cache_metadata(f"sec:submissions:{ticker}"),
+        "profile": warehouse.cache_metadata(f"yahoo:v5_2:profile:{ticker}"),
+        "quarterly_financials": warehouse.cache_metadata(f"yahoo:v5_2:qfin:{ticker}"),
+        "annual_financials": warehouse.cache_metadata(f"yahoo:v5_2:afin:{ticker}"),
+        "analyst_estimates": warehouse.cache_metadata(f"yahoo:v5_2:analyst:{ticker}"),
+        "news": warehouse.cache_metadata(f"yahoo:v5_2:news:{ticker}"),
+        "sec_submissions": warehouse.cache_metadata(f"sec:v5_2:submissions:{ticker}"),
     }
 
 
 def _build_case(snapshot, valuation, trust, evidence_summary, conviction):
-    f = snapshot.get("features", {})
-    p = snapshot.get("profile", {})
+    features = snapshot.get("features", {})
     scores = snapshot.get("scores", {})
 
     positives: list[str] = []
@@ -94,16 +98,16 @@ def _build_case(snapshot, valuation, trust, evidence_summary, conviction):
     invalidation: list[str] = []
 
     if trust.get("preferred_large_cap"):
-        positives.append("Company is in the preferred large-cap institutional-scale tier ($25B+ by default).")
+        positives.append("Company is in the preferred institutional-scale large-cap tier ($25B+ by default).")
     elif trust.get("risk_tier") == "CORE":
-        positives.append("Company passes the large-established CORE gate for size, history, coverage, and liquidity.")
+        positives.append("Company passes the established CORE gate for size, history/coverage and liquidity.")
 
-    eps30 = finite(f.get("eps_revision_30d"))
-    eps90 = finite(f.get("eps_revision_90d"))
-    rev_acc = finite(f.get("revenue_acceleration"))
-    op_margin_change = finite(f.get("operating_margin_change_yoy"))
-    eps_growth = finite(f.get("next_year_eps_growth"))
-    rev_growth = finite(f.get("next_year_revenue_growth_estimate"))
+    eps30 = finite(features.get("eps_revision_30d"))
+    eps90 = finite(features.get("eps_revision_90d"))
+    rev_acc = finite(features.get("revenue_acceleration"))
+    op_margin_change = finite(features.get("operating_margin_change_yoy"))
+    eps_growth = finite(features.get("next_year_eps_growth"))
+    rev_growth = finite(features.get("next_year_revenue_growth_estimate"))
     target_upside = finite(scores.get("analyst_target_upside"))
 
     if eps30 is not None and eps30 >= 0.05:
@@ -119,20 +123,30 @@ def _build_case(snapshot, valuation, trust, evidence_summary, conviction):
     if rev_growth is not None and rev_growth >= 0.12:
         positives.append(f"Consensus next-year revenue growth is {_pct(rev_growth)}.")
     if target_upside is not None and target_upside > 0.10:
-        positives.append(f"Street mean target provides {_pct(target_upside)} upside as corroboration only; it is not used as the core fair-value model.")
-    if valuation.get("model_count", 0) >= 2:
+        positives.append(f"Street mean target provides {_pct(target_upside)} upside as corroboration only; it is not the core fair-value model.")
+
+    if valuation.get("valuation_resolved"):
         positives.append(
-            f"{valuation.get('model_count')} valuation methods triangulate fair value; agreement={valuation.get('model_agreement')}."
+            f"{valuation.get('model_count')} independent valuation methods pass the agreement gate; agreement={valuation.get('model_agreement')}."
+        )
+    elif valuation.get("model_count", 0) >= 2:
+        risks.append(
+            f"Valuation is unresolved: {valuation.get('model_count')} models disagree materially (agreement={valuation.get('model_agreement')}, base ratio={valuation.get('model_base_ratio')}x)."
         )
 
     if conviction.get("buy_below_price") is not None:
         positives.append(
-            f"Required-return buy zone is at or below ${conviction['buy_below_price']:.2f}, based on the base fair value and a {conviction['required_base_cagr']:.0%} annual return hurdle."
+            f"Resolved required-return buy zone is at or below ${conviction['buy_below_price']:.2f}, using a {conviction['required_base_cagr']:.0%} annual base-case hurdle."
         )
 
-    maturity = finite(scores.get("price_maturity")) or 0
-    if maturity >= 75:
-        risks.append("The stock has already rerated materially; the business must keep beating expectations to justify today’s price.")
+    entry = conviction.get("entry_timing", {})
+    if entry.get("overextended"):
+        risks.append(
+            f"Primary entry may already have passed: entry state is {entry.get('entry_state')}; 6-month return {_pct(entry.get('return_6m'))}, 12-month return {_pct(entry.get('return_12m'))}."
+        )
+    if entry.get("secondary_entry_ready"):
+        positives.append("The stock has experienced a meaningful post-rerating reset while revisions remain supportive, creating a possible secondary-entry setup.")
+
     if eps30 is not None and eps30 < 0:
         risks.append(f"30-day EPS revisions are negative at {_pct(eps30)}.")
     if rev_acc is not None and rev_acc < 0:
@@ -140,35 +154,36 @@ def _build_case(snapshot, valuation, trust, evidence_summary, conviction):
     bear_return = finite(valuation.get("bear_return"))
     if bear_return is not None and bear_return < -0.25:
         risks.append(f"Bear-case modeled return from today is {_pct(bear_return)}.")
-    if valuation.get("model_count", 0) < 2:
-        risks.append("Only one usable valuation method is available; that is insufficient for a high-conviction BUY NOW.")
+
     risks.extend(f"DATA: {x}" for x in trust.get("critical_flags", []))
     risks.extend(f"Trust: {x}" for x in trust.get("warnings", [])[:5])
 
     must_be_true.extend(
         [
             "Forward revenue/EPS estimates must remain achievable rather than being cut after the next earnings report.",
-            "The margin/FCF assumptions embedded in the base valuation must be sustained through the model horizon.",
-            "The industry demand cycle must remain strong enough to support the modeled exit multiple.",
+            "Margins and free-cash-flow conversion must remain consistent with the valuation family used for this industry.",
+            "The industry demand cycle must remain strong enough to support the normalized earnings/cash-flow assumptions.",
         ]
     )
     if conviction.get("action") == "BUY ON PULLBACK":
         must_be_true.append(
-            f"Either price should move toward ${conviction.get('buy_below_price'):.2f}, or earnings/fair value must rise enough to move the buy zone upward."
+            f"Price should move toward ${conviction.get('buy_below_price'):.2f}, or fundamentals must improve enough to raise the resolved buy zone."
         )
+    if conviction.get("action") == "VALUATION UNRESOLVED":
+        must_be_true.append("Independent valuation methods need to converge before a precise buy zone is credible.")
 
     invalidation.extend(
         [
             "Two consecutive material downward estimate revisions without a compensating valuation reset.",
             "Revenue growth and operating-margin direction both deteriorate versus the current thesis.",
-            "New SEC evidence introduces a balance-sheet, customer-concentration, dilution, or demand risk large enough to break the bear-case assumptions.",
+            "SEC evidence introduces a balance-sheet, customer-concentration, dilution, accounting, or demand risk that breaks the base/bear assumptions.",
         ]
     )
 
     if evidence_summary.get("negative_count", 0) > evidence_summary.get("positive_count", 0):
-        risks.append("Recent filing evidence contains more negative than positive keyword signals; inspect the cited passages before acting.")
+        risks.append("Recent SEC filing evidence contains more negative than positive keyword signals; inspect the passages before acting.")
 
-    return positives[:10], risks[:12], must_be_true[:8], invalidation[:8]
+    return positives[:11], risks[:13], must_be_true[:8], invalidation[:8]
 
 
 def research_one(snapshot, yahoo, sec, warehouse, research_cfg, llm_cfg):
@@ -177,15 +192,13 @@ def research_one(snapshot, yahoo, sec, warehouse, research_cfg, llm_cfg):
     annual = yahoo.annual_financials(ticker)
     news = yahoo.news(ticker, int(research_cfg.get("news_items_per_ticker", 12)))
 
-    if sec.available:
-        filings = sec.ensure_recent_documents(
-            ticker,
-            list(research_cfg.get("filing_forms", ["10-K", "10-Q", "8-K"])),
-            int(research_cfg.get("filing_documents_per_ticker", 6)),
-            int(research_cfg.get("filing_text_max_chars", 350000)),
-        )
-    else:
-        filings = warehouse.recent_filings(ticker, int(research_cfg.get("filing_documents_per_ticker", 6)))
+    filings = sec.ensure_recent_documents(
+        ticker,
+        list(research_cfg.get("filing_forms", ["10-K", "10-Q", "8-K"])),
+        int(research_cfg.get("filing_documents_per_ticker", 6)),
+        int(research_cfg.get("filing_text_max_chars", 350000)),
+    )
+    sec_status = sec.status_for(ticker)
 
     evidence = extract_filing_evidence(filings)
     evidence_summary = summarize_evidence(evidence)
@@ -207,6 +220,7 @@ def research_one(snapshot, yahoo, sec, warehouse, research_cfg, llm_cfg):
         freshness=freshness,
         policy=dict(research_cfg.get("universe_policy", {})),
         thresholds=trust_thresholds,
+        evidence_status=sec_status,
     )
 
     conviction = build_conviction(
@@ -222,7 +236,7 @@ def research_one(snapshot, yahoo, sec, warehouse, research_cfg, llm_cfg):
     )
 
     report = {
-        "model_version": "5.0",
+        "model_version": "5.2",
         "asof": asof,
         "ticker": ticker,
         "company": snapshot.get("company"),
@@ -246,28 +260,34 @@ def research_one(snapshot, yahoo, sec, warehouse, research_cfg, llm_cfg):
             "reason": conviction.get("rationale"),
         },
         "source_freshness": freshness,
+        "sec_status": sec_status,
         "why_buy": positives,
         "why_not": risks,
         "what_must_be_true": must_be_true,
         "invalidation": invalidation,
         "what_changes_decision": must_be_true,
         "filing_evidence_summary": evidence_summary,
-        "filing_evidence": evidence[:30],
+        "filing_evidence": evidence[:24],
         "news": news,
         "methodology_note": (
-            "V5 does not try to persuade with a single score. BUY NOW requires a large-established company, "
-            "high data trust, multiple agreeing valuation methods, strong fundamentals/revisions, acceptable bear risk, "
-            "and a current price inside a required-return buy zone. Scenario weights are not calibrated probabilities."
+            "V5.2 separates thesis quality from entry timing. It refuses to calculate a buy zone when independent valuation methods disagree, "
+            "uses cycle-normalized valuation for memory/storage/semiconductor businesses, and labels missing SEC evidence as DATA INCOMPLETE rather than WATCH. "
+            "A large prior rally can explicitly become TOO LATE / OVEREXTENDED even when the company itself remains attractive."
         ),
-        "cache_note": (
-            "Prices, financial statements, analyst data, news, and SEC filings are cached. Immutable SEC filing documents "
-            "are reused rather than downloaded each run."
-        ),
+        "cache_note": "Market data, fundamentals, estimates, news and SEC filings are cached. SEC download failures are surfaced rather than silently ignored.",
     }
 
     report["llm_research_note"] = (
         synthesize_with_openai(report, str(llm_cfg.get("model", "gpt-5-mini")))
         if llm_cfg.get("enabled_if_key_present", True)
         else None
+    )
+
+    warehouse.put_research_report(
+        ticker,
+        asof,
+        conviction.get("action", "WATCH — DEVELOPING"),
+        valuation.get("expected_cagr"),
+        report,
     )
     return report

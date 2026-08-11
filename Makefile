@@ -14,7 +14,7 @@ research-quick:
 	inflection-scanner research --max-universe 500 --deep 80 --research-count 10 --top 15
 
 research:
-	inflection-scanner research --deep 180 --research-count 20 --top 30
+	inflection-scanner research --deep 180 --research-count 24 --top 30
 
 cache-status:
 	inflection-scanner cache-status

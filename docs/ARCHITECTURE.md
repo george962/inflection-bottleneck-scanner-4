@@ -1,52 +1,77 @@
-# V5 Architecture
+# V5.2 Architecture
 
 ```text
 U.S.-listed equities
        ↓
-batched price/liquidity scan
+persistent batched price/liquidity scan
        ↓
 inflection sleeve + high-liquidity challenger sleeve
        ↓
-deep Yahoo profile / quarterly fundamentals / analyst revisions
+deep Yahoo profile / fundamentals / analyst revisions
        ↓
 large-established company gate
        ↓
-SEC filings + cached news
+full-research allocation:
+  50% entry opportunities
+  30% strongest challengers
+  20% late-leader diagnostics
        ↓
-data-trust checks
+SEC submissions + filing documents + cached news
        ↓
-valuation triangulation
+SEC diagnostics + data trust
        ↓
-six conviction pillars
+industry-aware valuation family
        ↓
-required-return buy-zone calculation
+independent valuation model agreement gate
+       ├── resolved → fair-value scenarios + return-required buy zone
+       └── unresolved → model ranges only; no actionable buy zone
        ↓
-BUY NOW / BUY ON PULLBACK / WATCH / TOO LATE / REVIEW DATA / PASS
+thesis score (business/evidence)
+       +
+entry score (price maturity/rerating/reset)
        ↓
-published dashboard + historical realized-outcome tracking
+BUY NOW
+BUY NOW — RESET ENTRY
+BUY ON PULLBACK
+WATCH — DEVELOPING
+TOO LATE / OVEREXTENDED
+VALUATION UNRESOLVED
+DATA INCOMPLETE
+REVIEW DATA
+PASS
+       ↓
+published dashboard + realized forward track record
 ```
 
-## Why high-liquidity challengers exist
+## Why research allocation has an entry sleeve
 
-A discovery system based only on the strongest short-term inflection score tends to surface smaller volatile companies. V5 reserves more than half of deep-analysis slots for high-dollar-volume candidates. This gives established companies a direct route to deep research without manually seeding specific tickers.
+A discovery engine can correctly identify a bottleneck/inflection but still find it after the stock already rerated. V5.2 reserves half of full-research slots for CORE companies that are not yet LATE. Mature leaders remain in a smaller diagnostic sleeve so the system can explicitly identify missed primary entries and later reset opportunities.
 
-## Why the company gate is after deep discovery
+## Why thesis and entry are separate
 
-Market cap, analyst coverage, and first-trade history come from the deep profile stage. Price/liquidity data is cheap to scan broadly; deep company metadata is more expensive. The pipeline therefore scans broadly, deep-loads a bounded candidate pool, and then applies the large-established gate.
+A good company can be a bad entry. V5.2 therefore does not use one conviction score to represent both ideas.
 
-## Why BUY NOW is rare
+**Thesis score** combines:
 
-A candidate must pass:
+- fundamental inflection
+- estimate revisions
+- valuation credibility
+- company quality
+- SEC filing evidence
 
-- institutional-scale company gate
-- data consistency checks
-- SEC evidence requirement
-- two or more valuation methods
-- valuation-method agreement
-- conviction pillar floor
-- expected-return hurdle
-- base-case return hurdle
-- acceptable bear case
-- current price inside the buy zone
+**Entry score** combines:
 
-This intentionally favors false negatives over confident false positives.
+- price maturity
+- 3/6/12-month rerating
+- distance from the 52-week high
+- whether a meaningful post-rerating reset occurred
+
+## Valuation resolution rule
+
+A precise buy-below price exists only when independent valuation models pass the agreement gate. V5.2 does not average wildly incompatible values.
+
+For cycle-sensitive memory/storage/semiconductor businesses, forward peak earnings are normalized against historical earnings/cash flow before exit multiples are applied.
+
+## SEC evidence is operationally required
+
+The GitHub Actions workflow requires `SEC_USER_AGENT`, verifies SEC access in `doctor --network`, and rejects a green publish if SEC evidence is systematically missing. Individual filing-download errors are stored in each report rather than swallowed.

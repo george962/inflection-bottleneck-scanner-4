@@ -24,7 +24,7 @@ def test_track_record_uses_realized_prices(tmp_path):
     )
     warehouse.upsert_prices("XYZ", prices)
     report = {
-        "model_version": "5.0",
+        "model_version": "5.2",
         "asof": asof.isoformat(timespec="seconds"),
         "ticker": "XYZ",
         "metrics": {"price": 100},

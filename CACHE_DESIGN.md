@@ -1,38 +1,53 @@
-# V5 Persistence Design
+# V5.2 Persistence Design
 
 ## GitHub Actions cache
 
-Stored outside Git history:
+Stored outside normal Git history:
 
 ```text
 data/warehouse.db
 data/cache/
 ```
 
-Actions cache key prefix:
+V5.2 writes cache keys with prefix:
 
 ```text
-equity-data-v5-
+equity-data-v5-2-
 ```
+
+The restore step can fall back to earlier V5/V4 cache prefixes so the large historical price warehouse can be reused.
 
 ## SQLite warehouse
 
 `data/warehouse.db` stores:
 
 - `price_daily`: deduplicated daily market history
-- `json_cache`: TTL-based Yahoo data
+- `json_cache`: TTL-based mutable data
 - `filing_documents`: compressed SEC filing text keyed by accession
-- `research_reports`: historical v5 reports used for realized-outcome tracking
+- `research_reports`: historical research reports used for realized-outcome tracking
 
-## Cache schema version
+## Deep mutable-data namespaces
 
-Yahoo deep-data keys use:
+Yahoo:
 
 ```text
-yahoo:v5_1:...
+yahoo:v5_2:profile:TICKER
+yahoo:v5_2:qfin:TICKER
+yahoo:v5_2:afin:TICKER
+yahoo:v5_2:analyst:TICKER
+yahoo:v5_2:news:TICKER
 ```
 
-This intentionally separates v5 data from incompatible earlier cached objects.
+SEC:
+
+```text
+sec:v5_2:ticker_map
+sec:v5_2:submissions:TICKER
+```
+
+This forces V5.2 to refresh data whose semantics changed without throwing away the large daily-price cache.
+
+SEC filing documents themselves remain immutable by accession number and are reused once downloaded.
 
 ## Published data
 
@@ -45,4 +60,4 @@ published/track_record.json
 published/metadata.json
 ```
 
-The large SQLite warehouse is never committed to normal Git history.
+The large SQLite warehouse is not committed to normal Git history.

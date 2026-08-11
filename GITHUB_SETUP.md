@@ -1,37 +1,35 @@
-# GitHub + Streamlit Setup for v5
+# GitHub + Streamlit Setup — V5.2
 
-## 1. Create or replace the repository
+This ZIP is a **complete repository**, not a patch.
 
-Unzip the v5 package so the repository root directly contains:
+## Replace your existing scanner-4 working tree safely
 
-```text
-.github/
-config/
-dashboard/
-src/
-tests/
-pyproject.toml
-README.md
-```
+Do not drag folders in Finder and choose Replace. That can delete files that are not present in the incoming folder.
 
-Do not place the entire v5 folder inside another scanner folder.
-
-## 2. Push to GitHub
+Use `rsync` so the repository structure is merged while your existing `.git` directory is preserved:
 
 ```bash
-git init
-git add .
-git commit -m "Large-Cap Inflection Research v5"
-git branch -M main
-git remote add origin <YOUR_REPO_URL>
-git push -u origin main
+rm -rf /tmp/scanner-v52
+mkdir -p /tmp/scanner-v52
+unzip -o ~/Downloads/inflection-bottleneck-scanner-v5.2.zip -d /tmp/scanner-v52
+
+cd "/path/to/your/inflection-bottleneck-scanner-4"
+rsync -av --exclude=".git" /tmp/scanner-v52/ ./
+
+python3 -m venv .venv 2>/dev/null || true
+source .venv/bin/activate
+pip install -e ".[dashboard,dev,llm]"
+pytest -q
+
+git status
+git add -A
+git commit -m "Upgrade equity research engine to v5.2"
+git push origin main
 ```
 
-If replacing an existing repository, remove/replace the old working tree first rather than merging patch folders into it.
+## Required secret
 
-## 3. Add SEC secret
-
-Repository → Settings → Secrets and variables → Actions → New repository secret.
+GitHub repository → **Settings → Secrets and variables → Actions → New repository secret**
 
 Name:
 
@@ -42,34 +40,41 @@ SEC_USER_AGENT
 Value example:
 
 ```text
-Your Name your-email@example.com
+George Jiang your-real-email@example.com
 ```
 
-Optional secret:
+V5.2 intentionally fails the Action if this is missing because SEC evidence is part of the recommendation gate.
+
+Optional:
 
 ```text
 OPENAI_API_KEY
 ```
 
-## 4. Run research
+## Run the workflow
 
-Repository → Actions → **Equity Research Engine** → Run workflow.
+GitHub → **Actions → Equity Research Engine → Run workflow**
 
-Recommended first run:
+Use:
 
 ```text
 deep_candidates:       180
-research_candidates:    20
-force_refresh:         true
+research_candidates:    24
+force_refresh:        false
 ```
 
-After the first successful v5 run, normal runs can use `force_refresh: false`.
+The first V5.2 run refreshes the new `yahoo:v5_2:*` and `sec:v5_2:*` objects automatically.
 
-The workflow has its own v5 cache namespace and does not reuse the old v4 Actions cache.
+## What a successful run must show
 
-## 5. Confirm published files
+The Action will fail instead of publishing misleading data when:
 
-After the workflow completes, the repository should contain:
+- fewer than 5 reports are produced;
+- `SEC_USER_AGENT` is missing;
+- SEC connectivity fails in doctor;
+- fewer than 60% of reports have enough SEC filing evidence.
+
+After success, confirm these files were committed:
 
 ```text
 published/latest_research.json
@@ -78,33 +83,14 @@ published/track_record.json
 published/metadata.json
 ```
 
-## 6. Streamlit Community Cloud
+## Streamlit
 
-Deploy the same GitHub repository with:
+Keep the same Streamlit deployment if it already points at your repository.
 
-```text
-Main file path: dashboard/app.py
-```
-
-The app is read-only with respect to market data. GitHub Actions does the expensive research and commits the small `published/` payload.
-
-## 7. Normal operation
+Main file path:
 
 ```text
-GitHub Actions
-    ↓
-restore v5 warehouse cache
-    ↓
-refresh only missing/stale data
-    ↓
-large-cap research + valuation + conviction
-    ↓
-commit published/*
-    ↓
-Streamlit shows new results
+dashboard/app.py
 ```
 
-
-## V5.1 first run
-
-After uploading V5.1, run **Equity Research Engine** once. The Yahoo deep-data namespace changed to `v5_1`, so profile/history/analyst metadata is refreshed while the large historical price warehouse can still be reused from the V5 Actions cache.
+After the Action commits new `published/*` files, Streamlit should update automatically. If needed use **Manage app → Reboot app**.

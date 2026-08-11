@@ -15,7 +15,7 @@ def _parse_iso(value: str) -> datetime | None:
 
 def build_track_record(warehouse, horizons_days: list[int] | None = None) -> dict[str, Any]:
     horizons = horizons_days or [90, 180, 365]
-    reports = warehouse.list_research_reports(model_version="5.0")
+    reports = warehouse.list_research_reports(model_version="5.2")
     now = datetime.now(timezone.utc)
 
     observations = []
@@ -70,12 +70,12 @@ def build_track_record(warehouse, horizons_days: list[int] | None = None) -> dic
             )
 
     return {
-        "model_version": "5.0",
+        "model_version": "5.2",
         "generated_at": now.isoformat(timespec="seconds"),
         "observations": observations,
         "summaries": summaries,
         "note": (
-            "Track record uses realized forward prices from prior v5 research reports. "
+            "Track record uses realized forward prices from prior v5.2 research reports. "
             "A group is not treated as statistically informative until it has at least 10 observations."
         ),
     }

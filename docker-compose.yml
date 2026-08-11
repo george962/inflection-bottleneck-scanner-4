@@ -8,7 +8,7 @@ services:
       - ./outputs:/app/outputs
       - ./published:/app/published
       - ./config:/app/config:ro
-    command: ["inflection-scanner", "research", "--deep", "180", "--research-count", "20", "--top", "30"]
+    command: ["inflection-scanner", "research", "--deep", "180", "--research-count", "24", "--top", "30"]
 
   dashboard:
     build: .

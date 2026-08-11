@@ -58,3 +58,33 @@ def test_obscure_tiny_high_score_does_not_displace_large_core_default():
     assert tickers == {"LARGE1", "LARGE2"}
     assert "TINY" not in tickers
     assert stats["speculative_candidates"] == 1
+
+
+def test_v52_reserves_research_slots_for_nonlate_entry_opportunities():
+    cfg = {
+        **CFG,
+        "research_selection": {
+            "entry_opportunity_fraction": 0.50,
+            "challenger_fraction": 0.30,
+            "late_diagnostic_fraction": 0.20,
+        },
+    }
+    snapshots = []
+    for i in range(12):
+        s = snap(f"EARLY{i}", 60_000_000_000 + i * 1_000_000_000, 70 + i * 0.2)
+        s["scores"].update({"revisions": 75, "fundamental": 70, "expectation_gap": 65, "price_maturity": 35})
+        s["assessment"] = {"price_stage": "EARLY"}
+        s["features"].update({"return_6m": 0.25})
+        snapshots.append(s)
+    for i in range(12):
+        s = snap(f"LATE{i}", 100_000_000_000 + i * 1_000_000_000, 90 + i * 0.2)
+        s["scores"].update({"revisions": 90, "fundamental": 90, "expectation_gap": 80, "price_maturity": 90})
+        s["assessment"] = {"price_stage": "LATE"}
+        s["features"].update({"return_6m": 1.2})
+        snapshots.append(s)
+
+    chosen, stats = _select_research_candidates(snapshots, 10, cfg)
+    early_count = sum(x["assessment"]["price_stage"] != "LATE" for x in chosen)
+    assert early_count >= 5
+    assert stats["selected_entry_opportunity"] == 5
+    assert stats["selected_late_diagnostic"] == 2

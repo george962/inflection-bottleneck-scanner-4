@@ -42,7 +42,7 @@
     "sec_submissions": 12
   },
   "research": {
-    "research_candidates": 20,
+    "research_candidates": 24,
     "filing_forms": [
       "10-K",
       "10-Q",
@@ -67,7 +67,7 @@
       "include_speculative": false
     },
     "trust_thresholds": {
-      "buy_min_trust_score": 85,
+      "buy_min_trust_score": 82,
       "min_sec_filings_for_buy": 2,
       "min_valuation_models_for_buy": 2,
       "min_model_agreement_for_buy": 0.6,
@@ -77,7 +77,10 @@
       "max_expected_value_multiple": 3.0,
       "max_bear_upside_for_sanity": 1.0,
       "min_implied_forward_pe": 3.0,
-      "max_implied_forward_pe": 80.0
+      "max_implied_forward_pe": 80.0,
+      "max_model_base_ratio": 1.9,
+      "max_individual_model_multiple": 4.0,
+      "min_individual_model_multiple": 0.15
     },
     "conviction": {
       "buy_now_min_score": 80,
@@ -96,13 +99,39 @@
         "price_timing": 10,
         "company_quality": 18,
         "evidence": 10
+      },
+      "buy_now_min_thesis_score": 76,
+      "buy_on_pullback_min_thesis_score": 72,
+      "watch_min_thesis_score": 58,
+      "minimum_trust_for_buy": 82,
+      "max_pullback_gap": 0.35,
+      "thesis_weights": {
+        "fundamental_inflection": 25,
+        "estimate_revision": 20,
+        "valuation": 25,
+        "company_quality": 20,
+        "evidence": 10
+      },
+      "entry_timing": {
+        "late_maturity": 78,
+        "overextended_return_6m": 0.7,
+        "overextended_return_12m": 1.2,
+        "extreme_return_6m": 1.0,
+        "extreme_return_12m": 2.0,
+        "reset_distance_from_high": -0.18,
+        "reset_return_1m": -0.12
       }
     },
     "performance_horizons_days": [
       90,
       180,
       365
-    ]
+    ],
+    "research_selection": {
+      "entry_opportunity_fraction": 0.5,
+      "challenger_fraction": 0.3,
+      "late_diagnostic_fraction": 0.2
+    }
   },
   "llm": {
     "enabled_if_key_present": true,

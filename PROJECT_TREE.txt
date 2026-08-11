@@ -1,71 +1,89 @@
-.env.example
-.github/workflows/ci.yml
-.github/workflows/research.yml
-.gitignore
-BUILD_VALIDATION.md
-CACHE_DESIGN.md
-Dockerfile
-GITHUB_SETUP.md
-LICENSE
-Makefile
-PROJECT_TREE.txt
-README.md
-config/default.json
-config/themes.json
-config/watchlist.json
-dashboard/app.py
-data/.gitkeep
-docker-compose.yml
-docs/ARCHITECTURE.md
-docs/BACKTESTING.md
-docs/ROADMAP.md
-outputs/.gitkeep
-published/.gitkeep
-pyproject.toml
-requirements.txt
-scripts/run_daily.sh
-src/inflection_scanner/__init__.py
-src/inflection_scanner/__main__.py
-src/inflection_scanner/assessment.py
-src/inflection_scanner/backtest.py
-src/inflection_scanner/cli.py
-src/inflection_scanner/config.py
-src/inflection_scanner/conviction.py
-src/inflection_scanner/db.py
-src/inflection_scanner/discovery.py
-src/inflection_scanner/discovery_pipeline.py
-src/inflection_scanner/features/__init__.py
-src/inflection_scanner/features/estimates.py
-src/inflection_scanner/features/fundamentals.py
-src/inflection_scanner/features/market.py
-src/inflection_scanner/full_research_pipeline.py
-src/inflection_scanner/llm_research.py
-src/inflection_scanner/market_store.py
-src/inflection_scanner/performance.py
-src/inflection_scanner/pipeline.py
-src/inflection_scanner/providers/__init__.py
-src/inflection_scanner/providers/cached_yahoo.py
-src/inflection_scanner/providers/sec.py
-src/inflection_scanner/providers/sec_research.py
-src/inflection_scanner/providers/universe.py
-src/inflection_scanner/providers/yahoo.py
-src/inflection_scanner/report.py
-src/inflection_scanner/research_engine.py
-src/inflection_scanner/research_evidence.py
-src/inflection_scanner/scoring.py
-src/inflection_scanner/trust.py
-src/inflection_scanner/valuation.py
-src/inflection_scanner/warehouse.py
-tests/test_assessment.py
-tests/test_conviction.py
-tests/test_discovery.py
-tests/test_discovery_liquid.py
-tests/test_fundamental_features.py
-tests/test_largecap_selection.py
-tests/test_market_features.py
-tests/test_performance.py
-tests/test_research_evidence.py
-tests/test_scoring.py
-tests/test_trust.py
-tests/test_valuation.py
-tests/test_warehouse.py
+.
+├── .github
+│   └── workflows
+│       ├── ci.yml
+│       └── research.yml
+├── config
+│   ├── default.json
+│   ├── themes.json
+│   └── watchlist.json
+├── dashboard
+│   └── app.py
+├── data
+│   └── .gitkeep
+├── docs
+│   ├── ARCHITECTURE.md
+│   ├── BACKTESTING.md
+│   └── ROADMAP.md
+├── outputs
+│   └── .gitkeep
+├── published
+│   └── .gitkeep
+├── scripts
+│   ├── run_daily.sh
+│   └── validate_publish.py
+├── src
+│   └── inflection_scanner
+│       ├── features
+│       │   ├── __init__.py
+│       │   ├── estimates.py
+│       │   ├── fundamentals.py
+│       │   └── market.py
+│       ├── providers
+│       │   ├── __init__.py
+│       │   ├── cached_yahoo.py
+│       │   ├── sec.py
+│       │   ├── sec_research.py
+│       │   ├── universe.py
+│       │   └── yahoo.py
+│       ├── __init__.py
+│       ├── __main__.py
+│       ├── assessment.py
+│       ├── backtest.py
+│       ├── cli.py
+│       ├── config.py
+│       ├── conviction.py
+│       ├── db.py
+│       ├── discovery.py
+│       ├── discovery_pipeline.py
+│       ├── full_research_pipeline.py
+│       ├── llm_research.py
+│       ├── market_store.py
+│       ├── performance.py
+│       ├── pipeline.py
+│       ├── report.py
+│       ├── research_engine.py
+│       ├── research_evidence.py
+│       ├── scoring.py
+│       ├── trust.py
+│       ├── valuation.py
+│       └── warehouse.py
+├── tests
+│   ├── test_assessment.py
+│   ├── test_conviction.py
+│   ├── test_discovery.py
+│   ├── test_discovery_liquid.py
+│   ├── test_fundamental_features.py
+│   ├── test_largecap_selection.py
+│   ├── test_market_features.py
+│   ├── test_performance.py
+│   ├── test_publish_validation.py
+│   ├── test_research_evidence.py
+│   ├── test_scoring.py
+│   ├── test_sec_status.py
+│   ├── test_trust.py
+│   ├── test_valuation.py
+│   └── test_warehouse.py
+├── .env.example
+├── .gitignore
+├── BUILD_VALIDATION.md
+├── CACHE_DESIGN.md
+├── docker-compose.yml
+├── Dockerfile
+├── GITHUB_SETUP.md
+├── LICENSE
+├── Makefile
+├── PROJECT_TREE.txt
+├── pyproject.toml
+├── README.md
+└── requirements.txt

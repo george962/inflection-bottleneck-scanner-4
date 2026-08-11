@@ -16,21 +16,24 @@ from .warehouse import ResearchWarehouse
 
 ACTION_ORDER = {
     "BUY NOW": 0,
-    "BUY ON PULLBACK": 1,
-    "WATCH": 2,
-    "TOO LATE": 3,
-    "REVIEW DATA": 4,
-    "SPECULATIVE WATCH": 5,
-    "PASS": 6,
+    "BUY NOW — RESET ENTRY": 1,
+    "BUY ON PULLBACK": 2,
+    "WATCH — DEVELOPING": 3,
+    "TOO LATE / OVEREXTENDED": 4,
+    "VALUATION UNRESOLVED": 5,
+    "DATA INCOMPLETE": 6,
+    "REVIEW DATA": 7,
+    "SPECULATIVE WATCH": 8,
+    "PASS": 9,
 }
 
 
 def _report_key(report):
     conviction = report.get("conviction", {})
-    action = conviction.get("action", "WATCH")
-    score = finite(conviction.get("conviction_score")) or -999
+    action = conviction.get("action", "WATCH — DEVELOPING")
+    thesis = finite(conviction.get("thesis_score")) or -999
     market_cap = finite(report.get("trust", {}).get("market_cap")) or 0
-    return ACTION_ORDER.get(action, 9), -score, -market_cap
+    return ACTION_ORDER.get(action, 99), -thesis, -market_cap
 
 
 def _snapshot_rank(snapshot):
@@ -38,41 +41,91 @@ def _snapshot_rank(snapshot):
     preferred = 1 if tier.get("preferred_large_cap") else 0
     market_cap = finite(tier.get("market_cap")) or 0
     potential = finite(snapshot.get("scores", {}).get("total")) or 0
-    revision = finite(snapshot.get("features", {}).get("eps_revision_30d")) or 0
-    eps_growth = finite(snapshot.get("features", {}).get("next_year_eps_growth")) or 0
+    revisions = finite(snapshot.get("scores", {}).get("revisions")) or 0
+    fundamentals = finite(snapshot.get("scores", {}).get("fundamental")) or 0
+    expectation_gap = finite(snapshot.get("scores", {}).get("expectation_gap")) or 0
     liquidity = finite(tier.get("dollar_volume_20d")) or 0
-    # Size/history/liquidity are admission gates, not the thesis itself. Once a
-    # company passes CORE, rank primarily by inflection/estimate evidence so the
-    # output does not simply become a list of the world's largest companies.
     return (
         preferred,
         potential,
-        revision,
-        eps_growth,
+        revisions,
+        fundamentals,
+        expectation_gap,
         math.log10(max(liquidity, 1)),
         math.log10(max(market_cap, 1)),
     )
 
 
-def _balanced_take(pool, count, late_fraction=0.35):
-    if count <= 0 or not pool:
-        return []
-    early_mid = [x for x in pool if x.get("assessment", {}).get("price_stage") != "LATE"]
-    late = [x for x in pool if x.get("assessment", {}).get("price_stage") == "LATE"]
-    early_mid.sort(key=_snapshot_rank, reverse=True)
-    late.sort(key=_snapshot_rank, reverse=True)
-    late_slots = min(int(round(count * late_fraction)), len(late))
-    main_slots = max(0, count - late_slots)
-    chosen = early_mid[:main_slots] + late[:late_slots]
-    if len(chosen) < count:
-        used = {x["ticker"] for x in chosen}
-        remainder = sorted([x for x in pool if x["ticker"] not in used], key=_snapshot_rank, reverse=True)
-        chosen.extend(remainder[: count - len(chosen)])
-    return chosen[:count]
+def _entry_rank(snapshot):
+    tier = snapshot.get("_pre_research_tier", {})
+    preferred = 1 if tier.get("preferred_large_cap") else 0
+    scores = snapshot.get("scores", {})
+    features = snapshot.get("features", {})
+    maturity = finite(scores.get("price_maturity")) or 100
+    potential = finite(scores.get("total")) or 0
+    revisions = finite(scores.get("revisions")) or 0
+    fundamentals = finite(scores.get("fundamental")) or 0
+    gap = finite(scores.get("expectation_gap")) or 0
+    r6 = finite(features.get("return_6m"))
+    # Prefer confirmed but not already-explosive moves. This is a research
+    # allocation rule, not a buy decision.
+    moderate_rerating = 100.0
+    if r6 is not None:
+        moderate_rerating = max(0.0, 100.0 - max(0.0, r6 - 0.35) * 100.0)
+    entry_score = (
+        0.25 * potential
+        + 0.22 * revisions
+        + 0.18 * fundamentals
+        + 0.15 * gap
+        + 0.12 * max(0.0, 100.0 - maturity)
+        + 0.08 * moderate_rerating
+    )
+    return (
+        preferred,
+        entry_score,
+        potential,
+        revisions,
+        math.log10(max(finite(tier.get("market_cap")) or 1, 1)),
+    )
+
+
+def _late_rank(snapshot):
+    scores = snapshot.get("scores", {})
+    features = snapshot.get("features", {})
+    return (
+        finite(scores.get("total")) or 0,
+        finite(scores.get("revisions")) or 0,
+        finite(features.get("eps_revision_30d")) or 0,
+        finite(scores.get("fundamental")) or 0,
+    )
+
+
+def _take_unique(chosen: list[dict], pool: list[dict], count: int, ranker) -> int:
+    if count <= 0:
+        return 0
+    used = {x["ticker"] for x in chosen}
+    ranked = sorted([x for x in pool if x["ticker"] not in used], key=ranker, reverse=True)
+    add = ranked[:count]
+    chosen.extend(add)
+    return len(add)
 
 
 def _select_research_candidates(snapshots, research_candidates, research_cfg):
+    """Allocate full-research slots to three distinct questions.
+
+    1) Entry-opportunity sleeve: large CORE companies whose inflection is not yet LATE.
+    2) Challenger sleeve: strongest large-cap business/estimate inflections regardless of stage.
+    3) Late-leader diagnostic sleeve: explicitly identify great companies whose optimal entry may have passed.
+
+    This prevents the output from becoming only post-rerating winners while still
+    keeping mature leaders visible for TOO LATE / reset-entry analysis.
+    """
     policy = dict(research_cfg.get("universe_policy", {}))
+    selection_cfg = dict(research_cfg.get("research_selection", {}))
+    entry_fraction = float(selection_cfg.get("entry_opportunity_fraction", 0.50))
+    challenger_fraction = float(selection_cfg.get("challenger_fraction", 0.30))
+    late_fraction = float(selection_cfg.get("late_diagnostic_fraction", 0.20))
+
     annotated = []
     for snapshot in snapshots:
         copy = dict(snapshot)
@@ -83,28 +136,49 @@ def _select_research_candidates(snapshots, research_candidates, research_cfg):
     midcap = [x for x in annotated if x["_pre_research_tier"]["risk_tier"] == "MIDCAP"]
     speculative = [x for x in annotated if x["_pre_research_tier"]["risk_tier"] == "SPECULATIVE"]
 
-    core.sort(key=_snapshot_rank, reverse=True)
-    midcap.sort(key=_snapshot_rank, reverse=True)
-    speculative.sort(key=_snapshot_rank, reverse=True)
+    preferred_core = [x for x in core if x["_pre_research_tier"].get("preferred_large_cap")]
+    core_source = preferred_core if len(preferred_core) >= max(5, research_candidates // 2) else core
 
-    chosen = _balanced_take(core, research_candidates, late_fraction=0.35)
+    entry_pool = [
+        x for x in core_source
+        if x.get("assessment", {}).get("price_stage") != "LATE"
+        and (finite(x.get("scores", {}).get("price_maturity")) or 100) <= 68
+    ]
+    late_pool = [x for x in core_source if x.get("assessment", {}).get("price_stage") == "LATE"]
+
+    entry_slots = min(research_candidates, max(1, int(round(research_candidates * entry_fraction))))
+    late_slots = min(research_candidates - entry_slots, max(0, int(round(research_candidates * late_fraction))))
+    challenger_slots = max(0, research_candidates - entry_slots - late_slots)
+
+    chosen: list[dict] = []
+    selected_entry = _take_unique(chosen, entry_pool, entry_slots, _entry_rank)
+    selected_challenger = _take_unique(chosen, core_source, challenger_slots, _snapshot_rank)
+    selected_late = _take_unique(chosen, late_pool, late_slots, _late_rank)
+
+    # Fill from remaining CORE names first, prioritizing entry potential.
+    if len(chosen) < research_candidates:
+        _take_unique(chosen, core, research_candidates - len(chosen), _entry_rank)
 
     if len(chosen) < research_candidates and policy.get("include_midcap_if_core_short", True):
         max_midcap = max(0, int(research_candidates * float(policy.get("max_midcap_fraction", 0.20))))
-        remaining = research_candidates - len(chosen)
-        chosen.extend(_balanced_take(midcap, min(remaining, max_midcap), late_fraction=0.30))
+        remaining = min(research_candidates - len(chosen), max_midcap)
+        _take_unique(chosen, midcap, remaining, _entry_rank)
 
     if len(chosen) < research_candidates and policy.get("include_speculative", False):
-        used = {x["ticker"] for x in chosen}
-        fill = [x for x in speculative if x["ticker"] not in used]
-        chosen.extend(fill[: research_candidates - len(chosen)])
+        _take_unique(chosen, speculative, research_candidates - len(chosen), _snapshot_rank)
 
+    chosen = chosen[:research_candidates]
     return chosen, {
         "core_candidates": len(core),
-        "preferred_large_cap_candidates": sum(bool(x["_pre_research_tier"].get("preferred_large_cap")) for x in core),
+        "preferred_large_cap_candidates": len(preferred_core),
         "midcap_candidates": len(midcap),
         "speculative_candidates": len(speculative),
+        "entry_opportunity_candidates": len(entry_pool),
+        "late_diagnostic_candidates": len(late_pool),
         "selected_for_research": len(chosen),
+        "selected_entry_opportunity": selected_entry,
+        "selected_challenger": selected_challenger,
+        "selected_late_diagnostic": selected_late,
         "selected_core": sum(x["_pre_research_tier"]["risk_tier"] == "CORE" for x in chosen),
         "selected_midcap": sum(x["_pre_research_tier"]["risk_tier"] == "MIDCAP" for x in chosen),
     }
@@ -126,13 +200,16 @@ def _publish(reports, track_record, settings, meta):
         discovery = report.get("discovery", {})
         trust = report.get("trust", {})
         scenarios = {x.get("name"): x for x in valuation.get("scenarios", [])}
+        entry = conviction.get("entry_timing", {})
         rows.append(
             {
                 "ticker": report.get("ticker"),
                 "company": report.get("company"),
                 "action": conviction.get("action"),
                 "conviction_score": conviction.get("conviction_score"),
-                "conviction_level": conviction.get("conviction_level"),
+                "thesis_score": conviction.get("thesis_score"),
+                "entry_score": conviction.get("entry_score"),
+                "entry_state": entry.get("entry_state"),
                 "risk_tier": trust.get("risk_tier"),
                 "size_class": trust.get("size_class"),
                 "market_cap": trust.get("market_cap"),
@@ -141,17 +218,22 @@ def _publish(reports, track_record, settings, meta):
                 "dollar_volume_20d": trust.get("dollar_volume_20d"),
                 "trust_grade": trust.get("trust_grade"),
                 "trust_score": trust.get("trust_score"),
+                "evidence_status": trust.get("evidence_status"),
+                "filing_count": trust.get("filing_count"),
                 "current_price": metrics.get("price"),
                 "buy_below_price": conviction.get("buy_below_price"),
                 "gap_to_buy_zone": conviction.get("gap_to_buy_zone"),
                 "bear_fair_value": scenarios.get("Bear", {}).get("fair_value"),
                 "base_fair_value": scenarios.get("Base", {}).get("fair_value"),
                 "bull_fair_value": scenarios.get("Bull", {}).get("fair_value"),
+                "valuation_status": valuation.get("valuation_status"),
+                "company_type": valuation.get("company_type"),
                 "expected_cagr": valuation.get("expected_cagr"),
                 "base_cagr": valuation.get("base_cagr"),
                 "bear_return": valuation.get("bear_return"),
                 "valuation_model_count": valuation.get("model_count"),
                 "model_agreement": valuation.get("model_agreement"),
+                "model_base_ratio": valuation.get("model_base_ratio"),
                 "fundamental_pillar": conviction.get("pillars", {}).get("fundamental_inflection"),
                 "revision_pillar": conviction.get("pillars", {}).get("estimate_revision"),
                 "valuation_pillar": conviction.get("pillars", {}).get("valuation"),
@@ -160,7 +242,9 @@ def _publish(reports, track_record, settings, meta):
                 "evidence_pillar": conviction.get("pillars", {}).get("evidence"),
                 "price_stage": discovery.get("price_stage"),
                 "price_maturity": discovery.get("price_maturity"),
+                "return_6m": metrics.get("return_6m"),
                 "return_12m": metrics.get("return_12m"),
+                "distance_from_52w_high": metrics.get("distance_from_52w_high"),
                 "forward_pe": metrics.get("forward_pe"),
                 "next_year_eps_growth": metrics.get("next_year_eps_growth"),
                 "eps_revision_30d": metrics.get("eps_revision_30d"),
@@ -169,8 +253,8 @@ def _publish(reports, track_record, settings, meta):
 
     csv_path = pub / "latest_research.csv"
     if rows:
-        with csv_path.open("w", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+        with csv_path.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
             writer.writeheader()
             writer.writerows(rows)
     else:
@@ -181,13 +265,13 @@ def _publish(reports, track_record, settings, meta):
 
     metadata = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "version": "0.5.1",
+        "version": "0.5.2",
         "reports": len(reports),
         "discovery_run": meta,
         "methodology": (
-            "V5.1 defaults to large, established, liquid companies and handles missing Yahoo establishment metadata as an explicit trust gap rather than an automatic speculative classification. BUY NOW requires high data trust, multiple agreeing valuation methods, "
-            "strong fundamental/revision evidence, acceptable bear risk, and a current price inside a 15% base-case CAGR buy zone. "
-            "The system records realized outcomes over time instead of presenting scenario weights as probabilities."
+            "V5.2 separates business-thesis strength from entry timing. Full-research slots explicitly reserve room for large-cap entry opportunities, "
+            "mature leaders are labeled TOO LATE when the primary rerating has already occurred, SEC failures become DATA INCOMPLETE instead of WATCH, "
+            "and no buy zone is published when valuation models disagree. Memory/storage and semiconductor companies use cycle-normalized valuation logic."
         ),
     }
     metadata_path = pub / "metadata.json"
@@ -204,7 +288,7 @@ def _publish(reports, track_record, settings, meta):
 def run_full_research(
     settings,
     deep_candidates=180,
-    research_candidates=20,
+    research_candidates=24,
     top_n=30,
     refresh_universe=False,
     max_universe=None,
@@ -252,13 +336,6 @@ def run_full_research(
             llm_cfg=settings.llm,
         )
         reports.append(report)
-        warehouse.put_research_report(
-            ticker=report["ticker"],
-            asof=report["asof"],
-            decision=report.get("conviction", {}).get("action", "WATCH"),
-            expected_cagr=report.get("valuation", {}).get("expected_cagr"),
-            payload=report,
-        )
 
     track_record = build_track_record(
         warehouse,

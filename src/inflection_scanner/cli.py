@@ -18,7 +18,7 @@ from .warehouse import ResearchWarehouse
 
 
 app = typer.Typer(
-    help="Large-Cap Inflection Research v5: persistent discovery, trust checks, valuation triangulation, and buy-zone decisions.",
+    help="Large-Cap Inflection Research v5.2: entry-aware discovery, SEC evidence checks, cycle-normalized valuation, and credible buy-zone decisions.",
     no_args_is_help=True,
 )
 console = Console()
@@ -108,7 +108,16 @@ def doctor(network: bool = typer.Option(False, "--network")):
         except Exception as exc:
             checks.append(("US listed universe", False, str(exc)))
 
-    table = Table(title="V5 research engine doctor")
+    if network:
+        try:
+            from .providers.sec import SecProvider
+            sec = SecProvider()
+            filings = sec.recent_filings("AAPL", limit=1)
+            checks.append(("SEC network / identity", bool(filings), f"{len(filings)} recent filing row(s)"))
+        except Exception as exc:
+            checks.append(("SEC network / identity", False, str(exc)))
+
+    table = Table(title="V5.2 research engine doctor")
     table.add_column("Check")
     table.add_column("Status")
     table.add_column("Detail")
@@ -138,7 +147,7 @@ def cache_status():
 @app.command()
 def research(
     deep: int = typer.Option(180, min=60, max=500),
-    research_count: int = typer.Option(20, "--research-count", min=5, max=75),
+    research_count: int = typer.Option(24, "--research-count", min=5, max=75),
     top: int = typer.Option(30, min=5, max=100),
     max_universe: int = typer.Option(0, min=0),
     force_refresh: bool = typer.Option(False, "--force-refresh"),
@@ -146,14 +155,14 @@ def research(
 ):
     settings = load_settings()
     print(
-        "[bold]Large-Cap Inflection Research v5[/bold]\n"
+        "[bold]Large-Cap Inflection Research v5.2[/bold]\n"
         "1. Broad U.S.-listed price discovery\n"
         "2. Large/high-liquidity challenger sleeve so established names are not missed\n"
         "3. Deep profiles, fundamentals, revisions, filings, and cached news\n"
         "4. Default full-research universe: established $15B+ CORE companies\n"
-        "5. Multi-model valuation + data sanity checks\n"
-        "6. Six-pillar conviction model\n"
-        "7. BUY NOW / BUY ON PULLBACK / WATCH / TOO LATE / REVIEW DATA / PASS\n"
+        "5. Industry-aware valuation; unresolved models do not create fake buy zones\n"
+        "6. Separate thesis score from entry timing\n"
+        "7. BUY NOW / RESET ENTRY / PULLBACK / DEVELOPING / TOO LATE / VALUATION UNRESOLVED / DATA INCOMPLETE\n"
         "8. Persistent realized-outcome track record"
     )
 
@@ -170,23 +179,26 @@ def research(
 
     order = {
         "BUY NOW": 0,
-        "BUY ON PULLBACK": 1,
-        "WATCH": 2,
-        "TOO LATE": 3,
-        "REVIEW DATA": 4,
-        "SPECULATIVE WATCH": 5,
-        "PASS": 6,
+        "BUY NOW — RESET ENTRY": 1,
+        "BUY ON PULLBACK": 2,
+        "WATCH — DEVELOPING": 3,
+        "TOO LATE / OVEREXTENDED": 4,
+        "VALUATION UNRESOLVED": 5,
+        "DATA INCOMPLETE": 6,
+        "REVIEW DATA": 7,
+        "SPECULATIVE WATCH": 8,
+        "PASS": 9,
     }
     reports.sort(
         key=lambda r: (
-            order.get(r.get("conviction", {}).get("action", "WATCH"), 9),
+            order.get(r.get("conviction", {}).get("action", "WATCH — DEVELOPING"), 99),
             -(r.get("conviction", {}).get("conviction_score") or -999),
         )
     )
 
-    table = Table(title="V5 decision table")
+    table = Table(title="V5.2 decision table")
     columns = [
-        ("#", "right"), ("Ticker", None), ("Action", None), ("Conv", "right"), ("Tier", None),
+        ("#", "right"), ("Ticker", None), ("Action", None), ("Thesis", "right"), ("Entry", "right"), ("Tier", None),
         ("MktCap", "right"), ("Years", "right"), ("Analysts", "right"), ("Current", "right"),
         ("Buy<=", "right"), ("Base FV", "right"), ("Base CAGR", "right"), ("Bear", "right"),
         ("Models", "right"), ("Agree", "right"), ("Stage", None),
@@ -200,7 +212,7 @@ def research(
         t = r.get("trust", {})
         m = r.get("metrics", {})
         table.add_row(
-            str(i), r.get("ticker"), str(c.get("action")), _num(c.get("conviction_score")),
+            str(i), r.get("ticker"), str(c.get("action")), _num(c.get("thesis_score")), _num(c.get("entry_score")),
             str(t.get("risk_tier")), _market_cap(t.get("market_cap")), _num(t.get("years_public")),
             str(t.get("analyst_count") if t.get("analyst_count") is not None else "-"),
             _money(m.get("price")), _money(c.get("buy_below_price")), _money(c.get("base_fair_value")),
@@ -281,7 +293,7 @@ def explain(ticker: str):
             f"Years public: {_num(t.get('years_public'))} | Analysts: {t.get('analyst_count')}\n"
             f"Current: {_money(m.get('price'))} | Buy below: {_money(c.get('buy_below_price'))} | "
             f"Base fair: {_money(c.get('base_fair_value'))} | Base CAGR: {_pct(v.get('base_cagr'))} | Bear: {_pct(v.get('bear_return'))}",
-            title="V5 investment decision",
+            title="V5.2 investment decision",
         )
     )
     pillar_table = Table(title="Conviction pillars")
