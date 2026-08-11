@@ -27,10 +27,10 @@
     "batch_size": 100,
     "batch_pause_seconds": 0.3,
     "min_price": 3.0,
-    "min_dollar_volume_20d": 5000000,
+    "min_dollar_volume_20d": 10000000,
     "min_history_days": 220,
-    "deep_candidates": 100,
-    "bucket_size": 45,
+    "deep_candidates": 160,
+    "bucket_size": 60,
     "max_late_fraction": 0.25
   },
   "cache_ttl_hours": {
@@ -42,19 +42,40 @@
   },
   "research": {
     "research_candidates": 20,
-    "filing_forms": [
-      "10-K",
-      "10-Q",
-      "8-K"
-    ],
+    "filing_forms": ["10-K", "10-Q", "8-K"],
     "filing_documents_per_ticker": 5,
     "news_items_per_ticker": 12,
     "filing_text_max_chars": 300000,
     "horizon_years": 3,
+    "universe_policy": {
+      "core_min_market_cap": 10000000000,
+      "core_min_years_public": 5,
+      "core_min_analysts": 8,
+      "midcap_min_market_cap": 5000000000,
+      "midcap_min_years_public": 3,
+      "midcap_min_analysts": 5,
+      "include_midcap_if_core_short": true,
+      "max_midcap_fraction": 0.25,
+      "include_speculative": false
+    },
+    "trust_thresholds": {
+      "buy_min_trust_score": 80,
+      "min_sec_filings_for_buy": 2,
+      "min_valuation_models_for_buy": 2,
+      "min_model_agreement_for_buy": 0.55,
+      "max_price_source_mismatch": 0.12,
+      "max_market_cap_price_mismatch": 0.25,
+      "max_extreme_expected_cagr": 0.5,
+      "max_expected_value_multiple": 3.0,
+      "max_bear_upside_for_sanity": 1.0,
+      "min_implied_forward_pe": 3.0,
+      "max_implied_forward_pe": 80.0
+    },
     "decision_thresholds": {
       "buy_min_expected_cagr": 0.18,
-      "buy_min_probability_profit": 0.65,
-      "buy_max_bear_downside": -0.4,
+      "buy_min_base_cagr": 0.12,
+      "buy_min_scenario_support": 0.75,
+      "buy_min_bear_return": -0.35,
       "small_buy_min_expected_cagr": 0.16,
       "watch_min_expected_cagr": 0.08,
       "too_late_maturity": 75

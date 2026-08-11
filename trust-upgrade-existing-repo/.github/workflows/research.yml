@@ -1,0 +1,106 @@
+name: Equity Research Engine
+
+on:
+  workflow_dispatch:
+    inputs:
+      deep_candidates:
+        description: "Deep candidates"
+        required: false
+        default: "160"
+      research_candidates:
+        description: "Companies to fully research"
+        required: false
+        default: "20"
+      force_refresh:
+        description: "Force mutable market refresh"
+        type: boolean
+        required: false
+        default: false
+  schedule:
+    - cron: "30 23 * * 1-5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: equity-research
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Restore persistent research warehouse
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/warehouse.db
+            data/cache
+          key: equity-data-v4-${{ github.run_id }}
+          restore-keys: |
+            equity-data-v4-
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dashboard,llm]"
+
+      - name: Doctor
+        run: inflection-scanner doctor --network
+
+      - name: Run full research
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+        run: |
+          DEEP="${{ github.event.inputs.deep_candidates || '160' }}"
+          RESEARCH="${{ github.event.inputs.research_candidates || '20' }}"
+          FORCE="${{ github.event.inputs.force_refresh || 'false' }}"
+          EXTRA=""
+          if [ "$FORCE" = "true" ]; then EXTRA="--force-refresh"; fi
+          inflection-scanner research --deep "$DEEP" --research-count "$RESEARCH" --top 30 $EXTRA
+
+      - name: Cache status
+        run: inflection-scanner cache-status
+
+      - name: Save updated research warehouse
+        if: success()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            data/warehouse.db
+            data/cache
+          key: equity-data-v4-${{ github.run_id }}
+
+      - name: Upload full run
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: equity-research-${{ github.run_id }}
+          retention-days: 30
+          path: |
+            outputs/
+            published/
+            data/warehouse.db
+          if-no-files-found: warn
+
+      - name: Commit latest dashboard research
+        if: success()
+        run: |
+          git config user.name "equity-research-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add published/
+          if git diff --cached --quiet; then
+            echo "No published changes."
+            exit 0
+          fi
+          git commit -m "chore: publish latest equity research [skip ci]"
+          git push
