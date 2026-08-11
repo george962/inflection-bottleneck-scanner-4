@@ -118,7 +118,7 @@ The warehouse contains:
 
 Historical prices and immutable SEC filing documents are reused. Mutable objects refresh on TTLs in `config/default.json`.
 
-V5 uses a new `yahoo:v5:*` cache namespace so it does not silently reuse incompatible v4 cached objects.
+V5.1 uses a new `yahoo:v5_1:*` profile/fundamental cache namespace so it does not silently reuse incompatible v4 cached objects.
 
 ### 9. Realized track record
 
@@ -241,3 +241,14 @@ inflection-scanner research --deep 180 --research-count 20 --top 30
 ## Important limitation
 
 This is a research and prioritization engine, not a guarantee of returns. The point of v5 is to make the recommendation **harder to earn and easier to audit**: large-company gate, source checks, multiple valuation methods, explicit buy-zone math, thesis risks, and realized-outcome tracking.
+
+
+## V5.1 reliability fix
+
+V5.1 fixes two operational problems discovered in the first live V5 run:
+
+1. Yahoo may omit `firstTradeDateEpochUtc`. V5 mistakenly interpreted that missing field as evidence that every company was speculative. V5.1 tries history metadata as a fallback and, if the date is still unavailable, records a trust warning rather than declaring a genuinely large/liquid company small or new.
+2. An empty research result no longer crashes Streamlit. The dashboard explains the upstream selection counts and stops cleanly.
+3. GitHub Actions now validates the published dataset and fails the run if fewer than five full reports were produced, so a green workflow cannot silently commit an empty dashboard dataset.
+
+Known evidence still matters: a company with a *known* too-short public history or known weak coverage does not get promoted just because it is large. Actionable BUY labels remain stricter than research eligibility.

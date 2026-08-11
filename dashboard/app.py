@@ -39,8 +39,8 @@ def status_icon(value):
     return "✅" if value else "❌"
 
 
-st.set_page_config(page_title="Large-Cap Inflection Research v5", layout="wide")
-st.title("Large-Cap Inflection Research v5")
+st.set_page_config(page_title="Large-Cap Inflection Research v5.1", layout="wide")
+st.title("Large-Cap Inflection Research v5.1")
 st.caption(
     "Find established companies with improving fundamentals, then ask a harder question: "
     "is today's price actually inside a return-required buy zone?"
@@ -56,6 +56,26 @@ if not LATEST.exists():
 reports = json.loads(LATEST.read_text(encoding="utf-8"))
 meta = json.loads(META.read_text(encoding="utf-8")) if META.exists() else {}
 track = json.loads(TRACK.read_text(encoding="utf-8")) if TRACK.exists() else {"summaries": [], "observations": []}
+
+# A successful GitHub Action should never mean "the dashboard must crash".
+# If upstream selection returns zero reports, explain it and stop cleanly.
+if not isinstance(reports, list) or not reports:
+    selection = meta.get("discovery_run", {}).get("research_selection", {}) or {}
+    st.warning(
+        "The latest research run produced **0 full research reports**. The dashboard is working; "
+        "the upstream candidate gate returned no eligible large/established companies. "
+        "V5.1 treats this as a pipeline/data-quality condition instead of raising a KeyError."
+    )
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("CORE candidates", selection.get("core_candidates", 0))
+    c2.metric("MIDCAP candidates", selection.get("midcap_candidates", 0))
+    c3.metric("Speculative candidates", selection.get("speculative_candidates", 0))
+    c4.metric("Selected", selection.get("selected_for_research", 0))
+    st.info(
+        "Run the V5.1 GitHub Action after pushing the updated code. V5.1 refreshes Yahoo profile metadata "
+        "and no longer treats a missing first-trade date as proof that a large company is small/new."
+    )
+    st.stop()
 
 rows = []
 for r in reports:
@@ -75,6 +95,7 @@ for r in reports:
             "market_cap_b": market_cap_b(t.get("market_cap")),
             "years_public": t.get("years_public"),
             "analysts": t.get("analyst_count"),
+            "established_for_action": t.get("actionable_established"),
             "trust": t.get("trust_score"),
             "current": m.get("price"),
             "buy_below": c.get("buy_below_price"),
@@ -114,8 +135,8 @@ filtered = filtered[filtered["conviction"].fillna(0) >= min_conviction]
 
 st.subheader("What deserves attention now?")
 st.write(
-    "The default view intentionally avoids tiny/new companies. CORE requires approximately **$15B+ market cap, "
-    "7+ years public, 10+ analysts, and $50M+ average daily dollar volume**. "
+    "The default view intentionally avoids tiny/new companies. CORE targets approximately **$15B+ market cap, "
+    "$50M+ average daily dollar volume, and established-history / analyst evidence**. Missing Yahoo age metadata is now a trust warning rather than an automatic small/new classification. "
     "Actionable **BUY NOW / BUY ON PULLBACK** recommendations additionally require the preferred **$25B+** large-cap tier. A stock can already have rallied and still appear, but it only earns **BUY NOW** if today's price meets the configured return hurdle."
 )
 
@@ -127,6 +148,7 @@ show_cols = [
     "market_cap_b",
     "years_public",
     "analysts",
+    "established_for_action",
     "trust",
     "current",
     "buy_below",

@@ -67,3 +67,38 @@ def test_large_but_thinly_traded_name_does_not_pass_core():
     }
     result = pre_research_tier(snapshot, POLICY)
     assert result["risk_tier"] != "CORE"
+
+
+
+def test_large_liquid_company_missing_trade_date_is_researchable_not_speculative():
+    snapshot = {
+        "profile": {
+            "market_cap": 80_000_000_000,
+            "first_trade_date_epoch_utc": None,
+            "analyst_count_info": 24,
+        },
+        "features": {
+            "next_year_eps_analyst_count": None,
+            "dollar_volume_20d": 500_000_000,
+        },
+    }
+    result = pre_research_tier(snapshot, POLICY)
+    assert result["risk_tier"] == "CORE"
+    assert result["preferred_large_cap"] is True
+    assert result["actionable_established"] is True
+    assert "public_history" in result["establishment_data_gaps"]
+
+
+def test_large_known_too_new_company_still_does_not_pass_core():
+    snapshot = {
+        "profile": {
+            "market_cap": 80_000_000_000,
+            "first_trade_date_epoch_utc": epoch_years_ago(2),
+            "analyst_count_info": 24,
+        },
+        "features": {
+            "dollar_volume_20d": 500_000_000,
+        },
+    }
+    result = pre_research_tier(snapshot, POLICY)
+    assert result["risk_tier"] != "CORE"

@@ -103,3 +103,8 @@ commit published/*
     ↓
 Streamlit shows new results
 ```
+
+
+## V5.1 first run
+
+After uploading V5.1, run **Equity Research Engine** once. The Yahoo deep-data namespace changed to `v5_1`, so profile/history/analyst metadata is refreshed while the large historical price warehouse can still be reused from the V5 Actions cache.

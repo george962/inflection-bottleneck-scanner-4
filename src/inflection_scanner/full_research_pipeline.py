@@ -181,11 +181,11 @@ def _publish(reports, track_record, settings, meta):
 
     metadata = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "version": "0.5.0",
+        "version": "0.5.1",
         "reports": len(reports),
         "discovery_run": meta,
         "methodology": (
-            "V5 defaults to large, established, liquid companies. BUY NOW requires high data trust, multiple agreeing valuation methods, "
+            "V5.1 defaults to large, established, liquid companies and handles missing Yahoo establishment metadata as an explicit trust gap rather than an automatic speculative classification. BUY NOW requires high data trust, multiple agreeing valuation methods, "
             "strong fundamental/revision evidence, acceptable bear risk, and a current price inside a 15% base-case CAGR buy zone. "
             "The system records realized outcomes over time instead of presenting scenario weights as probabilities."
         ),

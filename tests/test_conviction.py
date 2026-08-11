@@ -48,6 +48,7 @@ def strong_trust():
     return {
         "risk_tier": "CORE",
         "preferred_large_cap": True,
+        "actionable_established": True,
         "market_cap": 80_000_000_000,
         "years_public": 15,
         "analyst_count": 24,

@@ -74,11 +74,11 @@ def _metrics(snapshot):
 def _freshness(warehouse, ticker):
     ticker = ticker.upper()
     return {
-        "profile": warehouse.cache_metadata(f"yahoo:v5:profile:{ticker}"),
-        "quarterly_financials": warehouse.cache_metadata(f"yahoo:v5:qfin:{ticker}"),
-        "annual_financials": warehouse.cache_metadata(f"yahoo:v5:afin:{ticker}"),
-        "analyst_estimates": warehouse.cache_metadata(f"yahoo:v5:analyst:{ticker}"),
-        "news": warehouse.cache_metadata(f"yahoo:v5:news:{ticker}"),
+        "profile": warehouse.cache_metadata(f"yahoo:v5_1:profile:{ticker}"),
+        "quarterly_financials": warehouse.cache_metadata(f"yahoo:v5_1:qfin:{ticker}"),
+        "annual_financials": warehouse.cache_metadata(f"yahoo:v5_1:afin:{ticker}"),
+        "analyst_estimates": warehouse.cache_metadata(f"yahoo:v5_1:analyst:{ticker}"),
+        "news": warehouse.cache_metadata(f"yahoo:v5_1:news:{ticker}"),
         "sec_submissions": warehouse.cache_metadata(f"sec:submissions:{ticker}"),
     }
 

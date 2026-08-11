@@ -41,12 +41,23 @@ class YahooProvider:
         info = self._retry(lambda: t.get_info(), default={}) or {}
         targets = self._retry(lambda: t.get_analyst_price_targets(), default={}) or {}
         fast = self._retry(lambda: dict(t.fast_info), default={}) or {}
+
+        # yfinance/Yahoo does not consistently expose firstTradeDateEpochUtc via
+        # get_info(). Ask the history metadata endpoint too, but treat failure as
+        # a data gap rather than a reason to classify a $100B company as tiny/new.
+        history_meta = self._retry(
+            lambda: (t.get_history_metadata() if hasattr(t, "get_history_metadata") else {}),
+            default={},
+        ) or {}
+
         if not isinstance(info, dict):
             info = {}
         if not isinstance(targets, dict):
             targets = {}
         if not isinstance(fast, dict):
             fast = {}
+        if not isinstance(history_meta, dict):
+            history_meta = {}
 
         forward_pe = info.get("forwardPE")
         try:
@@ -55,6 +66,24 @@ class YahooProvider:
         except Exception:
             forward_pe = None
 
+        first_trade = (
+            info.get("firstTradeDateEpochUtc")
+            or info.get("firstTradeDate")
+            or history_meta.get("firstTradeDateEpochUtc")
+            or history_meta.get("firstTradeDate")
+        )
+
+        market_cap = (
+            info.get("marketCap")
+            or fast.get("marketCap")
+            or fast.get("market_cap")
+        )
+        shares = (
+            info.get("sharesOutstanding")
+            or fast.get("shares")
+            or fast.get("shares_outstanding")
+        )
+
         return {
             "company": info.get("shortName") or info.get("longName") or ticker,
             "sector": info.get("sector"),
@@ -62,11 +91,12 @@ class YahooProvider:
             "exchange": info.get("exchange"),
             "quote_type": info.get("quoteType"),
             "currency": info.get("currency"),
-            "market_cap": info.get("marketCap"),
+            "market_cap": market_cap,
             "enterprise_value": info.get("enterpriseValue"),
-            "shares_outstanding": info.get("sharesOutstanding"),
+            "shares_outstanding": shares,
             "float_shares": info.get("floatShares"),
-            "first_trade_date_epoch_utc": info.get("firstTradeDateEpochUtc"),
+            "first_trade_date_epoch_utc": first_trade,
+            "analyst_count_info": info.get("numberOfAnalystOpinions"),
             "current_price_info": info.get("currentPrice") or info.get("regularMarketPrice"),
             "fast_last_price": fast.get("lastPrice") or fast.get("last_price"),
             "fast_market_cap": fast.get("marketCap") or fast.get("market_cap"),

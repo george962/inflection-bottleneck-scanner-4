@@ -1,19 +1,11 @@
-# V5 Build Validation
+# V5.1 Build Validation
 
-Validated on 2026-08-10 in the build environment.
+Run from the repository root:
 
-- Python compileall: PASS
-- Unit tests: ..........................                                               [100%]
-26 passed in 0.27s
-- config/default.json parse: PASS
-- pyproject.toml parse: PASS
-- GitHub Actions YAML parse: PASS
-- v5 cache namespace present: PASS
-- old P(profit) Streamlit UI absent: PASS
-- signed bear-return UI present: PASS
-- full late-stage global cap regression test: PASS
-- large-cap selection regression test: PASS
-- conviction buy-zone tests: PASS
-- realized track-record test: PASS
+```bash
+python -m compileall -q src dashboard tests scripts
+pytest -q
+python scripts/validate_publish.py --min-reports 1  # after a live research run
+```
 
-The build environment itself has no package-download network access, so dependency installation was not re-run here. GitHub Actions installs dependencies from pyproject.toml before running the same test suite.
+V5.1 specifically tests missing first-trade-date handling, known-too-new rejection, empty-publish rejection, large-cap selection, late-stage caps, buy zones, valuation sanity gates, and warehouse behavior.

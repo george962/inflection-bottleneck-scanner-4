@@ -29,7 +29,7 @@ equity-data-v5-
 Yahoo deep-data keys use:
 
 ```text
-yahoo:v5:...
+yahoo:v5_1:...
 ```
 
 This intentionally separates v5 data from incompatible earlier cached objects.

@@ -13,29 +13,42 @@ def finite(value: Any) -> float | None:
         return None
 
 
+
 def years_public(profile: dict[str, Any]) -> float | None:
-    ts = finite(profile.get("first_trade_date_epoch_utc"))
+    raw = profile.get("first_trade_date_epoch_utc")
+    ts = finite(raw)
     if ts is None or ts <= 0:
         return None
+    # Yahoo variants have used both seconds and milliseconds.
     if ts > 10_000_000_000:
         ts /= 1000.0
     try:
         first = datetime.fromtimestamp(ts, tz=timezone.utc)
-        return round(
-            (datetime.now(timezone.utc) - first).total_seconds()
-            / (365.25 * 24 * 3600),
-            2,
-        )
+        years = (datetime.now(timezone.utc) - first).total_seconds() / (365.25 * 24 * 3600)
+        # Reject obviously bad upstream dates instead of poisoning the gate.
+        if years < 0 or years > 200:
+            return None
+        return round(years, 2)
     except Exception:
         return None
 
 
 def analyst_count(snapshot: dict[str, Any]) -> int | None:
     value = finite(snapshot.get("features", {}).get("next_year_eps_analyst_count"))
-    return int(value) if value is not None else None
+    if value is None:
+        value = finite(snapshot.get("profile", {}).get("analyst_count_info"))
+    return int(value) if value is not None and value >= 0 else None
 
 
 def pre_research_tier(snapshot: dict[str, Any], policy: dict[str, Any]) -> dict[str, Any]:
+    """Classify size/risk without confusing missing Yahoo metadata with small-company risk.
+
+    Market cap and liquidity remain hard requirements. If public-history or analyst-count
+    metadata is *known* and fails the threshold, the company fails the tier. If Yahoo omits
+    one of those fields, a genuinely large/liquid company can still enter full research so
+    SEC filings and the rest of the evidence can verify it. Missing metadata is penalized
+    later by the trust score; it is not treated as proof that the company is new or obscure.
+    """
     profile = snapshot.get("profile", {})
     features = snapshot.get("features", {})
     market_cap = finite(profile.get("market_cap"))
@@ -43,57 +56,98 @@ def pre_research_tier(snapshot: dict[str, Any], policy: dict[str, Any]) -> dict[
     analysts = analyst_count(snapshot)
     dollar_volume = finite(features.get("dollar_volume_20d"))
 
-    core = (
-        market_cap is not None
-        and market_cap >= float(policy.get("core_min_market_cap", 15_000_000_000))
-        and yrs is not None
-        and yrs >= float(policy.get("core_min_years_public", 7))
-        and analysts is not None
-        and analysts >= int(policy.get("core_min_analysts", 10))
-        and dollar_volume is not None
-        and dollar_volume >= float(policy.get("core_min_dollar_volume_20d", 50_000_000))
+    core_cap = float(policy.get("core_min_market_cap", 15_000_000_000))
+    core_years = float(policy.get("core_min_years_public", 7))
+    core_analysts = int(policy.get("core_min_analysts", 10))
+    core_liquidity = float(policy.get("core_min_dollar_volume_20d", 50_000_000))
+    preferred_cap = float(policy.get("preferred_min_market_cap", 25_000_000_000))
+
+    mid_cap = float(policy.get("midcap_min_market_cap", 7_500_000_000))
+    mid_years = float(policy.get("midcap_min_years_public", 5))
+    mid_analysts = int(policy.get("midcap_min_analysts", 7))
+    mid_liquidity = float(policy.get("midcap_min_dollar_volume_20d", 25_000_000))
+
+    core_history_ok = yrs is None or yrs >= core_years
+    core_coverage_ok = analysts is None or analysts >= core_analysts
+    mid_history_ok = yrs is None or yrs >= mid_years
+    mid_coverage_ok = analysts is None or analysts >= mid_analysts
+
+    # If BOTH metadata fields are absent, only a preferred-size large cap is allowed
+    # into CORE research. This prevents missing-data penny/small caps from slipping in.
+    core_metadata_support = yrs is not None or analysts is not None or (
+        market_cap is not None and market_cap >= preferred_cap
     )
 
+    core = (
+        market_cap is not None
+        and market_cap >= core_cap
+        and dollar_volume is not None
+        and dollar_volume >= core_liquidity
+        and core_history_ok
+        and core_coverage_ok
+        and core_metadata_support
+    )
+
+    mid_metadata_support = yrs is not None or analysts is not None
     midcap = (
         market_cap is not None
-        and market_cap >= float(policy.get("midcap_min_market_cap", 7_500_000_000))
-        and yrs is not None
-        and yrs >= float(policy.get("midcap_min_years_public", 5))
-        and analysts is not None
-        and analysts >= int(policy.get("midcap_min_analysts", 7))
+        and market_cap >= mid_cap
         and dollar_volume is not None
-        and dollar_volume >= float(policy.get("midcap_min_dollar_volume_20d", 25_000_000))
+        and dollar_volume >= mid_liquidity
+        and mid_history_ok
+        and mid_coverage_ok
+        and mid_metadata_support
     )
 
     tier = "CORE" if core else "MIDCAP" if midcap else "SPECULATIVE"
-    preferred = bool(
-        core
-        and market_cap is not None
-        and market_cap >= float(policy.get("preferred_min_market_cap", 25_000_000_000))
+    preferred = bool(core and market_cap is not None and market_cap >= preferred_cap)
+
+    # Strong enough for an actionable recommendation. Missing listing age can be
+    # compensated only by substantially greater scale plus verified analyst coverage.
+    actionable_established = bool(
+        preferred
+        and analysts is not None
+        and analysts >= core_analysts
+        and (
+            (yrs is not None and yrs >= core_years)
+            or (market_cap is not None and market_cap >= max(50_000_000_000, preferred_cap * 2))
+        )
     )
 
     if market_cap is None:
         size_class = "UNKNOWN"
     elif market_cap >= 200_000_000_000:
         size_class = "MEGA_CAP"
-    elif market_cap >= 25_000_000_000:
+    elif market_cap >= preferred_cap:
         size_class = "LARGE_CAP"
     elif market_cap >= 10_000_000_000:
         size_class = "UPPER_MID_CAP"
     else:
         size_class = "SMALLER"
 
+    data_gaps = []
+    if yrs is None:
+        data_gaps.append("public_history")
+    if analysts is None:
+        data_gaps.append("analyst_coverage")
+    if market_cap is None:
+        data_gaps.append("market_cap")
+    if dollar_volume is None:
+        data_gaps.append("liquidity")
+
     return {
         "risk_tier": tier,
         "preferred_large_cap": preferred,
+        "actionable_established": actionable_established,
         "size_class": size_class,
         "eligible": tier in {"CORE", "MIDCAP"} or bool(policy.get("include_speculative", False)),
         "market_cap": market_cap,
         "years_public": yrs,
         "analyst_count": analysts,
         "dollar_volume_20d": dollar_volume,
+        "establishment_data_complete": not data_gaps,
+        "establishment_data_gaps": data_gaps,
     }
-
 
 def _relative_diff(a: float | None, b: float | None) -> float | None:
     if a is None or b is None or a == 0 or b == 0:
@@ -132,26 +186,62 @@ def evaluate_trust(
 
     if tier["risk_tier"] == "CORE":
         check(
-            "Established-company gate",
+            "Size / liquidity gate",
             "PASS",
-            (
-                f"CORE: market cap, public history, analyst coverage, and liquidity pass. "
-                f"Size class {tier['size_class']}."
-            ),
+            f"CORE size/liquidity thresholds pass. Size class {tier['size_class']}.",
         )
     elif tier["risk_tier"] == "MIDCAP":
         check(
-            "Established-company gate",
+            "Size / liquidity gate",
             "WARN",
-            "Company is established but below the default CORE large-company threshold; no normal BUY NOW recommendation.",
+            "Established research candidate, but below the default CORE size/liquidity threshold; no normal BUY NOW recommendation.",
             12,
         )
     else:
         check(
-            "Established-company gate",
+            "Size / liquidity gate",
             "FAIL",
-            "Company is too small/new/thinly covered for the default recommendation universe.",
+            "Company is below the default size/liquidity/known-history/coverage research policy.",
             30,
+        )
+
+    core_years = float(policy.get("core_min_years_public", 7))
+    core_analysts = int(policy.get("core_min_analysts", 10))
+    yrs = tier.get("years_public")
+    analysts = tier.get("analyst_count")
+
+    if yrs is None:
+        check(
+            "Public-history metadata",
+            "WARN",
+            "Yahoo did not provide a reliable first-trade date. This is treated as a data gap, not proof that the company is new.",
+            5,
+        )
+    elif yrs >= core_years:
+        check("Public-history metadata", "PASS", f"Approximately {yrs:.1f} years of public-company history verified.")
+    else:
+        check(
+            "Public-history metadata",
+            "FAIL",
+            f"Only about {yrs:.1f} years public; below the {core_years:.0f}-year CORE preference.",
+            12,
+        )
+
+    if analysts is None:
+        check(
+            "Analyst coverage",
+            "WARN",
+            "Analyst-count metadata is unavailable. The company can be researched, but cannot earn the strongest actionable-established flag.",
+            7,
+        )
+    elif analysts >= core_analysts:
+        check("Analyst coverage", "PASS", f"Approximately {analysts} analysts cover next-year earnings / the company profile.")
+    else:
+        check(
+            "Analyst coverage",
+            "WARN",
+            f"Only about {analysts} analysts detected; below the {core_analysts} analyst CORE preference.",
+            8,
         )
 
     if quality >= 82:

@@ -189,7 +189,7 @@ def build_conviction(
     trust_score = finite(trust.get("trust_score")) or 0.0
 
     checks = {
-        "large_established_company": risk_tier == "CORE" and bool(trust.get("preferred_large_cap")),
+        "large_established_company": risk_tier == "CORE" and bool(trust.get("preferred_large_cap")) and bool(trust.get("actionable_established")),
         "data_trust": trust_score >= 85 and not trust.get("critical_flags"),
         "multiple_valuation_methods": model_count >= 2 and (model_agreement or 0) >= 0.60,
         "required_expected_return": expected_cagr is not None and expected_cagr >= required_expected_cagr,
@@ -215,7 +215,10 @@ def build_conviction(
         rationale = "The company is researchable but below the default large-established CORE threshold."
     elif not trust.get("preferred_large_cap"):
         action = "WATCH"
-        rationale = "The company passes CORE but is below the preferred $25B large-cap threshold for actionable v5 recommendations."
+        rationale = "The company passes CORE but is below the preferred large-cap threshold for actionable v5 recommendations."
+    elif not trust.get("actionable_established"):
+        action = "WATCH"
+        rationale = "The company is large enough for research, but public-history / analyst-coverage evidence is not yet strong enough for an actionable BUY label."
     elif conviction_score >= buy_now_min and all(checks.values()):
         action = "BUY NOW"
         rationale = "All major evidence pillars pass and the current price is inside the return-required buy zone."
