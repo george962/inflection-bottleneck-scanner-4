@@ -1,195 +1,144 @@
-# Large-Cap Inflection Research v5.2
+# Large-Cap Inflection Research v5.3
 
-V5.2 is a complete repository for finding **large, established, liquid U.S.-listed companies** whose fundamentals and estimates are improving, then deciding whether the **entry is still attractive today**.
+V5.3 is a large-cap stock discovery and decision-support system built around one question:
 
-The system deliberately avoids turning a numerical score into a BUY. It separates three questions:
+> Which established companies are improving fundamentally **and** still offer an attractive entry from today's price?
 
-1. **Is the company / thesis attractive?**
-2. **Can the valuation be resolved credibly?**
-3. **Has the primary entry already passed?**
+It does **not** require SEC access. SEC filings are optional enrichment only.
 
-That distinction is the main change from V5.1.
+## Core philosophy
+
+The system deliberately separates two questions:
+
+1. **Is this a strong investment thesis?**
+2. **Is this still a good entry, or did the primary rerating already happen?**
+
+This lets the output distinguish:
+
+- `BUY NOW`
+- `BUY NOW — RESET ENTRY`
+- `BUY ON PULLBACK`
+- `WATCH — DEVELOPING`
+- `TOO LATE / OVEREXTENDED`
+- `VALUATION UNRESOLVED`
+- `REVIEW DATA`
+- `SPECULATIVE WATCH`
+- `PASS`
+
+A company is never required to receive a BUY label. If nothing clears the configured hurdles, the correct output is no BUY.
 
 ## Default risk universe
 
-Full research defaults to CORE companies with roughly:
+The final recommendation layer is intentionally biased toward established institutional-scale companies rather than obscure small caps.
 
-- market cap >= **$15B**
-- 20-day average dollar volume >= **$50M/day**
-- public history >= **7 years** when known
-- next-year EPS analyst coverage >= **10 analysts** when known
+### CORE research company
 
-Actionable BUY labels additionally require the preferred **$25B+** large-cap tier and stronger establishment evidence.
+Default requirements are approximately:
 
-Small/new companies can still be discovered by the broad scan, but they do not displace large CORE companies in the default research output.
+- market cap >= $15B;
+- 20-day average dollar volume >= $50M/day;
+- preferably 7+ years public when reliable metadata exists;
+- preferably 10+ forward-earnings analysts.
 
-## V5.2 action vocabulary
+### Actionable BUY company
 
-### `BUY NOW`
+Normal BUY decisions additionally prefer:
 
-The large-company thesis is strong, SEC evidence is ready, independent valuation methods agree, the bear case is acceptable, and the current price is inside the required-return buy zone.
+- market cap >= $25B;
+- strong analyst coverage / established-company evidence;
+- high data trust;
+- at least two usable valuation models;
+- valuation models that agree sufficiently;
+- required forward return from **today's price**;
+- acceptable bear case;
+- an entry that is not already overextended, unless a meaningful reset reopened the window.
 
-### `BUY NOW — RESET ENTRY`
+Small/new names may still appear in broad discovery, but they cannot become a normal large-cap BUY.
 
-The stock previously rerated hard, but a meaningful pullback/reset has reopened an entry while revisions remain supportive and valuation is resolved.
+## Why SEC is optional in v5.3
 
-### `BUY ON PULLBACK`
+The core engine already uses:
 
-The thesis is strong and valuation is resolved, but the current price is above the price required to earn the configured base-case return hurdle.
+- historical prices and liquidity;
+- market cap and share-count cross-checks;
+- quarterly/annual financial statements;
+- revenue and margin acceleration;
+- free cash flow;
+- analyst EPS/revenue estimates;
+- 7/30/90-day estimate revisions;
+- revision breadth and earnings surprises;
+- analyst coverage;
+- multiple valuation methods;
+- current-price maturity / rerating / reset logic;
+- cached news headlines;
+- realized forward track record of prior model actions.
 
-### `WATCH — DEVELOPING`
+SEC filings can add useful company-specific detail, but V5.3 treats them as a supplement. If `SEC_USER_AGENT` is absent or malformed:
 
-The company is worth following, but the thesis/evidence/return hurdle has not matured enough for an actionable entry.
+- GitHub Actions still runs;
+- trust receives **no SEC absence penalty**;
+- BUY/WATCH/TOO LATE decisions continue normally;
+- the dashboard simply shows SEC enrichment as unavailable.
 
-### `TOO LATE / OVEREXTENDED`
+If SEC is configured and works, filing evidence is incorporated as a small supplemental component and can surface risks.
 
-The company may still be excellent, but the primary rerating already occurred and price has not reset enough to justify chasing it. This label is **independent of the valuation buy-zone calculation**.
+## Valuation credibility
 
-### `VALUATION UNRESOLVED`
+V5.3 will not manufacture a precise buy zone from contradictory models.
 
-Two or more valuation methods disagree too much, or only one method is usable. V5.2 intentionally publishes **no actionable buy-below price** in this state.
+When multiple valuation models disagree beyond the configured gate, the result is:
 
-### `DATA INCOMPLETE`
+`VALUATION UNRESOLVED`
 
-Required SEC evidence is missing or failed to download. This is no longer hidden inside a generic WATCH label.
+and the dashboard shows the model range rather than treating the midpoint as a real fair value.
 
-### `REVIEW DATA`
+Memory/storage/semiconductor cyclicals use normalized-cycle logic rather than simply compounding peak forward EPS.
 
-A price/share-count/valuation sanity check failed.
+## Entry timing
 
-### `SPECULATIVE WATCH`
+A strong business can still be a poor entry.
 
-Below the default large-established risk threshold.
+The engine explicitly models:
 
-### `PASS`
+- price maturity;
+- 1/3/6/12-month returns;
+- distance from the 52-week high;
+- overextension;
+- large prior rerating;
+- meaningful post-rerating resets;
+- whether estimates remain supportive after a reset.
 
-Insufficient risk/reward at the configured hurdle.
-
-## Why V5.2 is different from V5.1
-
-### 1. Thesis score and entry score are separate
-
-V5.1 could call a strong company `WATCH` because price timing was poor. That mixed together two very different cases:
-
-- an early thesis that is not proven yet;
-- a proven thesis whose optimal entry was months ago.
-
-V5.2 computes:
-
-- **Thesis score**: fundamentals, revisions, valuation credibility, company quality and SEC evidence.
-- **Entry score**: price maturity, 3/6/12-month rerating and distance from the 52-week high.
-
-The dashboard displays both.
-
-### 2. Research slots explicitly search for entries
-
-The full-research budget is split approximately into:
-
-- **50% entry-opportunity sleeve** — CORE companies that are not yet LATE;
-- **30% challenger sleeve** — strongest large-cap fundamental/revision candidates;
-- **20% late-leader diagnostic sleeve** — mature winners retained so the engine can explicitly say `TOO LATE` or identify a reset entry.
-
-This reduces the chance that the final list is dominated by companies whose best entry already happened.
-
-### 3. No fake midpoint between conflicting valuation models
-
-V5.1 could combine two wildly different fair values by taking the median. With exactly two models, that is just their arithmetic midpoint and can create a precise-looking but meaningless buy zone.
-
-V5.2 calculates an actionable blended fair value **only after**:
-
-- at least 2 independent models are available;
-- model-agreement score >= **0.60**;
-- high/low base fair values are no more than **1.9x** apart;
-- no critical valuation sanity flag exists.
-
-If those gates fail, the result is `VALUATION UNRESOLVED` and the dashboard shows the individual model ranges instead of a buy price.
-
-### 4. Memory/storage/semiconductor valuation is cycle-aware
-
-V5.1 could treat a memory company with peak-cycle forward EPS as ordinary profitable growth and compound those earnings forward.
-
-V5.2 recognizes:
-
-- memory/storage/computer-hardware cycle-sensitive businesses;
-- semiconductor companies with unusually large simultaneous revenue and margin swings;
-- energy/materials cyclicals.
-
-Those companies use **normalized-cycle EPS** and **normalized FCF** assumptions rather than blindly extrapolating peak forward EPS.
-
-### 5. SEC failures are no longer silent
-
-Earlier code could swallow filing-download errors and continue with zero documents.
-
-V5.2 records, per ticker:
-
-- SEC state;
-- whether submissions were fetched;
-- documents requested;
-- documents cached;
-- documents downloaded this run;
-- actual error messages.
-
-GitHub Actions requires `SEC_USER_AGENT`, checks SEC connectivity in `doctor --network`, and fails the publish if fewer than 60% of research reports have enough SEC evidence.
-
-### 6. Buy-zone math only exists when valuation is resolved
-
-Default base-case hurdle:
-
-```text
-15% annualized over 3 years
-```
-
-When valuation is resolved:
-
-```text
-buy_below = base_fair_value / (1 + required_base_CAGR)^3
-```
-
-When valuation is unresolved, `buy_below` is intentionally blank.
+That allows an excellent company to be classified `TOO LATE / OVEREXTENDED` rather than hidden inside a generic WATCH bucket.
 
 ## Persistent cache
 
-GitHub Actions persists:
+The research warehouse is stored at:
 
 ```text
 data/warehouse.db
-data/cache/
 ```
 
-Historical daily prices are reused. V5.2 changes only the deep mutable-data namespaces:
+Historical market data is retained and updated incrementally. Yahoo profile/fundamental/analyst/news data uses TTL caching. GitHub Actions restores and saves the warehouse cache between runs.
 
-```text
-yahoo:v5_2:...
-sec:v5_2:...
+## Local setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -e ".[dashboard,dev,llm]"
+pytest -q
+inflection-scanner doctor --network
 ```
 
-So the first V5.2 run refreshes profiles/financials/analyst data/SEC submissions while still being able to reuse the large historical price warehouse from prior versions.
+No SEC secret is required.
 
-## Required GitHub secret
+Then run:
 
-Repository → **Settings → Secrets and variables → Actions**
-
-Create:
-
-```text
-SEC_USER_AGENT
+```bash
+inflection-scanner research --deep 180 --research-count 24 --top 30
+streamlit run dashboard/app.py
 ```
-
-Example:
-
-```text
-George Jiang your-real-email@example.com
-```
-
-This is required for the GitHub Actions research workflow.
-
-Optional:
-
-```text
-OPENAI_API_KEY
-```
-
-The OpenAI key is only used for an additional narrative synthesis. Deterministic discovery, valuation, trust and actions do not depend on it.
 
 ## GitHub Actions
 
@@ -199,75 +148,38 @@ Main workflow:
 .github/workflows/research.yml
 ```
 
-Recommended first V5.2 run:
+Run from GitHub:
 
 ```text
-deep_candidates:       180
-research_candidates:    24
-force_refresh:        false
+Actions -> Equity Research Engine -> Run workflow
 ```
 
-`force_refresh: false` is normally enough because the new `v5_2` deep-data namespaces force the incompatible mutable objects to refresh while retaining the historical price warehouse.
-
-The workflow does this:
+Recommended defaults:
 
 ```text
-checkout
-→ restore warehouse cache
-→ install
-→ compile + pytest
-→ require SEC_USER_AGENT
-→ Yahoo + SEC network doctor
-→ full research
-→ validate report count + SEC evidence coverage
-→ save warehouse
-→ upload full artifact
-→ commit published/*
+deep_candidates: 180
+research_candidates: 24
+force_refresh: false
 ```
+
+`SEC_USER_AGENT` is optional. If you already created the secret, you may keep it; if it is absent, the workflow simply skips SEC enrichment.
+
+The workflow validates that a non-empty, structurally valid research publish was produced. It does **not** require any percentage of companies to have SEC filings.
 
 ## Streamlit
 
-Main file:
+Use:
 
 ```text
 dashboard/app.py
 ```
 
-The dashboard has separate tabs for:
+The Streamlit app reads the committed files under `published/`; opening the dashboard does not rerun the market scanner.
 
-- **Actionable now**
-- **Developing**
-- **Past primary entry**
-- **Unresolved / data**
-- **All researched**
+## Track record
 
-Opening Streamlit does not download market data. It only reads the files generated by GitHub Actions:
+V5.3 records prior actions and evaluates realized 90/180/365-day outcomes as enough time passes. Scenario weights are not called probabilities. The forward realized record is the empirical evidence that matters over time.
 
-```text
-published/latest_research.json
-published/latest_research.csv
-published/track_record.json
-published/metadata.json
-```
+## Disclaimer
 
-## Local validation
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -e ".[dashboard,dev,llm]"
-pytest -q
-SEC_USER_AGENT="Your Name your@email.com" inflection-scanner doctor --network
-```
-
-## Full local run
-
-```bash
-SEC_USER_AGENT="Your Name your@email.com" \
-inflection-scanner research --deep 180 --research-count 24 --top 30
-```
-
-## Important limitation
-
-This is a research prioritization and decision-support engine, not a guarantee of returns. V5.2 is intentionally designed to **refuse false precision**: no forced BUY quota, no fake probability of profit, no midpoint buy zone from contradictory models, and no silent missing SEC evidence.
+This is a research and prioritization system, not a guarantee of returns or individualized financial advice. BUY labels are model decisions under configured assumptions and should still be reviewed before capital is committed.

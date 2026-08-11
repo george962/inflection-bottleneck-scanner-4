@@ -265,12 +265,12 @@ def _publish(reports, track_record, settings, meta):
 
     metadata = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "version": "0.5.2",
+        "version": "0.5.3",
         "reports": len(reports),
         "discovery_run": meta,
         "methodology": (
-            "V5.2 separates business-thesis strength from entry timing. Full-research slots explicitly reserve room for large-cap entry opportunities, "
-            "mature leaders are labeled TOO LATE when the primary rerating has already occurred, SEC failures become DATA INCOMPLETE instead of WATCH, "
+            "V5.3 separates business-thesis strength from entry timing. Full-research slots explicitly reserve room for large-cap entry opportunities, "
+            "mature leaders are labeled TOO LATE when the primary rerating has already occurred, SEC filings are optional enrichment rather than a recommendation gate, "
             "and no buy zone is published when valuation models disagree. Memory/storage and semiconductor companies use cycle-normalized valuation logic."
         ),
     }

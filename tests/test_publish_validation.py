@@ -4,6 +4,10 @@ import subprocess
 import sys
 
 
+def _script() -> Path:
+    return Path(__file__).resolve().parents[1] / "scripts" / "validate_publish.py"
+
+
 def test_publish_validator_rejects_empty_dataset(tmp_path: Path):
     published = tmp_path / "published"
     published.mkdir()
@@ -12,9 +16,8 @@ def test_publish_validator_rejects_empty_dataset(tmp_path: Path):
         json.dumps({"discovery_run": {"research_selection": {"core_candidates": 0}}}),
         encoding="utf-8",
     )
-    script = Path(__file__).resolve().parents[1] / "scripts" / "validate_publish.py"
     result = subprocess.run(
-        [sys.executable, str(script), "--published", str(published), "--min-reports", "1"],
+        [sys.executable, str(_script()), "--published", str(published), "--min-reports", "1"],
         capture_output=True,
         text=True,
     )
@@ -22,48 +25,35 @@ def test_publish_validator_rejects_empty_dataset(tmp_path: Path):
     assert "research produced only 0 report" in result.stdout
 
 
-def test_publish_validator_accepts_well_formed_sec_ready_report(tmp_path: Path):
+def test_publish_validator_accepts_well_formed_report_without_sec(tmp_path: Path):
     published = tmp_path / "published"
     published.mkdir()
     report = {
         "ticker": "TEST",
         "conviction": {},
         "valuation": {},
-        "trust": {"evidence_ready": True},
+        "trust": {},
         "metrics": {},
-        "sec_status": {"state": "READY"},
+        "sec_status": {"state": "UNAVAILABLE", "documents_cached": 0},
     }
     (published / "latest_research.json").write_text(json.dumps([report]), encoding="utf-8")
-    script = Path(__file__).resolve().parents[1] / "scripts" / "validate_publish.py"
     result = subprocess.run(
-        [sys.executable, str(script), "--published", str(published), "--min-reports", "1"],
+        [sys.executable, str(_script()), "--published", str(published), "--min-reports", "1"],
         capture_output=True,
         text=True,
     )
     assert result.returncode == 0
-    assert "SEC evidence ready for 1/1" in result.stdout
+    assert "SEC is not required" in result.stdout
 
 
-def test_publish_validator_rejects_systemic_sec_failure(tmp_path: Path):
+def test_publish_validator_rejects_malformed_report_even_when_sec_optional(tmp_path: Path):
     published = tmp_path / "published"
     published.mkdir()
-    reports = [
-        {
-            "ticker": f"T{i}",
-            "conviction": {},
-            "valuation": {},
-            "trust": {"evidence_ready": False},
-            "metrics": {},
-            "sec_status": {"state": "UNAVAILABLE", "errors": ["secret missing"]},
-        }
-        for i in range(5)
-    ]
-    (published / "latest_research.json").write_text(json.dumps(reports), encoding="utf-8")
-    script = Path(__file__).resolve().parents[1] / "scripts" / "validate_publish.py"
+    (published / "latest_research.json").write_text(json.dumps([{"ticker": "TEST"}]), encoding="utf-8")
     result = subprocess.run(
-        [sys.executable, str(script), "--published", str(published), "--min-reports", "5"],
+        [sys.executable, str(_script()), "--published", str(published), "--min-reports", "1"],
         capture_output=True,
         text=True,
     )
-    assert result.returncode == 1
-    assert "SEC evidence is ready for only" in result.stdout
+    assert result.returncode == 2
+    assert "malformed report" in result.stdout

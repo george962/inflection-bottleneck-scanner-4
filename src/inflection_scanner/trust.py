@@ -217,31 +217,35 @@ def evaluate_trust(
     else:
         check("Feature coverage", "FAIL", f"Data quality is only {quality:.0f}%.", 20, True)
 
+    # SEC is optional enrichment in V5.3. Missing SEC access is neither a
+    # trust-score penalty nor a BUY gate. When filing evidence is available,
+    # it can add context and surface company-specific risks.
     filing_count = len(filings)
-    min_filings = int(thresholds.get("min_sec_filings_for_buy", 2))
-    evidence_ready = bool(
-        filing_count >= min_filings
-        and evidence_state in {"READY", "PARTIAL_ERROR", "CACHED_ONLY", "UNKNOWN"}
-    )
-    if evidence_ready:
+    sec_enrichment_available = filing_count > 0
+    if sec_enrichment_available:
         if evidence_state == "PARTIAL_ERROR":
             check(
-                "SEC evidence",
-                "WARN",
-                f"{filing_count} recent SEC filings are cached, but some additional downloads failed.",
-                4,
+                "Optional SEC enrichment",
+                "INFO",
+                f"{filing_count} SEC filing document(s) are cached; some additional SEC downloads failed. Core research is unaffected.",
+                0,
             )
         else:
-            check("SEC evidence", "PASS", f"{filing_count} recent SEC filing documents cached.")
+            check(
+                "Optional SEC enrichment",
+                "PASS",
+                f"{filing_count} SEC filing document(s) are available as supplemental evidence.",
+            )
     else:
-        errors = evidence_status.get("errors", []) or []
-        suffix = f" Error: {errors[0]}" if errors else ""
         check(
-            "SEC evidence",
-            "FAIL",
-            f"Only {filing_count} usable SEC filing documents are available; {min_filings} required for actionable research.{suffix}",
-            15,
+            "Optional SEC enrichment",
+            "INFO",
+            "SEC filing enrichment is unavailable or disabled. No trust-score penalty is applied; core research uses market, financial, analyst, valuation, and price-history data.",
+            0,
         )
+
+    # Core evidence readiness is intentionally independent of SEC.
+    evidence_ready = bool(quality >= 72 and not critical)
 
     market_price = finite(features.get("price"))
     info_price = finite(profile.get("current_price_info"))
@@ -310,7 +314,7 @@ def evaluate_trust(
         if not isinstance(meta, dict):
             continue
         if not meta.get("present"):
-            # SEC absence is already represented by evidence_status. Avoid double punishment.
+            # SEC is optional enrichment. Do not penalize or warn for a missing SEC cache.
             if source != "sec_submissions":
                 warnings.append(f"{source} cache object is missing.")
         elif meta.get("stale"):
@@ -330,6 +334,8 @@ def evaluate_trust(
         "filing_count": filing_count,
         "evidence_status": evidence_state,
         "evidence_ready": evidence_ready,
+        "sec_optional": True,
+        "sec_enrichment_available": sec_enrichment_available,
         "sec_diagnostics": evidence_status,
         "model_count": model_count,
         "model_agreement": model_agreement,

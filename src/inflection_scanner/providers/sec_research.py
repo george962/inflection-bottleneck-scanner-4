@@ -47,7 +47,7 @@ class CachedSecResearchProvider:
     def _get(self, url: str) -> requests.Response:
         if not self.user_agent:
             raise RuntimeError(
-                "SEC_USER_AGENT is required for SEC evidence. Set a GitHub Actions secret such as 'George Jiang your@email.com'."
+                "SEC_USER_AGENT is not configured. SEC enrichment is optional in V5.3."
             )
         elapsed = time.monotonic() - self.last
         if elapsed < self.min_interval:
@@ -58,7 +58,7 @@ class CachedSecResearchProvider:
         return response
 
     def ticker_map(self) -> dict[str, dict[str, Any]]:
-        key = "sec:v5_2:ticker_map"
+        key = "sec:v5_3:ticker_map"
         cached = self.warehouse.get_json(key)
         if cached is not None:
             return cached
@@ -76,7 +76,7 @@ class CachedSecResearchProvider:
 
     def submissions(self, ticker: str) -> dict[str, Any]:
         ticker = ticker.upper()
-        key = f"sec:v5_2:submissions:{ticker}"
+        key = f"sec:v5_3:submissions:{ticker}"
         cached = self.warehouse.get_json(key)
         if cached is not None:
             return cached
@@ -112,7 +112,7 @@ class CachedSecResearchProvider:
                 "documents_requested": 0,
                 "documents_cached": cached_count,
                 "documents_downloaded": 0,
-                "errors": ([] if cached_count else ["SEC_USER_AGENT is not configured."]),
+                "errors": ([] if cached_count else ["SEC enrichment is disabled because SEC_USER_AGENT is not configured."]),
             }
         return {
             "state": "NOT_RUN",
@@ -147,7 +147,7 @@ class CachedSecResearchProvider:
             status["documents_cached"] = len(filings)
             status["state"] = "CACHED_ONLY" if filings else "UNAVAILABLE"
             if not filings:
-                status["errors"].append("SEC_USER_AGENT is not configured.")
+                status["errors"].append("SEC enrichment is disabled because SEC_USER_AGENT is not configured.")
             self._status[ticker] = status
             return filings
 

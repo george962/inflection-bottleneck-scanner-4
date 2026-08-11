@@ -1,34 +1,26 @@
-# V5.2 Build Validation
+# V5.3 Build Validation
 
-From the repository root:
+Generated from the complete V5.2 repository and upgraded so SEC filing access is optional rather than a hard recommendation/workflow dependency.
 
-```bash
-python -m compileall -q src dashboard tests scripts
-pytest -q
+Validation performed:
+
+```text
+pytest                 PASS
+..........................................                               [100%]
+42 passed in 2.32s
+Python compileall      PASS
+config/default.json    PASS
+pyproject.toml         PASS
+GitHub Actions YAML    PASS
 ```
 
-After a live research run:
+Key V5.3 regressions covered by tests:
 
-```bash
-python scripts/validate_publish.py --min-reports 5 --min-sec-ready-fraction 0.60
-```
-
-Current packaged build result: **41 tests passed**.
-
-V5.2 regression coverage includes:
-
-- large-company admission and small/new-company exclusion;
-- missing Yahoo listing-age metadata handling;
-- global late-stage candidate cap;
-- reserved non-LATE entry-opportunity research slots;
-- separate thesis and entry timing;
-- `TOO LATE / OVEREXTENDED` independent of a calculated buy zone;
-- reset-entry reopening after a meaningful pullback;
-- `DATA INCOMPLETE` for missing SEC evidence;
-- SEC missing-identity diagnostics instead of silent empty evidence;
-- memory/storage and high-cycle semiconductor classification;
-- normalized-cycle EPS rather than peak forward-EPS extrapolation;
-- unresolved valuation when models disagree;
-- no blended fair value/buy zone in unresolved state;
-- publish rejection for systemic SEC evidence failure;
-- warehouse and realized-outcome tracking behavior.
+- missing SEC access does not block BUY NOW when all core large-cap/valuation/entry conditions pass;
+- missing SEC access receives no trust-score penalty;
+- publish validation accepts structurally valid research with zero SEC coverage;
+- small/new companies remain excluded from normal large-cap BUY decisions;
+- valuation disagreement still suppresses buy zones;
+- overextended stocks can still be labeled TOO LATE;
+- a meaningful reset can reopen a secondary entry;
+- global late-stage discovery cap and high-liquidity challenger behavior remain tested.

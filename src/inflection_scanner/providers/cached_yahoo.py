@@ -9,7 +9,7 @@ from ..warehouse import ResearchWarehouse
 from .yahoo import YahooProvider
 
 
-CACHE_SCHEMA = "v5_2"
+CACHE_SCHEMA = "v5_3"
 
 
 def _frame_to_payload(df: pd.DataFrame) -> dict[str, Any]:

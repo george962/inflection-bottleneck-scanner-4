@@ -68,6 +68,8 @@ def strong_trust():
         "filing_count": 5,
         "evidence_ready": True,
         "evidence_status": "READY",
+        "model_count": 2,
+        "model_agreement": 0.78,
         "critical_flags": [],
     }
 
@@ -143,11 +145,18 @@ def test_unresolved_valuation_has_no_buy_label():
     assert result["buy_below_price"] is None
 
 
-def test_missing_sec_evidence_is_data_incomplete_not_watch():
+def test_missing_sec_evidence_does_not_block_buy_in_v53():
     trust = strong_trust()
-    trust.update({"evidence_ready": False, "evidence_status": "UNAVAILABLE", "filing_count": 0})
-    result = build_conviction(strong_snapshot(price=80), valuation(140), trust, evidence(), CFG)
-    assert result["action"] == "DATA INCOMPLETE"
+    trust.update({
+        "evidence_ready": True,
+        "evidence_status": "UNAVAILABLE",
+        "filing_count": 0,
+        "model_count": 2,
+        "model_agreement": 0.78,
+    })
+    result = build_conviction(strong_snapshot(price=80), valuation(140), trust, {}, CFG)
+    assert result["action"] == "BUY NOW"
+    assert "sec_evidence_ready" not in result["checks"]
 
 
 def test_speculative_company_never_gets_buy_now():

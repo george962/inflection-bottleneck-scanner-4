@@ -113,21 +113,43 @@ def _quality_pillar(trust: dict[str, Any]) -> float:
 
 
 def _evidence_pillar(evidence_summary: dict[str, Any], trust: dict[str, Any]) -> float:
+    """Research-evidence strength with SEC as optional enrichment.
+
+    The core score is based on data trust, analyst coverage, and valuation
+    triangulation. SEC filing evidence can refine/boost the score when present,
+    but its absence never caps or penalizes the recommendation.
+    """
+    trust_score = finite(trust.get("trust_score"))
+    analysts = finite(trust.get("analyst_count"))
+    model_count = finite(trust.get("model_count"))
+    agreement = finite(trust.get("model_agreement"))
+
+    core = average(
+        [
+            linear(trust_score, 65, 95),
+            linear(analysts, 5, 25),
+            linear(model_count, 1, 3),
+            linear(agreement, 0.40, 0.82),
+        ]
+    )
+
     filings = finite(trust.get("filing_count")) or 0
+    if filings <= 0:
+        return core
+
     pos = finite(evidence_summary.get("positive_count")) or 0
     neg = finite(evidence_summary.get("negative_count")) or 0
     topics = len(evidence_summary.get("topics_found", []) or [])
     tone = (pos - neg) / max(1.0, pos + neg)
-    base = average(
+    sec_component = average(
         [
-            linear(filings, 0, 5),
+            linear(filings, 1, 5),
             linear(topics, 1, 7),
             linear(tone, -0.70, 0.50),
         ]
     )
-    if not trust.get("evidence_ready", filings >= 2):
-        return min(base, 35.0)
-    return base
+    # Optional filings influence only 15% of the evidence pillar.
+    return 0.85 * core + 0.15 * sec_component
 
 
 def build_entry_timing(snapshot: dict[str, Any], cfg: dict[str, Any]) -> dict[str, Any]:
@@ -272,12 +294,12 @@ def build_conviction(
     bear_return = finite(valuation.get("bear_return"))
     risk_tier = str(trust.get("risk_tier") or "SPECULATIVE")
     trust_score = finite(trust.get("trust_score")) or 0.0
-    evidence_ready = bool(trust.get("evidence_ready", (trust.get("filing_count") or 0) >= 2))
+    evidence_ready = bool(trust.get("evidence_ready", True))
 
     checks = {
         "large_established_company": risk_tier == "CORE" and bool(trust.get("preferred_large_cap")) and bool(trust.get("actionable_established")),
         "data_trust": trust_score >= float(cfg.get("minimum_trust_for_buy", 82)) and not trust.get("critical_flags"),
-        "sec_evidence_ready": evidence_ready,
+        "research_evidence_ready": evidence_ready,
         "valuation_resolved": bool(valuation.get("valuation_resolved")),
         "required_expected_return": expected_cagr is not None and expected_cagr >= required_expected_cagr,
         "required_base_return": base_cagr is not None and base_cagr >= required_base_cagr,
@@ -288,14 +310,9 @@ def build_conviction(
     }
 
     critical = bool(trust.get("critical_flags") or valuation.get("critical_flags"))
-    sec_state = str(trust.get("evidence_status") or "READY")
-
     if critical:
         action = "REVIEW DATA"
         rationale = "A data or valuation sanity check failed; modeled upside should not be trusted yet."
-    elif not evidence_ready or sec_state in {"UNAVAILABLE", "ERROR"}:
-        action = "DATA INCOMPLETE"
-        rationale = "Required SEC evidence is missing or failed to download. The system will not convert this into a BUY/WATCH judgment."
     elif risk_tier == "SPECULATIVE":
         action = "SPECULATIVE WATCH"
         rationale = "The company is below the default large-established risk threshold."
@@ -313,7 +330,7 @@ def build_conviction(
         for k in [
             "large_established_company",
             "data_trust",
-            "sec_evidence_ready",
+            "research_evidence_ready",
             "valuation_resolved",
             "required_expected_return",
             "required_base_return",
@@ -327,11 +344,11 @@ def build_conviction(
             rationale = "The thesis and valuation pass, and a meaningful post-rerating reset has reopened the entry window."
         else:
             action = "BUY NOW"
-            rationale = "The thesis, evidence, valuation and current entry price all pass the configured hurdles."
+            rationale = "The thesis, research evidence, valuation and current entry price all pass the configured hurdles."
     elif (
         thesis_score >= pullback_min
         and checks["data_trust"]
-        and checks["sec_evidence_ready"]
+        and checks["research_evidence_ready"]
         and checks["valuation_resolved"]
         and checks["bear_case_acceptable"]
         and buy_below is not None

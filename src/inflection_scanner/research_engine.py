@@ -79,12 +79,12 @@ def _metrics(snapshot):
 def _freshness(warehouse, ticker):
     ticker = ticker.upper()
     return {
-        "profile": warehouse.cache_metadata(f"yahoo:v5_2:profile:{ticker}"),
-        "quarterly_financials": warehouse.cache_metadata(f"yahoo:v5_2:qfin:{ticker}"),
-        "annual_financials": warehouse.cache_metadata(f"yahoo:v5_2:afin:{ticker}"),
-        "analyst_estimates": warehouse.cache_metadata(f"yahoo:v5_2:analyst:{ticker}"),
-        "news": warehouse.cache_metadata(f"yahoo:v5_2:news:{ticker}"),
-        "sec_submissions": warehouse.cache_metadata(f"sec:v5_2:submissions:{ticker}"),
+        "profile": warehouse.cache_metadata(f"yahoo:v5_3:profile:{ticker}"),
+        "quarterly_financials": warehouse.cache_metadata(f"yahoo:v5_3:qfin:{ticker}"),
+        "annual_financials": warehouse.cache_metadata(f"yahoo:v5_3:afin:{ticker}"),
+        "analyst_estimates": warehouse.cache_metadata(f"yahoo:v5_3:analyst:{ticker}"),
+        "news": warehouse.cache_metadata(f"yahoo:v5_3:news:{ticker}"),
+        "sec_submissions": warehouse.cache_metadata(f"sec:v5_3:submissions:{ticker}"),
     }
 
 
@@ -176,12 +176,12 @@ def _build_case(snapshot, valuation, trust, evidence_summary, conviction):
         [
             "Two consecutive material downward estimate revisions without a compensating valuation reset.",
             "Revenue growth and operating-margin direction both deteriorate versus the current thesis.",
-            "SEC evidence introduces a balance-sheet, customer-concentration, dilution, accounting, or demand risk that breaks the base/bear assumptions.",
+            "New company disclosures, filings, or credible news expose a balance-sheet, customer-concentration, dilution, accounting, or demand risk that breaks the base/bear assumptions.",
         ]
     )
 
     if evidence_summary.get("negative_count", 0) > evidence_summary.get("positive_count", 0):
-        risks.append("Recent SEC filing evidence contains more negative than positive keyword signals; inspect the passages before acting.")
+        risks.append("Optional SEC filing evidence contains more negative than positive keyword signals; inspect the passages before acting.")
 
     return positives[:11], risks[:13], must_be_true[:8], invalidation[:8]
 
@@ -236,7 +236,7 @@ def research_one(snapshot, yahoo, sec, warehouse, research_cfg, llm_cfg):
     )
 
     report = {
-        "model_version": "5.2",
+        "model_version": "5.3",
         "asof": asof,
         "ticker": ticker,
         "company": snapshot.get("company"),
@@ -270,11 +270,11 @@ def research_one(snapshot, yahoo, sec, warehouse, research_cfg, llm_cfg):
         "filing_evidence": evidence[:24],
         "news": news,
         "methodology_note": (
-            "V5.2 separates thesis quality from entry timing. It refuses to calculate a buy zone when independent valuation methods disagree, "
-            "uses cycle-normalized valuation for memory/storage/semiconductor businesses, and labels missing SEC evidence as DATA INCOMPLETE rather than WATCH. "
-            "A large prior rally can explicitly become TOO LATE / OVEREXTENDED even when the company itself remains attractive."
+            "V5.3 separates thesis quality from entry timing, refuses to calculate a buy zone when independent valuation methods disagree, "
+            "and uses cycle-normalized valuation for memory/storage/semiconductor businesses. SEC filings are optional enrichment only: missing SEC access "
+            "does not reduce trust, block BUY decisions, or create DATA INCOMPLETE. A large prior rally can explicitly become TOO LATE / OVEREXTENDED."
         ),
-        "cache_note": "Market data, fundamentals, estimates, news and SEC filings are cached. SEC download failures are surfaced rather than silently ignored.",
+        "cache_note": "Market data, fundamentals, estimates and news are cached. SEC filings are cached when optional SEC enrichment is configured; SEC failures do not block core research.",
     }
 
     report["llm_research_note"] = (

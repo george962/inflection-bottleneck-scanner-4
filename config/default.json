@@ -68,7 +68,6 @@
     },
     "trust_thresholds": {
       "buy_min_trust_score": 82,
-      "min_sec_filings_for_buy": 2,
       "min_valuation_models_for_buy": 2,
       "min_model_agreement_for_buy": 0.6,
       "max_price_source_mismatch": 0.12,
@@ -131,6 +130,12 @@
       "entry_opportunity_fraction": 0.5,
       "challenger_fraction": 0.3,
       "late_diagnostic_fraction": 0.2
+    },
+    "optional_sec": {
+      "enabled_if_user_agent_present": true,
+      "use_cached_filings_when_available": true,
+      "absence_penalty": 0,
+      "description": "SEC filings are optional enrichment only. Missing SEC access does not block or downgrade BUY/WATCH decisions."
     }
   },
   "llm": {

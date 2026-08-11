@@ -1,4 +1,4 @@
-# V5.2 Persistence Design
+# V5.3 Persistence Design
 
 ## GitHub Actions cache
 
@@ -9,7 +9,7 @@ data/warehouse.db
 data/cache/
 ```
 
-V5.2 writes cache keys with prefix:
+V5.3 writes cache keys with prefix:
 
 ```text
 equity-data-v5-2-
@@ -31,21 +31,21 @@ The restore step can fall back to earlier V5/V4 cache prefixes so the large hist
 Yahoo:
 
 ```text
-yahoo:v5_2:profile:TICKER
-yahoo:v5_2:qfin:TICKER
-yahoo:v5_2:afin:TICKER
-yahoo:v5_2:analyst:TICKER
-yahoo:v5_2:news:TICKER
+yahoo:v5_3:profile:TICKER
+yahoo:v5_3:qfin:TICKER
+yahoo:v5_3:afin:TICKER
+yahoo:v5_3:analyst:TICKER
+yahoo:v5_3:news:TICKER
 ```
 
 SEC:
 
 ```text
-sec:v5_2:ticker_map
-sec:v5_2:submissions:TICKER
+sec:v5_3:ticker_map
+sec:v5_3:submissions:TICKER
 ```
 
-This forces V5.2 to refresh data whose semantics changed without throwing away the large daily-price cache.
+This forces V5.3 to refresh data whose semantics changed without throwing away the large daily-price cache.
 
 SEC filing documents themselves remain immutable by accession number and are reused once downloaded.
 

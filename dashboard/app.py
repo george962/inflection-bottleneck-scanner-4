@@ -51,15 +51,15 @@ def action_bucket(action: str | None) -> str:
     return "Other"
 
 
-st.set_page_config(page_title="Large-Cap Inflection Research v5.2", layout="wide")
-st.title("Large-Cap Inflection Research v5.2")
+st.set_page_config(page_title="Large-Cap Inflection Research v5.3", layout="wide")
+st.title("Large-Cap Inflection Research v5.3")
 st.caption(
     "Large-established company discovery with separate thesis quality and entry timing. "
-    "V5.2 can explicitly say that a good company is already past its primary entry, and it refuses to publish a buy zone when valuation models disagree."
+    "V5.3 can explicitly say that a good company is already past its primary entry, and it refuses to publish a buy zone when valuation models disagree."
 )
 
 if not LATEST.exists():
-    st.info("No v5.2 research has been published yet. Run the GitHub Actions workflow `Equity Research Engine`.")
+    st.info("No v5.3 research has been published yet. Run the GitHub Actions workflow `Equity Research Engine`.")
     st.stop()
 
 reports = json.loads(LATEST.read_text(encoding="utf-8"))
@@ -137,7 +137,7 @@ filtered = filtered[filtered["thesis"].fillna(0) >= min_thesis]
 
 st.subheader("Separate the company thesis from the entry")
 st.write(
-    "**Thesis score** asks whether the large company, fundamentals, revisions, evidence and resolved valuation are attractive. "
+    "**Thesis score** asks whether the large company, fundamentals, revisions, corroborating data and resolved valuation are attractive. "
     "**Entry score** asks whether the primary rerating has already happened. This prevents an excellent company that is +100%/+200% into a move from being hidden inside a generic WATCH label."
 )
 
@@ -146,7 +146,7 @@ summary_cols[0].metric("BUY NOW", int((filtered["action"] == "BUY NOW").sum()))
 summary_cols[1].metric("Reset entries", int((filtered["action"] == "BUY NOW — RESET ENTRY").sum()))
 summary_cols[2].metric("Pullback buys", int((filtered["action"] == "BUY ON PULLBACK").sum()))
 summary_cols[3].metric("Past primary entry", int((filtered["action"] == "TOO LATE / OVEREXTENDED").sum()))
-summary_cols[4].metric("Valuation/data unresolved", int(filtered["action"].isin(["VALUATION UNRESOLVED", "DATA INCOMPLETE", "REVIEW DATA"]).sum()))
+summary_cols[4].metric("Valuation / data unresolved", int(filtered["action"].isin(["VALUATION UNRESOLVED", "DATA INCOMPLETE", "REVIEW DATA"]).sum()))
 
 show_cols = [
     "ticker",
@@ -176,7 +176,7 @@ actionable_tab, developing_tab, late_tab, unresolved_tab, all_tab = st.tabs(
 with actionable_tab:
     actionable = filtered[filtered["bucket"] == "Actionable"]
     if actionable.empty:
-        st.info("No company currently meets the full BUY NOW / reset-entry / pullback criteria. V5.2 does not manufacture a BUY label when evidence or valuation is unresolved.")
+        st.info("No company currently meets the full BUY NOW / reset-entry / pullback criteria. V5.3 does not manufacture a BUY label when evidence or valuation is unresolved.")
     else:
         st.dataframe(actionable[show_cols], use_container_width=True, hide_index=True)
 
@@ -230,9 +230,9 @@ elif action == "BUY ON PULLBACK":
 elif action == "TOO LATE / OVEREXTENDED":
     st.warning("TOO LATE / OVEREXTENDED: the company may still be attractive, but the scanner believes the primary entry occurred earlier and the stock has not reset enough to justify chasing it.")
 elif action == "VALUATION UNRESOLVED":
-    st.error("VALUATION UNRESOLVED: independent models disagree too much. V5.2 intentionally does not publish a buy-below price from their midpoint.")
+    st.error("VALUATION UNRESOLVED: independent models disagree too much. V5.3 intentionally does not publish a buy-below price from their midpoint.")
 elif action == "DATA INCOMPLETE":
-    st.error("DATA INCOMPLETE: required SEC evidence is missing or failed to download. Fix the evidence pipeline before interpreting this as an investment recommendation.")
+    st.error("DATA INCOMPLETE: one or more essential market/fundamental inputs are unavailable. SEC is optional and is not the cause of this action in V5.3.")
 elif action == "REVIEW DATA":
     st.error("REVIEW DATA: a data/valuation sanity check failed.")
 else:
@@ -251,14 +251,14 @@ hero[7].metric("Trust", f"{trust.get('trust_grade')} / {trust.get('trust_score')
 st.caption(
     f"Entry state: {entry.get('entry_state')} | Valuation family: {valuation.get('company_type')} | "
     f"Valuation status: {valuation.get('valuation_status')} | Models: {valuation.get('model_count')} | "
-    f"Agreement: {valuation.get('model_agreement')} | SEC: {trust.get('evidence_status')} / {trust.get('filing_count')} filings"
+    f"Agreement: {valuation.get('model_agreement')} | Optional SEC: {trust.get('evidence_status')} / {trust.get('filing_count')} filings"
 )
 
 st.subheader("Thesis vs entry timing")
 left_score, right_score = st.columns(2)
 with left_score:
     st.metric("Business / thesis score", conviction.get("thesis_score"))
-    st.write("Fundamentals + revisions + resolved valuation + company quality + filing evidence.")
+    st.write("Fundamentals + revisions + resolved valuation + company quality + data/analyst corroboration. SEC is optional enrichment.")
 with right_score:
     st.metric("Entry timing score", conviction.get("entry_score"))
     st.write(
@@ -276,7 +276,7 @@ for col, (label, key) in zip(
         ("Valuation", "valuation"),
         ("Entry timing", "price_timing"),
         ("Company quality", "company_quality"),
-        ("SEC evidence", "evidence"),
+        ("Research evidence", "evidence"),
     ],
 ):
     col.metric(label, pillars.get(key))
@@ -361,7 +361,7 @@ with right:
     for item in report.get("invalidation", []):
         st.write("•", item)
 
-st.subheader("Data trust and SEC diagnostics")
+st.subheader("Data trust and optional SEC diagnostics")
 trust_rows = pd.DataFrame(trust.get("checks", []))
 if not trust_rows.empty:
     st.dataframe(trust_rows, use_container_width=True, hide_index=True)
@@ -372,13 +372,13 @@ st.write(
     f"downloaded this run: **{sec_status.get('documents_downloaded')}**"
 )
 for error in sec_status.get("errors", [])[:8]:
-    st.error(error)
+    st.info(f"Optional SEC: {error}")
 for flag in trust.get("critical_flags", []):
     st.error(flag)
 for warning in trust.get("warnings", [])[:8]:
     st.warning(warning)
 
-st.subheader("SEC filing evidence")
+st.subheader("Optional SEC filing evidence")
 if report.get("filing_evidence"):
     for i, evidence in enumerate(report.get("filing_evidence", [])[:18], 1):
         with st.expander(f"{i}. {evidence.get('form')} {evidence.get('filing_date')} — {evidence.get('topic')} / {evidence.get('tone')}"):
@@ -386,7 +386,7 @@ if report.get("filing_evidence"):
             if evidence.get("source_url"):
                 st.markdown(f"[Open SEC filing]({evidence['source_url']})")
 else:
-    st.info("No cached SEC evidence for this ticker. V5.2 treats that as DATA INCOMPLETE rather than silently calling it WATCH.")
+    st.info("No SEC filing evidence is cached for this ticker. That is acceptable in V5.3: SEC is optional enrichment and does not block BUY/WATCH decisions.")
 
 if report.get("llm_research_note"):
     st.subheader("Optional AI evidence synthesis")

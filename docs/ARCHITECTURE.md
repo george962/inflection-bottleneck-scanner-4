@@ -1,4 +1,4 @@
-# V5.2 Architecture
+# V5.3 Architecture
 
 ```text
 U.S.-listed equities
@@ -45,11 +45,11 @@ published dashboard + realized forward track record
 
 ## Why research allocation has an entry sleeve
 
-A discovery engine can correctly identify a bottleneck/inflection but still find it after the stock already rerated. V5.2 reserves half of full-research slots for CORE companies that are not yet LATE. Mature leaders remain in a smaller diagnostic sleeve so the system can explicitly identify missed primary entries and later reset opportunities.
+A discovery engine can correctly identify a bottleneck/inflection but still find it after the stock already rerated. V5.3 reserves half of full-research slots for CORE companies that are not yet LATE. Mature leaders remain in a smaller diagnostic sleeve so the system can explicitly identify missed primary entries and later reset opportunities.
 
 ## Why thesis and entry are separate
 
-A good company can be a bad entry. V5.2 therefore does not use one conviction score to represent both ideas.
+A good company can be a bad entry. V5.3 therefore does not use one conviction score to represent both ideas.
 
 **Thesis score** combines:
 
@@ -68,7 +68,7 @@ A good company can be a bad entry. V5.2 therefore does not use one conviction sc
 
 ## Valuation resolution rule
 
-A precise buy-below price exists only when independent valuation models pass the agreement gate. V5.2 does not average wildly incompatible values.
+A precise buy-below price exists only when independent valuation models pass the agreement gate. V5.3 does not average wildly incompatible values.
 
 For cycle-sensitive memory/storage/semiconductor businesses, forward peak earnings are normalized against historical earnings/cash flow before exit multiples are applied.
 

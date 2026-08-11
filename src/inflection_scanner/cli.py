@@ -18,7 +18,7 @@ from .warehouse import ResearchWarehouse
 
 
 app = typer.Typer(
-    help="Large-Cap Inflection Research v5.2: entry-aware discovery, SEC evidence checks, cycle-normalized valuation, and credible buy-zone decisions.",
+    help="Large-Cap Inflection Research v5.3: entry-aware large-cap discovery, optional SEC enrichment, cycle-normalized valuation, and credible buy-zone decisions.",
     no_args_is_help=True,
 )
 console = Console()
@@ -109,15 +109,28 @@ def doctor(network: bool = typer.Option(False, "--network")):
             checks.append(("US listed universe", False, str(exc)))
 
     if network:
-        try:
-            from .providers.sec import SecProvider
-            sec = SecProvider()
-            filings = sec.recent_filings("AAPL", limit=1)
-            checks.append(("SEC network / identity", bool(filings), f"{len(filings)} recent filing row(s)"))
-        except Exception as exc:
-            checks.append(("SEC network / identity", False, str(exc)))
+        import os
+        sec_user_agent = os.getenv("SEC_USER_AGENT", "").strip()
+        if not sec_user_agent:
+            checks.append((
+                "SEC optional enrichment",
+                True,
+                "Not configured; skipped. SEC is optional in V5.3 and does not affect core recommendations.",
+            ))
+        else:
+            try:
+                from .providers.sec import SecProvider
+                sec = SecProvider(user_agent=sec_user_agent)
+                filings = sec.recent_filings("AAPL", limit=1)
+                checks.append(("SEC optional enrichment", True, f"Configured; {len(filings)} recent filing row(s) returned."))
+            except Exception as exc:
+                checks.append((
+                    "SEC optional enrichment",
+                    True,
+                    f"Configured but unavailable ({type(exc).__name__}: {exc}). Core research will continue without SEC.",
+                ))
 
-    table = Table(title="V5.2 research engine doctor")
+    table = Table(title="V5.3 research engine doctor")
     table.add_column("Check")
     table.add_column("Status")
     table.add_column("Detail")
@@ -155,10 +168,10 @@ def research(
 ):
     settings = load_settings()
     print(
-        "[bold]Large-Cap Inflection Research v5.2[/bold]\n"
+        "[bold]Large-Cap Inflection Research v5.3[/bold]\n"
         "1. Broad U.S.-listed price discovery\n"
         "2. Large/high-liquidity challenger sleeve so established names are not missed\n"
-        "3. Deep profiles, fundamentals, revisions, filings, and cached news\n"
+        "3. Deep profiles, fundamentals, revisions, cached news, and optional SEC enrichment\n"
         "4. Default full-research universe: established $15B+ CORE companies\n"
         "5. Industry-aware valuation; unresolved models do not create fake buy zones\n"
         "6. Separate thesis score from entry timing\n"
@@ -196,7 +209,7 @@ def research(
         )
     )
 
-    table = Table(title="V5.2 decision table")
+    table = Table(title="V5.3 decision table")
     columns = [
         ("#", "right"), ("Ticker", None), ("Action", None), ("Thesis", "right"), ("Entry", "right"), ("Tier", None),
         ("MktCap", "right"), ("Years", "right"), ("Analysts", "right"), ("Current", "right"),
@@ -293,7 +306,7 @@ def explain(ticker: str):
             f"Years public: {_num(t.get('years_public'))} | Analysts: {t.get('analyst_count')}\n"
             f"Current: {_money(m.get('price'))} | Buy below: {_money(c.get('buy_below_price'))} | "
             f"Base fair: {_money(c.get('base_fair_value'))} | Base CAGR: {_pct(v.get('base_cagr'))} | Bear: {_pct(v.get('bear_return'))}",
-            title="V5.2 investment decision",
+            title="V5.3 investment decision",
         )
     )
     pillar_table = Table(title="Conviction pillars")
