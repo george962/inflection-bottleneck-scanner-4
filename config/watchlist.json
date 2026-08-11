@@ -1,0 +1,246 @@
+[
+  {
+    "ticker": "MU",
+    "themes": [
+      "memory_storage",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "SNDK",
+    "themes": [
+      "memory_storage",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "STX",
+    "themes": [
+      "memory_storage",
+      "data_center"
+    ]
+  },
+  {
+    "ticker": "WDC",
+    "themes": [
+      "memory_storage",
+      "data_center"
+    ]
+  },
+  {
+    "ticker": "PSTG",
+    "themes": [
+      "enterprise_storage",
+      "data_center"
+    ]
+  },
+  {
+    "ticker": "SIMO",
+    "themes": [
+      "storage_controllers"
+    ]
+  },
+  {
+    "ticker": "INTC",
+    "themes": [
+      "cpu_compute",
+      "foundry",
+      "data_center"
+    ]
+  },
+  {
+    "ticker": "AMD",
+    "themes": [
+      "cpu_compute",
+      "accelerators",
+      "data_center"
+    ]
+  },
+  {
+    "ticker": "NVDA",
+    "themes": [
+      "accelerators",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "AVGO",
+    "themes": [
+      "networking",
+      "accelerators",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "MRVL",
+    "themes": [
+      "networking",
+      "custom_silicon",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "QCOM",
+    "themes": [
+      "edge_ai",
+      "semiconductors"
+    ]
+  },
+  {
+    "ticker": "ARM",
+    "themes": [
+      "cpu_compute",
+      "ip"
+    ]
+  },
+  {
+    "ticker": "AMAT",
+    "themes": [
+      "semicap",
+      "capacity_expansion"
+    ]
+  },
+  {
+    "ticker": "LRCX",
+    "themes": [
+      "semicap",
+      "memory_storage"
+    ]
+  },
+  {
+    "ticker": "KLAC",
+    "themes": [
+      "semicap",
+      "process_control"
+    ]
+  },
+  {
+    "ticker": "TER",
+    "themes": [
+      "semicap",
+      "testing"
+    ]
+  },
+  {
+    "ticker": "DELL",
+    "themes": [
+      "servers",
+      "enterprise_storage",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "HPE",
+    "themes": [
+      "servers",
+      "networking",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "SMCI",
+    "themes": [
+      "servers",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "ANET",
+    "themes": [
+      "networking",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "CSCO",
+    "themes": [
+      "networking",
+      "enterprise"
+    ]
+  },
+  {
+    "ticker": "CIEN",
+    "themes": [
+      "optical_networking",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "LITE",
+    "themes": [
+      "optics",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "COHR",
+    "themes": [
+      "optics",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "CRDO",
+    "themes": [
+      "connectivity",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "ALAB",
+    "themes": [
+      "connectivity",
+      "ai_infrastructure"
+    ]
+  },
+  {
+    "ticker": "VRT",
+    "themes": [
+      "cooling_power",
+      "data_center"
+    ]
+  },
+  {
+    "ticker": "ETN",
+    "themes": [
+      "electrical_equipment",
+      "data_center",
+      "grid"
+    ]
+  },
+  {
+    "ticker": "HUBB",
+    "themes": [
+      "electrical_equipment",
+      "grid"
+    ]
+  },
+  {
+    "ticker": "PWR",
+    "themes": [
+      "grid",
+      "data_center_construction"
+    ]
+  },
+  {
+    "ticker": "GEV",
+    "themes": [
+      "grid",
+      "power_generation"
+    ]
+  },
+  {
+    "ticker": "CEG",
+    "themes": [
+      "power_generation",
+      "data_center_power"
+    ]
+  },
+  {
+    "ticker": "VST",
+    "themes": [
+      "power_generation",
+      "data_center_power"
+    ]
+  }
+]

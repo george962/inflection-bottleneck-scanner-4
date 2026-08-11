@@ -1,0 +1,236 @@
+Metadata-Version: 2.4
+Name: inflection-bottleneck-scanner
+Version: 0.4.0
+Summary: Persistent broad-universe discovery, automated equity research, scenario valuation, and buy/watch/pass decision engine.
+Author: Project Owner
+License: MIT
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy<3,>=1.26
+Requires-Dist: pandas<3,>=2.2
+Requires-Dist: yfinance<2,>=1.5.2
+Requires-Dist: requests<3,>=2.32
+Requires-Dist: typer<1,>=0.12
+Requires-Dist: rich<15,>=13.7
+Requires-Dist: python-dotenv<2,>=1.0
+Requires-Dist: beautifulsoup4<5,>=4.12
+Provides-Extra: llm
+Requires-Dist: openai<3,>=1.0; extra == "llm"
+Provides-Extra: dashboard
+Requires-Dist: streamlit<2,>=1.40; extra == "dashboard"
+Provides-Extra: dev
+Requires-Dist: pytest<10,>=8; extra == "dev"
+Dynamic: license-file
+
+# Automated Equity Research Engine v0.4
+
+This version turns the discovery system into an end-to-end research funnel:
+
+```text
+Broad U.S. stock universe
+        ↓
+Persistent incremental price history
+        ↓
+Discovery
+        ↓
+Cached fundamentals + analyst revisions
+        ↓
+Cached news + SEC 10-K / 10-Q / 8-K
+        ↓
+Company-type classification
+        ↓
+Bear / Base / Bull valuation
+        ↓
+Expected return FROM TODAY'S PRICE
+        ↓
+BUY / SMALL BUY / WATCH / TOO LATE / PASS
+```
+
+A stock is **not excluded merely because it already rose**. A late-stage stock
+can still earn BUY if the model sees enough forward return from today's price.
+Likewise, an unfamiliar discovery candidate must survive valuation and risk
+analysis before it earns BUY.
+
+## Persistent data
+
+`data/warehouse.db` stores daily prices, cached Yahoo data, cached news,
+immutable SEC filings, and research reports.
+
+Default refresh TTLs:
+
+```text
+market prices      14h (incremental update)
+profile            48h
+financials        120h
+analyst data       16h
+news                8h
+SEC submissions    12h
+SEC filing text    immutable after accession is stored
+```
+
+The first run is expensive. Later runs update only missing/stale data.
+
+Check it with:
+
+```bash
+inflection-scanner cache-status
+```
+
+## Local quick test
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -e ".[dashboard,dev,llm]"
+
+inflection-scanner doctor --network
+pytest -q
+
+inflection-scanner research \
+  --max-universe 500 \
+  --deep 30 \
+  --research-count 10 \
+  --top 15
+```
+
+Full run:
+
+```bash
+inflection-scanner research \
+  --deep 100 \
+  --research-count 20 \
+  --top 30
+```
+
+Explain one name:
+
+```bash
+inflection-scanner explain TICKER
+```
+
+Test using only cached data:
+
+```bash
+inflection-scanner research \
+  --offline \
+  --max-universe 500 \
+  --deep 30 \
+  --research-count 10
+```
+
+## Negative P/E
+
+Negative forward P/E is treated as **N/A**, not as a cheap valuation signal.
+
+## Valuation specialists
+
+The engine classifies companies as:
+
+- PROFITABLE_GROWTH
+- CYCLICAL
+- EARLY_STAGE_GROWTH
+- TURNAROUND
+- GENERAL
+- SPECIAL_CASE
+
+Profitable companies use forward EPS scenario valuation. Cyclicals use
+normalized positive annual EPS so peak earnings are not blindly capitalized.
+Unprofitable growth companies can use forward revenue. Financials/real estate
+are intentionally marked SPECIAL_CASE when a generic model is not reliable.
+
+## SEC setup
+
+Local `.env`:
+
+```env
+SEC_USER_AGENT=Your Name your.email@example.com
+```
+
+GitHub Actions secret:
+
+```text
+SEC_USER_AGENT
+```
+
+Without it, the rest of the engine runs but SEC-document research is skipped.
+
+## Optional OpenAI evidence summary
+
+The deterministic engine makes the BUY/WATCH/PASS decision. If
+`OPENAI_API_KEY` is present, the program additionally uses the OpenAI Responses
+API to summarize only the evidence already collected. It does not override the
+deterministic decision.
+
+Optional GitHub secret:
+
+```text
+OPENAI_API_KEY
+```
+
+Optional repository variable:
+
+```text
+OPENAI_MODEL=gpt-5-mini
+```
+
+## GitHub Actions
+
+Main workflow:
+
+```text
+.github/workflows/research.yml
+```
+
+It runs on weekdays and can also be started manually from the GitHub Actions UI.
+
+It:
+
+1. restores `data/warehouse.db` from GitHub Actions cache
+2. runs the research engine
+3. refreshes only stale/missing data
+4. saves the updated warehouse back to cache
+5. uploads the full run as a downloadable artifact
+6. commits only the small `published/` dashboard payload back to the repo
+
+The large binary warehouse is deliberately **not** committed to Git.
+
+## Streamlit
+
+The Streamlit dashboard reads only:
+
+```text
+published/latest_research.json
+published/metadata.json
+```
+
+Run locally:
+
+```bash
+streamlit run dashboard/app.py
+```
+
+For hosted use, deploy `dashboard/app.py` on Streamlit Community Cloud from the
+same GitHub repository. GitHub Actions does the expensive research; Streamlit
+is a lightweight read-only dashboard.
+
+## Decision columns
+
+The dashboard shows:
+
+- BUY / SMALL BUY / WATCH / TOO LATE / PASS
+- confidence
+- current price
+- scenario-weighted 3-year value
+- expected 3-year CAGR
+- scenario probability of profit
+- bear-case downside
+- current price maturity
+- company type / valuation model
+- filing evidence
+- recent cached news
+- why buy / why not / what changes the decision
+
+The scenario probabilities are model assumptions, not statistically calibrated
+probabilities. Treat them as an auditable decision framework, not a guarantee.
