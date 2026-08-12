@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-08-12T00:19:30+00:00",
+  "version": "0.5.3",
+  "reports": 24,
+  "discovery_run": {
+    "run_id": 1,
+    "universe_count": 5808,
+    "price_scan_count": 5597,
+    "seed_count": 180,
+    "market_stats": {
+      "new_symbols": 47,
+      "updated_symbols": 5761,
+      "downloaded_rows": 59306,
+      "used_cached_market": false
+    },
+    "warehouse": {
+      "warehouse_path": "/home/runner/work/inflection-bottleneck-scanner-4/inflection-bottleneck-scanner-4/data/warehouse.db",
+      "json_cache_entries": 1568,
+      "price_rows": 2662742,
+      "price_tickers": 5770,
+      "filing_documents": 0,
+      "research_reports": 104,
+      "size_mb": 289.02
+    },
+    "research_selection": {
+      "core_candidates": 90,
+      "preferred_large_cap_candidates": 85,
+      "midcap_candidates": 24,
+      "speculative_candidates": 66,
+      "entry_opportunity_candidates": 15,
+      "late_diagnostic_candidates": 19,
+      "selected_for_research": 24,
+      "selected_entry_opportunity": 12,
+      "selected_challenger": 7,
+      "selected_late_diagnostic": 5,
+      "selected_core": 24,
+      "selected_midcap": 0
+    }
+  },
+  "methodology": "V5.3 separates business-thesis strength from entry timing. Full-research slots explicitly reserve room for large-cap entry opportunities, mature leaders are labeled TOO LATE when the primary rerating has already occurred, SEC filings are optional enrichment rather than a recommendation gate, and no buy zone is published when valuation models disagree. Memory/storage and semiconductor companies use cycle-normalized valuation logic."
+}
