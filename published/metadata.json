@@ -1,34 +1,34 @@
 {
-  "generated_at": "2026-08-14T00:19:07+00:00",
+  "generated_at": "2026-08-14T23:57:02+00:00",
   "version": "0.5.3",
   "reports": 24,
   "discovery_run": {
     "run_id": 1,
-    "universe_count": 5810,
+    "universe_count": 5808,
     "price_scan_count": 5597,
     "seed_count": 180,
     "market_stats": {
       "new_symbols": 46,
-      "updated_symbols": 5764,
-      "downloaded_rows": 55572,
+      "updated_symbols": 5762,
+      "downloaded_rows": 55523,
       "used_cached_market": false
     },
     "warehouse": {
       "warehouse_path": "/home/runner/work/inflection-bottleneck-scanner-4/inflection-bottleneck-scanner-4/data/warehouse.db",
-      "json_cache_entries": 1719,
-      "price_rows": 2675151,
-      "price_tickers": 5778,
+      "json_cache_entries": 1791,
+      "price_rows": 2681389,
+      "price_tickers": 5781,
       "filing_documents": 0,
-      "research_reports": 152,
-      "size_mb": 291.16
+      "research_reports": 176,
+      "size_mb": 292.04
     },
     "research_selection": {
-      "core_candidates": 116,
+      "core_candidates": 115,
       "preferred_large_cap_candidates": 110,
-      "midcap_candidates": 16,
-      "speculative_candidates": 48,
-      "entry_opportunity_candidates": 21,
-      "late_diagnostic_candidates": 27,
+      "midcap_candidates": 14,
+      "speculative_candidates": 51,
+      "entry_opportunity_candidates": 23,
+      "late_diagnostic_candidates": 28,
       "selected_for_research": 24,
       "selected_entry_opportunity": 12,
       "selected_challenger": 7,
