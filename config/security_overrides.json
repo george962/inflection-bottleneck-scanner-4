@@ -1,0 +1,6 @@
+{
+  "TSM": {
+    "underlying_shares_per_traded_share": 5.0,
+    "notes": "TSM NYSE ADR represents five Taiwan-listed common shares. FX is fetched dynamically when available."
+  }
+}

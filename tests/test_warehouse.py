@@ -1,13 +1,15 @@
-from pathlib import Path
 import pandas as pd
+
 from inflection_scanner.warehouse import ResearchWarehouse
 
-def test_json_cache(tmp_path:Path):
-    w=ResearchWarehouse(tmp_path/"w.db");w.put_json("x",{"a":1},1);assert w.get_json("x")=={"a":1};w.close()
-def test_prices_idempotent(tmp_path:Path):
-    w=ResearchWarehouse(tmp_path/"w.db");idx=pd.to_datetime(["2026-08-07","2026-08-10"])
-    df=pd.DataFrame({"Open":[10,11],"High":[11,12],"Low":[9,10],"Close":[10.5,11.5],"Volume":[1000,1200]},index=idx)
-    w.upsert_prices("XYZ",df);w.upsert_prices("XYZ",df);x=w.load_prices("XYZ");assert len(x)==2 and float(x.iloc[-1].Close)==11.5;w.close()
-def test_filing_cache(tmp_path:Path):
-    w=ResearchWarehouse(tmp_path/"w.db");w.put_filing("XYZ","0001","10-Q","2026-08-01","2026-06-30","https://example.com","Demand increased and backlog improved.")
-    assert w.has_filing("XYZ","0001");assert "Demand increased" in w.recent_filings("XYZ",5)[0]["text"];w.close()
+
+def test_warehouse_prices_and_reports(tmp_path):
+    w=ResearchWarehouse(tmp_path/"w.db")
+    df=pd.DataFrame({"Open":[1],"High":[1.1],"Low":[.9],"Close":[1.05],"Volume":[100]},index=pd.to_datetime(["2026-01-01"]))
+    assert w.upsert_prices("XYZ",df)==1
+    assert w.price_near_date("XYZ","2026-01-01")==1.05
+    report={"model_version":"5.4","asof":"2026-01-01T00:00:00+00:00","ticker":"XYZ","metrics":{"price":1.05},"conviction":{"action":"WATCH"}}
+    w.put_research_report("XYZ",report["asof"],"WATCH",50,report)
+    assert len(w.list_research_reports("5.4"))==1
+    assert len(w.list_research_reports("5.3"))==0
+    w.close()

@@ -5,65 +5,20 @@ import json
 from pathlib import Path
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(
-        description="Validate that a V5.3 research run produced usable dashboard data. SEC evidence is optional."
-    )
-    parser.add_argument("--published", default="published", help="Published directory")
-    parser.add_argument("--min-reports", type=int, default=5)
-    args = parser.parse_args()
+def main():
+    ap=argparse.ArgumentParser(); ap.add_argument("--published",default="published"); ap.add_argument("--min-reports",type=int,default=5); args=ap.parse_args(); p=Path(args.published)
+    research=p/"latest_research.json"; metadata=p/"metadata.json"; track=p/"track_record.json"; ledger=p/"decision_ledger.jsonl"
+    for f in [research,metadata,track,ledger]:
+        if not f.exists(): raise SystemExit(f"Missing required publish artifact: {f}")
+    rows=json.loads(research.read_text(encoding="utf-8"))
+    if not isinstance(rows,list) or len(rows)<args.min_reports: raise SystemExit(f"Expected at least {args.min_reports} reports; got {len(rows) if isinstance(rows,list) else 'invalid'}")
+    for i,r in enumerate(rows):
+        for key in ["model_version","asof","ticker","conviction","valuation","trust"]:
+            if key not in r: raise SystemExit(f"Report {i} missing {key}")
+        if "@" in json.dumps(r.get("sec_status",{})):
+            raise SystemExit("Published SEC diagnostic appears to contain an email/header value; sanitize before publishing.")
+    meta=json.loads(metadata.read_text(encoding="utf-8"))
+    if str(meta.get("model_version"))!="5.4": raise SystemExit("metadata model_version is not 5.4")
+    print(f"OK: {len(rows)} structurally valid V5.4 reports")
 
-    root = Path(args.published)
-    research_path = root / "latest_research.json"
-    metadata_path = root / "metadata.json"
-
-    if not research_path.exists():
-        print(f"ERROR: {research_path} does not exist.")
-        return 2
-
-    try:
-        reports = json.loads(research_path.read_text(encoding="utf-8"))
-    except Exception as exc:
-        print(f"ERROR: cannot parse {research_path}: {exc}")
-        return 2
-
-    metadata = {}
-    if metadata_path.exists():
-        try:
-            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
-        except Exception:
-            metadata = {}
-
-    if not isinstance(reports, list):
-        print("ERROR: latest_research.json must contain a JSON list.")
-        return 2
-
-    if len(reports) < args.min_reports:
-        selection = metadata.get("discovery_run", {}).get("research_selection", {}) or {}
-        print(f"ERROR: research produced only {len(reports)} report(s); minimum required is {args.min_reports}.")
-        print("Research selection diagnostics:")
-        print(json.dumps(selection, indent=2, sort_keys=True))
-        return 1
-
-    required = {"ticker", "conviction", "valuation", "trust", "metrics"}
-    bad = [
-        i for i, report in enumerate(reports)
-        if not isinstance(report, dict) or not required.issubset(report)
-    ]
-    if bad:
-        print(f"ERROR: malformed report objects at indexes: {bad[:10]}")
-        return 2
-
-    sec_ready = sum(
-        bool((report.get("sec_status") or {}).get("documents_cached"))
-        for report in reports
-    )
-    print(
-        f"Publish validation OK: {len(reports)} reports. "
-        f"Optional SEC enrichment is present for {sec_ready}/{len(reports)} report(s); SEC is not required."
-    )
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+if __name__=="__main__": main()

@@ -1,130 +1,71 @@
 from __future__ import annotations
 
 import io
-import time
-from pathlib import Path
+from typing import Iterable
 
-import pandas as pd
 import requests
 
-
-NASDAQ_LISTED_URL = (
-    "https://www.nasdaqtrader.com/dynamic/SymDir/nasdaqlisted.txt"
-)
-OTHER_LISTED_URL = (
-    "https://www.nasdaqtrader.com/dynamic/SymDir/otherlisted.txt"
-)
+DEFAULT_LARGE_CAP_UNIVERSE = [
+    "AAPL","MSFT","NVDA","AMZN","GOOGL","META","AVGO","TSLA","BRK-B","LLY","JPM","V","XOM","WMT","MA","ORCL","COST","NFLX","HD","PG",
+    "JNJ","ABBV","BAC","KO","PLTR","AMD","CRM","CVX","UNH","MRK","CSCO","IBM","GE","CAT","RTX","NOW","INTU","QCOM","TXN","AMAT","ADI",
+    "MU","ANET","APH","MPWR","TER","STX","LITE","BE","TSM","RDDT","CLS","BX"
+]
 
 
-def yahoo_symbol(symbol: str) -> str:
+def normalize_tickers(values: Iterable[str]) -> list[str]:
+    out, seen = [], set()
+    for x in values:
+        t = str(x).strip().upper().replace(".", "-")
+        if t and t not in seen:
+            seen.add(t); out.append(t)
+    return out
+
+
+def default_universe() -> list[str]:
+    return list(DEFAULT_LARGE_CAP_UNIVERSE)
+
+
+def fetch_us_listed_universe(timeout: int = 20) -> list[str]:
+    """Fetch Nasdaq Trader's U.S.-listed symbol directory, with an offline fallback.
+
+    This avoids a hard dependency on SEC and retains V5.3's broad-discovery intent.
+    ETFs, test issues, warrants, rights, units and obvious preferred-share variants
+    are excluded where the symbol-directory metadata makes that possible.
     """
-    Convert common U.S. class-share punctuation to Yahoo's convention.
-    Example: BRK.B -> BRK-B.
-    """
-    return str(symbol).strip().upper().replace(".", "-")
-
-
-def _read_pipe_text(text: str) -> pd.DataFrame:
-    df = pd.read_csv(io.StringIO(text), sep="|", dtype=str)
-    # Nasdaq directory files end with a "File Creation Time" footer row.
-    first_col = df.columns[0]
-    mask = ~df[first_col].fillna("").str.startswith("File Creation Time")
-    return df.loc[mask].copy()
-
-
-def _download(url: str, timeout: int = 30) -> str:
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 inflection-discovery-engine/0.3 "
-            "(research use)"
-        )
-    }
-    response = requests.get(url, headers=headers, timeout=timeout)
-    response.raise_for_status()
-    return response.text
-
-
-def _looks_like_common_equity(name: str) -> bool:
-    n = f" {str(name).lower()} "
-    excluded = [
-        " warrant",
-        " warrants",
-        " right ",
-        " rights ",
-        " unit ",
-        " units ",
-        " preferred",
-        " preference",
+    urls = [
+        "https://www.nasdaqtrader.com/dynamic/SymDir/nasdaqlisted.txt",
+        "https://www.nasdaqtrader.com/dynamic/SymDir/otherlisted.txt",
     ]
-    return not any(x in n for x in excluded)
-
-
-def fetch_us_listed_equities(
-    cache_dir: str | Path,
-    cache_hours: float = 18,
-    refresh: bool = False,
-) -> pd.DataFrame:
-    """
-    Build a broad current U.S.-listed equity universe using Nasdaq Trader's
-    Nasdaq-listed and other-exchange-listed symbol directory files.
-
-    ETFs, test issues, obvious warrants/rights/units/preferreds are removed.
-    ADR/common-share listings are retained.
-    """
-    cache_dir = Path(cache_dir)
-    cache_dir.mkdir(parents=True, exist_ok=True)
-    cache_file = cache_dir / "us_listed_equities.csv"
-
-    if cache_file.exists() and not refresh:
-        age_hours = (time.time() - cache_file.stat().st_mtime) / 3600.0
-        if age_hours <= cache_hours:
-            return pd.read_csv(cache_file, dtype=str)
-
-    nasdaq = _read_pipe_text(_download(NASDAQ_LISTED_URL))
-    other = _read_pipe_text(_download(OTHER_LISTED_URL))
-
-    n = pd.DataFrame({
-        "symbol": nasdaq.get("Symbol"),
-        "name": nasdaq.get("Security Name"),
-        "exchange": "NASDAQ",
-        "etf": nasdaq.get("ETF", "N"),
-        "test_issue": nasdaq.get("Test Issue", "N"),
-        "financial_status": nasdaq.get("Financial Status", "N"),
-    })
-
-    exchange_map = {
-        "A": "NYSE American",
-        "N": "NYSE",
-        "P": "NYSE Arca",
-        "Z": "Cboe BZX",
-        "V": "IEX",
-    }
-    o = pd.DataFrame({
-        "symbol": other.get("ACT Symbol"),
-        "name": other.get("Security Name"),
-        "exchange": other.get("Exchange").map(exchange_map).fillna(other.get("Exchange")),
-        "etf": other.get("ETF", "N"),
-        "test_issue": other.get("Test Issue", "N"),
-        "financial_status": "N",
-    })
-
-    df = pd.concat([n, o], ignore_index=True)
-    df["symbol"] = df["symbol"].fillna("").str.strip().str.upper()
-    df["name"] = df["name"].fillna("").str.strip()
-    df["yahoo_symbol"] = df["symbol"].map(yahoo_symbol)
-
-    df = df[
-        (df["symbol"] != "")
-        & (df["test_issue"].fillna("N") == "N")
-        & (df["etf"].fillna("N") == "N")
-    ].copy()
-
-    # Keep normal Nasdaq financial status; other exchanges are set to N above.
-    df = df[
-        df["financial_status"].fillna("N").isin(["N", ""])
-    ].copy()
-
-    df = df[df["name"].map(_looks_like_common_equity)].copy()
-    df = df.drop_duplicates("yahoo_symbol").sort_values("yahoo_symbol")
-    df.to_csv(cache_file, index=False)
-    return df.reset_index(drop=True)
+    symbols: list[str] = []
+    try:
+        for url in urls:
+            r = requests.get(url, timeout=timeout, headers={"User-Agent": "inflection-bottleneck-scanner/0.5.4"})
+            r.raise_for_status()
+            lines = [x for x in r.text.splitlines() if x and not x.startswith("File Creation Time")]
+            if not lines:
+                continue
+            header = lines[0].split("|")
+            for line in lines[1:]:
+                parts = line.split("|")
+                if len(parts) != len(header):
+                    continue
+                row = dict(zip(header, parts))
+                symbol = row.get("Symbol") or row.get("ACT Symbol")
+                if not symbol:
+                    continue
+                if row.get("Test Issue", "N") == "Y":
+                    continue
+                if row.get("ETF", "N") == "Y":
+                    continue
+                # Nasdaq's NextShares flag is not common-stock exposure.
+                if row.get("NextShares", "N") == "Y":
+                    continue
+                t = symbol.strip().upper().replace(".", "-")
+                # Exclude common warrant/right/unit suffix patterns.
+                if any(t.endswith(sfx) for sfx in ["-W", "-WS", "-R", "-U"]):
+                    continue
+                symbols.append(t)
+        result = normalize_tickers(symbols)
+        return result if len(result) >= 1000 else default_universe()
+    except Exception:
+        return default_universe()

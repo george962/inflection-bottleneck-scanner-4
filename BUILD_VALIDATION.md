@@ -1,26 +1,22 @@
-# V5.3 Build Validation
+# V5.4 Build Validation
 
-Generated from the complete V5.2 repository and upgraded so SEC filing access is optional rather than a hard recommendation/workflow dependency.
+V5.4 is a correctness-and-validation release built around five regression classes:
 
-Validation performed:
+1. foreign-currency / ADR unit mismatches must fail closed;
+2. networking/computer-hardware names must not be treated as memory solely from a broad label;
+3. ISO-formatted first-trade dates must produce `years_public`;
+4. outcome tracking must use the active model version and preserve model cohorts;
+5. public diagnostics must not echo raw HTTP header/secret values.
+
+Validation performed on the packaged source tree:
 
 ```text
-pytest                 PASS
-..........................................                               [100%]
-42 passed in 2.32s
-Python compileall      PASS
-config/default.json    PASS
-pyproject.toml         PASS
-GitHub Actions YAML    PASS
+python compileall       PASS
+pytest                  PASS (28 tests)
+config JSON             PASS
+pyproject TOML          PASS
+GitHub Actions YAML     PASS
+end-to-end fake publish PASS
 ```
 
-Key V5.3 regressions covered by tests:
-
-- missing SEC access does not block BUY NOW when all core large-cap/valuation/entry conditions pass;
-- missing SEC access receives no trust-score penalty;
-- publish validation accepts structurally valid research with zero SEC coverage;
-- small/new companies remain excluded from normal large-cap BUY decisions;
-- valuation disagreement still suppresses buy zones;
-- overextended stocks can still be labeled TOO LATE;
-- a meaningful reset can reopen a secondary entry;
-- global late-stage discovery cap and high-liquidity challenger behavior remain tested.
+The end-to-end test exercises discovery → deep research → valuation/trust/conviction → published metadata → decision ledger → PIT estimate ledger without network access.

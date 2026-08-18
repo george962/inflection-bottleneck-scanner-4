@@ -1,66 +1,40 @@
-# V5 Roadmap
+# Roadmap after V5.4
 
-## Included now
+## Completed in V5.4
 
-- broad U.S.-listed discovery
-- persistent incremental price warehouse
-- high-liquidity challenger sleeve
-- large-established company gate
-- quarterly fundamentals and analyst revisions
-- SEC filing evidence cache
-- multiple valuation methods
-- valuation sanity checks
-- six conviction pillars
-- required-return buy-zone price
-- BUY NOW / BUY ON PULLBACK / WATCH / TOO LATE / REVIEW DATA / PASS
-- GitHub Actions persistence and publication
-- read-only Streamlit dashboard
-- prospective realized-outcome tracking
+- fail-closed currency/ADR/share-unit normalization;
+- corrected public-history parsing;
+- narrower company/industry classification;
+- model-versioned track record;
+- durable decision ledger;
+- durable PIT estimate/revision ledger;
+- SPY-relative outcomes plus MAE/MFE;
+- sanitized public provider diagnostics;
+- broad U.S.-listed universe fetch with offline fallback;
+- batched Yahoo discovery ingestion.
 
-## Highest-value next improvements
-
-### Point-in-time analyst history
-
-This is the most important step toward a statistically calibrated model. Store every consensus/revision snapshot going forward and/or acquire historical PIT data.
-
-### Sector-specific valuation specialists
-
-A single generic model should not value every industry. Add dedicated models for:
-
-- semiconductors / memory cyclicals
-- cloud / software
-- industrial infrastructure
-- utilities / power
-- financials
-- commodities
+## Highest-value V5.5 work
 
 ### Peer-relative valuation
 
-Build sector/industry peer groups and compare:
+Build industry peer groups and compare growth, margins, revisions, FCF conversion and valuation premiums/discounts.
 
-- growth
-- revision momentum
-- margins
-- FCF conversion
-- forward P/E / EV-EBITDA
-- historical premium/discount
+### Specialist valuation
+
+Add dedicated families for financials, REITs, utilities/power, software, networking, semiconductor equipment, analog semis and memory.
+
+### Sector-relative validation
+
+Replace SPY-only comparison with both SPY and sector/industry benchmarks.
 
 ### Earnings-call transcripts
 
-Convert transcripts into structured, cited evidence for:
+Extract cited demand, pricing, backlog, capacity, product-ramp and customer-win evidence.
 
-- demand
-- pricing
-- backlog
-- capacity
-- customer wins
-- product ramps
-- margin drivers
+### Direct bottleneck feeds
 
-### Industry bottleneck feeds
+Add memory pricing, advanced packaging capacity, optical demand, power-equipment lead times, transformer/turbine availability and data-center capacity/buildout data.
 
-For the original inflection/bottleneck thesis, add direct industry data such as memory pricing, packaging capacity, optical demand, power equipment lead times, and data-center capacity.
+### Statistical calibration
 
-### Calibration
-
-After enough prospective v5 decisions mature, learn empirical mappings from conviction/pillars to realized 3/6/12-month returns instead of using fixed heuristic thresholds forever.
+When enough chronological PIT decisions mature, measure score monotonicity, rank IC, action spreads and pillar incremental value before changing thresholds.

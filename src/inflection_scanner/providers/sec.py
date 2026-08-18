@@ -1,74 +1,42 @@
 from __future__ import annotations
 
 import os
-import time
-from functools import lru_cache
 from typing import Any
 
 import requests
 
+from ..sanitize import safe_exception
 
-class SecProvider:
-    BASE = "https://data.sec.gov"
-    WWW = "https://www.sec.gov"
+SEC_DATA = "https://data.sec.gov"
+SEC_ARCHIVES = "https://www.sec.gov/Archives/edgar/data"
 
-    def __init__(self, user_agent: str | None = None, min_interval: float = 0.15):
-        self.user_agent = user_agent or os.getenv("SEC_USER_AGENT", "").strip()
-        if not self.user_agent:
-            raise ValueError(
-                "SEC_USER_AGENT is required. Example: 'Your Name your.email@example.com'"
-            )
-        self.min_interval = max(min_interval, 0.11)
-        self._last_request = 0.0
-        self.session = requests.Session()
-        self.session.headers.update(
-            {
-                "User-Agent": self.user_agent,
-                "Accept-Encoding": "gzip, deflate",
-                "Accept": "application/json",
-            }
-        )
 
-    def _get_json(self, url: str) -> Any:
-        elapsed = time.monotonic() - self._last_request
-        if elapsed < self.min_interval:
-            time.sleep(self.min_interval - elapsed)
-        resp = self.session.get(url, timeout=30)
-        self._last_request = time.monotonic()
-        resp.raise_for_status()
-        return resp.json()
+def valid_user_agent(value: str | None) -> bool:
+    if not value:
+        return False
+    text=value.strip()
+    if "\n" in text or "\r" in text or "Name:" in text or "Value:" in text:
+        return False
+    return "@" in text and len(text)>=8
 
-    @lru_cache(maxsize=1)
-    def ticker_map(self) -> dict[str, dict[str, Any]]:
-        data = self._get_json(f"{self.WWW}/files/company_tickers.json")
-        out: dict[str, dict[str, Any]] = {}
-        for item in data.values():
-            ticker = str(item.get("ticker", "")).upper()
-            if ticker:
-                out[ticker] = item
-        return out
 
-    def cik_for_ticker(self, ticker: str) -> int:
-        item = self.ticker_map().get(ticker.upper())
-        if not item:
-            raise KeyError(f"Ticker not found in SEC company_tickers.json: {ticker}")
-        return int(item["cik_str"])
-
-    def recent_filings(self, ticker: str, limit: int = 10) -> list[dict[str, Any]]:
-        cik = self.cik_for_ticker(ticker)
-        data = self._get_json(f"{self.BASE}/submissions/CIK{cik:010d}.json")
-        recent = data.get("filings", {}).get("recent", {})
-        keys = [
-            "accessionNumber",
-            "filingDate",
-            "reportDate",
-            "acceptanceDateTime",
-            "form",
-            "primaryDocument",
-            "primaryDocDescription",
-        ]
-        n = min(limit, len(recent.get("form", [])))
-        rows: list[dict[str, Any]] = []
-        for i in range(n):
-            rows.append({k: recent.get(k, [None] * n)[i] for k in keys})
-        return rows
+class SECProvider:
+    def __init__(self,user_agent: str | None=None,timeout: int=20):
+        self.user_agent=(user_agent if user_agent is not None else os.getenv("SEC_USER_AGENT","")).strip(); self.timeout=timeout
+    @property
+    def available(self): return valid_user_agent(self.user_agent)
+    def _headers(self): return {"User-Agent":self.user_agent,"Accept-Encoding":"gzip, deflate","Host":"www.sec.gov"}
+    def submissions(self,cik: str):
+        if not self.available:return None,{"state":"DISABLED","available":False,"submission_ok":False,"errors":[]}
+        cik10=str(cik).strip().replace("CIK","").zfill(10)
+        try:
+            r=requests.get(f"{SEC_DATA}/submissions/CIK{cik10}.json",headers={"User-Agent":self.user_agent,"Accept-Encoding":"gzip, deflate"},timeout=self.timeout); r.raise_for_status()
+            return r.json(),{"state":"OK","available":True,"submission_ok":True,"errors":[]}
+        except Exception as exc:
+            return None,{"state":"ERROR","available":True,"submission_ok":False,"errors":[safe_exception(exc,"SEC submissions fetch failed")]}
+    def filing_document(self,cik: str,accession_number: str,primary_document: str):
+        if not self.available:return None,"SEC disabled"
+        cik_int=str(int(str(cik).replace("CIK",""))); accession=accession_number.replace("-",""); doc=primary_document.lstrip("/")
+        try:
+            r=requests.get(f"{SEC_ARCHIVES}/{cik_int}/{accession}/{doc}",headers={"User-Agent":self.user_agent,"Accept-Encoding":"gzip, deflate"},timeout=self.timeout); r.raise_for_status(); return r.text,None
+        except Exception as exc:return None,safe_exception(exc,"SEC filing download failed")

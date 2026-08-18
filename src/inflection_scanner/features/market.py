@@ -1,85 +1,45 @@
 from __future__ import annotations
 
-import math
 from typing import Any
 
-import numpy as np
 import pandas as pd
 
 
-def _safe_float(value: Any) -> float | None:
-    try:
-        x = float(value)
-        return x if math.isfinite(x) else None
-    except (TypeError, ValueError):
+def _ret(close: pd.Series, days: int) -> float | None:
+    if close is None or len(close) <= days:
         return None
+    a, b = float(close.iloc[-days-1]), float(close.iloc[-1])
+    return b / a - 1.0 if a > 0 else None
 
 
-def _return_over(close: pd.Series, trading_days: int) -> float | None:
-    if len(close) <= trading_days:
-        return None
-    old = _safe_float(close.iloc[-trading_days - 1])
-    new = _safe_float(close.iloc[-1])
-    if old is None or new is None or old == 0:
-        return None
-    return new / old - 1.0
-
-
-def compute_market_features(
-    history: pd.DataFrame,
-    benchmark_history: pd.DataFrame | None = None,
-) -> dict[str, float | None]:
-    if history.empty or "Close" not in history:
-        return {}
-
-    close = history["Close"].dropna().astype(float)
-    volume = (
-        history["Volume"].dropna().astype(float)
-        if "Volume" in history
-        else pd.Series(dtype=float)
-    )
-
-    features: dict[str, float | None] = {
-        "price": _safe_float(close.iloc[-1]) if len(close) else None,
-        "return_1m": _return_over(close, 21),
-        "return_3m": _return_over(close, 63),
-        "return_6m": _return_over(close, 126),
-        "return_12m": _return_over(close, 252),
+def market_features(df: pd.DataFrame, benchmark: pd.DataFrame | None = None) -> dict[str, Any]:
+    if df is None or df.empty or "Close" not in df:
+        return {"price": None, "data_quality": 0.0}
+    close = df["Close"].dropna()
+    volume = df["Volume"].fillna(0) if "Volume" in df else pd.Series(index=df.index, data=0.0)
+    if close.empty:
+        return {"price": None, "data_quality": 0.0}
+    price = float(close.iloc[-1])
+    high_52 = float(close.tail(252).max()) if len(close) else price
+    peak = close.tail(252).cummax()
+    drawdowns = close.tail(252) / peak - 1.0
+    dvol = (df["Close"] * volume).tail(20).mean() if "Volume" in df else None
+    out = {
+        "price": price,
+        "return_1m": _ret(close, 21),
+        "return_3m": _ret(close, 63),
+        "return_6m": _ret(close, 126),
+        "return_12m": _ret(close, 252),
+        "distance_from_52w_high": price / high_52 - 1.0 if high_52 > 0 else None,
+        "max_drawdown_1y": float(drawdowns.min()) if not drawdowns.empty else None,
+        "dollar_volume_20d": float(dvol) if dvol is not None and pd.notna(dvol) else None,
     }
-
-    if len(close) >= 20:
-        daily = close.pct_change().dropna()
-        if len(daily) >= 20:
-            features["volatility_20d_annualized"] = _safe_float(
-                daily.tail(20).std(ddof=1) * np.sqrt(252)
-            )
-
-    if len(close) >= 252:
-        high_52w = _safe_float(close.tail(252).max())
-        last = _safe_float(close.iloc[-1])
-        features["distance_from_52w_high"] = (
-            (last / high_52w - 1.0) if last is not None and high_52w else None
-        )
-        rolling_peak = close.cummax()
-        drawdown = close / rolling_peak - 1.0
-        features["max_drawdown_1y"] = _safe_float(drawdown.tail(252).min())
-
-    if len(volume) >= 25:
-        recent = _safe_float(volume.tail(5).mean())
-        prior = _safe_float(volume.iloc[-25:-5].mean())
-        features["volume_ratio_5v20"] = (
-            recent / prior if recent is not None and prior not in (None, 0) else None
-        )
-
-    if benchmark_history is not None and not benchmark_history.empty:
-        bench_close = benchmark_history["Close"].dropna().astype(float)
-        for days, label in [(21, "1m"), (63, "3m"), (126, "6m"), (252, "12m")]:
-            stock_ret = features.get(f"return_{label}")
-            bench_ret = _return_over(bench_close, days)
-            features[f"relative_return_{label}"] = (
-                stock_ret - bench_ret
-                if stock_ret is not None and bench_ret is not None
-                else None
-            )
-
-    return features
+    if benchmark is not None and not benchmark.empty and "Close" in benchmark:
+        bclose = benchmark["Close"].dropna()
+        for label, days in [("3m",63),("6m",126),("12m",252)]:
+            r = out.get(f"return_{label}")
+            br = _ret(bclose, days)
+            out[f"relative_return_{label}"] = (r - br) if r is not None and br is not None else None
+    present = sum(v is not None for k, v in out.items() if k != "data_quality")
+    out["data_quality"] = round(100.0 * present / max(1, len(out)), 1)
+    return out

@@ -1,24 +1,8 @@
 {
+  "model_version": "5.4",
   "benchmark": "SPY",
   "price_period": "2y",
   "request_pause_seconds": 0.08,
-  "weights": {
-    "fundamental": 18,
-    "revisions": 18,
-    "forward_growth": 16,
-    "valuation_upside": 16,
-    "operating_leverage": 10,
-    "expectation_gap": 12,
-    "early_discovery": 10
-  },
-  "extension_penalty_max": 22,
-  "minimum_actionable_quality": 60,
-  "score_thresholds": {
-    "watch": 55,
-    "deep_research": 63,
-    "candidate": 70
-  },
-  "report_top_n": 30,
   "discovery": {
     "universe_cache_hours": 24,
     "market_refresh_hours": 14,
@@ -39,18 +23,12 @@
     "financials": 120,
     "analyst": 16,
     "news": 8,
-    "sec_submissions": 12
+    "sec_submissions": 12,
+    "fx": 24
   },
   "research": {
     "research_candidates": 24,
-    "filing_forms": [
-      "10-K",
-      "10-Q",
-      "8-K"
-    ],
-    "filing_documents_per_ticker": 6,
     "news_items_per_ticker": 12,
-    "filing_text_max_chars": 350000,
     "horizon_years": 3,
     "universe_policy": {
       "core_min_market_cap": 15000000000,
@@ -82,23 +60,10 @@
       "min_individual_model_multiple": 0.15
     },
     "conviction": {
-      "buy_now_min_score": 80,
-      "buy_on_pullback_min_score": 74,
-      "watch_min_score": 58,
       "required_base_cagr": 0.15,
       "required_expected_cagr": 0.18,
       "min_bear_return": -0.3,
       "max_buy_zone_premium": 0.03,
-      "late_too_expensive_gap": 0.15,
-      "pillar_minimum_for_buy": 55,
-      "weights": {
-        "fundamental_inflection": 22,
-        "estimate_revision": 18,
-        "valuation": 22,
-        "price_timing": 10,
-        "company_quality": 18,
-        "evidence": 10
-      },
       "buy_now_min_thesis_score": 76,
       "buy_on_pullback_min_thesis_score": 72,
       "watch_min_thesis_score": 58,
@@ -122,6 +87,7 @@
       }
     },
     "performance_horizons_days": [
+      30,
       90,
       180,
       365
@@ -134,14 +100,23 @@
     "optional_sec": {
       "enabled_if_user_agent_present": true,
       "use_cached_filings_when_available": true,
-      "absence_penalty": 0,
-      "description": "SEC filings are optional enrichment only. Missing SEC access does not block or downgrade BUY/WATCH decisions."
-    }
+      "absence_penalty": 0
+    },
+    "security_normalization": {
+      "require_explicit_adr_ratio_when_currencies_differ": true,
+      "allow_same_currency_without_override": true
+    },
+    "filing_forms": [
+      "10-K",
+      "10-Q",
+      "8-K"
+    ],
+    "filing_documents_per_ticker": 3,
+    "filing_text_max_chars": 120000
   },
   "llm": {
     "enabled_if_key_present": true,
     "model": "gpt-5-mini",
-    "max_filing_snippets": 18,
     "max_news_items": 10
   }
 }
