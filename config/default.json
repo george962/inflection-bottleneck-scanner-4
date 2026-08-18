@@ -1,5 +1,5 @@
 {
-  "model_version": "5.4",
+  "model_version": "5.4.1",
   "benchmark": "SPY",
   "price_period": "2y",
   "request_pause_seconds": 0.08,
@@ -112,7 +112,11 @@
       "8-K"
     ],
     "filing_documents_per_ticker": 3,
-    "filing_text_max_chars": 120000
+    "filing_text_max_chars": 120000,
+    "publish_health": {
+      "min_successful_reports": 5,
+      "max_operational_failure_fraction": 0.25
+    }
   },
   "llm": {
     "enabled_if_key_present": true,

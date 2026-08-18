@@ -41,7 +41,7 @@ class FakeProvider:
 
 def test_end_to_end_publish_builds_v54_ledgers(tmp_path):
     cfg={
-        "model_version":"5.4","benchmark":"SPY","price_period":"2y","discovery":{"batch_size":10,"batch_pause_seconds":0,"min_price":5,"min_dollar_volume_20d":20e6,"deep_candidates":2},
+        "model_version":"5.4.1","benchmark":"SPY","price_period":"2y","discovery":{"batch_size":10,"batch_pause_seconds":0,"min_price":5,"min_dollar_volume_20d":20e6,"deep_candidates":2},
         "research":{"research_candidates":2,"news_items_per_ticker":2,"horizon_years":3,"universe_policy":{"core_min_market_cap":15e9,"core_min_years_public":7,"core_min_analysts":10,"core_min_dollar_volume_20d":50e6,"preferred_min_market_cap":25e9},"trust_thresholds":{"min_valuation_models_for_buy":2,"min_model_agreement_for_buy":.6,"max_model_base_ratio":1.9,"max_price_source_mismatch":.2,"max_market_cap_price_mismatch":.4,"max_extreme_expected_cagr":.5,"max_expected_value_multiple":3,"max_bear_upside_for_sanity":1,"max_individual_model_multiple":4,"min_individual_model_multiple":.15},"conviction":{"required_base_cagr":.15,"required_expected_cagr":.18,"min_bear_return":-.3,"buy_now_min_thesis_score":76,"buy_on_pullback_min_thesis_score":72,"watch_min_thesis_score":58,"minimum_trust_for_buy":82,"max_buy_zone_premium":.03,"max_pullback_gap":.35,"thesis_weights":{"fundamental_inflection":25,"estimate_revision":20,"valuation":25,"company_quality":20,"evidence":10},"entry_timing":{}},"performance_horizons_days":[30],"security_normalization":{"require_explicit_adr_ratio_when_currencies_differ":True}}
     }
     w=ResearchWarehouse(tmp_path/"warehouse.db"); provider=FakeProvider()
@@ -50,7 +50,7 @@ def test_end_to_end_publish_builds_v54_ledgers(tmp_path):
     w.close()
     assert len(result["reports"])==2
     meta=json.loads((tmp_path/"published/metadata.json").read_text())
-    assert meta["model_version"]=="5.4"
+    assert meta["model_version"]=="5.4.1"
     assert (tmp_path/"published/decision_ledger.jsonl").exists()
     assert (tmp_path/"published/pit_estimates.jsonl").exists()
-    assert all(r["model_version"]=="5.4" for r in result["reports"])
+    assert all(r["model_version"]=="5.4.1" for r in result["reports"])

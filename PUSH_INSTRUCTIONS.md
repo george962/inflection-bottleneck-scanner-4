@@ -1,38 +1,22 @@
-# Push V5.4 to GitHub
+# Push V5.4.1 to the existing repository
 
-This ZIP intentionally does not contain a `.git` directory.
-
-## Replace the current repository contents while preserving history
-
-From your existing local clone of `george962/inflection-bottleneck-scanner-4`:
+The safest path is to apply the hotfix into the existing clone so Git history, the live warehouse, and published history are preserved.
 
 ```bash
-git checkout -b v5.4
+# From the extracted V5.4.1 folder:
+./APPLY_TO_EXISTING_REPO.sh /path/to/inflection-bottleneck-scanner-4
 
-# Back up anything local first, then replace the working tree with the
-# contents of the downloaded V5.4 folder. Do NOT copy a .git directory.
-
+cd /path/to/inflection-bottleneck-scanner-4
 python -m pip install -e ".[dashboard,dev,llm]"
 python -m compileall -q src dashboard tests
 pytest -q
 
+git status
 git add -A
-git commit -m "feat: upgrade equity research engine to V5.4"
-git push -u origin v5.4
+git commit -m "fix: V5.4.1 warehouse migration and publish health"
+git push origin main
 ```
 
-Review the branch, then merge it into `main` through GitHub or locally.
+`APPLY_TO_EXISTING_REPO.sh` uses `rsync -a`, so hidden `.github/` files are copied. It preserves `.git/`, `data/warehouse.db`, `data/cache/`, and `published/`.
 
-## Fresh repository push
-
-```bash
-cd inflection-bottleneck-scanner-4-v5.4
-git init
-git add -A
-git commit -m "feat: V5.4 equity research engine"
-git branch -M main
-git remote add origin https://github.com/george962/inflection-bottleneck-scanner-4.git
-git push -u origin main
-```
-
-If the remote already has history, prefer the first method instead of force-pushing.
+After pushing, run **Actions → Equity Research Engine → Run workflow**. The first Action should show a `Verify and migrate warehouse schema` step and commits should say `publish V5.4.1 equity research`, not V5.3.

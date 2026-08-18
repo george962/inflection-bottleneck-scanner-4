@@ -1,4 +1,4 @@
-# V5.4 Validation and Track Record
+# V5.4.1 Validation and Track Record
 
 ## No fake historical backtest
 
@@ -12,7 +12,7 @@ A valid historical model requires point-in-time versions of:
 
 Today's analyst estimates cannot be retroactively inserted into prior dates.
 
-## Prospective V5.4 evidence
+## Prospective V5.4.1 evidence
 
 Each published run commits:
 
@@ -22,7 +22,7 @@ and:
 
 `published/pit_estimates.jsonl`
 
-The outcome tracker is explicitly cohort-versioned. A V5.4 report is evaluated as V5.4; it is not silently queried as V5.2 or mixed with a prior rule set.
+The outcome tracker is explicitly cohort-versioned. A V5.4.1 report is evaluated as V5.4.1; it is not silently queried as V5.2 or mixed with a prior rule set.
 
 ## Outcome fields
 

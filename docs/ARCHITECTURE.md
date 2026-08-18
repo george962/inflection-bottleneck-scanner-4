@@ -1,6 +1,6 @@
-# V5.4 Architecture
+# V5.4.1 Architecture
 
-V5.4 keeps V5.3's separation of thesis quality and entry timing, but inserts a hard **security-normalization gate** before valuation and adds durable point-in-time validation artifacts after each research run.
+V5.4.1 keeps V5.3's separation of thesis quality and entry timing, but inserts a hard **security-normalization gate** before valuation and adds durable point-in-time validation artifacts after each research run.
 
 ```text
 broad U.S.-listed discovery
@@ -37,7 +37,7 @@ published dashboard
 
 Statement values and market/security values are never assumed to share a unit system.
 
-For each researched ticker V5.4 records:
+For each researched ticker V5.4.1 records:
 
 - trading currency;
 - statement currency;
@@ -50,7 +50,7 @@ Statement EPS is a **per-underlying-share** value, so an ADR ratio is applied to
 
 ## SEC policy
 
-SEC is optional enrichment in V5.4. Missing SEC access does not reduce trust by itself and does not block BUY/WATCH decisions. Raw HTTP exceptions are not published.
+SEC is optional enrichment in V5.4.1. Missing SEC access does not reduce trust by itself and does not block BUY/WATCH decisions. Raw HTTP exceptions are not published.
 
 ## Deterministic scoring
 

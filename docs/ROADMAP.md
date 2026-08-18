@@ -1,6 +1,6 @@
-# Roadmap after V5.4
+# Roadmap after V5.4.1
 
-## Completed in V5.4
+## Completed in V5.4.1
 
 - fail-closed currency/ADR/share-unit normalization;
 - corrected public-history parsing;

@@ -1,12 +1,32 @@
-# Large-Cap Inflection Research V5.4
+# Large-Cap Inflection Research V5.4.1
 
-V5.4 is a U.S.-listed equity discovery and decision-support system built around one question:
+## V5.4.1 reliability hotfix
+
+V5.4.1 fixes the failed first V5.4 production run observed on 2026-08-18. The V5.4 engine restored a V5.3 SQLite warehouse whose `research_reports` and cache tables had incompatible schemas; `CREATE TABLE IF NOT EXISTS` did not migrate those tables, so every deep-research report failed at persistence with SQLite `OperationalError`.
+
+V5.4.1 adds:
+
+- explicit warehouse schema version `5.4.1`;
+- non-destructive V5.3 → V5.4.1 migration;
+- import of legacy `price_daily` history into the canonical `prices` table;
+- preservation plus best-effort import of legacy compressed research reports into versioned cohorts;
+- preservation of incompatible V5.3 cache/research tables under `legacy_*` names;
+- publish-health gates that fail GitHub Actions when operational failures are systemic;
+- exclusion of operational failures from permanent decision and PIT ledgers;
+- one-time quarantine of the known broken V5.4 zero-score/DATA_ERROR decision rows;
+- corrected V5.4.1 cache/artifact/commit names in `.github/workflows/research.yml`; and
+- migration/publish-health regression tests covering the exact production failure.
+
+The V5.4 currency/ADR normalization, company-family classification, public-history parsing, and versioned outcome tracking remain in place.
+
+
+V5.4.1 is a U.S.-listed equity discovery and decision-support system built around one question:
 
 > Which established companies are improving fundamentally, and which of those still offer an attractive entry from today's price?
 
 The engine separates **business-thesis quality** from **entry timing**, refuses to manufacture a buy zone when valuation is unresolved, and now fails closed when foreign-currency / ADR security units cannot be reconciled safely.
 
-## What changed in V5.4
+## What changed in V5.4 (carried forward)
 
 V5.4 is a correctness-and-validation release.
 
@@ -172,7 +192,7 @@ Main workflow:
 The scheduled job:
 
 1. restores the mutable warehouse cache;
-2. installs V5.4;
+2. installs V5.4.1;
 3. checks network access;
 4. runs discovery and full research;
 5. validates the publish;

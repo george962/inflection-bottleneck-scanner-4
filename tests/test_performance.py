@@ -17,10 +17,10 @@ def test_v54_track_record_reads_v54_ledger_and_benchmark(tmp_path):
     dates=[asof.date().isoformat(),(asof+timedelta(days=45)).date().isoformat(),target.date().isoformat()]
     w.upsert_prices("XYZ",_price_df(dates,[100,90,120])); w.upsert_prices("SPY",_price_df(dates,[500,510,550]))
     ledger=tmp_path/"decision_ledger.jsonl"
-    merge_jsonl(ledger,[{"model_version":"5.4","asof":asof.isoformat(),"ticker":"XYZ","action":"BUY NOW","price":100,"conviction_score":80,"thesis_score":82,"entry_score":75}],("model_version","asof","ticker"))
-    track=build_track_record(w,[90],model_version="5.4",benchmark="SPY",ledger_path=ledger,now=now)
+    merge_jsonl(ledger,[{"model_version":"5.4.1","asof":asof.isoformat(),"ticker":"XYZ","action":"BUY NOW","price":100,"conviction_score":80,"thesis_score":82,"entry_score":75}],("model_version","asof","ticker"))
+    track=build_track_record(w,[90],model_version="5.4.1",benchmark="SPY",ledger_path=ledger,now=now)
     w.close()
-    assert track["model_version"]=="5.4"
+    assert track["model_version"]=="5.4.1"
     assert len(track["observations"])==1
     obs=track["observations"][0]
     assert obs["realized_return"]==0.2
@@ -35,6 +35,6 @@ def test_v54_track_record_does_not_mix_v53(tmp_path):
     w.upsert_prices("XYZ",_price_df(dates,[100,110]))
     ledger=tmp_path/"l.jsonl"
     merge_jsonl(ledger,[{"model_version":"5.3","asof":asof.isoformat(),"ticker":"XYZ","action":"BUY NOW","price":100}],("model_version","asof","ticker"))
-    track=build_track_record(w,[30],model_version="5.4",ledger_path=ledger,now=now)
+    track=build_track_record(w,[30],model_version="5.4.1",ledger_path=ledger,now=now)
     w.close()
     assert track["observations"]==[]

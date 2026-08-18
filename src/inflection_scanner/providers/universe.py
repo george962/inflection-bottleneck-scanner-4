@@ -39,7 +39,7 @@ def fetch_us_listed_universe(timeout: int = 20) -> list[str]:
     symbols: list[str] = []
     try:
         for url in urls:
-            r = requests.get(url, timeout=timeout, headers={"User-Agent": "inflection-bottleneck-scanner/0.5.4"})
+            r = requests.get(url, timeout=timeout, headers={"User-Agent": "inflection-bottleneck-scanner/0.5.4.1"})
             r.raise_for_status()
             lines = [x for x in r.text.splitlines() if x and not x.startswith("File Creation Time")]
             if not lines:
