@@ -1,7 +1,8 @@
 {
-  "model_version": "5.2",
-  "generated_at": "2026-08-18T00:07:04+00:00",
+  "model_version": "5.4",
+  "generated_at": "2026-08-18T21:22:30+00:00",
+  "benchmark": "SPY",
   "observations": [],
   "summaries": [],
-  "note": "Track record uses realized forward prices from prior v5.2 research reports. A group is not treated as statistically informative until it has at least 10 observations."
+  "note": "V5.4 track record is cohort-versioned and can rebuild from the durable committed decision ledger even if the Actions warehouse cache is lost."
 }
