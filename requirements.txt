@@ -1,1 +1,2 @@
--e .[dashboard,dev,llm]
+streamlit>=1.40,<2
+pandas>=2.2,<3

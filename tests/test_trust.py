@@ -1,25 +1,104 @@
 from datetime import datetime, timezone
 
-from inflection_scanner.trust import years_public, pre_research_tier
+from inflection_scanner.trust import pre_research_tier
 
 
-def test_years_public_accepts_iso_datetime_string():
-    now=datetime(2026,8,18,tzinfo=timezone.utc)
-    years=years_public({"first_trade_date_epoch_utc":"2024-03-21 09:30:00-04:00"},now=now)
-    assert years is not None
-    assert 2.3 < years < 2.5
+def epoch_years_ago(years):
+    return datetime.now(timezone.utc).timestamp() - years * 365.25 * 24 * 3600
 
 
-def test_years_public_accepts_epoch_seconds():
-    now=datetime(2026,8,18,tzinfo=timezone.utc)
-    ts=datetime(2016,8,18,tzinfo=timezone.utc).timestamp()
-    years=years_public({"first_trade_date_epoch_utc":ts},now=now)
-    assert 9.9 < years < 10.1
+POLICY = {
+    "core_min_market_cap": 15_000_000_000,
+    "core_min_years_public": 7,
+    "core_min_analysts": 10,
+    "core_min_dollar_volume_20d": 50_000_000,
+    "preferred_min_market_cap": 25_000_000_000,
+    "midcap_min_market_cap": 7_500_000_000,
+    "midcap_min_years_public": 5,
+    "midcap_min_analysts": 7,
+    "midcap_min_dollar_volume_20d": 25_000_000,
+    "include_speculative": False,
+}
 
 
-def test_core_tier_uses_parsed_history():
-    snap={"profile":{"market_cap":100e9,"first_trade_date_epoch_utc":"2010-01-01T00:00:00+00:00"},"features":{"dollar_volume_20d":500e6,"next_year_eps_analyst_count":20}}
-    policy={"core_min_market_cap":15e9,"core_min_years_public":7,"core_min_analysts":10,"core_min_dollar_volume_20d":50e6,"preferred_min_market_cap":25e9}
-    tier=pre_research_tier(snap,policy)
-    assert tier["risk_tier"]=="CORE"
-    assert tier["years_public"] is not None
+def test_large_established_liquid_company_is_core():
+    snapshot = {
+        "profile": {
+            "market_cap": 50_000_000_000,
+            "first_trade_date_epoch_utc": epoch_years_ago(12),
+        },
+        "features": {
+            "next_year_eps_analyst_count": 22,
+            "dollar_volume_20d": 300_000_000,
+        },
+    }
+    result = pre_research_tier(snapshot, POLICY)
+    assert result["risk_tier"] == "CORE"
+    assert result["preferred_large_cap"] is True
+    assert result["eligible"] is True
+
+
+def test_small_new_company_is_speculative():
+    snapshot = {
+        "profile": {
+            "market_cap": 1_000_000_000,
+            "first_trade_date_epoch_utc": epoch_years_ago(1),
+        },
+        "features": {
+            "next_year_eps_analyst_count": 3,
+            "dollar_volume_20d": 5_000_000,
+        },
+    }
+    result = pre_research_tier(snapshot, POLICY)
+    assert result["risk_tier"] == "SPECULATIVE"
+    assert result["eligible"] is False
+
+
+def test_large_but_thinly_traded_name_does_not_pass_core():
+    snapshot = {
+        "profile": {
+            "market_cap": 40_000_000_000,
+            "first_trade_date_epoch_utc": epoch_years_ago(15),
+        },
+        "features": {
+            "next_year_eps_analyst_count": 15,
+            "dollar_volume_20d": 10_000_000,
+        },
+    }
+    result = pre_research_tier(snapshot, POLICY)
+    assert result["risk_tier"] != "CORE"
+
+
+
+def test_large_liquid_company_missing_trade_date_is_researchable_not_speculative():
+    snapshot = {
+        "profile": {
+            "market_cap": 80_000_000_000,
+            "first_trade_date_epoch_utc": None,
+            "analyst_count_info": 24,
+        },
+        "features": {
+            "next_year_eps_analyst_count": None,
+            "dollar_volume_20d": 500_000_000,
+        },
+    }
+    result = pre_research_tier(snapshot, POLICY)
+    assert result["risk_tier"] == "CORE"
+    assert result["preferred_large_cap"] is True
+    assert result["actionable_established"] is True
+    assert "public_history" in result["establishment_data_gaps"]
+
+
+def test_large_known_too_new_company_still_does_not_pass_core():
+    snapshot = {
+        "profile": {
+            "market_cap": 80_000_000_000,
+            "first_trade_date_epoch_utc": epoch_years_ago(2),
+            "analyst_count_info": 24,
+        },
+        "features": {
+            "dollar_volume_20d": 500_000_000,
+        },
+    }
+    result = pre_research_tier(snapshot, POLICY)
+    assert result["risk_tier"] != "CORE"

@@ -1,37 +1,63 @@
-# V5.4.1 Cache and Persistence Design
+# V5.3 Persistence Design
 
-## Canonical schema
+## GitHub Actions cache
 
-`data/warehouse.db` now records `warehouse_meta.schema_version = 5.4.1`. The active tables are:
+Stored outside normal Git history:
 
-- `prices` — canonical daily OHLCV history;
-- `json_cache` — mutable JSON acceleration cache;
-- `research_reports` — model-versioned research cohorts;
-- `warehouse_meta` — schema metadata.
+```text
+data/warehouse.db
+data/cache/
+```
 
-## Migration from V5.3
+V5.3 writes cache keys with prefix:
 
-On first open of an older warehouse, V5.4.1:
+```text
+equity-data-v5-2-
+```
 
-1. creates the V5.4.1 canonical tables;
-2. imports `price_daily` rows into `prices` with `INSERT OR IGNORE`;
-3. renames incompatible V5.3 `json_cache` to `legacy_json_cache_v53` (or a suffix if needed);
-4. renames incompatible V5.3 `research_reports` to `legacy_research_reports_v53`;
-5. best-effort decompresses legacy report payloads and imports them into the new versioned `research_reports`; and
-6. records schema version `5.4.1`.
+The restore step can fall back to earlier V5/V4 cache prefixes so the large historical price warehouse can be reused.
 
-Legacy tables are intentionally preserved so migration is non-destructive. Subsequent opens see the current schema version and do not re-import the old price table.
+## SQLite warehouse
 
-## Durable published evidence
+`data/warehouse.db` stores:
 
-The mutable SQLite warehouse is still only an acceleration/research database. Permanent compact evidence is committed under `published/`:
+- `price_daily`: deduplicated daily market history
+- `json_cache`: TTL-based mutable data
+- `filing_documents`: compressed SEC filing text keyed by accession
+- `research_reports`: historical research reports used for realized-outcome tracking
 
-- `decision_ledger.jsonl`;
-- `pit_estimates.jsonl`;
-- `quarantined_operational_failures.jsonl` when needed;
-- `latest_research.json`;
-- `latest_research.csv`;
-- `metadata.json`;
-- `track_record.json`.
+## Deep mutable-data namespaces
 
-Operational pipeline failures are never appended to decision/PIT ledgers. The known broken V5.4 placeholders are moved into the quarantine file on the next V5.4.1 run.
+Yahoo:
+
+```text
+yahoo:v5_3:profile:TICKER
+yahoo:v5_3:qfin:TICKER
+yahoo:v5_3:afin:TICKER
+yahoo:v5_3:analyst:TICKER
+yahoo:v5_3:news:TICKER
+```
+
+SEC:
+
+```text
+sec:v5_3:ticker_map
+sec:v5_3:submissions:TICKER
+```
+
+This forces V5.3 to refresh data whose semantics changed without throwing away the large daily-price cache.
+
+SEC filing documents themselves remain immutable by accession number and are reused once downloaded.
+
+## Published data
+
+Small read-only Streamlit payloads are committed:
+
+```text
+published/latest_research.json
+published/latest_research.csv
+published/track_record.json
+published/metadata.json
+```
+
+The large SQLite warehouse is not committed to normal Git history.

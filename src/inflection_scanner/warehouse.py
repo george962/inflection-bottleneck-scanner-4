@@ -1,311 +1,321 @@
 from __future__ import annotations
 
 import json
+import math
 import sqlite3
 import zlib
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any
 
 import pandas as pd
 
-from .db import connect
 
-WAREHOUSE_SCHEMA_VERSION = "5.4.1"
+SCHEMA = """
+PRAGMA journal_mode=WAL;
+PRAGMA synchronous=NORMAL;
+
+CREATE TABLE IF NOT EXISTS price_daily(
+ ticker TEXT NOT NULL,
+ date TEXT NOT NULL,
+ open REAL,
+ high REAL,
+ low REAL,
+ close REAL,
+ volume REAL,
+ PRIMARY KEY(ticker,date)
+);
+
+CREATE INDEX IF NOT EXISTS idx_price_date ON price_daily(date);
+
+CREATE TABLE IF NOT EXISTS fetch_state(
+ cache_key TEXT PRIMARY KEY,
+ fetched_at TEXT NOT NULL,
+ metadata_json TEXT
+);
+
+CREATE TABLE IF NOT EXISTS json_cache(
+ cache_key TEXT PRIMARY KEY,
+ fetched_at TEXT NOT NULL,
+ expires_at TEXT,
+ payload_zlib BLOB NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS filing_documents(
+ ticker TEXT NOT NULL,
+ accession TEXT NOT NULL,
+ form TEXT,
+ filing_date TEXT,
+ report_date TEXT,
+ source_url TEXT,
+ fetched_at TEXT NOT NULL,
+ text_zlib BLOB NOT NULL,
+ PRIMARY KEY(ticker,accession)
+);
+
+CREATE INDEX IF NOT EXISTS idx_filing_date
+ON filing_documents(ticker,filing_date DESC);
+
+CREATE TABLE IF NOT EXISTS research_reports(
+ ticker TEXT NOT NULL,
+ asof TEXT NOT NULL,
+ decision TEXT,
+ expected_cagr REAL,
+ payload_zlib BLOB NOT NULL,
+ PRIMARY KEY(ticker,asof)
+);
+"""
+
+
+def now():
+    return datetime.now(timezone.utc)
+
+
+def iso():
+    return now().isoformat(timespec="seconds")
+
+
+def dump(obj):
+    return zlib.compress(json.dumps(obj, default=str, allow_nan=False).encode(), 6)
+
+
+def load(blob):
+    return json.loads(zlib.decompress(blob).decode())
 
 
 class ResearchWarehouse:
-    """SQLite warehouse with in-place migration from the V5.3 layout.
-
-    V5.3 used `price_daily`, a compressed `json_cache`, and a compressed
-    `research_reports` table. V5.4 introduced new table shapes but originally
-    relied on CREATE TABLE IF NOT EXISTS, which cannot alter an existing table.
-    V5.4.1 explicitly migrates compatible history and preserves legacy tables.
-    """
-
-    def __init__(self, path: str | Path = "data/warehouse.db"):
+    def __init__(self, path: str | Path):
         self.path = Path(path)
-        self.con = connect(self.path)
-        self.migration = self._init_schema_and_migrate()
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.conn = sqlite3.connect(self.path)
+        self.conn.row_factory = sqlite3.Row
+        self.conn.executescript(SCHEMA)
+        self.conn.commit()
 
-    def _init_schema_and_migrate(self) -> dict[str, Any]:
-        migration: dict[str, Any] = {
-            "schema_version": WAREHOUSE_SCHEMA_VERSION,
-            "migrated_price_rows": 0,
-            "migrated_research_reports": 0,
-            "legacy_tables": [],
-        }
-        self.con.execute(
-            "CREATE TABLE IF NOT EXISTS warehouse_meta (key TEXT PRIMARY KEY, value TEXT NOT NULL)"
+    def close(self):
+        self.conn.close()
+
+    def put_json(self, key, payload, ttl_hours=None):
+        n = now()
+        exp = (
+            (n + timedelta(hours=ttl_hours)).isoformat(timespec="seconds")
+            if ttl_hours is not None
+            else None
         )
-        prior_row = self.con.execute(
-            "SELECT value FROM warehouse_meta WHERE key='schema_version'"
-        ).fetchone()
-        prior_version = str(prior_row[0]) if prior_row else None
-        migration["from_schema_version"] = prior_version
-
-        # V5.4+ canonical daily-price table.
-        self.con.executescript(
-            """
-            CREATE TABLE IF NOT EXISTS prices (
-                ticker TEXT NOT NULL,
-                date TEXT NOT NULL,
-                open REAL, high REAL, low REAL, close REAL, volume REAL,
-                PRIMARY KEY (ticker, date)
-            );
-            CREATE INDEX IF NOT EXISTS idx_prices_date ON prices(date);
-            """
+        self.conn.execute(
+            "INSERT OR REPLACE INTO json_cache VALUES(?,?,?,?)",
+            (key, n.isoformat(timespec="seconds"), exp, dump(payload)),
         )
+        self.conn.commit()
 
-        # Import V5.3 price history once. Keep the old table as an audit/fallback
-        # source rather than destructively dropping it.
-        if self._table_exists("price_daily"):
-            migration["legacy_tables"].append("price_daily")
-            if prior_version != WAREHOUSE_SCHEMA_VERSION:
-                before = self.con.execute("SELECT COUNT(*) FROM prices").fetchone()[0]
-                self.con.execute(
-                    """
-                    INSERT OR IGNORE INTO prices(ticker,date,open,high,low,close,volume)
-                    SELECT ticker,date,open,high,low,close,volume FROM price_daily
-                    """
-                )
-                after = self.con.execute("SELECT COUNT(*) FROM prices").fetchone()[0]
-                migration["migrated_price_rows"] = int(after - before)
-
-        self._ensure_json_cache(migration)
-        self._ensure_research_reports(migration)
-
-        self.con.execute(
-            "INSERT OR REPLACE INTO warehouse_meta(key,value) VALUES('schema_version',?)",
-            (WAREHOUSE_SCHEMA_VERSION,),
-        )
-        self.con.commit()
-        return migration
-
-    def _table_exists(self, name: str) -> bool:
-        row = self.con.execute(
-            "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (name,)
-        ).fetchone()
-        return row is not None
-
-    def _columns(self, name: str) -> set[str]:
-        if not self._table_exists(name):
-            return set()
-        return {str(r[1]) for r in self.con.execute(f'PRAGMA table_info("{name}")').fetchall()}
-
-    def _legacy_name(self, base: str) -> str:
-        if not self._table_exists(base):
-            return base
-        i = 2
-        while self._table_exists(f"{base}_{i}"):
-            i += 1
-        return f"{base}_{i}"
-
-    def _ensure_json_cache(self, migration: dict[str, Any]) -> None:
-        expected = {"cache_key", "payload", "fetched_at", "expires_at"}
-        cols = self._columns("json_cache")
-        if cols and not expected.issubset(cols):
-            legacy = self._legacy_name("legacy_json_cache_v53")
-            self.con.execute(f'ALTER TABLE json_cache RENAME TO "{legacy}"')
-            migration["legacy_tables"].append(legacy)
-        self.con.execute(
-            """
-            CREATE TABLE IF NOT EXISTS json_cache (
-                cache_key TEXT PRIMARY KEY,
-                payload TEXT NOT NULL,
-                fetched_at TEXT NOT NULL,
-                expires_at TEXT
-            )
-            """
-        )
-
-    def _ensure_research_reports(self, migration: dict[str, Any]) -> None:
-        expected = {"ticker", "asof", "action", "score", "model_version", "report_json"}
-        cols = self._columns("research_reports")
-        legacy: str | None = None
-        if cols and not expected.issubset(cols):
-            legacy = self._legacy_name("legacy_research_reports_v53")
-            self.con.execute(f'ALTER TABLE research_reports RENAME TO "{legacy}"')
-            migration["legacy_tables"].append(legacy)
-
-        self.con.execute(
-            """
-            CREATE TABLE IF NOT EXISTS research_reports (
-                ticker TEXT NOT NULL,
-                asof TEXT NOT NULL,
-                action TEXT,
-                score REAL,
-                model_version TEXT NOT NULL,
-                report_json TEXT NOT NULL,
-                PRIMARY KEY (ticker, asof, model_version)
-            )
-            """
-        )
-        self.con.execute(
-            "CREATE INDEX IF NOT EXISTS idx_research_reports_model_asof ON research_reports(model_version,asof)"
-        )
-        if legacy:
-            migration["migrated_research_reports"] = self._import_legacy_research_reports(legacy)
-
-    def _import_legacy_research_reports(self, table: str) -> int:
-        cols = self._columns(table)
-        if "payload_zlib" not in cols:
-            return 0
-        rows = self.con.execute(f'SELECT * FROM "{table}"').fetchall()
-        imported = 0
-        for row in rows:
-            try:
-                payload = json.loads(zlib.decompress(row["payload_zlib"]).decode("utf-8"))
-                ticker = str(payload.get("ticker") or row["ticker"]).upper()
-                asof = str(payload.get("asof") or row["asof"])
-                version = str(payload.get("model_version") or "5.3")
-                conviction = payload.get("conviction") or {}
-                action = str(conviction.get("action") or row["decision"] or "UNKNOWN")
-                score = _f(conviction.get("conviction_score"))
-                self.con.execute(
-                    """
-                    INSERT OR IGNORE INTO research_reports
-                    (ticker,asof,action,score,model_version,report_json)
-                    VALUES (?,?,?,?,?,?)
-                    """,
-                    (ticker, asof, action, score, version, json.dumps(payload, default=_json_default)),
-                )
-                imported += int(self.con.execute("SELECT changes()").fetchone()[0] > 0)
-            except Exception:
-                # The untouched legacy table remains available even if one row
-                # cannot be decoded, so migration is non-destructive.
-                continue
-        return imported
-
-    def schema_version(self) -> str | None:
-        row = self.con.execute(
-            "SELECT value FROM warehouse_meta WHERE key='schema_version'"
-        ).fetchone()
-        return str(row[0]) if row else None
-
-    def close(self) -> None:
-        self.con.close()
-
-    def upsert_prices(self, ticker: str, df: pd.DataFrame) -> int:
-        if df is None or df.empty:
-            return 0
-        rows = []
-        for idx, row in df.iterrows():
-            dt = pd.Timestamp(idx).date().isoformat()
-            rows.append(
-                (
-                    ticker.upper(), dt, _f(row.get("Open")), _f(row.get("High")),
-                    _f(row.get("Low")), _f(row.get("Close")), _f(row.get("Volume")),
-                )
-            )
-        self.con.executemany(
-            "INSERT OR REPLACE INTO prices(ticker,date,open,high,low,close,volume) VALUES (?,?,?,?,?,?,?)",
-            rows,
-        )
-        self.con.commit()
-        return len(rows)
-
-    def price_history(self, ticker: str, start: str | None = None, end: str | None = None) -> pd.DataFrame:
-        sql = "SELECT date,open,high,low,close,volume FROM prices WHERE ticker=?"
-        params: list[Any] = [ticker.upper()]
-        if start:
-            sql += " AND date>=?"
-            params.append(start)
-        if end:
-            sql += " AND date<=?"
-            params.append(end)
-        sql += " ORDER BY date"
-        rows = self.con.execute(sql, params).fetchall()
-        if not rows:
-            return pd.DataFrame()
-        df = pd.DataFrame([dict(r) for r in rows])
-        df.index = pd.to_datetime(df.pop("date"))
-        df.columns = [c.title() for c in df.columns]
-        return df
-
-    def price_near_date(self, ticker: str, target_date: str, max_days: int = 10) -> float | None:
-        # Limit the search window so a missing/delisted security does not match a
-        # price arbitrarily far after the requested horizon.
-        target = pd.Timestamp(target_date)
-        end = (target + pd.Timedelta(days=max_days)).date().isoformat()
-        row = self.con.execute(
-            "SELECT close FROM prices WHERE ticker=? AND date>=? AND date<=? ORDER BY date LIMIT 1",
-            (ticker.upper(), target.date().isoformat(), end),
-        ).fetchone()
-        return float(row[0]) if row and row[0] is not None else None
-
-    def price_window(self, ticker: str, start_date: str, end_date: str) -> list[float]:
-        rows = self.con.execute(
-            "SELECT close FROM prices WHERE ticker=? AND date>=? AND date<=? ORDER BY date",
-            (ticker.upper(), start_date, end_date),
-        ).fetchall()
-        return [float(r[0]) for r in rows if r[0] is not None]
-
-    def put_cache(self, key: str, payload: Any, expires_at: str | None = None, fetched_at: str | None = None) -> None:
-        fetched_at = fetched_at or datetime.now(timezone.utc).isoformat(timespec="seconds")
-        self.con.execute(
-            "INSERT OR REPLACE INTO json_cache(cache_key,payload,fetched_at,expires_at) VALUES (?,?,?,?)",
-            (key, json.dumps(payload, default=_json_default), fetched_at, expires_at),
-        )
-        self.con.commit()
-
-    def get_cache(self, key: str) -> dict[str, Any] | None:
-        row = self.con.execute(
-            "SELECT payload,fetched_at,expires_at FROM json_cache WHERE cache_key=?", (key,)
+    def get_json(self, key, allow_stale=False):
+        row = self.conn.execute(
+            "SELECT expires_at,payload_zlib FROM json_cache WHERE cache_key=?",
+            (key,),
         ).fetchone()
         if not row:
             return None
-        return {"payload": json.loads(row[0]), "fetched_at": row[1], "expires_at": row[2]}
+        if row["expires_at"] and not allow_stale and now() > datetime.fromisoformat(row["expires_at"]):
+            return None
+        return load(row["payload_zlib"])
 
-    def put_research_report(self, ticker: str, asof: str, action: str, score: float | None, report: dict[str, Any]) -> None:
-        version = str(report.get("model_version") or "unknown")
-        self.con.execute(
-            """
-            INSERT OR REPLACE INTO research_reports
-            (ticker,asof,action,score,model_version,report_json) VALUES (?,?,?,?,?,?)
-            """,
-            (ticker.upper(), asof, action, score, version, json.dumps(report, default=_json_default)),
-        )
-        self.con.commit()
-
-    def list_research_reports(self, model_version: str | None = None) -> list[dict[str, Any]]:
-        if model_version:
-            rows = self.con.execute(
-                "SELECT report_json FROM research_reports WHERE model_version=? ORDER BY asof",
-                (model_version,),
-            ).fetchall()
-        else:
-            rows = self.con.execute("SELECT report_json FROM research_reports ORDER BY asof").fetchall()
-        return [json.loads(r[0]) for r in rows]
-
-    def stats(self) -> dict[str, Any]:
-        p = self.con.execute("SELECT COUNT(*),COUNT(DISTINCT ticker) FROM prices").fetchone()
-        c = self.con.execute("SELECT COUNT(*) FROM json_cache").fetchone()[0]
-        r = self.con.execute("SELECT COUNT(*) FROM research_reports").fetchone()[0]
+    def cache_metadata(self, key):
+        row = self.conn.execute(
+            "SELECT fetched_at,expires_at FROM json_cache WHERE cache_key=?",
+            (key,),
+        ).fetchone()
+        if not row:
+            return {
+                "present": False,
+                "fetched_at": None,
+                "expires_at": None,
+                "age_hours": None,
+                "stale": True,
+            }
+        fetched = datetime.fromisoformat(row["fetched_at"])
+        expires = datetime.fromisoformat(row["expires_at"]) if row["expires_at"] else None
         return {
-            "warehouse_path": str(self.path.resolve()),
-            "schema_version": self.schema_version(),
-            "migration": self.migration,
-            "price_rows": int(p[0]),
-            "price_tickers": int(p[1]),
-            "json_cache_entries": int(c),
-            "research_reports": int(r),
-            "size_mb": round(self.path.stat().st_size / 1024 / 1024, 2) if self.path.exists() else 0.0,
+            "present": True,
+            "fetched_at": row["fetched_at"],
+            "expires_at": row["expires_at"],
+            "age_hours": round((now() - fetched).total_seconds() / 3600.0, 2),
+            "stale": bool(expires and now() > expires),
         }
 
+    def set_fetch_state(self, key, metadata=None):
+        self.conn.execute(
+            "INSERT OR REPLACE INTO fetch_state VALUES(?,?,?)",
+            (key, iso(), json.dumps(metadata or {})),
+        )
+        self.conn.commit()
 
-def _f(value: Any) -> float | None:
-    try:
-        x = float(value)
-        return x if pd.notna(x) else None
-    except Exception:
-        return None
+    def get_fetch_state(self, key):
+        row = self.conn.execute(
+            "SELECT fetched_at,metadata_json FROM fetch_state WHERE cache_key=?",
+            (key,),
+        ).fetchone()
+        return {
+            "fetched_at": row["fetched_at"],
+            "metadata": json.loads(row["metadata_json"] or "{}"),
+        } if row else None
 
+    def is_fetch_fresh(self, key, max_age_hours):
+        state = self.get_fetch_state(key)
+        return bool(
+            state
+            and now() - datetime.fromisoformat(state["fetched_at"])
+            <= timedelta(hours=max_age_hours)
+        )
 
-def _json_default(value: Any):
-    if hasattr(value, "isoformat"):
-        return value.isoformat()
-    try:
-        return float(value)
-    except Exception:
-        return str(value)
+    def known_price_tickers(self):
+        return {row["ticker"] for row in self.conn.execute("SELECT DISTINCT ticker FROM price_daily")}
+
+    def upsert_prices(self, ticker, df):
+        if df is None or df.empty or "Close" not in df:
+            return 0
+        records = []
+        for idx, row in df.iterrows():
+            try:
+                date = pd.Timestamp(idx).date().isoformat()
+            except Exception:
+                continue
+
+            def num(k):
+                try:
+                    x = float(row.get(k))
+                    return x if math.isfinite(x) else None
+                except Exception:
+                    return None
+
+            records.append(
+                (
+                    ticker.upper(),
+                    date,
+                    num("Open"),
+                    num("High"),
+                    num("Low"),
+                    num("Close"),
+                    num("Volume"),
+                )
+            )
+        if records:
+            self.conn.executemany(
+                "INSERT OR REPLACE INTO price_daily VALUES(?,?,?,?,?,?,?)",
+                records,
+            )
+            self.conn.commit()
+        return len(records)
+
+    def load_prices(self, ticker, limit=600):
+        rows = self.conn.execute(
+            "SELECT date,open,high,low,close,volume FROM price_daily WHERE ticker=? ORDER BY date DESC LIMIT ?",
+            (ticker.upper(), limit),
+        ).fetchall()
+        if not rows:
+            return pd.DataFrame()
+        df = pd.DataFrame([dict(r) for r in reversed(rows)])
+        df["date"] = pd.to_datetime(df["date"])
+        df = df.set_index("date")
+        df.columns = ["Open", "High", "Low", "Close", "Volume"]
+        return df
+
+    def latest_price_date(self, ticker):
+        row = self.conn.execute(
+            "SELECT MAX(date) AS d FROM price_daily WHERE ticker=?",
+            (ticker.upper(),),
+        ).fetchone()
+        return row["d"] if row and row["d"] else None
+
+    def delete_prices_older_than(self, days=900):
+        cutoff = (now() - timedelta(days=days)).date().isoformat()
+        self.conn.execute("DELETE FROM price_daily WHERE date<?", (cutoff,))
+        self.conn.commit()
+
+    def has_filing(self, ticker, accession):
+        return self.conn.execute(
+            "SELECT 1 FROM filing_documents WHERE ticker=? AND accession=?",
+            (ticker.upper(), accession),
+        ).fetchone() is not None
+
+    def put_filing(self, ticker, accession, form, filing_date, report_date, source_url, text):
+        self.conn.execute(
+            "INSERT OR REPLACE INTO filing_documents VALUES(?,?,?,?,?,?,?,?)",
+            (
+                ticker.upper(),
+                accession,
+                form,
+                filing_date,
+                report_date,
+                source_url,
+                iso(),
+                zlib.compress(text.encode(), 6),
+            ),
+        )
+        self.conn.commit()
+
+    def recent_filings(self, ticker, limit=10):
+        rows = self.conn.execute(
+            "SELECT * FROM filing_documents WHERE ticker=? ORDER BY filing_date DESC LIMIT ?",
+            (ticker.upper(), limit),
+        ).fetchall()
+        out = []
+        for row in rows:
+            d = dict(row)
+            d["text"] = zlib.decompress(d.pop("text_zlib")).decode()
+            out.append(d)
+        return out
+
+    def put_research_report(self, ticker, asof, decision, expected_cagr, payload):
+        self.conn.execute(
+            "INSERT OR REPLACE INTO research_reports VALUES(?,?,?,?,?)",
+            (ticker.upper(), asof, decision, expected_cagr, dump(payload)),
+        )
+        self.conn.commit()
+
+    def latest_research_report(self, ticker):
+        row = self.conn.execute(
+            "SELECT payload_zlib FROM research_reports WHERE ticker=? ORDER BY asof DESC LIMIT 1",
+            (ticker.upper(),),
+        ).fetchone()
+        return load(row["payload_zlib"]) if row else None
+
+    def list_research_reports(self, model_version=None):
+        rows = self.conn.execute(
+            "SELECT payload_zlib FROM research_reports ORDER BY asof ASC"
+        ).fetchall()
+        reports = [load(row["payload_zlib"]) for row in rows]
+        if model_version is not None:
+            reports = [r for r in reports if str(r.get("model_version")) == str(model_version)]
+        return reports
+
+    def price_near_date(self, ticker, target_date, max_days=10):
+        row = self.conn.execute(
+            """
+            SELECT close FROM price_daily
+            WHERE ticker=? AND date>=? AND date<=date(?, '+' || ? || ' day')
+            ORDER BY date ASC LIMIT 1
+            """,
+            (ticker.upper(), target_date, target_date, int(max_days)),
+        ).fetchone()
+        if row and row["close"] is not None:
+            return float(row["close"])
+        row = self.conn.execute(
+            """
+            SELECT close FROM price_daily
+            WHERE ticker=? AND date<=? AND date>=date(?, '-' || ? || ' day')
+            ORDER BY date DESC LIMIT 1
+            """,
+            (ticker.upper(), target_date, target_date, int(max_days)),
+        ).fetchone()
+        return float(row["close"]) if row and row["close"] is not None else None
+
+    def cache_info(self):
+        q = lambda sql: int(self.conn.execute(sql).fetchone()[0])
+        return {
+            "warehouse_path": str(self.path),
+            "json_cache_entries": q("SELECT COUNT(*) FROM json_cache"),
+            "price_rows": q("SELECT COUNT(*) FROM price_daily"),
+            "price_tickers": q("SELECT COUNT(DISTINCT ticker) FROM price_daily"),
+            "filing_documents": q("SELECT COUNT(*) FROM filing_documents"),
+            "research_reports": q("SELECT COUNT(*) FROM research_reports"),
+            "size_mb": round(self.path.stat().st_size / 1024 / 1024, 2) if self.path.exists() else 0.0,
+        }

@@ -1,12 +1,27 @@
 import pandas as pd
 
-from inflection_scanner.features.fundamentals import fundamental_features
+from inflection_scanner.features.fundamentals import compute_fundamental_features
 
 
-def test_fundamental_features_margin_change():
-    cols=["q0","q1","q2","q3","q4"]
-    income=pd.DataFrame([[120,110,105,100,100],[24,20,18,16,10],[60,55,52,50,45]],index=["Total Revenue","Operating Income","Gross Profit"],columns=cols)
-    cash=pd.DataFrame([[18,17,16,15,10]],index=["Free Cash Flow"],columns=cols)
-    out=fundamental_features({"income":income,"cashflow":cash,"balance":pd.DataFrame()})
-    assert round(out["revenue_yoy"],2)==.2
-    assert out["operating_margin_change_yoy"]>0
+def test_fundamental_acceleration_and_operating_leverage():
+    cols = pd.to_datetime(
+        ["2026-06-30", "2026-03-31", "2025-12-31", "2025-09-30", "2025-06-30", "2025-03-31"]
+    )
+    income = pd.DataFrame(
+        {
+            cols[0]: [150, 75, 40, 30],
+            cols[1]: [130, 60, 28, 20],
+            cols[2]: [120, 52, 22, 15],
+            cols[3]: [115, 48, 18, 12],
+            cols[4]: [100, 40, 10, 7],
+            cols[5]: [100, 40, 10, 7],
+        },
+        index=["Total Revenue", "Gross Profit", "Operating Income", "Net Income"],
+    )
+
+    f = compute_fundamental_features(income)
+    assert f["revenue_yoy"] == 0.5
+    assert f["revenue_acceleration"] is not None
+    assert f["gross_margin_change_yoy"] > 0
+    assert f["operating_margin_change_yoy"] > 0
+    assert f["incremental_operating_margin_yoy"] > 0.5

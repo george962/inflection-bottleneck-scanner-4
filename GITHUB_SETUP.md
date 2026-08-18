@@ -1,40 +1,36 @@
-# GitHub Setup — V5.4.1
+# GitHub Actions setup — V5.3
 
-## Important: copy the hidden `.github` directory
+## Required secrets
 
-The failed upgrade retained the old V5.3 workflow because `.github` is hidden on many systems. Do not drag only visible files into the repo. Use `APPLY_TO_EXISTING_REPO.sh` or an equivalent `rsync -a` command so `.github/workflows/research.yml` is replaced.
+None.
 
-## Existing repository
+V5.3 can run fully without SEC credentials.
 
-From the extracted V5.4.1 folder:
+## Optional secrets
 
-```bash
-./APPLY_TO_EXISTING_REPO.sh /path/to/your/existing/inflection-bottleneck-scanner-4
+### SEC_USER_AGENT
+
+Optional. If supplied, use a single-line identity such as:
+
+```text
+George Jiang your-email@example.com
 ```
 
-This intentionally preserves:
+If omitted, SEC filing enrichment is skipped with no trust penalty and no workflow failure.
 
-- `.git/`;
-- `data/warehouse.db`;
-- `data/cache/`;
-- `published/`.
+### OPENAI_API_KEY
 
-Preserving the warehouse is safe because V5.4.1 migrates it in place. Preserving `published/` allows the first V5.4.1 run to quarantine the known broken V5.4 ledger rows.
+Optional. Enables the narrative evidence synthesis. The deterministic scanner, valuation, and action engine do not require it.
 
-Then run:
+## First run
 
-```bash
-cd /path/to/your/existing/inflection-bottleneck-scanner-4
-python -m pip install -e ".[dashboard,dev,llm]"
-pytest -q
-git add -A
-git commit -m "fix: V5.4.1 warehouse migration and publish health"
-git push
+Push the complete V5.3 repository to your existing GitHub repository, then open:
+
+```text
+Actions -> Equity Research Engine -> Run workflow
 ```
 
-## GitHub Actions
-
-Open **Actions → Equity Research Engine → Run workflow**. For the first corrected run use:
+Use:
 
 ```text
 deep_candidates: 180
@@ -42,8 +38,22 @@ research_candidates: 24
 force_refresh: false
 ```
 
-The `Verify and migrate warehouse schema` step runs before research. The workflow will fail red if fewer than 5 reports succeed or more than 25% of requested reports fail operationally.
+The workflow restores prior market-history caches where possible, tests the repository, runs the network doctor, executes research, validates the published dataset, saves the updated cache, uploads an artifact, and commits `published/` back to `main`.
 
-## Optional secrets
+## Expected doctor behavior without SEC
 
-`SEC_USER_AGENT` remains optional and must contain only the literal SEC-compatible user-agent value. `OPENAI_API_KEY` and `OPENAI_MODEL` remain optional.
+```text
+SEC optional enrichment   OK   Not configured; skipped...
+```
+
+That is a successful state in V5.3.
+
+## Streamlit
+
+Keep the existing Streamlit app pointed at:
+
+```text
+dashboard/app.py
+```
+
+After the Action commits new `published/` results, the dashboard updates from the repository commit.

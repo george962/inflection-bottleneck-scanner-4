@@ -1,41 +1,51 @@
-# V5.4.1 Validation and Track Record
+# Validation and Track Record
 
-## No fake historical backtest
+V5 separates two things that should not be confused:
 
-A valid historical model requires point-in-time versions of:
+1. **Scenario valuation** — a forward-looking research model.
+2. **Realized track record** — what actually happened after prior v5 decisions.
 
-- analyst consensus and revisions;
-- as-reported fundamentals;
-- filing availability timestamps;
-- universe membership;
-- corporate actions and delistings.
+## Realized v5 outcomes
 
-Today's analyst estimates cannot be retroactively inserted into prior dates.
+Every v5 report is stored in `research_reports` with:
 
-## Prospective V5.4.1 evidence
+- timestamp
+- ticker
+- original action
+- original price
+- original conviction
 
-Each published run commits:
+Once enough time passes, `performance.py` measures realized 90/180/365-day returns from the persistent price warehouse.
 
-`published/decision_ledger.jsonl`
+The published dashboard reports:
 
-and:
+- observation count
+- hit rate
+- average realized return
+- median realized return
 
-`published/pit_estimates.jsonl`
+A group is not marked as having enough history until it has at least 10 matured observations.
 
-The outcome tracker is explicitly cohort-versioned. A V5.4.1 report is evaluated as V5.4.1; it is not silently queried as V5.2 or mixed with a prior rule set.
+## Why this is not a historical backtest yet
 
-## Outcome fields
+Today's Yahoo analyst estimates cannot be retroactively treated as point-in-time historical estimates. Doing so would create look-ahead bias.
 
-For each matured horizon the engine records:
+A proper historical model needs point-in-time datasets for:
 
-- realized absolute return;
-- SPY return;
-- excess return;
-- maximum adverse excursion;
-- maximum favorable excursion.
+- estimate consensus and revisions
+- filing availability timestamps
+- as-reported fundamentals
+- survivorship-safe universe membership
+- corporate actions / delistings
 
-Action-level summaries include positive-return hit rate and positive-excess-return rate.
+Until those are available, v5's honest validation path is to accumulate decisions prospectively and measure them later.
 
-## Calibration gate
+## Future calibration
 
-A cohort is not considered informative until it contains at least 10 matured observations. For actual parameter recalibration, substantially larger chronological samples are preferable.
+When enough v5 observations accumulate, use chronological cohorts to answer:
+
+- Does `BUY NOW` outperform `WATCH`?
+- Does a higher conviction score correspond to higher realized return?
+- Does the buy-zone rule reduce drawdown versus buying immediately?
+- Which pillars have the most predictive value?
+- Are late-stage names being rejected too aggressively or not aggressively enough?
