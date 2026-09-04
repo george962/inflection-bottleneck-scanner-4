@@ -1,6 +1,6 @@
 {
   "model_version": "5.2",
-  "generated_at": "2026-09-03T01:30:39+00:00",
+  "generated_at": "2026-09-04T01:21:05+00:00",
   "observations": [],
   "summaries": [],
   "note": "Track record uses realized forward prices from prior v5.2 research reports. A group is not treated as statistically informative until it has at least 10 observations."
