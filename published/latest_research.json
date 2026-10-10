@@ -1,30 +1,30 @@
 [
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:46+00:00",
+    "asof": "2026-10-10T02:46:07+00:00",
     "ticker": "MU",
     "company": "MU",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 34.33,
+      "potential_score": 35.42,
       "discovery_bucket": "QUIET_ACCUMULATION",
       "price_stage": "LATE",
       "price_maturity": 90.0
     },
     "metrics": {
-      "price": 1035.8399658203125,
-      "dollar_volume_20d": 26837604133.160706,
-      "return_1m": 0.007851898903164178,
-      "return_3m": 0.05773509520281617,
-      "return_6m": 1.4578284183625736,
-      "return_12m": 4.583785270132673,
-      "distance_from_52w_high": -0.14631394206513004,
+      "price": 1029.0,
+      "dollar_volume_20d": 26805247774.236145,
+      "return_1m": 0.05278238228887,
+      "return_3m": 0.09818569903948782,
+      "return_6m": 1.44693940553742,
+      "return_12m": 4.240696936506449,
+      "distance_from_52w_high": -0.1519510903218375,
       "max_drawdown_1y": -0.3909541844002312,
-      "relative_return_3m": 0.007029410702788397,
-      "relative_return_6m": 1.3325523707320521,
-      "relative_return_12m": 4.347572713774926,
+      "relative_return_3m": 0.04748001453946005,
+      "relative_return_6m": 1.3216633579068986,
+      "relative_return_12m": 4.004484380148702,
       "revenue_yoy": 3.457155144608107,
       "revenue_acceleration": null,
       "gross_margin": 0.8456194519490544,
@@ -126,7 +126,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 1035.84,
+      "current_price": 1029.0,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -156,7 +156,7 @@
       "market_cap": 1169870562929.5352,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 26837604133.160706,
+      "dollar_volume_20d": 26805247774.236145,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -237,30 +237,30 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 45.3,
+      "conviction_score": 45.8,
       "thesis_score": 51.2,
-      "entry_score": 18.4,
+      "entry_score": 21.3,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 75.0,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 18.4,
+        "price_timing": 21.3,
         "company_quality": 70.8,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "PAST PRIMARY ENTRY / OVEREXTENDED",
-        "entry_score": 18.4,
+        "entry_score": 21.3,
         "overextended": true,
         "extreme_rerating": true,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.14631394206513004,
-        "return_1m": 0.007851898903164178,
-        "return_3m": 0.05773509520281617,
-        "return_6m": 1.4578284183625736,
-        "return_12m": 4.583785270132673,
+        "distance_from_52w_high": -0.1519510903218375,
+        "return_1m": 0.05278238228887,
+        "return_3m": 0.09818569903948782,
+        "return_6m": 1.44693940553742,
+        "return_12m": 4.240696936506449,
         "price_maturity": 90.0
       },
       "checks": {
@@ -293,7 +293,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 1035.84
+      "current_price": 1029.0
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -306,34 +306,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:11:02+00:00",
         "expires_at": "2026-10-11T03:11:02+00:00",
-        "age_hours": 0.06,
+        "age_hours": 23.58,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:21:52+00:00",
         "expires_at": "2026-10-11T03:21:52+00:00",
-        "age_hours": 71.88,
+        "age_hours": 95.4,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:48+00:00",
         "expires_at": "2026-10-11T03:26:48+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:11:03+00:00",
-        "expires_at": "2026-10-09T19:11:03+00:00",
-        "age_hours": 0.06,
+        "fetched_at": "2026-10-10T02:44:15+00:00",
+        "expires_at": "2026-10-10T18:44:15+00:00",
+        "age_hours": 0.03,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:46+00:00",
-        "expires_at": "2026-10-09T11:14:46+00:00",
+        "fetched_at": "2026-10-10T02:46:07+00:00",
+        "expires_at": "2026-10-10T10:46:07+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -361,7 +361,7 @@
       "Operating margin improved +57.0 percentage points year over year."
     ],
     "why_not": [
-      "Primary entry may already have passed: entry state is PAST PRIMARY ENTRY / OVEREXTENDED; 6-month return 145.8%, 12-month return 458.4%.",
+      "Primary entry may already have passed: entry state is PAST PRIMARY ENTRY / OVEREXTENDED; 6-month return 144.7%, 12-month return 424.1%.",
       "DATA: Data quality is only 62%.",
       "Trust: Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
       "Trust: Analyst-count metadata is unavailable.",
@@ -399,30 +399,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:40+00:00",
+    "asof": "2026-10-10T02:46:02+00:00",
     "ticker": "CVX",
     "company": "CVX",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 64.6,
+      "potential_score": 64.75,
       "discovery_bucket": "EARLY_BREAKOUT",
       "price_stage": "EARLY",
-      "price_maturity": 0.29
+      "price_maturity": 0.68
     },
     "metrics": {
-      "price": 211.5500030517578,
-      "dollar_volume_20d": 1985309540.5275726,
-      "return_1m": -0.010570106789401179,
-      "return_3m": 0.1992630973439844,
-      "return_6m": 0.12149418327879213,
-      "return_12m": 0.40716342833247654,
-      "distance_from_52w_high": -0.02856224961506193,
+      "price": 211.97999572753906,
+      "dollar_volume_20d": 1981748600.2840424,
+      "return_1m": -0.003666097008062308,
+      "return_3m": 0.1634467578380725,
+      "return_6m": 0.13456141133172972,
+      "return_12m": 0.4207542320715483,
+      "distance_from_52w_high": -0.026587722970688676,
       "max_drawdown_1y": -0.20810989698907523,
-      "relative_return_3m": 0.14855741284395663,
-      "relative_return_6m": -0.003781864351729336,
-      "relative_return_12m": 0.17095087197472925,
+      "relative_return_3m": 0.11274107333804473,
+      "relative_return_6m": 0.009285363701208249,
+      "relative_return_12m": 0.18454167571380098,
       "revenue_yoy": 0.5143436619718309,
       "revenue_acceleration": null,
       "gross_margin": 0.364737570499561,
@@ -444,7 +444,7 @@
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
       "price_stage": "EARLY",
-      "price_maturity": 0.29,
+      "price_maturity": 0.68,
       "market_cap": 414977178601.0381,
       "shares_outstanding": 1961603274,
       "first_trade_date_epoch_utc": null,
@@ -524,7 +524,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 211.55,
+      "current_price": 211.98,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -553,7 +553,7 @@
       "market_cap": 414977178601.0381,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 1985309540.5275726,
+      "dollar_volume_20d": 1981748600.2840424,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -633,31 +633,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 57.3,
+      "conviction_score": 57.7,
       "thesis_score": 50.7,
-      "entry_score": 87.1,
+      "entry_score": 89.7,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 75.0,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 87.1,
+        "price_timing": 89.7,
         "company_quality": 68.3,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 87.1,
+        "entry_score": 89.7,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.02856224961506193,
-        "return_1m": -0.010570106789401179,
-        "return_3m": 0.1992630973439844,
-        "return_6m": 0.12149418327879213,
-        "return_12m": 0.40716342833247654,
-        "price_maturity": 0.3
+        "distance_from_52w_high": -0.026587722970688676,
+        "return_1m": -0.003666097008062308,
+        "return_3m": 0.1634467578380725,
+        "return_6m": 0.13456141133172972,
+        "return_12m": 0.4207542320715483,
+        "price_maturity": 0.7
       },
       "checks": {
         "large_established_company": false,
@@ -688,7 +688,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 211.55
+      "current_price": 211.98
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -701,34 +701,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:12:47+00:00",
         "expires_at": "2026-10-11T03:12:47+00:00",
-        "age_hours": 0.03,
+        "age_hours": 23.55,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:23:56+00:00",
         "expires_at": "2026-10-11T03:23:56+00:00",
-        "age_hours": 71.85,
+        "age_hours": 95.37,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:43+00:00",
         "expires_at": "2026-10-11T03:26:43+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:12:48+00:00",
-        "expires_at": "2026-10-09T19:12:48+00:00",
-        "age_hours": 0.03,
+        "fetched_at": "2026-10-10T02:45:00+00:00",
+        "expires_at": "2026-10-10T18:45:00+00:00",
+        "age_hours": 0.02,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:40+00:00",
-        "expires_at": "2026-10-09T11:14:40+00:00",
+        "fetched_at": "2026-10-10T02:46:02+00:00",
+        "expires_at": "2026-10-10T10:46:02+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -792,30 +792,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:46+00:00",
+    "asof": "2026-10-10T02:46:08+00:00",
     "ticker": "SNDK",
     "company": "SNDK",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 33.72,
+      "potential_score": 35.12,
       "discovery_bucket": "MATURE_CHALLENGER",
       "price_stage": "LATE",
-      "price_maturity": 82.38
+      "price_maturity": 80.11
     },
     "metrics": {
-      "price": 1609.4599609375,
-      "dollar_volume_20d": 14858419099.176636,
-      "return_1m": -0.0876956751072735,
-      "return_3m": -0.15995452627383233,
-      "return_6m": 0.8899913654717637,
-      "return_12m": 12.306821013201281,
-      "distance_from_52w_high": -0.31072378546573876,
+      "price": 1581.8199462890625,
+      "dollar_volume_20d": 14538178072.041626,
+      "return_1m": -0.06544409559793496,
+      "return_3m": -0.055048791810378916,
+      "return_6m": 0.8570974676469323,
+      "return_12m": 10.994387986978426,
+      "distance_from_52w_high": -0.3225610508398019,
       "max_drawdown_1y": -0.564929329915016,
-      "relative_return_3m": -0.2106602107738601,
-      "relative_return_6m": 0.7647153178412422,
-      "relative_return_12m": 12.070608456843534,
+      "relative_return_3m": -0.10575447631040669,
+      "relative_return_6m": 0.7318214200164108,
+      "relative_return_12m": 10.758175430620678,
       "revenue_yoy": 3.7159389794844815,
       "revenue_acceleration": null,
       "gross_margin": 0.8457334076965979,
@@ -837,7 +837,7 @@
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
       "price_stage": "LATE",
-      "price_maturity": 82.38,
+      "price_maturity": 80.11,
       "market_cap": 232611327509.83203,
       "shares_outstanding": 144527564,
       "first_trade_date_epoch_utc": null,
@@ -917,7 +917,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 1609.46,
+      "current_price": 1581.82,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -946,7 +946,7 @@
       "market_cap": 232611327509.83203,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 14858419099.176636,
+      "dollar_volume_20d": 14538178072.041626,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -1026,31 +1026,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 44.0,
+      "conviction_score": 45.7,
       "thesis_score": 50.5,
-      "entry_score": 14.7,
+      "entry_score": 23.8,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 75.0,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 14.7,
+        "price_timing": 23.8,
         "company_quality": 67.0,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "RESETTING AFTER RERATING",
-        "entry_score": 14.7,
+        "entry_score": 23.8,
         "overextended": true,
         "extreme_rerating": true,
         "meaningful_reset": true,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.31072378546573876,
-        "return_1m": -0.0876956751072735,
-        "return_3m": -0.15995452627383233,
-        "return_6m": 0.8899913654717637,
-        "return_12m": 12.306821013201281,
-        "price_maturity": 82.4
+        "distance_from_52w_high": -0.3225610508398019,
+        "return_1m": -0.06544409559793496,
+        "return_3m": -0.055048791810378916,
+        "return_6m": 0.8570974676469323,
+        "return_12m": 10.994387986978426,
+        "price_maturity": 80.1
       },
       "checks": {
         "large_established_company": false,
@@ -1082,7 +1082,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 1609.46
+      "current_price": 1581.82
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -1095,34 +1095,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:11:09+00:00",
         "expires_at": "2026-10-11T03:11:09+00:00",
-        "age_hours": 0.06,
+        "age_hours": 23.58,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:21:57+00:00",
         "expires_at": "2026-10-11T03:21:57+00:00",
-        "age_hours": 71.88,
+        "age_hours": 95.4,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:49+00:00",
         "expires_at": "2026-10-11T03:26:49+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:11:10+00:00",
-        "expires_at": "2026-10-09T19:11:10+00:00",
-        "age_hours": 0.06,
+        "fetched_at": "2026-10-10T02:44:18+00:00",
+        "expires_at": "2026-10-10T18:44:18+00:00",
+        "age_hours": 0.03,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:47+00:00",
-        "expires_at": "2026-10-09T11:14:47+00:00",
+        "fetched_at": "2026-10-10T02:46:08+00:00",
+        "expires_at": "2026-10-10T10:46:08+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -1150,7 +1150,7 @@
       "Operating margin improved +75.8 percentage points year over year."
     ],
     "why_not": [
-      "Primary entry may already have passed: entry state is RESETTING AFTER RERATING; 6-month return 89.0%, 12-month return 1230.7%.",
+      "Primary entry may already have passed: entry state is RESETTING AFTER RERATING; 6-month return 85.7%, 12-month return 1099.4%.",
       "DATA: Data quality is only 62%.",
       "Trust: Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
       "Trust: Analyst-count metadata is unavailable.",
@@ -1187,30 +1187,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:46+00:00",
+    "asof": "2026-10-10T02:46:07+00:00",
     "ticker": "STX",
     "company": "STX",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 35.77,
+      "potential_score": 35.18,
       "discovery_bucket": "MATURE_CHALLENGER",
       "price_stage": "LATE",
       "price_maturity": 80.0
     },
     "metrics": {
-      "price": 774.8300170898438,
-      "dollar_volume_20d": 3996342245.9310913,
-      "return_1m": -0.1253950333701621,
-      "return_3m": -0.14885647754466957,
-      "return_6m": 0.5483805222234872,
-      "return_12m": 2.4610590422473466,
-      "distance_from_52w_high": -0.2912667946257198,
+      "price": 783.0,
+      "dollar_volume_20d": 3990482557.4136353,
+      "return_1m": -0.0919949619260193,
+      "return_3m": -0.09023304855318248,
+      "return_6m": 0.5573674657509093,
+      "return_12m": 2.5078420211199144,
+      "distance_from_52w_high": -0.28379375144456387,
       "max_drawdown_1y": -0.3181039728717875,
-      "relative_return_3m": -0.19956216204469734,
-      "relative_return_6m": 0.42310447459296574,
-      "relative_return_12m": 2.224846485889599,
+      "relative_return_3m": -0.14093873305321025,
+      "relative_return_6m": 0.43209141812038787,
+      "relative_return_12m": 2.2716294647621673,
       "revenue_yoy": 0.48486088379705405,
       "revenue_acceleration": null,
       "gross_margin": 0.5230090934141637,
@@ -1312,7 +1312,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 774.83,
+      "current_price": 783.0,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -1342,7 +1342,7 @@
       "market_cap": 176190932923.73108,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 3996342245.9310913,
+      "dollar_volume_20d": 3990482557.4136353,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -1423,30 +1423,30 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 45.8,
+      "conviction_score": 46.5,
       "thesis_score": 50.3,
-      "entry_score": 25.2,
+      "entry_score": 29.2,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 75.0,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 25.2,
+        "price_timing": 29.2,
         "company_quality": 66.3,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "RESETTING AFTER RERATING",
-        "entry_score": 25.2,
+        "entry_score": 29.2,
         "overextended": true,
         "extreme_rerating": true,
         "meaningful_reset": true,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.2912667946257198,
-        "return_1m": -0.1253950333701621,
-        "return_3m": -0.14885647754466957,
-        "return_6m": 0.5483805222234872,
-        "return_12m": 2.4610590422473466,
+        "distance_from_52w_high": -0.28379375144456387,
+        "return_1m": -0.0919949619260193,
+        "return_3m": -0.09023304855318248,
+        "return_6m": 0.5573674657509093,
+        "return_12m": 2.5078420211199144,
         "price_maturity": 80.0
       },
       "checks": {
@@ -1479,7 +1479,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 774.83
+      "current_price": 783.0
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -1492,34 +1492,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:11:46+00:00",
         "expires_at": "2026-10-11T03:11:46+00:00",
-        "age_hours": 0.05,
+        "age_hours": 23.57,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:22:44+00:00",
         "expires_at": "2026-10-11T03:22:44+00:00",
-        "age_hours": 71.87,
+        "age_hours": 95.39,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:47+00:00",
         "expires_at": "2026-10-11T03:26:47+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:11:47+00:00",
-        "expires_at": "2026-10-09T19:11:47+00:00",
-        "age_hours": 0.05,
+        "fetched_at": "2026-10-10T02:44:34+00:00",
+        "expires_at": "2026-10-10T18:44:34+00:00",
+        "age_hours": 0.03,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:46+00:00",
-        "expires_at": "2026-10-09T11:14:46+00:00",
+        "fetched_at": "2026-10-10T02:46:08+00:00",
+        "expires_at": "2026-10-10T10:46:08+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -1547,7 +1547,7 @@
       "Operating margin improved +19.3 percentage points year over year."
     ],
     "why_not": [
-      "Primary entry may already have passed: entry state is RESETTING AFTER RERATING; 6-month return 54.8%, 12-month return 246.1%.",
+      "Primary entry may already have passed: entry state is RESETTING AFTER RERATING; 6-month return 55.7%, 12-month return 250.8%.",
       "DATA: Data quality is only 62%.",
       "Trust: Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
       "Trust: Analyst-count metadata is unavailable.",
@@ -1585,30 +1585,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:46+00:00",
+    "asof": "2026-10-10T02:46:08+00:00",
     "ticker": "WDC",
     "company": "WDC",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 34.73,
+      "potential_score": 34.08,
       "discovery_bucket": "MATURE_CHALLENGER",
       "price_stage": "LATE",
       "price_maturity": 80.0
     },
     "metrics": {
-      "price": 393.30999755859375,
-      "dollar_volume_20d": 3816182720.589447,
-      "return_1m": -0.1844778996555857,
-      "return_3m": -0.3248940431035431,
-      "return_6m": 0.16435580985269715,
-      "return_12m": 2.2845602135171004,
-      "distance_from_52w_high": -0.4729372876287641,
+      "price": 397.2799987792969,
+      "dollar_volume_20d": 3841959348.9323425,
+      "return_1m": -0.13809037144010683,
+      "return_3m": -0.2848888353727276,
+      "return_6m": 0.15710210877109376,
+      "return_12m": 2.283491069983341,
+      "distance_from_52w_high": -0.46761721027377856,
       "max_drawdown_1y": -0.4729372876287641,
-      "relative_return_3m": -0.37559972760357085,
-      "relative_return_6m": 0.039079762222175685,
-      "relative_return_12m": 2.0483476571593533,
+      "relative_return_3m": -0.33559451987275535,
+      "relative_return_6m": 0.03182606114057229,
+      "relative_return_12m": 2.047278513625594,
       "revenue_yoy": 0.4383877159309022,
       "revenue_acceleration": null,
       "gross_margin": 0.5412329863891113,
@@ -1710,7 +1710,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 393.31,
+      "current_price": 397.28,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -1739,7 +1739,7 @@
       "market_cap": 147225084016.51483,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 3816182720.589447,
+      "dollar_volume_20d": 3841959348.9323425,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -1819,30 +1819,30 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 45.2,
+      "conviction_score": 45.1,
       "thesis_score": 50.3,
-      "entry_score": 22.0,
+      "entry_score": 21.6,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 75.0,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 22.0,
+        "price_timing": 21.6,
         "company_quality": 65.9,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "RESETTING AFTER RERATING",
-        "entry_score": 22.0,
+        "entry_score": 21.6,
         "overextended": true,
         "extreme_rerating": true,
         "meaningful_reset": true,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.4729372876287641,
-        "return_1m": -0.1844778996555857,
-        "return_3m": -0.3248940431035431,
-        "return_6m": 0.16435580985269715,
-        "return_12m": 2.2845602135171004,
+        "distance_from_52w_high": -0.46761721027377856,
+        "return_1m": -0.13809037144010683,
+        "return_3m": -0.2848888353727276,
+        "return_6m": 0.15710210877109376,
+        "return_12m": 2.283491069983341,
         "price_maturity": 80.0
       },
       "checks": {
@@ -1875,7 +1875,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 393.31
+      "current_price": 397.28
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -1888,34 +1888,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:11:49+00:00",
         "expires_at": "2026-10-11T03:11:49+00:00",
-        "age_hours": 0.05,
+        "age_hours": 23.57,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:22:49+00:00",
         "expires_at": "2026-10-11T03:22:49+00:00",
-        "age_hours": 71.87,
+        "age_hours": 95.39,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:48+00:00",
         "expires_at": "2026-10-11T03:26:48+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:11:50+00:00",
-        "expires_at": "2026-10-09T19:11:50+00:00",
-        "age_hours": 0.05,
+        "fetched_at": "2026-10-10T02:44:35+00:00",
+        "expires_at": "2026-10-10T18:44:35+00:00",
+        "age_hours": 0.03,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:46+00:00",
-        "expires_at": "2026-10-09T11:14:46+00:00",
+        "fetched_at": "2026-10-10T02:46:08+00:00",
+        "expires_at": "2026-10-10T10:46:08+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -1943,7 +1943,7 @@
       "Operating margin improved +16.7 percentage points year over year."
     ],
     "why_not": [
-      "Primary entry may already have passed: entry state is RESETTING AFTER RERATING; 6-month return 16.4%, 12-month return 228.5%.",
+      "Primary entry may already have passed: entry state is RESETTING AFTER RERATING; 6-month return 15.7%, 12-month return 228.3%.",
       "DATA: Data quality is only 62%.",
       "Trust: Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
       "Trust: Analyst-count metadata is unavailable.",
@@ -1980,428 +1980,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:47+00:00",
-    "ticker": "BE",
-    "company": "BE",
-    "sector": null,
-    "industry": null,
-    "source": "broad_discovery",
-    "discovery": {
-      "potential_score": 32.38,
-      "discovery_bucket": "QUIET_ACCUMULATION",
-      "price_stage": "LATE",
-      "price_maturity": 80.0
-    },
-    "metrics": {
-      "price": 272.82000732421875,
-      "dollar_volume_20d": 4596426952.215576,
-      "return_1m": 0.013146199350005494,
-      "return_3m": 0.1153264651628203,
-      "return_6m": 0.7037407044599535,
-      "return_12m": 2.170114049079189,
-      "distance_from_52w_high": -0.2111609006519387,
-      "max_drawdown_1y": -0.5265288503392759,
-      "relative_return_3m": 0.06462078066279253,
-      "relative_return_6m": 0.578464656829432,
-      "relative_return_12m": 1.9339014927214417,
-      "revenue_yoy": 1.655168202730522,
-      "revenue_acceleration": null,
-      "gross_margin": 0.3337560366634909,
-      "gross_margin_change_yoy": 0.06677750500429269,
-      "operating_margin": 0.17105592918858795,
-      "operating_margin_change_yoy": 0.17978632132101677,
-      "incremental_operating_margin_yoy": 0.27967710800559537,
-      "free_cash_flow_margin": 0.16406677523665597,
-      "free_cash_flow_margin_change_yoy": 0.7132515564908617,
-      "eps_revision_7d": null,
-      "eps_revision_30d": null,
-      "eps_revision_90d": null,
-      "eps_revision_acceleration": null,
-      "revision_breadth_30d": null,
-      "avg_eps_surprise_last4": null,
-      "next_year_eps_estimate": null,
-      "next_year_eps_growth": null,
-      "next_year_revenue_estimate": null,
-      "next_year_revenue_growth_estimate": null,
-      "next_year_eps_analyst_count": null,
-      "price_stage": "LATE",
-      "price_maturity": 80.0,
-      "market_cap": 80352952692.90271,
-      "shares_outstanding": 294527346,
-      "first_trade_date_epoch_utc": null,
-      "current_price_info": null,
-      "fast_last_price": 272.82000732421875,
-      "fast_market_cap": 80352952692.90271,
-      "forward_pe": null,
-      "price_to_sales": null,
-      "enterprise_to_ebitda": null,
-      "analyst_target_upside": null,
-      "target_mean": null,
-      "target_low": null,
-      "target_high": null,
-      "data_quality": 61.5
-    },
-    "valuation": {
-      "company_type": "EARLY_STAGE_GROWTH",
-      "valuation_status": "UNRESOLVED",
-      "valuation_resolved": false,
-      "model": "FCF_YIELD",
-      "models": [
-        {
-          "name": "FCF_YIELD",
-          "family": "cash_flow",
-          "scenarios": [
-            {
-              "name": "Bear",
-              "weight": 0.25,
-              "probability": 0.25,
-              "fair_value": 1.58,
-              "assumptions": {
-                "fcf_growth": -0.024,
-                "exit_fcf_yield": 0.09
-              }
-            },
-            {
-              "name": "Base",
-              "weight": 0.5,
-              "probability": 0.5,
-              "fair_value": 2.5,
-              "assumptions": {
-                "fcf_growth": 0.020000000000000004,
-                "exit_fcf_yield": 0.065
-              }
-            },
-            {
-              "name": "Bull",
-              "weight": 0.25,
-              "probability": 0.25,
-              "fair_value": 3.59,
-              "assumptions": {
-                "fcf_growth": 0.054000000000000006,
-                "exit_fcf_yield": 0.05
-              }
-            }
-          ]
-        }
-      ],
-      "model_count": 1,
-      "model_agreement": null,
-      "model_base_ratio": null,
-      "model_ranges": {
-        "Bear": {
-          "low": 1.58,
-          "mid": 1.58,
-          "high": 1.58
-        },
-        "Base": {
-          "low": 2.5,
-          "mid": 2.5,
-          "high": 2.5
-        },
-        "Bull": {
-          "low": 3.59,
-          "mid": 3.59,
-          "high": 3.59
-        }
-      },
-      "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 272.82,
-      "horizon_years": 3,
-      "scenarios": [],
-      "expected_value": null,
-      "expected_cagr": null,
-      "base_cagr": null,
-      "bear_return": null,
-      "base_return": null,
-      "bull_return": null,
-      "bear_downside": null,
-      "scenario_support_weight": null,
-      "probability_profit": null,
-      "implied_forward_pe": null,
-      "normalized_eps": null,
-      "normalized_fcf": 45168000.0,
-      "critical_flags": [],
-      "warning_flags": [
-        "FCF_YIELD base value is only 0.01x current price; valuation inputs may represent a depressed or mismatched cycle.",
-        "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
-      ]
-    },
-    "trust": {
-      "risk_tier": "CORE",
-      "preferred_large_cap": true,
-      "actionable_established": false,
-      "size_class": "LARGE_CAP",
-      "eligible": true,
-      "market_cap": 80352952692.90271,
-      "years_public": null,
-      "analyst_count": null,
-      "dollar_volume_20d": 4596426952.215576,
-      "establishment_data_complete": false,
-      "establishment_data_gaps": [
-        "public_history",
-        "analyst_coverage"
-      ],
-      "trust_score": 56.0,
-      "trust_grade": "D",
-      "critical_flags": [
-        "Data quality is only 62%."
-      ],
-      "warnings": [
-        "Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
-        "Analyst-count metadata is unavailable.",
-        "Only 1 independent valuation method(s) are usable.",
-        "FCF_YIELD base value is only 0.01x current price; valuation inputs may represent a depressed or mismatched cycle.",
-        "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
-      ],
-      "checks": [
-        {
-          "check": "Size / liquidity gate",
-          "status": "PASS",
-          "detail": "CORE thresholds pass. Size class LARGE_CAP."
-        },
-        {
-          "check": "Public-history metadata",
-          "status": "WARN",
-          "detail": "Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new."
-        },
-        {
-          "check": "Analyst coverage",
-          "status": "WARN",
-          "detail": "Analyst-count metadata is unavailable."
-        },
-        {
-          "check": "Feature coverage",
-          "status": "FAIL",
-          "detail": "Data quality is only 62%."
-        },
-        {
-          "check": "Optional SEC enrichment",
-          "status": "INFO",
-          "detail": "SEC filing enrichment is unavailable or disabled. No trust-score penalty is applied; core research uses market, financial, analyst, valuation, and price-history data."
-        },
-        {
-          "check": "Price cross-check",
-          "status": "PASS",
-          "detail": "Current price agrees with 1 independent Yahoo price field(s)."
-        },
-        {
-          "check": "Market-cap/share check",
-          "status": "PASS",
-          "detail": "Market cap, shares, and price are internally consistent."
-        },
-        {
-          "check": "Valuation triangulation",
-          "status": "WARN",
-          "detail": "Only 1 independent valuation method(s) are usable."
-        }
-      ],
-      "filing_count": 0,
-      "evidence_status": "ERROR",
-      "evidence_ready": false,
-      "sec_optional": true,
-      "sec_enrichment_available": false,
-      "sec_diagnostics": {
-        "state": "ERROR",
-        "available": true,
-        "submission_ok": false,
-        "documents_requested": 0,
-        "documents_cached": 0,
-        "documents_downloaded": 0,
-        "errors": [
-          "SEC submissions fetch failed: InvalidHeader: Invalid leading whitespace, reserved character(s), or return character(s) in header value: 'Name:\\nSEC_USER_AGENT\\n\\nValue:\\nGeorge Jiang georgejiang99j@gmail.com'"
-        ]
-      },
-      "model_count": 1,
-      "model_agreement": null
-    },
-    "conviction": {
-      "action": "REVIEW DATA",
-      "conviction_score": 48.3,
-      "thesis_score": 50.0,
-      "entry_score": 40.5,
-      "conviction_level": "LOW",
-      "pillars": {
-        "fundamental_inflection": 75.0,
-        "estimate_revision": 50.0,
-        "valuation": 23.3,
-        "price_timing": 40.5,
-        "company_quality": 64.5,
-        "evidence": 25.0
-      },
-      "entry_timing": {
-        "entry_state": "RESETTING AFTER RERATING",
-        "entry_score": 40.5,
-        "overextended": true,
-        "extreme_rerating": true,
-        "meaningful_reset": true,
-        "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.2111609006519387,
-        "return_1m": 0.013146199350005494,
-        "return_3m": 0.1153264651628203,
-        "return_6m": 0.7037407044599535,
-        "return_12m": 2.170114049079189,
-        "price_maturity": 80.0
-      },
-      "checks": {
-        "large_established_company": false,
-        "data_trust": false,
-        "research_evidence_ready": false,
-        "valuation_resolved": false,
-        "required_expected_return": false,
-        "required_base_return": false,
-        "bear_case_acceptable": false,
-        "thesis_strength": false,
-        "inside_buy_zone": false,
-        "entry_not_overextended": false
-      },
-      "failed_checks": [
-        "large_established_company",
-        "data_trust",
-        "research_evidence_ready",
-        "valuation_resolved",
-        "required_expected_return",
-        "required_base_return",
-        "bear_case_acceptable",
-        "thesis_strength",
-        "inside_buy_zone",
-        "entry_not_overextended"
-      ],
-      "rationale": "A data or valuation sanity check failed; modeled upside should not be trusted yet.",
-      "required_base_cagr": 0.15,
-      "required_expected_cagr": 0.18,
-      "buy_below_price": null,
-      "gap_to_buy_zone": null,
-      "base_fair_value": null,
-      "current_price": 272.82
-    },
-    "decision": {
-      "decision": "REVIEW DATA",
-      "confidence": "LOW",
-      "evidence_confidence": "LOW",
-      "reason": "A data or valuation sanity check failed; modeled upside should not be trusted yet."
-    },
-    "source_freshness": {
-      "profile": {
-        "present": true,
-        "fetched_at": "2026-10-09T03:11:35+00:00",
-        "expires_at": "2026-10-11T03:11:35+00:00",
-        "age_hours": 0.05,
-        "stale": false
-      },
-      "quarterly_financials": {
-        "present": true,
-        "fetched_at": "2026-10-06T03:22:29+00:00",
-        "expires_at": "2026-10-11T03:22:29+00:00",
-        "age_hours": 71.87,
-        "stale": false
-      },
-      "annual_financials": {
-        "present": true,
-        "fetched_at": "2026-10-07T02:48:31+00:00",
-        "expires_at": "2026-10-12T02:48:31+00:00",
-        "age_hours": 48.44,
-        "stale": false
-      },
-      "analyst_estimates": {
-        "present": true,
-        "fetched_at": "2026-10-09T03:11:36+00:00",
-        "expires_at": "2026-10-09T19:11:36+00:00",
-        "age_hours": 0.05,
-        "stale": false
-      },
-      "news": {
-        "present": true,
-        "fetched_at": "2026-10-09T03:14:47+00:00",
-        "expires_at": "2026-10-09T11:14:47+00:00",
-        "age_hours": 0.0,
-        "stale": false
-      },
-      "sec_submissions": {
-        "present": false,
-        "fetched_at": null,
-        "expires_at": null,
-        "age_hours": null,
-        "stale": true
-      }
-    },
-    "sec_status": {
-      "state": "ERROR",
-      "available": true,
-      "submission_ok": false,
-      "documents_requested": 0,
-      "documents_cached": 0,
-      "documents_downloaded": 0,
-      "errors": [
-        "SEC submissions fetch failed: InvalidHeader: Invalid leading whitespace, reserved character(s), or return character(s) in header value: 'Name:\\nSEC_USER_AGENT\\n\\nValue:\\nGeorge Jiang georgejiang99j@gmail.com'"
-      ]
-    },
-    "why_buy": [
-      "Company is in the preferred institutional-scale large-cap tier ($25B+ by default).",
-      "Operating margin improved +18.0 percentage points year over year."
-    ],
-    "why_not": [
-      "Primary entry may already have passed: entry state is RESETTING AFTER RERATING; 6-month return 70.4%, 12-month return 217.0%.",
-      "DATA: Data quality is only 62%.",
-      "Trust: Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
-      "Trust: Analyst-count metadata is unavailable.",
-      "Trust: Only 1 independent valuation method(s) are usable.",
-      "Trust: FCF_YIELD base value is only 0.01x current price; valuation inputs may represent a depressed or mismatched cycle.",
-      "Trust: Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
-    ],
-    "what_must_be_true": [
-      "Forward revenue/EPS estimates must remain achievable rather than being cut after the next earnings report.",
-      "Margins and free-cash-flow conversion must remain consistent with the valuation family used for this industry.",
-      "The industry demand cycle must remain strong enough to support the normalized earnings/cash-flow assumptions."
-    ],
-    "invalidation": [
-      "Two consecutive material downward estimate revisions without a compensating valuation reset.",
-      "Revenue growth and operating-margin direction both deteriorate versus the current thesis.",
-      "New company disclosures, filings, or credible news expose a balance-sheet, customer-concentration, dilution, accounting, or demand risk that breaks the base/bear assumptions."
-    ],
-    "what_changes_decision": [
-      "Forward revenue/EPS estimates must remain achievable rather than being cut after the next earnings report.",
-      "Margins and free-cash-flow conversion must remain consistent with the valuation family used for this industry.",
-      "The industry demand cycle must remain strong enough to support the normalized earnings/cash-flow assumptions."
-    ],
-    "filing_evidence_summary": {
-      "positive_count": 0,
-      "negative_count": 0,
-      "mixed_count": 0,
-      "topics_found": [],
-      "net_tone": 0
-    },
-    "filing_evidence": [],
-    "news": [],
-    "methodology_note": "V5.3 separates thesis quality from entry timing, refuses to calculate a buy zone when independent valuation methods disagree, and uses cycle-normalized valuation for memory/storage/semiconductor businesses. SEC filings are optional enrichment only: missing SEC access does not reduce trust, block BUY decisions, or create DATA INCOMPLETE. A large prior rally can explicitly become TOO LATE / OVEREXTENDED.",
-    "cache_note": "Market data, fundamentals, estimates and news are cached. SEC filings are cached when optional SEC enrichment is configured; SEC failures do not block core research.",
-    "llm_research_note": null
-  },
-  {
-    "model_version": "5.3",
-    "asof": "2026-10-09T03:14:42+00:00",
+    "asof": "2026-10-10T02:46:03+00:00",
     "ticker": "PLTR",
     "company": "PLTR",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 47.14,
+      "potential_score": 46.81,
       "discovery_bucket": "RECOVERY",
       "price_stage": "MID",
       "price_maturity": 50.0
     },
     "metrics": {
-      "price": 198.77999877929688,
-      "dollar_volume_20d": 4244701385.0128937,
-      "return_1m": 0.1725358356079456,
-      "return_3m": 0.5677892368794302,
-      "return_6m": 0.5233350479835048,
-      "return_12m": 0.09117857373499771,
-      "distance_from_52w_high": -0.04054442607124542,
+      "price": 209.0500030517578,
+      "dollar_volume_20d": 4508228016.520004,
+      "return_1m": 0.2604003513955775,
+      "return_3m": 0.6075823888407603,
+      "return_6m": 0.6324379746775113,
+      "return_12m": 0.13886470817274588,
+      "distance_from_52w_high": 0.0,
       "max_drawdown_1y": -0.4822376656276136,
-      "relative_return_3m": 0.5170835523794024,
-      "relative_return_6m": 0.39805900035298336,
-      "relative_return_12m": -0.14503398262274958,
+      "relative_return_3m": 0.5568767043407326,
+      "relative_return_6m": 0.5071619270469898,
+      "relative_return_12m": -0.09734784818500142,
       "revenue_yoy": 0.928334945705726,
       "revenue_acceleration": null,
       "gross_margin": 0.8466155919200771,
@@ -2503,7 +2105,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 198.78,
+      "current_price": 209.05,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -2533,7 +2135,7 @@
       "market_cap": 477679961720.979,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 4244701385.0128937,
+      "dollar_volume_20d": 4508228016.520004,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -2614,30 +2216,30 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 50.2,
+      "conviction_score": 49.6,
       "thesis_score": 49.9,
-      "entry_score": 51.3,
+      "entry_score": 47.9,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 71.5,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 51.3,
+        "price_timing": 47.9,
         "company_quality": 68.7,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "CONFIRMED / STILL ACTIONABLE",
-        "entry_score": 51.3,
+        "entry_score": 47.9,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.04054442607124542,
-        "return_1m": 0.1725358356079456,
-        "return_3m": 0.5677892368794302,
-        "return_6m": 0.5233350479835048,
-        "return_12m": 0.09117857373499771,
+        "distance_from_52w_high": 0.0,
+        "return_1m": 0.2604003513955775,
+        "return_3m": 0.6075823888407603,
+        "return_6m": 0.6324379746775113,
+        "return_12m": 0.13886470817274588,
         "price_maturity": 50.0
       },
       "checks": {
@@ -2669,7 +2271,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 198.78
+      "current_price": 209.05
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -2682,34 +2284,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:11:44+00:00",
         "expires_at": "2026-10-11T03:11:44+00:00",
-        "age_hours": 0.05,
+        "age_hours": 23.57,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:22:41+00:00",
         "expires_at": "2026-10-11T03:22:41+00:00",
-        "age_hours": 71.87,
+        "age_hours": 95.39,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:44+00:00",
         "expires_at": "2026-10-11T03:26:44+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:11:45+00:00",
-        "expires_at": "2026-10-09T19:11:45+00:00",
-        "age_hours": 0.05,
+        "fetched_at": "2026-10-10T02:44:30+00:00",
+        "expires_at": "2026-10-10T18:44:30+00:00",
+        "age_hours": 0.03,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:42+00:00",
-        "expires_at": "2026-10-09T11:14:42+00:00",
+        "fetched_at": "2026-10-10T02:46:03+00:00",
+        "expires_at": "2026-10-10T10:46:03+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -2774,39 +2376,39 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:45+00:00",
-    "ticker": "NKE",
-    "company": "NKE",
+    "asof": "2026-10-10T02:46:06+00:00",
+    "ticker": "PBR",
+    "company": "PBR",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 47.11,
-      "discovery_bucket": "QUIET_ACCUMULATION",
-      "price_stage": "EARLY",
-      "price_maturity": 0.0
+      "potential_score": 38.3,
+      "discovery_bucket": "MATURE_CHALLENGER",
+      "price_stage": "LATE",
+      "price_maturity": 80.0
     },
     "metrics": {
-      "price": 34.7400016784668,
-      "dollar_volume_20d": 1689077950.7494926,
-      "return_1m": -0.06987943513472161,
-      "return_3m": -0.21703848287672023,
-      "return_6m": -0.2033896481485985,
-      "return_12m": -0.4847080757642199,
-      "distance_from_52w_high": -0.4904023517335496,
-      "max_drawdown_1y": -0.6043415133850205,
-      "relative_return_3m": -0.267744167376748,
-      "relative_return_6m": -0.32866569577911997,
-      "relative_return_12m": -0.7209206321219672,
-      "revenue_yoy": -0.011264305668198582,
+      "price": 25.299999237060547,
+      "dollar_volume_20d": 546518405.3143597,
+      "return_1m": 0.1833489349937556,
+      "return_3m": 0.4149888380629998,
+      "return_6m": 0.1922013617597269,
+      "return_12m": 1.1019878381069113,
+      "distance_from_52w_high": 0.0,
+      "max_drawdown_1y": -0.26858445714979695,
+      "relative_return_3m": 0.36428315356297203,
+      "relative_return_6m": 0.06692531412920544,
+      "relative_return_12m": 0.865775281749164,
+      "revenue_yoy": 0.5975186576032705,
       "revenue_acceleration": null,
-      "gross_margin": 0.4915238789646373,
-      "gross_margin_change_yoy": 0.0888024227152005,
-      "operating_margin": 0.11948596427269413,
-      "operating_margin_change_yoy": 0.0905592273167601,
-      "incremental_operating_margin_yoy": -7.92,
-      "free_cash_flow_margin": 0.1366204885162231,
-      "free_cash_flow_margin_change_yoy": 0.10390894485577434,
+      "gross_margin": 0.5800279703633172,
+      "gross_margin_change_yoy": 0.10410459725878712,
+      "operating_margin": 0.4330347844199125,
+      "operating_margin_change_yoy": 0.16493572086522312,
+      "incremental_operating_margin_yoy": 0.7090692124105012,
+      "free_cash_flow_margin": 0.22885113220460024,
+      "free_cash_flow_margin_change_yoy": 0.0649969704895268,
       "eps_revision_7d": null,
       "eps_revision_30d": null,
       "eps_revision_90d": null,
@@ -2818,14 +2420,14 @@
       "next_year_revenue_estimate": null,
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
-      "price_stage": "EARLY",
-      "price_maturity": 0.0,
-      "market_cap": 51599631212.50156,
-      "shares_outstanding": 1485308829,
+      "price_stage": "LATE",
+      "price_maturity": 80.0,
+      "market_cap": 163042464522.63864,
+      "shares_outstanding": 6444366381,
       "first_trade_date_epoch_utc": null,
       "current_price_info": null,
-      "fast_last_price": 34.7400016784668,
-      "fast_market_cap": 51599631212.50156,
+      "fast_last_price": 25.299999237060547,
+      "fast_market_cap": 163042464522.63864,
       "forward_pe": null,
       "price_to_sales": null,
       "enterprise_to_ebitda": null,
@@ -2836,7 +2438,7 @@
       "data_quality": 61.5
     },
     "valuation": {
-      "company_type": "GENERAL",
+      "company_type": "EARLY_STAGE_GROWTH",
       "valuation_status": "UNRESOLVED",
       "valuation_resolved": false,
       "model": "FCF_YIELD",
@@ -2849,7 +2451,7 @@
               "name": "Bear",
               "weight": 0.25,
               "probability": 0.25,
-              "fair_value": 28.31,
+              "fair_value": 43.63,
               "assumptions": {
                 "fcf_growth": -0.024,
                 "exit_fcf_yield": 0.09
@@ -2859,7 +2461,7 @@
               "name": "Base",
               "weight": 0.5,
               "probability": 0.5,
-              "fair_value": 44.74,
+              "fair_value": 68.96,
               "assumptions": {
                 "fcf_growth": 0.020000000000000004,
                 "exit_fcf_yield": 0.065
@@ -2869,7 +2471,7 @@
               "name": "Bull",
               "weight": 0.25,
               "probability": 0.25,
-              "fair_value": 64.17,
+              "fair_value": 98.91,
               "assumptions": {
                 "fcf_growth": 0.054000000000000006,
                 "exit_fcf_yield": 0.05
@@ -2883,23 +2485,23 @@
       "model_base_ratio": null,
       "model_ranges": {
         "Bear": {
-          "low": 28.31,
-          "mid": 28.31,
-          "high": 28.31
+          "low": 43.63,
+          "mid": 43.63,
+          "high": 43.63
         },
         "Base": {
-          "low": 44.74,
-          "mid": 44.74,
-          "high": 44.74
+          "low": 68.96,
+          "mid": 68.96,
+          "high": 68.96
         },
         "Bull": {
-          "low": 64.17,
-          "mid": 64.17,
-          "high": 64.17
+          "low": 98.91,
+          "mid": 98.91,
+          "high": 98.91
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 34.74,
+      "current_price": 25.3,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -2912,8 +2514,8 @@
       "scenario_support_weight": null,
       "probability_profit": null,
       "implied_forward_pe": null,
-      "normalized_eps": 2.695,
-      "normalized_fcf": 4070000000.0,
+      "normalized_eps": 3.4919,
+      "normalized_fcf": 27219000000.0,
       "critical_flags": [],
       "warning_flags": [
         "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
@@ -2925,10 +2527,10 @@
       "actionable_established": false,
       "size_class": "LARGE_CAP",
       "eligible": true,
-      "market_cap": 51599631212.50156,
+      "market_cap": 163042464522.63864,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 1689077950.7494926,
+      "dollar_volume_20d": 546518405.3143597,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -3008,31 +2610,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 45.7,
+      "conviction_score": 50.3,
       "thesis_score": 49.8,
-      "entry_score": 27.1,
+      "entry_score": 52.3,
       "conviction_level": "LOW",
       "pillars": {
-        "fundamental_inflection": 75.0,
+        "fundamental_inflection": 73.1,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 27.1,
-        "company_quality": 63.4,
+        "price_timing": 52.3,
+        "company_quality": 66.1,
         "evidence": 25.0
       },
       "entry_timing": {
-        "entry_state": "EARLY / BUILDING",
-        "entry_score": 27.1,
+        "entry_state": "MATURE / WATCH ENTRY",
+        "entry_score": 52.3,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.4904023517335496,
-        "return_1m": -0.06987943513472161,
-        "return_3m": -0.21703848287672023,
-        "return_6m": -0.2033896481485985,
-        "return_12m": -0.4847080757642199,
-        "price_maturity": 0.0
+        "distance_from_52w_high": 0.0,
+        "return_1m": 0.1833489349937556,
+        "return_3m": 0.4149888380629998,
+        "return_6m": 0.1922013617597269,
+        "return_12m": 1.1019878381069113,
+        "price_maturity": 80.0
       },
       "checks": {
         "large_established_company": false,
@@ -3063,7 +2665,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 34.74
+      "current_price": 25.3
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -3074,36 +2676,36 @@
     "source_freshness": {
       "profile": {
         "present": true,
-        "fetched_at": "2026-10-09T03:13:05+00:00",
-        "expires_at": "2026-10-11T03:13:05+00:00",
-        "age_hours": 0.03,
+        "fetched_at": "2026-10-10T02:43:52+00:00",
+        "expires_at": "2026-10-12T02:43:52+00:00",
+        "age_hours": 0.04,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
-        "fetched_at": "2026-10-06T03:24:30+00:00",
-        "expires_at": "2026-10-11T03:24:30+00:00",
-        "age_hours": 71.84,
+        "fetched_at": "2026-10-10T02:43:53+00:00",
+        "expires_at": "2026-10-15T02:43:53+00:00",
+        "age_hours": 0.04,
         "stale": false
       },
       "annual_financials": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:46+00:00",
-        "expires_at": "2026-10-14T03:14:46+00:00",
+        "fetched_at": "2026-10-10T02:46:07+00:00",
+        "expires_at": "2026-10-15T02:46:07+00:00",
         "age_hours": 0.0,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:13:06+00:00",
-        "expires_at": "2026-10-09T19:13:06+00:00",
-        "age_hours": 0.03,
+        "fetched_at": "2026-10-10T02:43:54+00:00",
+        "expires_at": "2026-10-10T18:43:54+00:00",
+        "age_hours": 0.04,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:46+00:00",
-        "expires_at": "2026-10-09T11:14:46+00:00",
+        "fetched_at": "2026-10-10T02:46:07+00:00",
+        "expires_at": "2026-10-10T10:46:07+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -3128,7 +2730,7 @@
     },
     "why_buy": [
       "Company is in the preferred institutional-scale large-cap tier ($25B+ by default).",
-      "Operating margin improved +9.1 percentage points year over year."
+      "Operating margin improved +16.5 percentage points year over year."
     ],
     "why_not": [
       "DATA: Data quality is only 62%.",
@@ -3167,30 +2769,423 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:44+00:00",
+    "asof": "2026-10-10T02:46:04+00:00",
+    "ticker": "NBIS",
+    "company": "NBIS",
+    "sector": null,
+    "industry": null,
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 30.99,
+      "discovery_bucket": "QUIET_ACCUMULATION",
+      "price_stage": "MID",
+      "price_maturity": 50.0
+    },
+    "metrics": {
+      "price": 221.07000732421875,
+      "dollar_volume_20d": 3684720895.423813,
+      "return_1m": -0.030862273759572068,
+      "return_3m": 0.050163949897589655,
+      "return_6m": 0.5249362313770043,
+      "return_12m": 0.8120492403624489,
+      "distance_from_52w_high": -0.2288883273165374,
+      "max_drawdown_1y": -0.4829955702728198,
+      "relative_return_3m": -0.0005417346024381153,
+      "relative_return_6m": 0.3996601837464828,
+      "relative_return_12m": 0.5758366840047016,
+      "revenue_yoy": 4.540437678401522,
+      "revenue_acceleration": null,
+      "gross_margin": 0.770565000858664,
+      "gross_margin_change_yoy": 0.056958911420034064,
+      "operating_margin": -0.30207796668383996,
+      "operating_margin_change_yoy": 0.7559619952571686,
+      "incremental_operating_margin_yoy": -0.13558256496227997,
+      "free_cash_flow_margin": -5.858320453374549,
+      "free_cash_flow_margin_change_yoy": 0.6326405361592276,
+      "eps_revision_7d": null,
+      "eps_revision_30d": null,
+      "eps_revision_90d": null,
+      "eps_revision_acceleration": null,
+      "revision_breadth_30d": null,
+      "avg_eps_surprise_last4": null,
+      "next_year_eps_estimate": null,
+      "next_year_eps_growth": null,
+      "next_year_revenue_estimate": null,
+      "next_year_revenue_growth_estimate": null,
+      "next_year_eps_analyst_count": null,
+      "price_stage": "MID",
+      "price_maturity": 50.0,
+      "market_cap": 59729311771.97983,
+      "shares_outstanding": 271855218,
+      "first_trade_date_epoch_utc": null,
+      "current_price_info": null,
+      "fast_last_price": 219.7100067138672,
+      "fast_market_cap": 59729311771.97983,
+      "forward_pe": null,
+      "price_to_sales": null,
+      "enterprise_to_ebitda": null,
+      "analyst_target_upside": null,
+      "target_mean": null,
+      "target_low": null,
+      "target_high": null,
+      "data_quality": 61.5
+    },
+    "valuation": {
+      "company_type": "EARLY_STAGE_GROWTH",
+      "valuation_status": "UNRESOLVED",
+      "valuation_resolved": false,
+      "model": "FCF_YIELD",
+      "models": [
+        {
+          "name": "FCF_YIELD",
+          "family": "cash_flow",
+          "scenarios": [
+            {
+              "name": "Bear",
+              "weight": 0.25,
+              "probability": 0.25,
+              "fair_value": 27.16,
+              "assumptions": {
+                "fcf_growth": -0.024,
+                "exit_fcf_yield": 0.09
+              }
+            },
+            {
+              "name": "Base",
+              "weight": 0.5,
+              "probability": 0.5,
+              "fair_value": 42.92,
+              "assumptions": {
+                "fcf_growth": 0.020000000000000004,
+                "exit_fcf_yield": 0.065
+              }
+            },
+            {
+              "name": "Bull",
+              "weight": 0.25,
+              "probability": 0.25,
+              "fair_value": 61.56,
+              "assumptions": {
+                "fcf_growth": 0.054000000000000006,
+                "exit_fcf_yield": 0.05
+              }
+            }
+          ]
+        }
+      ],
+      "model_count": 1,
+      "model_agreement": null,
+      "model_base_ratio": null,
+      "model_ranges": {
+        "Bear": {
+          "low": 27.16,
+          "mid": 27.16,
+          "high": 27.16
+        },
+        "Base": {
+          "low": 42.92,
+          "mid": 42.92,
+          "high": 42.92
+        },
+        "Bull": {
+          "low": 61.56,
+          "mid": 61.56,
+          "high": 61.56
+        }
+      },
+      "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
+      "current_price": 221.07,
+      "horizon_years": 3,
+      "scenarios": [],
+      "expected_value": null,
+      "expected_cagr": null,
+      "base_cagr": null,
+      "bear_return": null,
+      "base_return": null,
+      "bull_return": null,
+      "bear_downside": null,
+      "scenario_support_weight": null,
+      "probability_profit": null,
+      "implied_forward_pe": null,
+      "normalized_eps": 0.65,
+      "normalized_fcf": 714650000.0,
+      "critical_flags": [],
+      "warning_flags": [
+        "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
+      ]
+    },
+    "trust": {
+      "risk_tier": "CORE",
+      "preferred_large_cap": true,
+      "actionable_established": false,
+      "size_class": "LARGE_CAP",
+      "eligible": true,
+      "market_cap": 59729311771.97983,
+      "years_public": null,
+      "analyst_count": null,
+      "dollar_volume_20d": 3684720895.423813,
+      "establishment_data_complete": false,
+      "establishment_data_gaps": [
+        "public_history",
+        "analyst_coverage"
+      ],
+      "trust_score": 56.0,
+      "trust_grade": "D",
+      "critical_flags": [
+        "Data quality is only 62%."
+      ],
+      "warnings": [
+        "Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
+        "Analyst-count metadata is unavailable.",
+        "Only 1 independent valuation method(s) are usable.",
+        "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
+      ],
+      "checks": [
+        {
+          "check": "Size / liquidity gate",
+          "status": "PASS",
+          "detail": "CORE thresholds pass. Size class LARGE_CAP."
+        },
+        {
+          "check": "Public-history metadata",
+          "status": "WARN",
+          "detail": "Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new."
+        },
+        {
+          "check": "Analyst coverage",
+          "status": "WARN",
+          "detail": "Analyst-count metadata is unavailable."
+        },
+        {
+          "check": "Feature coverage",
+          "status": "FAIL",
+          "detail": "Data quality is only 62%."
+        },
+        {
+          "check": "Optional SEC enrichment",
+          "status": "INFO",
+          "detail": "SEC filing enrichment is unavailable or disabled. No trust-score penalty is applied; core research uses market, financial, analyst, valuation, and price-history data."
+        },
+        {
+          "check": "Price cross-check",
+          "status": "PASS",
+          "detail": "Current price agrees with 1 independent Yahoo price field(s)."
+        },
+        {
+          "check": "Market-cap/share check",
+          "status": "PASS",
+          "detail": "Market cap, shares, and price are internally consistent."
+        },
+        {
+          "check": "Valuation triangulation",
+          "status": "WARN",
+          "detail": "Only 1 independent valuation method(s) are usable."
+        }
+      ],
+      "filing_count": 0,
+      "evidence_status": "ERROR",
+      "evidence_ready": false,
+      "sec_optional": true,
+      "sec_enrichment_available": false,
+      "sec_diagnostics": {
+        "state": "ERROR",
+        "available": true,
+        "submission_ok": false,
+        "documents_requested": 0,
+        "documents_cached": 0,
+        "documents_downloaded": 0,
+        "errors": [
+          "SEC submissions fetch failed: InvalidHeader: Invalid leading whitespace, reserved character(s), or return character(s) in header value: 'Name:\\nSEC_USER_AGENT\\n\\nValue:\\nGeorge Jiang georgejiang99j@gmail.com'"
+        ]
+      },
+      "model_count": 1,
+      "model_agreement": null
+    },
+    "conviction": {
+      "action": "REVIEW DATA",
+      "conviction_score": 53.3,
+      "thesis_score": 49.7,
+      "entry_score": 69.9,
+      "conviction_level": "LOW",
+      "pillars": {
+        "fundamental_inflection": 74.5,
+        "estimate_revision": 50.0,
+        "valuation": 23.3,
+        "price_timing": 69.9,
+        "company_quality": 63.8,
+        "evidence": 25.0
+      },
+      "entry_timing": {
+        "entry_state": "CONFIRMED / STILL ACTIONABLE",
+        "entry_score": 69.9,
+        "overextended": false,
+        "extreme_rerating": false,
+        "meaningful_reset": false,
+        "secondary_entry_ready": false,
+        "distance_from_52w_high": -0.2288883273165374,
+        "return_1m": -0.030862273759572068,
+        "return_3m": 0.050163949897589655,
+        "return_6m": 0.5249362313770043,
+        "return_12m": 0.8120492403624489,
+        "price_maturity": 50.0
+      },
+      "checks": {
+        "large_established_company": false,
+        "data_trust": false,
+        "research_evidence_ready": false,
+        "valuation_resolved": false,
+        "required_expected_return": false,
+        "required_base_return": false,
+        "bear_case_acceptable": false,
+        "thesis_strength": false,
+        "inside_buy_zone": false,
+        "entry_not_overextended": true
+      },
+      "failed_checks": [
+        "large_established_company",
+        "data_trust",
+        "research_evidence_ready",
+        "valuation_resolved",
+        "required_expected_return",
+        "required_base_return",
+        "bear_case_acceptable",
+        "thesis_strength",
+        "inside_buy_zone"
+      ],
+      "rationale": "A data or valuation sanity check failed; modeled upside should not be trusted yet.",
+      "required_base_cagr": 0.15,
+      "required_expected_cagr": 0.18,
+      "buy_below_price": null,
+      "gap_to_buy_zone": null,
+      "base_fair_value": null,
+      "current_price": 221.07
+    },
+    "decision": {
+      "decision": "REVIEW DATA",
+      "confidence": "LOW",
+      "evidence_confidence": "LOW",
+      "reason": "A data or valuation sanity check failed; modeled upside should not be trusted yet."
+    },
+    "source_freshness": {
+      "profile": {
+        "present": true,
+        "fetched_at": "2026-10-09T03:11:51+00:00",
+        "expires_at": "2026-10-11T03:11:51+00:00",
+        "age_hours": 23.57,
+        "stale": false
+      },
+      "quarterly_financials": {
+        "present": true,
+        "fetched_at": "2026-10-06T03:22:46+00:00",
+        "expires_at": "2026-10-11T03:22:46+00:00",
+        "age_hours": 95.39,
+        "stale": false
+      },
+      "annual_financials": {
+        "present": true,
+        "fetched_at": "2026-10-10T02:46:05+00:00",
+        "expires_at": "2026-10-15T02:46:05+00:00",
+        "age_hours": 0.0,
+        "stale": false
+      },
+      "analyst_estimates": {
+        "present": true,
+        "fetched_at": "2026-10-10T02:44:36+00:00",
+        "expires_at": "2026-10-10T18:44:36+00:00",
+        "age_hours": 0.02,
+        "stale": false
+      },
+      "news": {
+        "present": true,
+        "fetched_at": "2026-10-10T02:46:05+00:00",
+        "expires_at": "2026-10-10T10:46:05+00:00",
+        "age_hours": 0.0,
+        "stale": false
+      },
+      "sec_submissions": {
+        "present": false,
+        "fetched_at": null,
+        "expires_at": null,
+        "age_hours": null,
+        "stale": true
+      }
+    },
+    "sec_status": {
+      "state": "ERROR",
+      "available": true,
+      "submission_ok": false,
+      "documents_requested": 0,
+      "documents_cached": 0,
+      "documents_downloaded": 0,
+      "errors": [
+        "SEC submissions fetch failed: InvalidHeader: Invalid leading whitespace, reserved character(s), or return character(s) in header value: 'Name:\\nSEC_USER_AGENT\\n\\nValue:\\nGeorge Jiang georgejiang99j@gmail.com'"
+      ]
+    },
+    "why_buy": [
+      "Company is in the preferred institutional-scale large-cap tier ($25B+ by default).",
+      "Operating margin improved +75.6 percentage points year over year."
+    ],
+    "why_not": [
+      "DATA: Data quality is only 62%.",
+      "Trust: Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
+      "Trust: Analyst-count metadata is unavailable.",
+      "Trust: Only 1 independent valuation method(s) are usable.",
+      "Trust: Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
+    ],
+    "what_must_be_true": [
+      "Forward revenue/EPS estimates must remain achievable rather than being cut after the next earnings report.",
+      "Margins and free-cash-flow conversion must remain consistent with the valuation family used for this industry.",
+      "The industry demand cycle must remain strong enough to support the normalized earnings/cash-flow assumptions."
+    ],
+    "invalidation": [
+      "Two consecutive material downward estimate revisions without a compensating valuation reset.",
+      "Revenue growth and operating-margin direction both deteriorate versus the current thesis.",
+      "New company disclosures, filings, or credible news expose a balance-sheet, customer-concentration, dilution, accounting, or demand risk that breaks the base/bear assumptions."
+    ],
+    "what_changes_decision": [
+      "Forward revenue/EPS estimates must remain achievable rather than being cut after the next earnings report.",
+      "Margins and free-cash-flow conversion must remain consistent with the valuation family used for this industry.",
+      "The industry demand cycle must remain strong enough to support the normalized earnings/cash-flow assumptions."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [],
+    "methodology_note": "V5.3 separates thesis quality from entry timing, refuses to calculate a buy zone when independent valuation methods disagree, and uses cycle-normalized valuation for memory/storage/semiconductor businesses. SEC filings are optional enrichment only: missing SEC access does not reduce trust, block BUY decisions, or create DATA INCOMPLETE. A large prior rally can explicitly become TOO LATE / OVEREXTENDED.",
+    "cache_note": "Market data, fundamentals, estimates and news are cached. SEC filings are cached when optional SEC enrichment is configured; SEC failures do not block core research.",
+    "llm_research_note": null
+  },
+  {
+    "model_version": "5.3",
+    "asof": "2026-10-10T02:46:06+00:00",
     "ticker": "LLY",
     "company": "LLY",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 56.42,
-      "discovery_bucket": "QUIET_ACCUMULATION",
+      "potential_score": 56.62,
+      "discovery_bucket": "EARLY_BREAKOUT",
       "price_stage": "EARLY",
       "price_maturity": 0.0
     },
     "metrics": {
-      "price": 1169.5999755859375,
-      "dollar_volume_20d": 2662528942.0355225,
-      "return_1m": 0.040375033335041666,
-      "return_3m": -0.015968618999559148,
-      "return_6m": 0.2265762543142491,
-      "return_12m": 0.3931371872621108,
-      "distance_from_52w_high": -0.08649264507136123,
+      "price": 1179.27001953125,
+      "dollar_volume_20d": 2642123834.2303467,
+      "return_1m": 0.05010687402604641,
+      "return_3m": -0.0021998828946323545,
+      "return_6m": 0.257411170568453,
+      "return_12m": 0.4011841906308322,
+      "distance_from_52w_high": -0.07893992922755255,
       "max_drawdown_1y": -0.2318226420616124,
-      "relative_return_3m": -0.06667430349958692,
-      "relative_return_6m": 0.10130020668372763,
-      "relative_return_12m": 0.15692463090436348,
+      "relative_return_3m": -0.052905567394660125,
+      "relative_return_6m": 0.1321351229379315,
+      "relative_return_12m": 0.16497163427308492,
       "revenue_yoy": 0.4766679521789432,
       "revenue_acceleration": null,
       "gross_margin": 0.8577522416644903,
@@ -3292,7 +3287,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 1169.6,
+      "current_price": 1179.27,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -3322,7 +3317,7 @@
       "market_cap": 1042980726686.5696,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 2662528942.0355225,
+      "dollar_volume_20d": 2642123834.2303467,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -3403,30 +3398,30 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 55.1,
+      "conviction_score": 55.6,
       "thesis_score": 49.3,
-      "entry_score": 81.8,
+      "entry_score": 84.4,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 67.5,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 81.8,
+        "price_timing": 84.4,
         "company_quality": 70.5,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 81.8,
+        "entry_score": 84.4,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.08649264507136123,
-        "return_1m": 0.040375033335041666,
-        "return_3m": -0.015968618999559148,
-        "return_6m": 0.2265762543142491,
-        "return_12m": 0.3931371872621108,
+        "distance_from_52w_high": -0.07893992922755255,
+        "return_1m": 0.05010687402604641,
+        "return_3m": -0.0021998828946323545,
+        "return_6m": 0.257411170568453,
+        "return_12m": 0.4011841906308322,
         "price_maturity": 0.0
       },
       "checks": {
@@ -3458,7 +3453,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 1169.6
+      "current_price": 1179.27
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -3471,34 +3466,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:12:06+00:00",
         "expires_at": "2026-10-11T03:12:06+00:00",
-        "age_hours": 0.04,
+        "age_hours": 23.57,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:23:12+00:00",
         "expires_at": "2026-10-11T03:23:12+00:00",
-        "age_hours": 71.86,
+        "age_hours": 95.38,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:45+00:00",
         "expires_at": "2026-10-11T03:26:45+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:12:07+00:00",
-        "expires_at": "2026-10-09T19:12:07+00:00",
-        "age_hours": 0.04,
+        "fetched_at": "2026-10-10T02:44:43+00:00",
+        "expires_at": "2026-10-10T18:44:43+00:00",
+        "age_hours": 0.02,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:44+00:00",
-        "expires_at": "2026-10-09T11:14:44+00:00",
+        "fetched_at": "2026-10-10T02:46:06+00:00",
+        "expires_at": "2026-10-10T10:46:06+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -3563,30 +3558,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:41+00:00",
+    "asof": "2026-10-10T02:46:02+00:00",
     "ticker": "TXN",
     "company": "TXN",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 52.96,
-      "discovery_bucket": "EARLY_BREAKOUT",
+      "potential_score": 54.68,
+      "discovery_bucket": "QUIET_ACCUMULATION",
       "price_stage": "EARLY",
-      "price_maturity": 5.44
+      "price_maturity": 2.27
     },
     "metrics": {
-      "price": 288.20001220703125,
-      "dollar_volume_20d": 1577692085.4309082,
-      "return_1m": 0.10172413410935244,
-      "return_3m": -0.06994275715062892,
-      "return_6m": 0.3543003311703221,
-      "return_12m": 0.669943872131517,
-      "distance_from_52w_high": -0.12821832662570243,
+      "price": 283.739990234375,
+      "dollar_volume_20d": 1564356238.8516235,
+      "return_1m": 0.09628306237909756,
+      "return_3m": -0.04480441928330481,
+      "return_6m": 0.33489417613580286,
+      "return_12m": 0.6029074963005054,
+      "distance_from_52w_high": -0.14170953153174282,
       "max_drawdown_1y": -0.29574361204729827,
-      "relative_return_3m": -0.12064844165065669,
-      "relative_return_6m": 0.22902428353980064,
-      "relative_return_12m": 0.43373131577376967,
+      "relative_return_3m": -0.09551010378333258,
+      "relative_return_6m": 0.2096181285052814,
+      "relative_return_12m": 0.36669493994275815,
       "revenue_yoy": 0.22819244604316546,
       "revenue_acceleration": null,
       "gross_margin": 0.6135822807980963,
@@ -3608,7 +3603,7 @@
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
       "price_stage": "EARLY",
-      "price_maturity": 5.44,
+      "price_maturity": 2.27,
       "market_cap": 263197994253.24304,
       "shares_outstanding": 913247686,
       "first_trade_date_epoch_utc": null,
@@ -3688,7 +3683,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 288.2,
+      "current_price": 283.74,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -3718,7 +3713,7 @@
       "market_cap": 263197994253.24304,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 1577692085.4309082,
+      "dollar_volume_20d": 1564356238.8516235,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -3799,31 +3794,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 54.9,
+      "conviction_score": 55.5,
       "thesis_score": 49.3,
-      "entry_score": 80.4,
+      "entry_score": 83.7,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 70.1,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 80.4,
+        "price_timing": 83.7,
         "company_quality": 67.3,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 80.4,
+        "entry_score": 83.7,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.12821832662570243,
-        "return_1m": 0.10172413410935244,
-        "return_3m": -0.06994275715062892,
-        "return_6m": 0.3543003311703221,
-        "return_12m": 0.669943872131517,
-        "price_maturity": 5.4
+        "distance_from_52w_high": -0.14170953153174282,
+        "return_1m": 0.09628306237909756,
+        "return_3m": -0.04480441928330481,
+        "return_6m": 0.33489417613580286,
+        "return_12m": 0.6029074963005054,
+        "price_maturity": 2.3
       },
       "checks": {
         "large_established_company": false,
@@ -3854,7 +3849,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 288.2
+      "current_price": 283.74
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -3867,34 +3862,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:13:23+00:00",
         "expires_at": "2026-10-11T03:13:23+00:00",
-        "age_hours": 0.02,
+        "age_hours": 23.54,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:24:36+00:00",
         "expires_at": "2026-10-11T03:24:36+00:00",
-        "age_hours": 71.83,
+        "age_hours": 95.36,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:37+00:00",
         "expires_at": "2026-10-11T03:26:37+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:13:24+00:00",
-        "expires_at": "2026-10-09T19:13:24+00:00",
-        "age_hours": 0.02,
+        "fetched_at": "2026-10-10T02:45:15+00:00",
+        "expires_at": "2026-10-10T18:45:15+00:00",
+        "age_hours": 0.01,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:41+00:00",
-        "expires_at": "2026-10-09T11:14:41+00:00",
+        "fetched_at": "2026-10-10T02:46:03+00:00",
+        "expires_at": "2026-10-10T10:46:03+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -3959,30 +3954,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:44+00:00",
+    "asof": "2026-10-10T02:46:05+00:00",
     "ticker": "AMGN",
     "company": "AMGN",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 55.53,
+      "potential_score": 57.29,
       "discovery_bucket": "EARLY_BREAKOUT",
       "price_stage": "EARLY",
       "price_maturity": 0.0
     },
     "metrics": {
-      "price": 407.44000244140625,
-      "dollar_volume_20d": 1228142977.8044128,
-      "return_1m": 0.04132699640086468,
-      "return_3m": 0.12121958781829778,
-      "return_6m": 0.1544340499313055,
-      "return_12m": 0.408640283268604,
-      "distance_from_52w_high": -0.08259027532886176,
+      "price": 414.8699951171875,
+      "dollar_volume_20d": 1238226624.9876404,
+      "return_1m": 0.08471251024413817,
+      "return_3m": 0.1509778917108182,
+      "return_6m": 0.19082359299633023,
+      "return_12m": 0.43880699693335123,
+      "distance_from_52w_high": -0.06586057894619668,
       "max_drawdown_1y": -0.1656790953158842,
-      "relative_return_3m": 0.07051390331827001,
-      "relative_return_6m": 0.029158002300784025,
-      "relative_return_12m": 0.17242772691085673,
+      "relative_return_3m": 0.10027220721079044,
+      "relative_return_6m": 0.06554754536580876,
+      "relative_return_12m": 0.20259444057560394,
       "revenue_yoy": 0.09532628826669565,
       "revenue_acceleration": null,
       "gross_margin": 0.7204097871493933,
@@ -4084,7 +4079,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 407.44,
+      "current_price": 414.87,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -4113,7 +4108,7 @@
       "market_cap": 220275105437.10236,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 1228142977.8044128,
+      "dollar_volume_20d": 1238226624.9876404,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -4193,30 +4188,30 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 56.4,
+      "conviction_score": 57.2,
       "thesis_score": 49.3,
-      "entry_score": 88.8,
+      "entry_score": 93.3,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 70.5,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 88.8,
+        "price_timing": 93.3,
         "company_quality": 66.9,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 88.8,
+        "entry_score": 93.3,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.08259027532886176,
-        "return_1m": 0.04132699640086468,
-        "return_3m": 0.12121958781829778,
-        "return_6m": 0.1544340499313055,
-        "return_12m": 0.408640283268604,
+        "distance_from_52w_high": -0.06586057894619668,
+        "return_1m": 0.08471251024413817,
+        "return_3m": 0.1509778917108182,
+        "return_6m": 0.19082359299633023,
+        "return_12m": 0.43880699693335123,
         "price_maturity": 0.0
       },
       "checks": {
@@ -4248,7 +4243,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 407.44
+      "current_price": 414.87
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -4261,34 +4256,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:14:03+00:00",
         "expires_at": "2026-10-11T03:14:03+00:00",
-        "age_hours": 0.01,
+        "age_hours": 23.53,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:25:31+00:00",
         "expires_at": "2026-10-11T03:25:31+00:00",
-        "age_hours": 71.82,
+        "age_hours": 95.34,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:46+00:00",
         "expires_at": "2026-10-11T03:26:46+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:04+00:00",
-        "expires_at": "2026-10-09T19:14:04+00:00",
-        "age_hours": 0.01,
+        "fetched_at": "2026-10-10T02:43:26+00:00",
+        "expires_at": "2026-10-10T18:43:26+00:00",
+        "age_hours": 0.04,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:44+00:00",
-        "expires_at": "2026-10-09T11:14:44+00:00",
+        "fetched_at": "2026-10-10T02:46:06+00:00",
+        "expires_at": "2026-10-10T10:46:06+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -4352,30 +4347,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:41+00:00",
+    "asof": "2026-10-10T02:46:05+00:00",
     "ticker": "TSM",
     "company": "TSM",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 60.86,
-      "discovery_bucket": "EARLY_BREAKOUT",
+      "potential_score": 62.27,
+      "discovery_bucket": "QUIET_ACCUMULATION",
       "price_stage": "EARLY",
-      "price_maturity": 0.85
+      "price_maturity": 0.0
     },
     "metrics": {
-      "price": 457.989990234375,
-      "dollar_volume_20d": 4521125773.265839,
-      "return_1m": 0.054802154697169314,
-      "return_3m": 0.05500911218034599,
-      "return_6m": 0.2560194067906192,
-      "return_12m": 0.5699040363000039,
-      "distance_from_52w_high": -0.05724577656935925,
+      "price": 453.30999755859375,
+      "dollar_volume_20d": 4501073641.687164,
+      "return_1m": 0.06190241876684155,
+      "return_3m": 0.0752645096943878,
+      "return_6m": 0.22604314755838995,
+      "return_12m": 0.5003351347245633,
+      "distance_from_52w_high": -0.06687935580644999,
       "max_drawdown_1y": -0.2154657795053414,
-      "relative_return_3m": 0.004303427680318217,
-      "relative_return_6m": 0.13074335916009772,
-      "relative_return_12m": 0.33369147994225656,
+      "relative_return_3m": 0.024558825194360034,
+      "relative_return_6m": 0.10076709992786848,
+      "relative_return_12m": 0.26412257836681596,
       "revenue_yoy": 0.3604533217455119,
       "revenue_acceleration": null,
       "gross_margin": 0.6772072338183784,
@@ -4397,7 +4392,7 @@
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
       "price_stage": "EARLY",
-      "price_maturity": 0.85,
+      "price_maturity": 0.0,
       "market_cap": 2375353182564.71,
       "shares_outstanding": 5186474013,
       "first_trade_date_epoch_utc": null,
@@ -4477,7 +4472,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 457.99,
+      "current_price": 453.31,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -4494,7 +4489,7 @@
       "normalized_fcf": 691084150000.0,
       "critical_flags": [],
       "warning_flags": [
-        "FCF_YIELD base value is 4.7x current price; treat that model as an outlier until assumptions are verified.",
+        "FCF_YIELD base value is 4.8x current price; treat that model as an outlier until assumptions are verified.",
         "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
       ]
     },
@@ -4507,7 +4502,7 @@
       "market_cap": 2375353182564.71,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 4521125773.265839,
+      "dollar_volume_20d": 4501073641.687164,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -4522,7 +4517,7 @@
         "Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
         "Analyst-count metadata is unavailable.",
         "Only 1 independent valuation method(s) are usable.",
-        "FCF_YIELD base value is 4.7x current price; treat that model as an outlier until assumptions are verified.",
+        "FCF_YIELD base value is 4.8x current price; treat that model as an outlier until assumptions are verified.",
         "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
       ],
       "checks": [
@@ -4588,31 +4583,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 56.3,
+      "conviction_score": 56.5,
       "thesis_score": 48.8,
-      "entry_score": 90.2,
+      "entry_score": 91.3,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 65.1,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 90.2,
+        "price_timing": 91.3,
         "company_quality": 71.2,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 90.2,
+        "entry_score": 91.3,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.05724577656935925,
-        "return_1m": 0.054802154697169314,
-        "return_3m": 0.05500911218034599,
-        "return_6m": 0.2560194067906192,
-        "return_12m": 0.5699040363000039,
-        "price_maturity": 0.8
+        "distance_from_52w_high": -0.06687935580644999,
+        "return_1m": 0.06190241876684155,
+        "return_3m": 0.0752645096943878,
+        "return_6m": 0.22604314755838995,
+        "return_12m": 0.5003351347245633,
+        "price_maturity": 0.0
       },
       "checks": {
         "large_established_company": false,
@@ -4643,7 +4638,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 457.99
+      "current_price": 453.31
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -4656,34 +4651,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:11:39+00:00",
         "expires_at": "2026-10-11T03:11:39+00:00",
-        "age_hours": 0.05,
+        "age_hours": 23.57,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:22:35+00:00",
         "expires_at": "2026-10-11T03:22:35+00:00",
-        "age_hours": 71.87,
+        "age_hours": 95.39,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:35+00:00",
         "expires_at": "2026-10-11T03:26:35+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.33,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:11:40+00:00",
-        "expires_at": "2026-10-09T19:11:40+00:00",
-        "age_hours": 0.05,
+        "fetched_at": "2026-10-10T02:44:31+00:00",
+        "expires_at": "2026-10-10T18:44:31+00:00",
+        "age_hours": 0.03,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:41+00:00",
-        "expires_at": "2026-10-09T11:14:41+00:00",
+        "fetched_at": "2026-10-10T02:46:05+00:00",
+        "expires_at": "2026-10-10T10:46:05+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -4715,7 +4710,7 @@
       "Trust: Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
       "Trust: Analyst-count metadata is unavailable.",
       "Trust: Only 1 independent valuation method(s) are usable.",
-      "Trust: FCF_YIELD base value is 4.7x current price; treat that model as an outlier until assumptions are verified.",
+      "Trust: FCF_YIELD base value is 4.8x current price; treat that model as an outlier until assumptions are verified.",
       "Trust: Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
     ],
     "what_must_be_true": [
@@ -4748,30 +4743,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:44+00:00",
+    "asof": "2026-10-10T02:46:06+00:00",
     "ticker": "INTU",
     "company": "INTU",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 49.48,
-      "discovery_bucket": "RECOVERY",
+      "potential_score": 48.54,
+      "discovery_bucket": "QUIET_ACCUMULATION",
       "price_stage": "EARLY",
       "price_maturity": 0.0
     },
     "metrics": {
-      "price": 303.8800048828125,
-      "dollar_volume_20d": 1125799886.2567139,
-      "return_1m": -0.03204433165687881,
-      "return_3m": 0.10517898722170727,
-      "return_6m": -0.15611135641153628,
-      "return_12m": -0.5329810002003612,
-      "distance_from_52w_high": -0.5511593362404599,
+      "price": 302.75,
+      "dollar_volume_20d": 1128118678.6624146,
+      "return_1m": -0.03203628661838742,
+      "return_3m": 0.044830169093664995,
+      "return_6m": -0.13349550921412712,
+      "return_12m": -0.5345832755502002,
+      "distance_from_52w_high": -0.5528283902535684,
       "max_drawdown_1y": -0.681940627402997,
-      "relative_return_3m": 0.054473302721679495,
-      "relative_return_6m": -0.28138740404205775,
-      "relative_return_12m": -0.7691935565581085,
+      "relative_return_3m": -0.005875515406362775,
+      "relative_return_6m": -0.2587715568446486,
+      "relative_return_12m": -0.7707958319079475,
       "revenue_yoy": 0.13651788044896884,
       "revenue_acceleration": null,
       "gross_margin": 0.7811208084519982,
@@ -4873,7 +4868,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 303.88,
+      "current_price": 302.75,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -4902,7 +4897,7 @@
       "market_cap": 81207676984.86328,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 1125799886.2567139,
+      "dollar_volume_20d": 1128118678.6624146,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -4982,30 +4977,30 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 48.6,
+      "conviction_score": 48.0,
       "thesis_score": 48.1,
-      "entry_score": 51.1,
+      "entry_score": 47.8,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 67.4,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 51.1,
+        "price_timing": 47.8,
         "company_quality": 64.5,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 51.1,
+        "entry_score": 47.8,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.5511593362404599,
-        "return_1m": -0.03204433165687881,
-        "return_3m": 0.10517898722170727,
-        "return_6m": -0.15611135641153628,
-        "return_12m": -0.5329810002003612,
+        "distance_from_52w_high": -0.5528283902535684,
+        "return_1m": -0.03203628661838742,
+        "return_3m": 0.044830169093664995,
+        "return_6m": -0.13349550921412712,
+        "return_12m": -0.5345832755502002,
         "price_maturity": 0.0
       },
       "checks": {
@@ -5037,7 +5032,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 303.88
+      "current_price": 302.75
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -5050,34 +5045,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:14:26+00:00",
         "expires_at": "2026-10-11T03:14:26+00:00",
-        "age_hours": 0.01,
+        "age_hours": 23.53,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:25+00:00",
         "expires_at": "2026-10-11T03:26:25+00:00",
-        "age_hours": 71.81,
+        "age_hours": 95.33,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-09T03:14:45+00:00",
         "expires_at": "2026-10-14T03:14:45+00:00",
-        "age_hours": 0.0,
+        "age_hours": 23.52,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:27+00:00",
-        "expires_at": "2026-10-09T19:14:27+00:00",
+        "fetched_at": "2026-10-10T02:45:47+00:00",
+        "expires_at": "2026-10-10T18:45:47+00:00",
         "age_hours": 0.01,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:45+00:00",
-        "expires_at": "2026-10-09T11:14:45+00:00",
+        "fetched_at": "2026-10-10T02:46:06+00:00",
+        "expires_at": "2026-10-10T10:46:06+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -5141,30 +5136,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:43+00:00",
+    "asof": "2026-10-10T02:46:05+00:00",
     "ticker": "AVGO",
     "company": "AVGO",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 58.2,
+      "potential_score": 59.23,
       "discovery_bucket": "RECOVERY",
       "price_stage": "EARLY",
       "price_maturity": 0.0
     },
     "metrics": {
-      "price": 360.1400146484375,
-      "dollar_volume_20d": 8608090760.431976,
-      "return_1m": -0.009836385236452694,
-      "return_3m": -0.09958243480937334,
-      "return_6m": 0.016342164202948872,
-      "return_12m": 0.0765384211894673,
-      "distance_from_52w_high": -0.25097080948319694,
+      "price": 361.5400085449219,
+      "dollar_volume_20d": 8531689718.982849,
+      "return_1m": 0.003792263568799914,
+      "return_3m": -0.058612107703493566,
+      "return_6m": -0.025401064569567366,
+      "return_12m": 0.0522898272564718,
+      "distance_from_52w_high": -0.2480590633501386,
       "max_drawdown_1y": -0.29565943227075386,
-      "relative_return_3m": -0.1502881193094011,
-      "relative_return_6m": -0.1089338834275726,
-      "relative_return_12m": -0.15967413516828,
+      "relative_return_3m": -0.10931779220352134,
+      "relative_return_6m": -0.15067711220008884,
+      "relative_return_12m": -0.1839227291012755,
       "revenue_yoy": 0.8550025075225678,
       "revenue_acceleration": null,
       "gross_margin": 0.6912912709945591,
@@ -5266,7 +5261,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 360.14,
+      "current_price": 361.54,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -5295,7 +5290,7 @@
       "market_cap": 1719175129507.3188,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 8608090760.431976,
+      "dollar_volume_20d": 8531689718.982849,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -5375,30 +5370,30 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 49.5,
+      "conviction_score": 49.6,
       "thesis_score": 47.8,
-      "entry_score": 57.5,
+      "entry_score": 57.9,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 60.9,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 57.5,
+        "price_timing": 57.9,
         "company_quality": 71.2,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 57.5,
+        "entry_score": 57.9,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.25097080948319694,
-        "return_1m": -0.009836385236452694,
-        "return_3m": -0.09958243480937334,
-        "return_6m": 0.016342164202948872,
-        "return_12m": 0.0765384211894673,
+        "distance_from_52w_high": -0.2480590633501386,
+        "return_1m": 0.003792263568799914,
+        "return_3m": -0.058612107703493566,
+        "return_6m": -0.025401064569567366,
+        "return_12m": 0.0522898272564718,
         "price_maturity": 0.0
       },
       "checks": {
@@ -5430,7 +5425,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 360.14
+      "current_price": 361.54
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -5443,34 +5438,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:11:26+00:00",
         "expires_at": "2026-10-11T03:11:26+00:00",
-        "age_hours": 0.06,
+        "age_hours": 23.58,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:22:21+00:00",
         "expires_at": "2026-10-11T03:22:21+00:00",
-        "age_hours": 71.87,
+        "age_hours": 95.4,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:44+00:00",
         "expires_at": "2026-10-11T03:26:44+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:11:28+00:00",
-        "expires_at": "2026-10-09T19:11:28+00:00",
-        "age_hours": 0.05,
+        "fetched_at": "2026-10-10T02:44:26+00:00",
+        "expires_at": "2026-10-10T18:44:26+00:00",
+        "age_hours": 0.03,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:44+00:00",
-        "expires_at": "2026-10-09T11:14:44+00:00",
+        "fetched_at": "2026-10-10T02:46:05+00:00",
+        "expires_at": "2026-10-10T10:46:05+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -5534,30 +5529,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:41+00:00",
+    "asof": "2026-10-10T02:46:03+00:00",
     "ticker": "XOM",
     "company": "XOM",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 48.5,
+      "potential_score": 48.53,
       "discovery_bucket": "EARLY_BREAKOUT",
       "price_stage": "EARLY",
-      "price_maturity": 3.87
+      "price_maturity": 4.39
     },
     "metrics": {
-      "price": 168.5,
-      "dollar_volume_20d": 2190690830.265808,
-      "return_1m": 0.026000148471932993,
-      "return_3m": 0.21327760711256438,
-      "return_6m": 0.09419303083638542,
-      "return_12m": 0.5076852542976162,
-      "distance_from_52w_high": -0.010650888422173765,
+      "price": 168.94000244140625,
+      "dollar_volume_20d": 2164670758.5317993,
+      "return_1m": 0.022453590811591484,
+      "return_3m": 0.16905410603565318,
+      "return_6m": 0.11524941999566463,
+      "return_12m": 0.5148041460310528,
+      "distance_from_52w_high": -0.008067410531981789,
       "max_drawdown_1y": -0.201122624890944,
-      "relative_return_3m": 0.1625719226125366,
-      "relative_return_6m": -0.031083016794136054,
-      "relative_return_12m": 0.27147269793986895,
+      "relative_return_3m": 0.11834842153562541,
+      "relative_return_6m": -0.010026627634856844,
+      "relative_return_12m": 0.27859158967330555,
       "revenue_yoy": 0.4410332549039344,
       "revenue_acceleration": null,
       "gross_margin": 0.2251744099747662,
@@ -5579,7 +5574,7 @@
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
       "price_stage": "EARLY",
-      "price_maturity": 3.87,
+      "price_maturity": 4.39,
       "market_cap": 692857165260.0,
       "shares_outstanding": 4111911960,
       "first_trade_date_epoch_utc": null,
@@ -5659,7 +5654,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 168.5,
+      "current_price": 168.94,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -5688,7 +5683,7 @@
       "market_cap": 692857165260.0,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 2190690830.265808,
+      "dollar_volume_20d": 2164670758.5317993,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -5768,31 +5763,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 54.6,
+      "conviction_score": 55.1,
       "thesis_score": 47.4,
-      "entry_score": 87.7,
+      "entry_score": 90.5,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 60.6,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 87.7,
+        "price_timing": 90.5,
         "company_quality": 69.5,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 87.7,
+        "entry_score": 90.5,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.010650888422173765,
-        "return_1m": 0.026000148471932993,
-        "return_3m": 0.21327760711256438,
-        "return_6m": 0.09419303083638542,
-        "return_12m": 0.5076852542976162,
-        "price_maturity": 3.9
+        "distance_from_52w_high": -0.008067410531981789,
+        "return_1m": 0.022453590811591484,
+        "return_3m": 0.16905410603565318,
+        "return_6m": 0.11524941999566463,
+        "return_12m": 0.5148041460310528,
+        "price_maturity": 4.4
       },
       "checks": {
         "large_established_company": false,
@@ -5823,7 +5818,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 168.5
+      "current_price": 168.94
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -5836,34 +5831,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:12:33+00:00",
         "expires_at": "2026-10-11T03:12:33+00:00",
-        "age_hours": 0.04,
+        "age_hours": 23.56,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:23:39+00:00",
         "expires_at": "2026-10-11T03:23:39+00:00",
-        "age_hours": 71.85,
+        "age_hours": 95.37,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-07T02:48:29+00:00",
         "expires_at": "2026-10-12T02:48:29+00:00",
-        "age_hours": 48.44,
+        "age_hours": 71.96,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:12:34+00:00",
-        "expires_at": "2026-10-09T19:12:34+00:00",
-        "age_hours": 0.04,
+        "fetched_at": "2026-10-10T02:44:57+00:00",
+        "expires_at": "2026-10-10T18:44:57+00:00",
+        "age_hours": 0.02,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:41+00:00",
-        "expires_at": "2026-10-09T11:14:41+00:00",
+        "fetched_at": "2026-10-10T02:46:03+00:00",
+        "expires_at": "2026-10-10T10:46:03+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -5927,39 +5922,39 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:42+00:00",
-    "ticker": "A",
-    "company": "A",
+    "asof": "2026-10-10T02:46:04+00:00",
+    "ticker": "AAPL",
+    "company": "AAPL",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 44.01,
-      "discovery_bucket": "EARLY_BREAKOUT",
+      "potential_score": 37.97,
+      "discovery_bucket": "QUIET_ACCUMULATION",
       "price_stage": "EARLY",
-      "price_maturity": 7.63
+      "price_maturity": 3.4
     },
     "metrics": {
-      "price": 168.1699981689453,
-      "dollar_volume_20d": 423737968.10798645,
-      "return_1m": 0.16179618769564974,
-      "return_3m": 0.2522898695111562,
-      "return_6m": 0.4602085421861004,
-      "return_12m": 0.22098577206499814,
-      "distance_from_52w_high": -0.038749396121519286,
-      "max_drawdown_1y": -0.2974743400617669,
-      "relative_return_3m": 0.2015841850111284,
-      "relative_return_6m": 0.33493249455557894,
-      "relative_return_12m": -0.015226784292749151,
-      "revenue_yoy": 0.08055235903337166,
+      "price": 336.6400146484375,
+      "dollar_volume_20d": 12667175663.871307,
+      "return_1m": 0.030835677185202304,
+      "return_3m": 0.0609183991635005,
+      "return_6m": 0.2935740526706845,
+      "return_12m": 0.308193515043546,
+      "distance_from_52w_high": -0.012988514324480449,
+      "max_drawdown_1y": -0.13798524071888174,
+      "relative_return_3m": 0.010212714663472733,
+      "relative_return_6m": 0.168298005040163,
+      "relative_return_12m": 0.07198095868579868,
+      "revenue_yoy": 0.16356501765281384,
       "revenue_acceleration": null,
-      "gross_margin": 0.5548455804046858,
-      "gross_margin_change_yoy": 0.04391347453587102,
-      "operating_margin": 0.2364217252396166,
-      "operating_margin_change_yoy": 0.029287087725232253,
-      "incremental_operating_margin_yoy": 0.6,
-      "free_cash_flow_margin": 0.23375931842385517,
-      "free_cash_flow_margin_change_yoy": 0.08473745421211754,
+      "gross_margin": 0.500562069879452,
+      "gross_margin_change_yoy": 0.035655013007615644,
+      "operating_margin": 0.3262290137729969,
+      "operating_margin_change_yoy": 0.026322594954671985,
+      "incremental_operating_margin_yoy": 0.4871594824783824,
+      "free_cash_flow_margin": 0.2916731403712403,
+      "free_cash_flow_margin_change_yoy": 0.03214487460068438,
       "eps_revision_7d": null,
       "eps_revision_30d": null,
       "eps_revision_90d": null,
@@ -5972,13 +5967,13 @@
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
       "price_stage": "EARLY",
-      "price_maturity": 7.63,
-      "market_cap": 47411974860.95285,
-      "shares_outstanding": 281928854,
+      "price_maturity": 3.4,
+      "market_cap": 4968150951566.772,
+      "shares_outstanding": 14594180000,
       "first_trade_date_epoch_utc": null,
       "current_price_info": null,
-      "fast_last_price": 168.1699981689453,
-      "fast_market_cap": 47411974860.95285,
+      "fast_last_price": 340.4200134277344,
+      "fast_market_cap": 4968150951566.772,
       "forward_pe": null,
       "price_to_sales": null,
       "enterprise_to_ebitda": null,
@@ -5989,7 +5984,7 @@
       "data_quality": 61.5
     },
     "valuation": {
-      "company_type": "GENERAL",
+      "company_type": "EARLY_STAGE_GROWTH",
       "valuation_status": "UNRESOLVED",
       "valuation_resolved": false,
       "model": "FCF_YIELD",
@@ -6002,7 +5997,7 @@
               "name": "Bear",
               "weight": 0.25,
               "probability": 0.25,
-              "fair_value": 46.26,
+              "fair_value": 73.75,
               "assumptions": {
                 "fcf_growth": -0.024,
                 "exit_fcf_yield": 0.09
@@ -6012,7 +6007,7 @@
               "name": "Base",
               "weight": 0.5,
               "probability": 0.5,
-              "fair_value": 73.11,
+              "fair_value": 116.56,
               "assumptions": {
                 "fcf_growth": 0.020000000000000004,
                 "exit_fcf_yield": 0.065
@@ -6022,7 +6017,7 @@
               "name": "Bull",
               "weight": 0.25,
               "probability": 0.25,
-              "fair_value": 104.87,
+              "fair_value": 167.19,
               "assumptions": {
                 "fcf_growth": 0.054000000000000006,
                 "exit_fcf_yield": 0.05
@@ -6036,23 +6031,23 @@
       "model_base_ratio": null,
       "model_ranges": {
         "Bear": {
-          "low": 46.26,
-          "mid": 46.26,
-          "high": 46.26
+          "low": 73.75,
+          "mid": 73.75,
+          "high": 73.75
         },
         "Base": {
-          "low": 73.11,
-          "mid": 73.11,
-          "high": 73.11
+          "low": 116.56,
+          "mid": 116.56,
+          "high": 116.56
         },
         "Bull": {
-          "low": 104.87,
-          "mid": 104.87,
-          "high": 104.87
+          "low": 167.19,
+          "mid": 167.19,
+          "high": 167.19
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 168.17,
+      "current_price": 336.64,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -6065,8 +6060,401 @@
       "scenario_support_weight": null,
       "probability_profit": null,
       "implied_forward_pe": null,
-      "normalized_eps": 4.31,
-      "normalized_fcf": 1262500000.0,
+      "normalized_eps": 6.12,
+      "normalized_fcf": 104195500000.0,
+      "critical_flags": [],
+      "warning_flags": [
+        "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
+      ]
+    },
+    "trust": {
+      "risk_tier": "CORE",
+      "preferred_large_cap": true,
+      "actionable_established": false,
+      "size_class": "MEGA_CAP",
+      "eligible": true,
+      "market_cap": 4968150951566.772,
+      "years_public": null,
+      "analyst_count": null,
+      "dollar_volume_20d": 12667175663.871307,
+      "establishment_data_complete": false,
+      "establishment_data_gaps": [
+        "public_history",
+        "analyst_coverage"
+      ],
+      "trust_score": 56.0,
+      "trust_grade": "D",
+      "critical_flags": [
+        "Data quality is only 62%."
+      ],
+      "warnings": [
+        "Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
+        "Analyst-count metadata is unavailable.",
+        "Only 1 independent valuation method(s) are usable.",
+        "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
+      ],
+      "checks": [
+        {
+          "check": "Size / liquidity gate",
+          "status": "PASS",
+          "detail": "CORE thresholds pass. Size class MEGA_CAP."
+        },
+        {
+          "check": "Public-history metadata",
+          "status": "WARN",
+          "detail": "Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new."
+        },
+        {
+          "check": "Analyst coverage",
+          "status": "WARN",
+          "detail": "Analyst-count metadata is unavailable."
+        },
+        {
+          "check": "Feature coverage",
+          "status": "FAIL",
+          "detail": "Data quality is only 62%."
+        },
+        {
+          "check": "Optional SEC enrichment",
+          "status": "INFO",
+          "detail": "SEC filing enrichment is unavailable or disabled. No trust-score penalty is applied; core research uses market, financial, analyst, valuation, and price-history data."
+        },
+        {
+          "check": "Price cross-check",
+          "status": "PASS",
+          "detail": "Current price agrees with 1 independent Yahoo price field(s)."
+        },
+        {
+          "check": "Market-cap/share check",
+          "status": "PASS",
+          "detail": "Market cap, shares, and price are internally consistent."
+        },
+        {
+          "check": "Valuation triangulation",
+          "status": "WARN",
+          "detail": "Only 1 independent valuation method(s) are usable."
+        }
+      ],
+      "filing_count": 0,
+      "evidence_status": "ERROR",
+      "evidence_ready": false,
+      "sec_optional": true,
+      "sec_enrichment_available": false,
+      "sec_diagnostics": {
+        "state": "ERROR",
+        "available": true,
+        "submission_ok": false,
+        "documents_requested": 0,
+        "documents_cached": 0,
+        "documents_downloaded": 0,
+        "errors": [
+          "SEC submissions fetch failed: InvalidHeader: Invalid leading whitespace, reserved character(s), or return character(s) in header value: 'Name:\\nSEC_USER_AGENT\\n\\nValue:\\nGeorge Jiang georgejiang99j@gmail.com'"
+        ]
+      },
+      "model_count": 1,
+      "model_agreement": null
+    },
+    "conviction": {
+      "action": "REVIEW DATA",
+      "conviction_score": 54.4,
+      "thesis_score": 47.0,
+      "entry_score": 88.0,
+      "conviction_level": "LOW",
+      "pillars": {
+        "fundamental_inflection": 57.9,
+        "estimate_revision": 50.0,
+        "valuation": 23.3,
+        "price_timing": 88.0,
+        "company_quality": 71.2,
+        "evidence": 25.0
+      },
+      "entry_timing": {
+        "entry_state": "EARLY / BUILDING",
+        "entry_score": 88.0,
+        "overextended": false,
+        "extreme_rerating": false,
+        "meaningful_reset": false,
+        "secondary_entry_ready": false,
+        "distance_from_52w_high": -0.012988514324480449,
+        "return_1m": 0.030835677185202304,
+        "return_3m": 0.0609183991635005,
+        "return_6m": 0.2935740526706845,
+        "return_12m": 0.308193515043546,
+        "price_maturity": 3.4
+      },
+      "checks": {
+        "large_established_company": false,
+        "data_trust": false,
+        "research_evidence_ready": false,
+        "valuation_resolved": false,
+        "required_expected_return": false,
+        "required_base_return": false,
+        "bear_case_acceptable": false,
+        "thesis_strength": false,
+        "inside_buy_zone": false,
+        "entry_not_overextended": true
+      },
+      "failed_checks": [
+        "large_established_company",
+        "data_trust",
+        "research_evidence_ready",
+        "valuation_resolved",
+        "required_expected_return",
+        "required_base_return",
+        "bear_case_acceptable",
+        "thesis_strength",
+        "inside_buy_zone"
+      ],
+      "rationale": "A data or valuation sanity check failed; modeled upside should not be trusted yet.",
+      "required_base_cagr": 0.15,
+      "required_expected_cagr": 0.18,
+      "buy_below_price": null,
+      "gap_to_buy_zone": null,
+      "base_fair_value": null,
+      "current_price": 336.64
+    },
+    "decision": {
+      "decision": "REVIEW DATA",
+      "confidence": "LOW",
+      "evidence_confidence": "LOW",
+      "reason": "A data or valuation sanity check failed; modeled upside should not be trusted yet."
+    },
+    "source_freshness": {
+      "profile": {
+        "present": true,
+        "fetched_at": "2026-10-09T03:11:15+00:00",
+        "expires_at": "2026-10-11T03:11:15+00:00",
+        "age_hours": 23.58,
+        "stale": false
+      },
+      "quarterly_financials": {
+        "present": true,
+        "fetched_at": "2026-10-06T03:22:00+00:00",
+        "expires_at": "2026-10-11T03:22:00+00:00",
+        "age_hours": 95.4,
+        "stale": false
+      },
+      "annual_financials": {
+        "present": true,
+        "fetched_at": "2026-10-06T03:26:40+00:00",
+        "expires_at": "2026-10-11T03:26:40+00:00",
+        "age_hours": 95.32,
+        "stale": false
+      },
+      "analyst_estimates": {
+        "present": true,
+        "fetched_at": "2026-10-10T02:44:21+00:00",
+        "expires_at": "2026-10-10T18:44:21+00:00",
+        "age_hours": 0.03,
+        "stale": false
+      },
+      "news": {
+        "present": true,
+        "fetched_at": "2026-10-10T02:46:04+00:00",
+        "expires_at": "2026-10-10T10:46:04+00:00",
+        "age_hours": 0.0,
+        "stale": false
+      },
+      "sec_submissions": {
+        "present": false,
+        "fetched_at": null,
+        "expires_at": null,
+        "age_hours": null,
+        "stale": true
+      }
+    },
+    "sec_status": {
+      "state": "ERROR",
+      "available": true,
+      "submission_ok": false,
+      "documents_requested": 0,
+      "documents_cached": 0,
+      "documents_downloaded": 0,
+      "errors": [
+        "SEC submissions fetch failed: InvalidHeader: Invalid leading whitespace, reserved character(s), or return character(s) in header value: 'Name:\\nSEC_USER_AGENT\\n\\nValue:\\nGeorge Jiang georgejiang99j@gmail.com'"
+      ]
+    },
+    "why_buy": [
+      "Company is in the preferred institutional-scale large-cap tier ($25B+ by default).",
+      "Operating margin improved +2.6 percentage points year over year."
+    ],
+    "why_not": [
+      "DATA: Data quality is only 62%.",
+      "Trust: Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
+      "Trust: Analyst-count metadata is unavailable.",
+      "Trust: Only 1 independent valuation method(s) are usable.",
+      "Trust: Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
+    ],
+    "what_must_be_true": [
+      "Forward revenue/EPS estimates must remain achievable rather than being cut after the next earnings report.",
+      "Margins and free-cash-flow conversion must remain consistent with the valuation family used for this industry.",
+      "The industry demand cycle must remain strong enough to support the normalized earnings/cash-flow assumptions."
+    ],
+    "invalidation": [
+      "Two consecutive material downward estimate revisions without a compensating valuation reset.",
+      "Revenue growth and operating-margin direction both deteriorate versus the current thesis.",
+      "New company disclosures, filings, or credible news expose a balance-sheet, customer-concentration, dilution, accounting, or demand risk that breaks the base/bear assumptions."
+    ],
+    "what_changes_decision": [
+      "Forward revenue/EPS estimates must remain achievable rather than being cut after the next earnings report.",
+      "Margins and free-cash-flow conversion must remain consistent with the valuation family used for this industry.",
+      "The industry demand cycle must remain strong enough to support the normalized earnings/cash-flow assumptions."
+    ],
+    "filing_evidence_summary": {
+      "positive_count": 0,
+      "negative_count": 0,
+      "mixed_count": 0,
+      "topics_found": [],
+      "net_tone": 0
+    },
+    "filing_evidence": [],
+    "news": [],
+    "methodology_note": "V5.3 separates thesis quality from entry timing, refuses to calculate a buy zone when independent valuation methods disagree, and uses cycle-normalized valuation for memory/storage/semiconductor businesses. SEC filings are optional enrichment only: missing SEC access does not reduce trust, block BUY decisions, or create DATA INCOMPLETE. A large prior rally can explicitly become TOO LATE / OVEREXTENDED.",
+    "cache_note": "Market data, fundamentals, estimates and news are cached. SEC filings are cached when optional SEC enrichment is configured; SEC failures do not block core research.",
+    "llm_research_note": null
+  },
+  {
+    "model_version": "5.3",
+    "asof": "2026-10-10T02:46:04+00:00",
+    "ticker": "ADI",
+    "company": "ADI",
+    "sector": null,
+    "industry": null,
+    "source": "broad_discovery",
+    "discovery": {
+      "potential_score": 42.79,
+      "discovery_bucket": "QUIET_ACCUMULATION",
+      "price_stage": "MID",
+      "price_maturity": 50.0
+    },
+    "metrics": {
+      "price": 406.19000244140625,
+      "dollar_volume_20d": 1207527578.9155579,
+      "return_1m": 0.1244013908412629,
+      "return_3m": 0.0522784180856708,
+      "return_6m": 0.16325636487946604,
+      "return_12m": 0.7232841309565712,
+      "distance_from_52w_high": -0.08819701799398516,
+      "max_drawdown_1y": -0.20676576635885802,
+      "relative_return_3m": 0.001572733585643027,
+      "relative_return_6m": 0.03798031724894457,
+      "relative_return_12m": 0.4870715745988239,
+      "revenue_yoy": 0.3963239858517096,
+      "revenue_acceleration": null,
+      "gross_margin": 0.6732003961312802,
+      "gross_margin_change_yoy": 0.05183519998137054,
+      "operating_margin": 0.3950255836857166,
+      "operating_margin_change_yoy": 0.10951286091749557,
+      "incremental_operating_margin_yoy": 0.6713471408636145,
+      "free_cash_flow_margin": 0.3625891649690855,
+      "free_cash_flow_margin_change_yoy": -0.014431944980128952,
+      "eps_revision_7d": null,
+      "eps_revision_30d": null,
+      "eps_revision_90d": null,
+      "eps_revision_acceleration": null,
+      "revision_breadth_30d": null,
+      "avg_eps_surprise_last4": null,
+      "next_year_eps_estimate": null,
+      "next_year_eps_growth": null,
+      "next_year_revenue_estimate": null,
+      "next_year_revenue_growth_estimate": null,
+      "next_year_eps_analyst_count": null,
+      "price_stage": "MID",
+      "price_maturity": 50.0,
+      "market_cap": 196699655658.38654,
+      "shares_outstanding": 484565465,
+      "first_trade_date_epoch_utc": null,
+      "current_price_info": null,
+      "fast_last_price": 405.92999267578125,
+      "fast_market_cap": 196699655658.38654,
+      "forward_pe": null,
+      "price_to_sales": null,
+      "enterprise_to_ebitda": null,
+      "analyst_target_upside": null,
+      "target_mean": null,
+      "target_low": null,
+      "target_high": null,
+      "data_quality": 61.5
+    },
+    "valuation": {
+      "company_type": "EARLY_STAGE_GROWTH",
+      "valuation_status": "UNRESOLVED",
+      "valuation_resolved": false,
+      "model": "FCF_YIELD",
+      "models": [
+        {
+          "name": "FCF_YIELD",
+          "family": "cash_flow",
+          "scenarios": [
+            {
+              "name": "Bear",
+              "weight": 0.25,
+              "probability": 0.25,
+              "fair_value": 78.16,
+              "assumptions": {
+                "fcf_growth": -0.024,
+                "exit_fcf_yield": 0.09
+              }
+            },
+            {
+              "name": "Base",
+              "weight": 0.5,
+              "probability": 0.5,
+              "fair_value": 123.52,
+              "assumptions": {
+                "fcf_growth": 0.020000000000000004,
+                "exit_fcf_yield": 0.065
+              }
+            },
+            {
+              "name": "Bull",
+              "weight": 0.25,
+              "probability": 0.25,
+              "fair_value": 177.18,
+              "assumptions": {
+                "fcf_growth": 0.054000000000000006,
+                "exit_fcf_yield": 0.05
+              }
+            }
+          ]
+        }
+      ],
+      "model_count": 1,
+      "model_agreement": null,
+      "model_base_ratio": null,
+      "model_ranges": {
+        "Bear": {
+          "low": 78.16,
+          "mid": 78.16,
+          "high": 78.16
+        },
+        "Base": {
+          "low": 123.52,
+          "mid": 123.52,
+          "high": 123.52
+        },
+        "Bull": {
+          "low": 177.18,
+          "mid": 177.18,
+          "high": 177.18
+        }
+      },
+      "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
+      "current_price": 406.19,
+      "horizon_years": 3,
+      "scenarios": [],
+      "expected_value": null,
+      "expected_cagr": null,
+      "base_cagr": null,
+      "bear_return": null,
+      "base_return": null,
+      "bull_return": null,
+      "bear_downside": null,
+      "scenario_support_weight": null,
+      "probability_profit": null,
+      "implied_forward_pe": null,
+      "normalized_eps": 4.905,
+      "normalized_fcf": 3666132500.0,
       "critical_flags": [],
       "warning_flags": [
         "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
@@ -6078,10 +6466,10 @@
       "actionable_established": false,
       "size_class": "LARGE_CAP",
       "eligible": true,
-      "market_cap": 47411974860.95285,
+      "market_cap": 196699655658.38654,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 423737968.10798645,
+      "dollar_volume_20d": 1207527578.9155579,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -6161,31 +6549,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 53.4,
-      "thesis_score": 46.8,
-      "entry_score": 83.4,
+      "conviction_score": 51.3,
+      "thesis_score": 47.0,
+      "entry_score": 71.0,
       "conviction_level": "LOW",
       "pillars": {
-        "fundamental_inflection": 65.8,
+        "fundamental_inflection": 61.5,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 83.4,
-        "company_quality": 60.1,
+        "price_timing": 71.0,
+        "company_quality": 66.6,
         "evidence": 25.0
       },
       "entry_timing": {
-        "entry_state": "EARLY / BUILDING",
-        "entry_score": 83.4,
+        "entry_state": "CONFIRMED / STILL ACTIONABLE",
+        "entry_score": 71.0,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.038749396121519286,
-        "return_1m": 0.16179618769564974,
-        "return_3m": 0.2522898695111562,
-        "return_6m": 0.4602085421861004,
-        "return_12m": 0.22098577206499814,
-        "price_maturity": 7.6
+        "distance_from_52w_high": -0.08819701799398516,
+        "return_1m": 0.1244013908412629,
+        "return_3m": 0.0522784180856708,
+        "return_6m": 0.16325636487946604,
+        "return_12m": 0.7232841309565712,
+        "price_maturity": 50.0
       },
       "checks": {
         "large_established_company": false,
@@ -6216,7 +6604,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 168.17
+      "current_price": 406.19
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -6227,36 +6615,36 @@
     "source_freshness": {
       "profile": {
         "present": true,
-        "fetched_at": "2026-10-09T03:09:27+00:00",
-        "expires_at": "2026-10-11T03:09:27+00:00",
-        "age_hours": 0.09,
+        "fetched_at": "2026-10-09T03:14:10+00:00",
+        "expires_at": "2026-10-11T03:14:10+00:00",
+        "age_hours": 23.53,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
-        "fetched_at": "2026-10-09T03:09:28+00:00",
-        "expires_at": "2026-10-14T03:09:28+00:00",
-        "age_hours": 0.09,
+        "fetched_at": "2026-10-06T03:26:01+00:00",
+        "expires_at": "2026-10-11T03:26:01+00:00",
+        "age_hours": 95.33,
         "stale": false
       },
       "annual_financials": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:43+00:00",
-        "expires_at": "2026-10-14T03:14:43+00:00",
-        "age_hours": 0.0,
+        "fetched_at": "2026-10-06T03:26:42+00:00",
+        "expires_at": "2026-10-11T03:26:42+00:00",
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:09:29+00:00",
-        "expires_at": "2026-10-09T19:09:29+00:00",
-        "age_hours": 0.09,
+        "fetched_at": "2026-10-10T02:45:36+00:00",
+        "expires_at": "2026-10-10T18:45:36+00:00",
+        "age_hours": 0.01,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:43+00:00",
-        "expires_at": "2026-10-09T11:14:43+00:00",
+        "fetched_at": "2026-10-10T02:46:04+00:00",
+        "expires_at": "2026-10-10T10:46:04+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -6281,7 +6669,7 @@
     },
     "why_buy": [
       "Company is in the preferred institutional-scale large-cap tier ($25B+ by default).",
-      "Operating margin improved +2.9 percentage points year over year."
+      "Operating margin improved +11.0 percentage points year over year."
     ],
     "why_not": [
       "DATA: Data quality is only 62%.",
@@ -6320,30 +6708,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:42+00:00",
+    "asof": "2026-10-10T02:46:03+00:00",
     "ticker": "CAT",
     "company": "CAT",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 38.36,
+      "potential_score": 39.57,
       "discovery_bucket": "QUIET_ACCUMULATION",
       "price_stage": "EARLY",
-      "price_maturity": 4.31
+      "price_maturity": 2.51
     },
     "metrics": {
-      "price": 796.1799926757812,
-      "dollar_volume_20d": 1978720847.5891113,
-      "return_1m": -0.023762819339873453,
-      "return_3m": -0.1624856801347716,
-      "return_6m": 0.015380612061102417,
-      "return_12m": 0.6505658021469001,
-      "distance_from_52w_high": -0.2509560140513222,
+      "price": 800.469970703125,
+      "dollar_volume_20d": 1977025555.3997803,
+      "return_1m": -0.005627365586180155,
+      "return_3m": -0.13904369772227232,
+      "return_6m": 0.016216427312231607,
+      "return_12m": 0.608530785110055,
+      "distance_from_52w_high": -0.24692001431408395,
       "max_drawdown_1y": -0.26696840244074427,
-      "relative_return_3m": -0.21319136463479937,
-      "relative_return_6m": -0.10989543556941905,
-      "relative_return_12m": 0.4143532457891528,
+      "relative_return_3m": -0.1897493822223001,
+      "relative_return_6m": -0.10905962031828986,
+      "relative_return_12m": 0.3723182287523077,
       "revenue_yoy": 0.23984549459834636,
       "revenue_acceleration": null,
       "gross_margin": 0.36022002628632627,
@@ -6365,7 +6753,7 @@
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
       "price_stage": "EARLY",
-      "price_maturity": 4.31,
+      "price_maturity": 2.51,
       "market_cap": 365983949757.26056,
       "shares_outstanding": 459674889,
       "first_trade_date_epoch_utc": null,
@@ -6445,7 +6833,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 796.18,
+      "current_price": 800.47,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -6474,7 +6862,7 @@
       "market_cap": 365983949757.26056,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 1978720847.5891113,
+      "dollar_volume_20d": 1977025555.3997803,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -6554,31 +6942,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 49.4,
+      "conviction_score": 49.8,
       "thesis_score": 46.5,
-      "entry_score": 62.5,
+      "entry_score": 64.9,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 58.2,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 62.5,
+        "price_timing": 64.9,
         "company_quality": 68.0,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 62.5,
+        "entry_score": 64.9,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.2509560140513222,
-        "return_1m": -0.023762819339873453,
-        "return_3m": -0.1624856801347716,
-        "return_6m": 0.015380612061102417,
-        "return_12m": 0.6505658021469001,
-        "price_maturity": 4.3
+        "distance_from_52w_high": -0.24692001431408395,
+        "return_1m": -0.005627365586180155,
+        "return_3m": -0.13904369772227232,
+        "return_6m": 0.016216427312231607,
+        "return_12m": 0.608530785110055,
+        "price_maturity": 2.5
       },
       "checks": {
         "large_established_company": false,
@@ -6609,7 +6997,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 796.18
+      "current_price": 800.47
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -6622,34 +7010,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:12:49+00:00",
         "expires_at": "2026-10-11T03:12:49+00:00",
-        "age_hours": 0.03,
+        "age_hours": 23.55,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:24:10+00:00",
         "expires_at": "2026-10-11T03:24:10+00:00",
-        "age_hours": 71.84,
+        "age_hours": 95.37,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-07T02:48:27+00:00",
         "expires_at": "2026-10-12T02:48:27+00:00",
-        "age_hours": 48.44,
+        "age_hours": 71.96,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:12:50+00:00",
-        "expires_at": "2026-10-09T19:12:50+00:00",
-        "age_hours": 0.03,
+        "fetched_at": "2026-10-10T02:45:01+00:00",
+        "expires_at": "2026-10-10T18:45:01+00:00",
+        "age_hours": 0.02,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:42+00:00",
-        "expires_at": "2026-10-09T11:14:42+00:00",
+        "fetched_at": "2026-10-10T02:46:04+00:00",
+        "expires_at": "2026-10-10T10:46:04+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -6713,30 +7101,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:43+00:00",
+    "asof": "2026-10-10T02:46:04+00:00",
     "ticker": "GEV",
     "company": "GEV",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 36.34,
+      "potential_score": 39.43,
       "discovery_bucket": "QUIET_ACCUMULATION",
       "price_stage": "EARLY",
-      "price_maturity": 4.39
+      "price_maturity": 2.57
     },
     "metrics": {
-      "price": 999.3499755859375,
-      "dollar_volume_20d": 2165257658.501587,
-      "return_1m": 0.05079702081378201,
-      "return_3m": -0.08448379420543695,
-      "return_6m": 0.032892504008973145,
-      "return_12m": 0.6525099993237904,
-      "distance_from_52w_high": -0.14938802236345272,
+      "price": 1004.72998046875,
+      "dollar_volume_20d": 2164905160.4644775,
+      "return_1m": 0.087476063332391,
+      "return_3m": -0.03632265106845478,
+      "return_6m": 0.014045283664167796,
+      "return_12m": 0.6100590004633144,
+      "distance_from_52w_high": -0.14480874913098962,
       "max_drawdown_1y": -0.2554346724951537,
-      "relative_return_3m": -0.13518947870546472,
-      "relative_return_6m": -0.09238354362154833,
-      "relative_return_12m": 0.4162974429660431,
+      "relative_return_3m": -0.08702833556848255,
+      "relative_return_6m": -0.11123076396635367,
+      "relative_return_12m": 0.3738464441055671,
       "revenue_yoy": 0.218746570080123,
       "revenue_acceleration": null,
       "gross_margin": 0.21262608069164265,
@@ -6758,7 +7146,7 @@
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
       "price_stage": "EARLY",
-      "price_maturity": 4.39,
+      "price_maturity": 2.57,
       "market_cap": 266160457670.0653,
       "shares_outstanding": 266333581,
       "first_trade_date_epoch_utc": null,
@@ -6838,7 +7226,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 999.35,
+      "current_price": 1004.73,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -6868,7 +7256,7 @@
       "market_cap": 266160457670.0653,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 2165257658.501587,
+      "dollar_volume_20d": 2164905160.4644775,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -6949,31 +7337,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 50.5,
+      "conviction_score": 51.1,
       "thesis_score": 46.4,
-      "entry_score": 68.9,
+      "entry_score": 72.1,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 58.6,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 68.9,
+        "price_timing": 72.1,
         "company_quality": 67.3,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 68.9,
+        "entry_score": 72.1,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.14938802236345272,
-        "return_1m": 0.05079702081378201,
-        "return_3m": -0.08448379420543695,
-        "return_6m": 0.032892504008973145,
-        "return_12m": 0.6525099993237904,
-        "price_maturity": 4.4
+        "distance_from_52w_high": -0.14480874913098962,
+        "return_1m": 0.087476063332391,
+        "return_3m": -0.03632265106845478,
+        "return_6m": 0.014045283664167796,
+        "return_12m": 0.6100590004633144,
+        "price_maturity": 2.6
       },
       "checks": {
         "large_established_company": false,
@@ -7004,7 +7392,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 999.35
+      "current_price": 1004.73
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -7017,34 +7405,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:12:37+00:00",
         "expires_at": "2026-10-11T03:12:37+00:00",
-        "age_hours": 0.04,
+        "age_hours": 23.56,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:24:02+00:00",
         "expires_at": "2026-10-11T03:24:02+00:00",
-        "age_hours": 71.84,
+        "age_hours": 95.37,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:41+00:00",
         "expires_at": "2026-10-11T03:26:41+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:12:38+00:00",
-        "expires_at": "2026-10-09T19:12:38+00:00",
-        "age_hours": 0.03,
+        "fetched_at": "2026-10-10T02:44:56+00:00",
+        "expires_at": "2026-10-10T18:44:56+00:00",
+        "age_hours": 0.02,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:43+00:00",
-        "expires_at": "2026-10-09T11:14:43+00:00",
+        "fetched_at": "2026-10-10T02:46:04+00:00",
+        "expires_at": "2026-10-10T10:46:04+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -7108,39 +7496,39 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:43+00:00",
-    "ticker": "CSCO",
-    "company": "CSCO",
+    "asof": "2026-10-10T02:46:06+00:00",
+    "ticker": "WSM",
+    "company": "WSM",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 41.65,
-      "discovery_bucket": "QUIET_ACCUMULATION",
+      "potential_score": 53.5,
+      "discovery_bucket": "EARLY_BREAKOUT",
       "price_stage": "EARLY",
-      "price_maturity": 8.51
+      "price_maturity": 0.0
     },
     "metrics": {
-      "price": 114.88999938964844,
-      "dollar_volume_20d": 2127502068.3431625,
-      "return_1m": 0.04989490148264597,
-      "return_3m": -0.0529222512418599,
-      "return_6m": 0.38655523542881354,
-      "return_12m": 0.6895942636520502,
-      "distance_from_52w_high": -0.1129246281218017,
-      "max_drawdown_1y": -0.18141838401767596,
-      "relative_return_3m": -0.10362793574188767,
-      "relative_return_6m": 0.26127918779829207,
-      "relative_return_12m": 0.45338170729430294,
-      "revenue_yoy": 0.17576501056362015,
+      "price": 241.77999877929688,
+      "dollar_volume_20d": 268181491.68922424,
+      "return_1m": 0.08062926988121477,
+      "return_3m": 0.11971973959667515,
+      "return_6m": 0.2877590231060074,
+      "return_12m": 0.28295109063393453,
+      "distance_from_52w_high": -0.03971721363286573,
+      "max_drawdown_1y": -0.23273694842057602,
+      "relative_return_3m": 0.06901405509664738,
+      "relative_return_6m": 0.16248297547548596,
+      "relative_return_12m": 0.04673853427618724,
+      "revenue_yoy": 0.06696411071669672,
       "revenue_acceleration": null,
-      "gross_margin": 0.6412589844655692,
-      "gross_margin_change_yoy": 0.00880481694699764,
-      "operating_margin": 0.2767795038256434,
-      "operating_margin_change_yoy": 0.06400774617553778,
-      "incremental_operating_margin_yoy": 0.6409461031407522,
-      "free_cash_flow_margin": 0.28958961279851614,
-      "free_cash_flow_margin_change_yoy": 0.015821467225013763,
+      "gross_margin": 0.5163640186002653,
+      "gross_margin_change_yoy": 0.045631315361954305,
+      "operating_margin": 0.2290054328164155,
+      "operating_margin_change_yoy": 0.050397993630022064,
+      "incremental_operating_margin_yoy": 0.9816174378236867,
+      "free_cash_flow_margin": 0.24533143649952519,
+      "free_cash_flow_margin_change_yoy": 0.11973745579437045,
       "eps_revision_7d": null,
       "eps_revision_30d": null,
       "eps_revision_90d": null,
@@ -7153,13 +7541,13 @@
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
       "price_stage": "EARLY",
-      "price_maturity": 8.51,
-      "market_cap": 452963803432.60596,
-      "shares_outstanding": 3942586873,
+      "price_maturity": 0.0,
+      "market_cap": 28318494070.67871,
+      "shares_outstanding": 117768000,
       "first_trade_date_epoch_utc": null,
       "current_price_info": null,
-      "fast_last_price": 114.88999938964844,
-      "fast_market_cap": 452963803432.60596,
+      "fast_last_price": 240.4600067138672,
+      "fast_market_cap": 28318494070.67871,
       "forward_pe": null,
       "price_to_sales": null,
       "enterprise_to_ebitda": null,
@@ -7170,7 +7558,7 @@
       "data_quality": 61.5
     },
     "valuation": {
-      "company_type": "EARLY_STAGE_GROWTH",
+      "company_type": "GENERAL",
       "valuation_status": "UNRESOLVED",
       "valuation_resolved": false,
       "model": "FCF_YIELD",
@@ -7183,7 +7571,7 @@
               "name": "Bear",
               "weight": 0.25,
               "probability": 0.25,
-              "fair_value": 34.13,
+              "fair_value": 96.23,
               "assumptions": {
                 "fcf_growth": -0.024,
                 "exit_fcf_yield": 0.09
@@ -7193,7 +7581,7 @@
               "name": "Base",
               "weight": 0.5,
               "probability": 0.5,
-              "fair_value": 53.95,
+              "fair_value": 152.09,
               "assumptions": {
                 "fcf_growth": 0.020000000000000004,
                 "exit_fcf_yield": 0.065
@@ -7203,7 +7591,7 @@
               "name": "Bull",
               "weight": 0.25,
               "probability": 0.25,
-              "fair_value": 77.38,
+              "fair_value": 218.15,
               "assumptions": {
                 "fcf_growth": 0.054000000000000006,
                 "exit_fcf_yield": 0.05
@@ -7217,23 +7605,23 @@
       "model_base_ratio": null,
       "model_ranges": {
         "Bear": {
-          "low": 34.13,
-          "mid": 34.13,
-          "high": 34.13
+          "low": 96.23,
+          "mid": 96.23,
+          "high": 96.23
         },
         "Base": {
-          "low": 53.95,
-          "mid": 53.95,
-          "high": 53.95
+          "low": 152.09,
+          "mid": 152.09,
+          "high": 152.09
         },
         "Bull": {
-          "low": 77.38,
-          "mid": 77.38,
-          "high": 77.38
+          "low": 218.15,
+          "mid": 218.15,
+          "high": 218.15
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 114.89,
+      "current_price": 241.78,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -7246,8 +7634,8 @@
       "scenario_support_weight": null,
       "probability_profit": null,
       "implied_forward_pe": null,
-      "normalized_eps": 2.685,
-      "normalized_fcf": 13027500000.0,
+      "normalized_eps": 8.475,
+      "normalized_fcf": 1097053000.0,
       "critical_flags": [],
       "warning_flags": [
         "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
@@ -7257,12 +7645,12 @@
       "risk_tier": "CORE",
       "preferred_large_cap": true,
       "actionable_established": false,
-      "size_class": "MEGA_CAP",
+      "size_class": "LARGE_CAP",
       "eligible": true,
-      "market_cap": 452963803432.60596,
+      "market_cap": 28318494070.67871,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 2127502068.3431625,
+      "dollar_volume_20d": 268181491.68922424,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -7283,7 +7671,7 @@
         {
           "check": "Size / liquidity gate",
           "status": "PASS",
-          "detail": "CORE thresholds pass. Size class MEGA_CAP."
+          "detail": "CORE thresholds pass. Size class LARGE_CAP."
         },
         {
           "check": "Public-history metadata",
@@ -7342,31 +7730,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 52.3,
-      "thesis_score": 46.1,
-      "entry_score": 80.4,
+      "conviction_score": 54.2,
+      "thesis_score": 46.0,
+      "entry_score": 91.3,
       "conviction_level": "LOW",
       "pillars": {
-        "fundamental_inflection": 56.2,
+        "fundamental_inflection": 68.8,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 80.4,
-        "company_quality": 68.5,
+        "price_timing": 91.3,
+        "company_quality": 52.4,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 80.4,
+        "entry_score": 91.3,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.1129246281218017,
-        "return_1m": 0.04989490148264597,
-        "return_3m": -0.0529222512418599,
-        "return_6m": 0.38655523542881354,
-        "return_12m": 0.6895942636520502,
-        "price_maturity": 8.5
+        "distance_from_52w_high": -0.03971721363286573,
+        "return_1m": 0.08062926988121477,
+        "return_3m": 0.11971973959667515,
+        "return_6m": 0.2877590231060074,
+        "return_12m": 0.28295109063393453,
+        "price_maturity": 0.0
       },
       "checks": {
         "large_established_company": false,
@@ -7397,7 +7785,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 114.89
+      "current_price": 241.78
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -7408,36 +7796,36 @@
     "source_freshness": {
       "profile": {
         "present": true,
-        "fetched_at": "2026-10-09T03:12:42+00:00",
-        "expires_at": "2026-10-11T03:12:42+00:00",
-        "age_hours": 0.03,
+        "fetched_at": "2026-10-08T02:58:44+00:00",
+        "expires_at": "2026-10-10T02:58:44+00:00",
+        "age_hours": 47.79,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
-        "fetched_at": "2026-10-06T03:24:04+00:00",
-        "expires_at": "2026-10-11T03:24:04+00:00",
-        "age_hours": 71.84,
+        "fetched_at": "2026-10-08T02:58:45+00:00",
+        "expires_at": "2026-10-13T02:58:45+00:00",
+        "age_hours": 47.79,
         "stale": false
       },
       "annual_financials": {
         "present": true,
-        "fetched_at": "2026-10-06T03:26:42+00:00",
-        "expires_at": "2026-10-11T03:26:42+00:00",
-        "age_hours": 71.8,
+        "fetched_at": "2026-10-08T03:01:29+00:00",
+        "expires_at": "2026-10-13T03:01:29+00:00",
+        "age_hours": 47.74,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:12:43+00:00",
-        "expires_at": "2026-10-09T19:12:43+00:00",
-        "age_hours": 0.03,
+        "fetched_at": "2026-10-10T02:42:58+00:00",
+        "expires_at": "2026-10-10T18:42:58+00:00",
+        "age_hours": 0.05,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:43+00:00",
-        "expires_at": "2026-10-09T11:14:43+00:00",
+        "fetched_at": "2026-10-10T02:46:06+00:00",
+        "expires_at": "2026-10-10T10:46:06+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -7462,7 +7850,7 @@
     },
     "why_buy": [
       "Company is in the preferred institutional-scale large-cap tier ($25B+ by default).",
-      "Operating margin improved +6.4 percentage points year over year."
+      "Operating margin improved +5.0 percentage points year over year."
     ],
     "why_not": [
       "DATA: Data quality is only 62%.",
@@ -7501,30 +7889,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:41+00:00",
+    "asof": "2026-10-10T02:46:03+00:00",
     "ticker": "PWR",
     "company": "PWR",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 46.87,
+      "potential_score": 48.79,
       "discovery_bucket": "QUIET_ACCUMULATION",
       "price_stage": "EARLY",
-      "price_maturity": 3.3
+      "price_maturity": 1.84
     },
     "metrics": {
-      "price": 685.3300170898438,
-      "dollar_volume_20d": 589416536.3360596,
-      "return_1m": 0.0930652308507034,
-      "return_3m": 0.04064932524066367,
-      "return_6m": 0.1776015221372511,
-      "return_12m": 0.6268846327100619,
-      "distance_from_52w_high": -0.12710163022906762,
+      "price": 705.9400024414062,
+      "dollar_volume_20d": 583002840.1156616,
+      "return_1m": 0.1409500504672263,
+      "return_3m": 0.09160350876166401,
+      "return_6m": 0.2061771768762215,
+      "return_12m": 0.592898139457696,
+      "distance_from_52w_high": -0.10085088654972973,
       "max_drawdown_1y": -0.2852812633542575,
-      "relative_return_3m": -0.0100563592593641,
-      "relative_return_6m": 0.05232547450672964,
-      "relative_return_12m": 0.3906720763523146,
+      "relative_return_3m": 0.04089782426163624,
+      "relative_return_6m": 0.08090112924570003,
+      "relative_return_12m": 0.3566855830999487,
       "revenue_yoy": 0.41104194931438864,
       "revenue_acceleration": null,
       "gross_margin": 0.16168028513559227,
@@ -7546,7 +7934,7 @@
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
       "price_stage": "EARLY",
-      "price_maturity": 3.3,
+      "price_maturity": 1.84,
       "market_cap": 103034840094.0351,
       "shares_outstanding": 150343393,
       "first_trade_date_epoch_utc": null,
@@ -7626,7 +8014,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 685.33,
+      "current_price": 705.94,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -7655,7 +8043,7 @@
       "market_cap": 103034840094.0351,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 589416536.3360596,
+      "dollar_volume_20d": 583002840.1156616,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -7735,31 +8123,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 52.8,
+      "conviction_score": 53.7,
       "thesis_score": 45.7,
-      "entry_score": 84.8,
+      "entry_score": 90.2,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 57.6,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 84.8,
+        "price_timing": 90.2,
         "company_quality": 65.1,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 84.8,
+        "entry_score": 90.2,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.12710163022906762,
-        "return_1m": 0.0930652308507034,
-        "return_3m": 0.04064932524066367,
-        "return_6m": 0.1776015221372511,
-        "return_12m": 0.6268846327100619,
-        "price_maturity": 3.3
+        "distance_from_52w_high": -0.10085088654972973,
+        "return_1m": 0.1409500504672263,
+        "return_3m": 0.09160350876166401,
+        "return_6m": 0.2061771768762215,
+        "return_12m": 0.592898139457696,
+        "price_maturity": 1.8
       },
       "checks": {
         "large_established_company": false,
@@ -7790,7 +8178,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 685.33
+      "current_price": 705.94
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -7803,34 +8191,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:09:08+00:00",
         "expires_at": "2026-10-11T03:09:08+00:00",
-        "age_hours": 0.09,
+        "age_hours": 23.62,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:20:09+00:00",
         "expires_at": "2026-10-11T03:20:09+00:00",
-        "age_hours": 71.91,
+        "age_hours": 95.43,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:38+00:00",
         "expires_at": "2026-10-11T03:26:38+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:09:10+00:00",
-        "expires_at": "2026-10-09T19:09:10+00:00",
-        "age_hours": 0.09,
+        "fetched_at": "2026-10-10T02:42:34+00:00",
+        "expires_at": "2026-10-10T18:42:34+00:00",
+        "age_hours": 0.06,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:42+00:00",
-        "expires_at": "2026-10-09T11:14:42+00:00",
+        "fetched_at": "2026-10-10T02:46:03+00:00",
+        "expires_at": "2026-10-10T10:46:03+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -7893,30 +8281,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:44+00:00",
+    "asof": "2026-10-10T02:46:03+00:00",
     "ticker": "BRK-B",
     "company": "BRK-B",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 52.36,
+      "potential_score": 51.85,
       "discovery_bucket": "RECOVERY",
       "price_stage": "EARLY",
-      "price_maturity": 0.0
+      "price_maturity": 0.79
     },
     "metrics": {
-      "price": 511.04998779296875,
-      "dollar_volume_20d": 2372923444.8228455,
-      "return_1m": 0.008545126621871235,
-      "return_3m": 0.035121825845139565,
-      "return_6m": 0.053276947517691964,
-      "return_12m": 0.017419869027762047,
-      "distance_from_52w_high": -0.03469834103391778,
+      "price": 515.6199951171875,
+      "dollar_volume_20d": 2392352639.747772,
+      "return_1m": 0.017001962755793798,
+      "return_3m": 0.037777978832833625,
+      "return_6m": 0.07443217685976466,
+      "return_12m": 0.031570100221891106,
+      "distance_from_52w_high": -0.026066238975551936,
       "max_drawdown_1y": -0.13782881730078744,
-      "relative_return_3m": -0.015583858654888205,
-      "relative_return_6m": -0.0719991001128295,
-      "relative_return_12m": -0.21879268732998525,
+      "relative_return_3m": -0.012927705667194145,
+      "relative_return_6m": -0.050843870770756805,
+      "relative_return_12m": -0.2046424561358562,
       "revenue_yoy": 0.19221472709068665,
       "revenue_acceleration": 0.08679991138652055,
       "gross_margin": null,
@@ -7938,7 +8326,7 @@
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
       "price_stage": "EARLY",
-      "price_maturity": 0.0,
+      "price_maturity": 0.79,
       "market_cap": 1094009714091.9886,
       "shares_outstanding": 2140709794,
       "first_trade_date_epoch_utc": null,
@@ -8018,7 +8406,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 511.05,
+      "current_price": 515.62,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -8047,7 +8435,7 @@
       "market_cap": 1094009714091.9886,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 2372923444.8228455,
+      "dollar_volume_20d": 2392352639.747772,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -8127,31 +8515,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 49.3,
+      "conviction_score": 49.5,
       "thesis_score": 45.3,
-      "entry_score": 67.2,
+      "entry_score": 68.7,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 51.5,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 67.2,
+        "price_timing": 68.7,
         "company_quality": 70.6,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 67.2,
+        "entry_score": 68.7,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.03469834103391778,
-        "return_1m": 0.008545126621871235,
-        "return_3m": 0.035121825845139565,
-        "return_6m": 0.053276947517691964,
-        "return_12m": 0.017419869027762047,
-        "price_maturity": 0.0
+        "distance_from_52w_high": -0.026066238975551936,
+        "return_1m": 0.017001962755793798,
+        "return_3m": 0.037777978832833625,
+        "return_6m": 0.07443217685976466,
+        "return_12m": 0.031570100221891106,
+        "price_maturity": 0.8
       },
       "checks": {
         "large_established_company": false,
@@ -8182,7 +8570,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 511.05
+      "current_price": 515.62
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -8195,34 +8583,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:12:22+00:00",
         "expires_at": "2026-10-11T03:12:22+00:00",
-        "age_hours": 0.04,
+        "age_hours": 23.56,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:23:30+00:00",
         "expires_at": "2026-10-11T03:23:30+00:00",
-        "age_hours": 71.85,
+        "age_hours": 95.38,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-07T02:48:28+00:00",
         "expires_at": "2026-10-12T02:48:28+00:00",
-        "age_hours": 48.44,
+        "age_hours": 71.96,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:12:23+00:00",
-        "expires_at": "2026-10-09T19:12:23+00:00",
-        "age_hours": 0.04,
+        "fetched_at": "2026-10-10T02:44:50+00:00",
+        "expires_at": "2026-10-10T18:44:50+00:00",
+        "age_hours": 0.02,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:44+00:00",
-        "expires_at": "2026-10-09T11:14:44+00:00",
+        "fetched_at": "2026-10-10T02:46:03+00:00",
+        "expires_at": "2026-10-10T10:46:03+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -8286,30 +8674,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:42+00:00",
+    "asof": "2026-10-10T02:46:04+00:00",
     "ticker": "MTD",
     "company": "MTD",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 46.39,
+      "potential_score": 45.67,
       "discovery_bucket": "RECOVERY",
       "price_stage": "EARLY",
-      "price_maturity": 3.96
+      "price_maturity": 6.0
     },
     "metrics": {
-      "price": 1529.4599609375,
-      "dollar_volume_20d": 322887514.32922363,
-      "return_1m": 0.1852971095665168,
-      "return_3m": 0.17998403687998699,
-      "return_6m": 0.14566289208801497,
-      "return_12m": 0.16831151204026074,
-      "distance_from_52w_high": -0.010224848069757209,
+      "price": 1549.989990234375,
+      "dollar_volume_20d": 330629754.64660645,
+      "return_1m": 0.21038126741395158,
+      "return_3m": 0.19273118380574417,
+      "return_6m": 0.16979492895192982,
+      "return_12m": 0.16669548753422436,
+      "distance_from_52w_high": 0.0,
       "max_drawdown_1y": -0.31904621718370507,
-      "relative_return_3m": 0.12927835237995922,
-      "relative_return_6m": 0.020386844457493503,
-      "relative_return_12m": -0.06790104431748656,
+      "relative_return_3m": 0.1420254993057164,
+      "relative_return_6m": 0.044518881321408355,
+      "relative_return_12m": -0.06951706882352293,
       "revenue_yoy": 0.04484546200701578,
       "revenue_acceleration": null,
       "gross_margin": 0.6329301459923645,
@@ -8331,7 +8719,7 @@
       "next_year_revenue_growth_estimate": null,
       "next_year_eps_analyst_count": null,
       "price_stage": "EARLY",
-      "price_maturity": 3.96,
+      "price_maturity": 6.0,
       "market_cap": 30645114745.461914,
       "shares_outstanding": 20036559,
       "first_trade_date_epoch_utc": null,
@@ -8411,7 +8799,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 1529.46,
+      "current_price": 1549.99,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -8440,7 +8828,7 @@
       "market_cap": 30645114745.461914,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 322887514.32922363,
+      "dollar_volume_20d": 330629754.64660645,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -8520,31 +8908,31 @@
     },
     "conviction": {
       "action": "REVIEW DATA",
-      "conviction_score": 51.9,
-      "thesis_score": 45.2,
-      "entry_score": 82.4,
+      "conviction_score": 52.1,
+      "thesis_score": 45.3,
+      "entry_score": 82.9,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 63.8,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 82.4,
-        "company_quality": 54.8,
+        "price_timing": 82.9,
+        "company_quality": 55.2,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 82.4,
+        "entry_score": 82.9,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.010224848069757209,
-        "return_1m": 0.1852971095665168,
-        "return_3m": 0.17998403687998699,
-        "return_6m": 0.14566289208801497,
-        "return_12m": 0.16831151204026074,
-        "price_maturity": 4.0
+        "distance_from_52w_high": 0.0,
+        "return_1m": 0.21038126741395158,
+        "return_3m": 0.19273118380574417,
+        "return_6m": 0.16979492895192982,
+        "return_12m": 0.16669548753422436,
+        "price_maturity": 6.0
       },
       "checks": {
         "large_established_company": false,
@@ -8575,7 +8963,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 1529.46
+      "current_price": 1549.99
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -8588,34 +8976,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:09:05+00:00",
         "expires_at": "2026-10-11T03:09:05+00:00",
-        "age_hours": 0.09,
+        "age_hours": 23.62,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-08T02:58:00+00:00",
         "expires_at": "2026-10-13T02:58:00+00:00",
-        "age_hours": 24.28,
+        "age_hours": 47.8,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:40+00:00",
         "expires_at": "2026-10-11T03:26:40+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:09:06+00:00",
-        "expires_at": "2026-10-09T19:09:06+00:00",
-        "age_hours": 0.09,
+        "fetched_at": "2026-10-10T02:42:57+00:00",
+        "expires_at": "2026-10-10T18:42:57+00:00",
+        "age_hours": 0.05,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:42+00:00",
-        "expires_at": "2026-10-09T11:14:42+00:00",
+        "fetched_at": "2026-10-10T02:46:04+00:00",
+        "expires_at": "2026-10-10T10:46:04+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -8679,30 +9067,30 @@
   },
   {
     "model_version": "5.3",
-    "asof": "2026-10-09T03:14:45+00:00",
+    "asof": "2026-10-10T02:46:06+00:00",
     "ticker": "NVDA",
     "company": "NVDA",
     "sector": null,
     "industry": null,
     "source": "broad_discovery",
     "discovery": {
-      "potential_score": 48.95,
+      "potential_score": 50.35,
       "discovery_bucket": "EARLY_BREAKOUT",
       "price_stage": "EARLY",
       "price_maturity": 0.0
     },
     "metrics": {
-      "price": 230.47999572753906,
-      "dollar_volume_20d": 24678849221.0054,
-      "return_1m": 0.03159966706854567,
-      "return_3m": 0.09252933443516409,
-      "return_6m": 0.2546822558425146,
-      "return_12m": 0.24715716699745882,
-      "distance_from_52w_high": -0.036615990488577776,
+      "price": 229.27999877929688,
+      "dollar_volume_20d": 24679611671.01425,
+      "return_1m": 0.050009150661394663,
+      "return_3m": 0.12651697614326962,
+      "return_6m": 0.21691785450933443,
+      "return_12m": 0.21396240311023207,
+      "distance_from_52w_high": -0.04163186124885698,
       "max_drawdown_1y": -0.20214385493927145,
-      "relative_return_3m": 0.04182364993513632,
-      "relative_return_6m": 0.1294062082119931,
-      "relative_return_12m": 0.010944610639711527,
+      "relative_return_3m": 0.07581129164324185,
+      "relative_return_6m": 0.09164180687881296,
+      "relative_return_12m": -0.022250153247515225,
       "revenue_yoy": 1.0585114348672526,
       "revenue_acceleration": null,
       "gross_margin": 0.7497531723844068,
@@ -8804,7 +9192,7 @@
         }
       },
       "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 230.48,
+      "current_price": 229.28,
       "horizon_years": 3,
       "scenarios": [],
       "expected_value": null,
@@ -8834,7 +9222,7 @@
       "market_cap": 5565400456832.886,
       "years_public": null,
       "analyst_count": null,
-      "dollar_volume_20d": 24678849221.0054,
+      "dollar_volume_20d": 24679611671.01425,
       "establishment_data_complete": false,
       "establishment_data_gaps": [
         "public_history",
@@ -8917,28 +9305,28 @@
       "action": "REVIEW DATA",
       "conviction_score": 52.4,
       "thesis_score": 44.9,
-      "entry_score": 86.8,
+      "entry_score": 86.6,
       "conviction_level": "LOW",
       "pillars": {
         "fundamental_inflection": 49.2,
         "estimate_revision": 50.0,
         "valuation": 23.3,
-        "price_timing": 86.8,
+        "price_timing": 86.6,
         "company_quality": 71.2,
         "evidence": 25.0
       },
       "entry_timing": {
         "entry_state": "EARLY / BUILDING",
-        "entry_score": 86.8,
+        "entry_score": 86.6,
         "overextended": false,
         "extreme_rerating": false,
         "meaningful_reset": false,
         "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.036615990488577776,
-        "return_1m": 0.03159966706854567,
-        "return_3m": 0.09252933443516409,
-        "return_6m": 0.2546822558425146,
-        "return_12m": 0.24715716699745882,
+        "distance_from_52w_high": -0.04163186124885698,
+        "return_1m": 0.050009150661394663,
+        "return_3m": 0.12651697614326962,
+        "return_6m": 0.21691785450933443,
+        "return_12m": 0.21396240311023207,
         "price_maturity": 0.0
       },
       "checks": {
@@ -8970,7 +9358,7 @@
       "buy_below_price": null,
       "gap_to_buy_zone": null,
       "base_fair_value": null,
-      "current_price": 230.48
+      "current_price": 229.28
     },
     "decision": {
       "decision": "REVIEW DATA",
@@ -8983,34 +9371,34 @@
         "present": true,
         "fetched_at": "2026-10-09T03:11:04+00:00",
         "expires_at": "2026-10-11T03:11:04+00:00",
-        "age_hours": 0.06,
+        "age_hours": 23.58,
         "stale": false
       },
       "quarterly_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:21:55+00:00",
         "expires_at": "2026-10-11T03:21:55+00:00",
-        "age_hours": 71.88,
+        "age_hours": 95.4,
         "stale": false
       },
       "annual_financials": {
         "present": true,
         "fetched_at": "2026-10-06T03:26:39+00:00",
         "expires_at": "2026-10-11T03:26:39+00:00",
-        "age_hours": 71.8,
+        "age_hours": 95.32,
         "stale": false
       },
       "analyst_estimates": {
         "present": true,
-        "fetched_at": "2026-10-09T03:11:06+00:00",
-        "expires_at": "2026-10-09T19:11:06+00:00",
-        "age_hours": 0.06,
+        "fetched_at": "2026-10-10T02:44:16+00:00",
+        "expires_at": "2026-10-10T18:44:16+00:00",
+        "age_hours": 0.03,
         "stale": false
       },
       "news": {
         "present": true,
-        "fetched_at": "2026-10-09T03:14:45+00:00",
-        "expires_at": "2026-10-09T11:14:45+00:00",
+        "fetched_at": "2026-10-10T02:46:06+00:00",
+        "expires_at": "2026-10-10T10:46:06+00:00",
         "age_hours": 0.0,
         "stale": false
       },
@@ -9043,402 +9431,6 @@
       "Trust: Analyst-count metadata is unavailable.",
       "Trust: Only 1 independent valuation method(s) are usable.",
       "Trust: FCF_YIELD base value is only 0.13x current price; valuation inputs may represent a depressed or mismatched cycle.",
-      "Trust: Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
-    ],
-    "what_must_be_true": [
-      "Forward revenue/EPS estimates must remain achievable rather than being cut after the next earnings report.",
-      "Margins and free-cash-flow conversion must remain consistent with the valuation family used for this industry.",
-      "The industry demand cycle must remain strong enough to support the normalized earnings/cash-flow assumptions."
-    ],
-    "invalidation": [
-      "Two consecutive material downward estimate revisions without a compensating valuation reset.",
-      "Revenue growth and operating-margin direction both deteriorate versus the current thesis.",
-      "New company disclosures, filings, or credible news expose a balance-sheet, customer-concentration, dilution, accounting, or demand risk that breaks the base/bear assumptions."
-    ],
-    "what_changes_decision": [
-      "Forward revenue/EPS estimates must remain achievable rather than being cut after the next earnings report.",
-      "Margins and free-cash-flow conversion must remain consistent with the valuation family used for this industry.",
-      "The industry demand cycle must remain strong enough to support the normalized earnings/cash-flow assumptions."
-    ],
-    "filing_evidence_summary": {
-      "positive_count": 0,
-      "negative_count": 0,
-      "mixed_count": 0,
-      "topics_found": [],
-      "net_tone": 0
-    },
-    "filing_evidence": [],
-    "news": [],
-    "methodology_note": "V5.3 separates thesis quality from entry timing, refuses to calculate a buy zone when independent valuation methods disagree, and uses cycle-normalized valuation for memory/storage/semiconductor businesses. SEC filings are optional enrichment only: missing SEC access does not reduce trust, block BUY decisions, or create DATA INCOMPLETE. A large prior rally can explicitly become TOO LATE / OVEREXTENDED.",
-    "cache_note": "Market data, fundamentals, estimates and news are cached. SEC filings are cached when optional SEC enrichment is configured; SEC failures do not block core research.",
-    "llm_research_note": null
-  },
-  {
-    "model_version": "5.3",
-    "asof": "2026-10-09T03:14:43+00:00",
-    "ticker": "SHOP",
-    "company": "SHOP",
-    "sector": null,
-    "industry": null,
-    "source": "broad_discovery",
-    "discovery": {
-      "potential_score": 42.84,
-      "discovery_bucket": "RECOVERY",
-      "price_stage": "EARLY",
-      "price_maturity": 7.91
-    },
-    "metrics": {
-      "price": 164.55999755859375,
-      "dollar_volume_20d": 1402067762.347412,
-      "return_1m": 0.2978941270631452,
-      "return_3m": 0.3429084081044915,
-      "return_6m": 0.46431750827960405,
-      "return_12m": 0.02033729417238761,
-      "distance_from_52w_high": -0.08072173281749573,
-      "max_drawdown_1y": -0.4670688539558845,
-      "relative_return_3m": 0.29220272360446375,
-      "relative_return_6m": 0.3390414606490826,
-      "relative_return_12m": -0.21587526218535968,
-      "revenue_yoy": 0.33694029850746277,
-      "revenue_acceleration": null,
-      "gross_margin": 0.47669550655874965,
-      "gross_margin_change_yoy": -0.009125388963638403,
-      "operating_margin": 0.1755512140664248,
-      "operating_margin_change_yoy": 0.03711837824552927,
-      "incremental_operating_margin_yoy": 0.2857142857142857,
-      "free_cash_flow_margin": 0.18252860731230813,
-      "free_cash_flow_margin_change_yoy": 0.025065920745143966,
-      "eps_revision_7d": null,
-      "eps_revision_30d": null,
-      "eps_revision_90d": null,
-      "eps_revision_acceleration": null,
-      "revision_breadth_30d": null,
-      "avg_eps_surprise_last4": null,
-      "next_year_eps_estimate": null,
-      "next_year_eps_growth": null,
-      "next_year_revenue_estimate": null,
-      "next_year_revenue_growth_estimate": null,
-      "next_year_eps_analyst_count": null,
-      "price_stage": "EARLY",
-      "price_maturity": 7.91,
-      "market_cap": 211730122144.13947,
-      "shares_outstanding": 1286643931,
-      "first_trade_date_epoch_utc": null,
-      "current_price_info": null,
-      "fast_last_price": 164.55999755859375,
-      "fast_market_cap": 211730122144.13947,
-      "forward_pe": null,
-      "price_to_sales": null,
-      "enterprise_to_ebitda": null,
-      "analyst_target_upside": null,
-      "target_mean": null,
-      "target_low": null,
-      "target_high": null,
-      "data_quality": 61.5
-    },
-    "valuation": {
-      "company_type": "EARLY_STAGE_GROWTH",
-      "valuation_status": "UNRESOLVED",
-      "valuation_resolved": false,
-      "model": "FCF_YIELD",
-      "models": [
-        {
-          "name": "FCF_YIELD",
-          "family": "cash_flow",
-          "scenarios": [
-            {
-              "name": "Bear",
-              "weight": 0.25,
-              "probability": 0.25,
-              "fair_value": 12.82,
-              "assumptions": {
-                "fcf_growth": -0.024,
-                "exit_fcf_yield": 0.09
-              }
-            },
-            {
-              "name": "Base",
-              "weight": 0.5,
-              "probability": 0.5,
-              "fair_value": 20.26,
-              "assumptions": {
-                "fcf_growth": 0.020000000000000004,
-                "exit_fcf_yield": 0.065
-              }
-            },
-            {
-              "name": "Bull",
-              "weight": 0.25,
-              "probability": 0.25,
-              "fair_value": 29.07,
-              "assumptions": {
-                "fcf_growth": 0.054000000000000006,
-                "exit_fcf_yield": 0.05
-              }
-            }
-          ]
-        }
-      ],
-      "model_count": 1,
-      "model_agreement": null,
-      "model_base_ratio": null,
-      "model_ranges": {
-        "Bear": {
-          "low": 12.82,
-          "mid": 12.82,
-          "high": 12.82
-        },
-        "Base": {
-          "low": 20.26,
-          "mid": 20.26,
-          "high": 20.26
-        },
-        "Bull": {
-          "low": 29.07,
-          "mid": 29.07,
-          "high": 29.07
-        }
-      },
-      "reason": "Individual valuation methods are shown, but no buy zone should be calculated until they agree sufficiently.",
-      "current_price": 164.56,
-      "horizon_years": 3,
-      "scenarios": [],
-      "expected_value": null,
-      "expected_cagr": null,
-      "base_cagr": null,
-      "bear_return": null,
-      "base_return": null,
-      "bull_return": null,
-      "bear_downside": null,
-      "scenario_support_weight": null,
-      "probability_profit": null,
-      "implied_forward_pe": null,
-      "normalized_eps": 0.9441,
-      "normalized_fcf": 1597000000.0,
-      "critical_flags": [],
-      "warning_flags": [
-        "FCF_YIELD base value is only 0.12x current price; valuation inputs may represent a depressed or mismatched cycle.",
-        "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
-      ]
-    },
-    "trust": {
-      "risk_tier": "CORE",
-      "preferred_large_cap": true,
-      "actionable_established": false,
-      "size_class": "MEGA_CAP",
-      "eligible": true,
-      "market_cap": 211730122144.13947,
-      "years_public": null,
-      "analyst_count": null,
-      "dollar_volume_20d": 1402067762.347412,
-      "establishment_data_complete": false,
-      "establishment_data_gaps": [
-        "public_history",
-        "analyst_coverage"
-      ],
-      "trust_score": 56.0,
-      "trust_grade": "D",
-      "critical_flags": [
-        "Data quality is only 62%."
-      ],
-      "warnings": [
-        "Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
-        "Analyst-count metadata is unavailable.",
-        "Only 1 independent valuation method(s) are usable.",
-        "FCF_YIELD base value is only 0.12x current price; valuation inputs may represent a depressed or mismatched cycle.",
-        "Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
-      ],
-      "checks": [
-        {
-          "check": "Size / liquidity gate",
-          "status": "PASS",
-          "detail": "CORE thresholds pass. Size class MEGA_CAP."
-        },
-        {
-          "check": "Public-history metadata",
-          "status": "WARN",
-          "detail": "Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new."
-        },
-        {
-          "check": "Analyst coverage",
-          "status": "WARN",
-          "detail": "Analyst-count metadata is unavailable."
-        },
-        {
-          "check": "Feature coverage",
-          "status": "FAIL",
-          "detail": "Data quality is only 62%."
-        },
-        {
-          "check": "Optional SEC enrichment",
-          "status": "INFO",
-          "detail": "SEC filing enrichment is unavailable or disabled. No trust-score penalty is applied; core research uses market, financial, analyst, valuation, and price-history data."
-        },
-        {
-          "check": "Price cross-check",
-          "status": "PASS",
-          "detail": "Current price agrees with 1 independent Yahoo price field(s)."
-        },
-        {
-          "check": "Market-cap/share check",
-          "status": "PASS",
-          "detail": "Market cap, shares, and price are internally consistent."
-        },
-        {
-          "check": "Valuation triangulation",
-          "status": "WARN",
-          "detail": "Only 1 independent valuation method(s) are usable."
-        }
-      ],
-      "filing_count": 0,
-      "evidence_status": "ERROR",
-      "evidence_ready": false,
-      "sec_optional": true,
-      "sec_enrichment_available": false,
-      "sec_diagnostics": {
-        "state": "ERROR",
-        "available": true,
-        "submission_ok": false,
-        "documents_requested": 0,
-        "documents_cached": 0,
-        "documents_downloaded": 0,
-        "errors": [
-          "SEC submissions fetch failed: InvalidHeader: Invalid leading whitespace, reserved character(s), or return character(s) in header value: 'Name:\\nSEC_USER_AGENT\\n\\nValue:\\nGeorge Jiang georgejiang99j@gmail.com'"
-        ]
-      },
-      "model_count": 1,
-      "model_agreement": null
-    },
-    "conviction": {
-      "action": "REVIEW DATA",
-      "conviction_score": 49.7,
-      "thesis_score": 44.4,
-      "entry_score": 73.6,
-      "conviction_level": "LOW",
-      "pillars": {
-        "fundamental_inflection": 50.9,
-        "estimate_revision": 50.0,
-        "valuation": 23.3,
-        "price_timing": 73.6,
-        "company_quality": 66.8,
-        "evidence": 25.0
-      },
-      "entry_timing": {
-        "entry_state": "EARLY / BUILDING",
-        "entry_score": 73.6,
-        "overextended": false,
-        "extreme_rerating": false,
-        "meaningful_reset": false,
-        "secondary_entry_ready": false,
-        "distance_from_52w_high": -0.08072173281749573,
-        "return_1m": 0.2978941270631452,
-        "return_3m": 0.3429084081044915,
-        "return_6m": 0.46431750827960405,
-        "return_12m": 0.02033729417238761,
-        "price_maturity": 7.9
-      },
-      "checks": {
-        "large_established_company": false,
-        "data_trust": false,
-        "research_evidence_ready": false,
-        "valuation_resolved": false,
-        "required_expected_return": false,
-        "required_base_return": false,
-        "bear_case_acceptable": false,
-        "thesis_strength": false,
-        "inside_buy_zone": false,
-        "entry_not_overextended": true
-      },
-      "failed_checks": [
-        "large_established_company",
-        "data_trust",
-        "research_evidence_ready",
-        "valuation_resolved",
-        "required_expected_return",
-        "required_base_return",
-        "bear_case_acceptable",
-        "thesis_strength",
-        "inside_buy_zone"
-      ],
-      "rationale": "A data or valuation sanity check failed; modeled upside should not be trusted yet.",
-      "required_base_cagr": 0.15,
-      "required_expected_cagr": 0.18,
-      "buy_below_price": null,
-      "gap_to_buy_zone": null,
-      "base_fair_value": null,
-      "current_price": 164.56
-    },
-    "decision": {
-      "decision": "REVIEW DATA",
-      "confidence": "LOW",
-      "evidence_confidence": "LOW",
-      "reason": "A data or valuation sanity check failed; modeled upside should not be trusted yet."
-    },
-    "source_freshness": {
-      "profile": {
-        "present": true,
-        "fetched_at": "2026-10-09T03:09:30+00:00",
-        "expires_at": "2026-10-11T03:09:30+00:00",
-        "age_hours": 0.09,
-        "stale": false
-      },
-      "quarterly_financials": {
-        "present": true,
-        "fetched_at": "2026-10-06T03:25:08+00:00",
-        "expires_at": "2026-10-11T03:25:08+00:00",
-        "age_hours": 71.83,
-        "stale": false
-      },
-      "annual_financials": {
-        "present": true,
-        "fetched_at": "2026-10-07T02:48:23+00:00",
-        "expires_at": "2026-10-12T02:48:23+00:00",
-        "age_hours": 48.44,
-        "stale": false
-      },
-      "analyst_estimates": {
-        "present": true,
-        "fetched_at": "2026-10-09T03:09:31+00:00",
-        "expires_at": "2026-10-09T19:09:31+00:00",
-        "age_hours": 0.09,
-        "stale": false
-      },
-      "news": {
-        "present": true,
-        "fetched_at": "2026-10-09T03:14:43+00:00",
-        "expires_at": "2026-10-09T11:14:43+00:00",
-        "age_hours": 0.0,
-        "stale": false
-      },
-      "sec_submissions": {
-        "present": false,
-        "fetched_at": null,
-        "expires_at": null,
-        "age_hours": null,
-        "stale": true
-      }
-    },
-    "sec_status": {
-      "state": "ERROR",
-      "available": true,
-      "submission_ok": false,
-      "documents_requested": 0,
-      "documents_cached": 0,
-      "documents_downloaded": 0,
-      "errors": [
-        "SEC submissions fetch failed: InvalidHeader: Invalid leading whitespace, reserved character(s), or return character(s) in header value: 'Name:\\nSEC_USER_AGENT\\n\\nValue:\\nGeorge Jiang georgejiang99j@gmail.com'"
-      ]
-    },
-    "why_buy": [
-      "Company is in the preferred institutional-scale large-cap tier ($25B+ by default).",
-      "Operating margin improved +3.7 percentage points year over year."
-    ],
-    "why_not": [
-      "DATA: Data quality is only 62%.",
-      "Trust: Yahoo did not provide a reliable first-trade date. Missing metadata is not treated as proof the company is new.",
-      "Trust: Analyst-count metadata is unavailable.",
-      "Trust: Only 1 independent valuation method(s) are usable.",
-      "Trust: FCF_YIELD base value is only 0.12x current price; valuation inputs may represent a depressed or mismatched cycle.",
       "Trust: Only 1 independent valuation method(s) are usable; 2 are required for an actionable buy zone."
     ],
     "what_must_be_true": [
